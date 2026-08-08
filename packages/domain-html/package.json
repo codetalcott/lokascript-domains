@@ -1,0 +1,61 @@
+{
+  "name": "@lokascript/domain-html",
+  "version": "0.1.0",
+  "description": "Multilingual HTML Structure DSL built on @lokascript/framework — teaches page structure and HTML elements across 8 languages",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "scripts": {
+    "build": "tsup && npm run build:types",
+    "build:types": "tsc --emitDeclarationOnly --outDir dist --noEmit false",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:check": "vitest run --reporter=dot",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@lokascript/framework": "^2.10.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^4.0.0"
+  },
+  "files": [
+    "dist",
+    "src",
+    "LICENSE"
+  ],
+  "keywords": [
+    "html",
+    "multilingual",
+    "dsl",
+    "i18n",
+    "parser",
+    "lokascript",
+    "framework",
+    "page-structure"
+  ],
+  "author": "LokaScript Contributors",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codetalcott/lokascript-domains.git",
+    "directory": "packages/domain-html"
+  }
+}

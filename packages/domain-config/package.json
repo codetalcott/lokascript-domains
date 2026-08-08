@@ -17,7 +17,7 @@
   "scripts": {
     "build": "tsup && npm run build:types",
     "build:types": "tsc --emitDeclarationOnly --outDir dist --noEmit false",
-    "pretest": "../../scripts/ensure-fresh.sh ../framework ../semantic ../intent ../domain-sql ../domain-bdd ../domain-behaviorspec ../domain-jsx ../domain-todo ../domain-llm ../domain-flow ../domain-voice ../domain-learn",
+    "pretest": "../../scripts/ensure-fresh.sh ../domain-sql ../domain-bdd ../domain-behaviorspec ../domain-jsx ../domain-todo ../domain-llm ../domain-flow ../domain-voice ../domain-learn",
     "test": "vitest",
     "test:run": "vitest run",
     "test:check": "VITEST_QUIET=1 bash ../../scripts/vitest-run.sh --reporter=dot",
@@ -49,7 +49,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/codetalcott/hyperfixi.git",
+    "url": "git+https://github.com/codetalcott/lokascript-domains.git",
     "directory": "packages/domain-config"
   },
   "publishConfig": {

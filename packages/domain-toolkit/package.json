@@ -1,7 +1,6 @@
 {
   "name": "@lokascript/domain-toolkit",
   "version": "2.10.0",
-  "private": true,
   "description": "Lint rules for @lokascript/domain-* packages. Checks schema structure + cross-file invariants (profile ↔ tokenizer ↔ schema ↔ renderer agreement).",
   "type": "module",
   "sideEffects": false,
@@ -37,5 +36,14 @@
   "files": [
     "dist",
     "src"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codetalcott/lokascript-domains.git",
+    "directory": "packages/domain-toolkit"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT"
 }

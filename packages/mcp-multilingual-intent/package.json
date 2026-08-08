@@ -100,7 +100,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/codetalcott/hyperfixi.git",
+    "url": "git+https://github.com/codetalcott/lokascript-domains.git",
     "directory": "packages/mcp-multilingual-intent"
   },
   "bugs": {

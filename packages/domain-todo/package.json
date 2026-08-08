@@ -17,7 +17,7 @@
   "scripts": {
     "build": "tsup && npm run build:types",
     "build:types": "tsc --emitDeclarationOnly --outDir dist --noEmit false",
-    "pretest": "../../scripts/ensure-fresh.sh ../framework ../semantic ../intent ../domain-toolkit",
+    "pretest": "../../scripts/ensure-fresh.sh ../domain-toolkit",
     "test": "vitest",
     "test:run": "vitest run",
     "test:check": "VITEST_QUIET=1 bash ../../scripts/vitest-run.sh --reporter=dot",
@@ -46,7 +46,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/codetalcott/hyperfixi.git",
+    "url": "git+https://github.com/codetalcott/lokascript-domains.git",
     "directory": "packages/domain-todo"
   }
 }

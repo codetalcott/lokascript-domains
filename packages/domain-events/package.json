@@ -18,11 +18,11 @@
     "build:types": "tsc --emitDeclarationOnly --outDir dist --noEmit false",
     "test": "vitest",
     "test:run": "vitest run",
-    "test:check": "vitest run --reporter=dot 2>&1 | tail -5",
+    "test:check": "vitest run --reporter=dot",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@lokascript/framework": "*"
+    "@lokascript/framework": "^2.10.0"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
@@ -30,10 +30,32 @@
     "typescript": "^5.0.0",
     "vitest": "^4.0.0"
   },
-  "files": ["dist", "src", "LICENSE"],
-  "keywords": ["events", "multilingual", "dsl", "i18n", "parser", "lokascript", "framework", "hyperscript"],
+  "files": [
+    "dist",
+    "src",
+    "LICENSE"
+  ],
+  "keywords": [
+    "events",
+    "multilingual",
+    "dsl",
+    "i18n",
+    "parser",
+    "lokascript",
+    "framework",
+    "hyperscript"
+  ],
   "author": "LokaScript Contributors",
   "license": "MIT",
-  "engines": { "node": ">=18.0.0" },
-  "publishConfig": { "access": "public" }
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codetalcott/lokascript-domains.git",
+    "directory": "packages/domain-events"
+  }
 }

@@ -1,0 +1,20 @@
+{
+  "name": "lokascript-domains",
+  "version": "2.10.0",
+  "private": true,
+  "description": "The LokaScript multilingual domain-DSL family — 16 domain DSLs built on @lokascript/framework, each multilingual from day one",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codetalcott/lokascript-domains.git"
+  },
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "build": "bash scripts/build-all.sh",
+    "test:check": "bash scripts/test-all.sh",
+    "typecheck": "bash scripts/typecheck-all.sh"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

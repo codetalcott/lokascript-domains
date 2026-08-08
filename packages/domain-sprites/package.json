@@ -1,0 +1,61 @@
+{
+  "name": "@lokascript/domain-sprites",
+  "version": "0.1.0",
+  "description": "Multilingual DSL for Fly.io Sprites, built on @lokascript/framework",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "sprites-mcp": "dist/mcp/index.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./client": {
+      "import": "./dist/client.js",
+      "require": "./dist/client.cjs"
+    },
+    "./executor": {
+      "import": "./dist/executor.js",
+      "require": "./dist/executor.cjs"
+    },
+    "./types": {
+      "import": "./dist/types.js",
+      "require": "./dist/types.cjs"
+    }
+  },
+  "scripts": {
+    "build": "tsup && npm run build:types",
+    "build:types": "tsc --emitDeclarationOnly --outDir dist",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:check": "vitest run --reporter=dot",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@lokascript/framework": "^2.10.0",
+    "@modelcontextprotocol/sdk": "^1.25.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codetalcott/lokascript-domains.git",
+    "directory": "packages/domain-sprites"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT"
+}
