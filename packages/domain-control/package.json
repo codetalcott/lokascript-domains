@@ -1,6 +1,6 @@
 {
   "name": "@lokascript/domain-control",
-  "version": "0.1.0",
+  "version": "2.11.0",
   "description": "Multilingual Control Flow DSL built on @lokascript/framework — teaches logic, loops, and conditionals across 8 languages",
   "type": "module",
   "main": "dist/index.cjs",

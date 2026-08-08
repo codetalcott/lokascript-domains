@@ -1,6 +1,6 @@
 {
   "name": "@lokascript/domain-hypermedia",
-  "version": "0.1.0",
+  "version": "2.11.0",
   "description": "Multilingual Hypermedia DSL built on @lokascript/framework — teaches web requests, content swapping, and URL manipulation across 8 languages",
   "type": "module",
   "main": "dist/index.cjs",

@@ -1,6 +1,6 @@
 {
   "name": "@lokascript/domain-html",
-  "version": "0.1.0",
+  "version": "2.11.0",
   "description": "Multilingual HTML Structure DSL built on @lokascript/framework — teaches page structure and HTML elements across 8 languages",
   "type": "module",
   "main": "dist/index.cjs",

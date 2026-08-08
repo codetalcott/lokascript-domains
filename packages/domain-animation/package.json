@@ -1,6 +1,6 @@
 {
   "name": "@lokascript/domain-animation",
-  "version": "0.1.0",
+  "version": "2.11.0",
   "description": "Multilingual Animation DSL built on @lokascript/framework — teaches CSS animation concepts (transitions, fading, sliding, measuring) across 8 languages",
   "type": "module",
   "main": "dist/index.cjs",
