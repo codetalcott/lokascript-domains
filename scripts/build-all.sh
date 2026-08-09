@@ -11,6 +11,7 @@ ORDER=(
   domain-events domain-animation domain-control domain-html domain-hypermedia
   domain-sprites
   domain-config
+  domains
   mcp-multilingual-intent
 )
 

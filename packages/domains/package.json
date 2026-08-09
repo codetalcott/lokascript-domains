@@ -1,0 +1,78 @@
+{
+  "name": "@lokascript/domains",
+  "version": "2.11.0",
+  "description": "The LokaScript multilingual domain-DSL family in one package — SQL, flow, BDD, JSX, LLM, todo, voice, learn and more, each multilingual from day one. Subpath exports per domain; the root entry wires the full registry.",
+  "type": "module",
+  "sideEffects": false,
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./sql": {
+      "types": "./dist/sql.d.ts",
+      "import": "./dist/sql.js"
+    },
+    "./flow": {
+      "types": "./dist/flow.d.ts",
+      "import": "./dist/flow.js"
+    },
+    "./bdd": {
+      "types": "./dist/bdd.d.ts",
+      "import": "./dist/bdd.js"
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "pretest": "../../scripts/ensure-fresh.sh ../domain-sql ../domain-flow ../domain-bdd ../domain-config && npm run build",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:check": "VITEST_QUIET=1 bash ../../scripts/vitest-run.sh --reporter=dot",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@lokascript/framework": "^2.10.0",
+    "@lokascript/semantic": "^2.10.0"
+  },
+  "devDependencies": {
+    "@lokascript/domain-bdd": "^2.11.0",
+    "@lokascript/domain-config": "^2.11.0",
+    "@lokascript/domain-flow": "^2.11.0",
+    "@lokascript/domain-sql": "^2.11.0",
+    "@types/node": "^26.1.2",
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^4.1.5"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "keywords": [
+    "multilingual",
+    "dsl",
+    "i18n",
+    "sql",
+    "bdd",
+    "flow",
+    "jsx",
+    "llm",
+    "lokascript",
+    "framework"
+  ],
+  "author": "LokaScript Contributors",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codetalcott/lokascript-domains.git",
+    "directory": "packages/domains"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

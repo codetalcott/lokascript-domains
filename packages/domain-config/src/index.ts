@@ -28,7 +28,7 @@ import { DomainRegistry } from '@lokascript/framework';
  * `src/__tests__/languages.test.ts`, which asserts each list matches the
  * DSL's actual registered languages.
  */
-const BRIDGE_LANGUAGES = [
+export const BRIDGE_LANGUAGES = [
   'en',
   'es',
   'ja',
@@ -42,9 +42,9 @@ const BRIDGE_LANGUAGES = [
   'ru',
 ] as const;
 /** learn's pre-existing 10-language set (no ru; morphology is hand-authored per language). */
-const LEARN_LANGUAGES = BRIDGE_LANGUAGES.slice(0, 10);
+export const LEARN_LANGUAGES = BRIDGE_LANGUAGES.slice(0, 10);
 /** bdd/behaviorspec — still the pre-bridge 8 (renderer/marker tables gate vocab-only expansion). */
-const CLASSIC_LANGUAGES = BRIDGE_LANGUAGES.slice(0, 8);
+export const CLASSIC_LANGUAGES = BRIDGE_LANGUAGES.slice(0, 8);
 
 /**
  * Create and populate a DomainRegistry with all 9 LokaScript domains.
@@ -57,7 +57,18 @@ const CLASSIC_LANGUAGES = BRIDGE_LANGUAGES.slice(0, 8);
  */
 export function createDomainRegistry(): DomainRegistry {
   const registry = new DomainRegistry();
+  void registerAllDomains(registry);
+  return registry;
+}
 
+/**
+ * Register all 9 domains into an existing registry. The returned promise
+ * resolves once the async schema-attachment pass completes — await it when a
+ * caller needs `getSchemas`/`generatePrompt` to be populated (tests, one-shot
+ * CLI tools); fire-and-forget callers get the same lazy behavior as
+ * `createDomainRegistry`.
+ */
+export async function registerAllDomains(registry: DomainRegistry): Promise<void> {
   registry.register({
     name: 'sql',
     description: 'natural language SQL',
@@ -206,9 +217,7 @@ export function createDomainRegistry(): DomainRegistry {
     },
   });
 
-  loadAllSchemas(registry);
-
-  return registry;
+  await loadAllSchemas(registry);
 }
 
 /**
