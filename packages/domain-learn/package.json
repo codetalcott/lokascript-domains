@@ -16,7 +16,7 @@
   },
   "scripts": {
     "build": "tsup && npm run build:types",
-    "build:types": "tsc --emitDeclarationOnly --outDir dist --noEmit false",
+    "build:types": "tsc --emitDeclarationOnly --outDir dist",
     "pretest": "../../scripts/ensure-fresh.sh ../domain-toolkit",
     "test": "vitest",
     "test:run": "vitest run",

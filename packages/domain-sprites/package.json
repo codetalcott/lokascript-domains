@@ -30,7 +30,7 @@
   },
   "scripts": {
     "build": "tsup && npm run build:types",
-    "build:types": "tsc --emitDeclarationOnly --outDir dist --noEmit false",
+    "build:types": "tsc --emitDeclarationOnly --outDir dist",
     "test": "vitest",
     "test:run": "vitest run",
     "test:check": "vitest run --reporter=dot",

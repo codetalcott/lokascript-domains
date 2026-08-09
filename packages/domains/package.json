@@ -1,6 +1,6 @@
 {
   "name": "@lokascript/domains",
-  "version": "2.11.0",
+  "version": "2.11.1",
   "description": "The LokaScript multilingual domain-DSL family in one package — SQL, flow, BDD, JSX, LLM, todo, voice, learn and more, each multilingual from day one. Subpath exports per domain; the root entry wires the full registry.",
   "type": "module",
   "sideEffects": false,
@@ -81,6 +81,7 @@
   },
   "dependencies": {
     "@lokascript/framework": "^2.10.0",
+    "@lokascript/intent": "^2.10.0",
     "@lokascript/semantic": "^2.10.0"
   },
   "devDependencies": {
