@@ -1,0 +1,38 @@
+name: Deprecate old @lokascript/domain-* names
+
+# One-shot (re-runnable) deprecation of the 10 names superseded by
+# @lokascript/domains. Deprecation is additive metadata — nothing is
+# unpublished, and re-running is idempotent.
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deprecate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Verify npm auth
+        run: npm whoami
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_DOMAIN }}
+      - name: Deprecate the 9 domain packages
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_DOMAIN }}
+        run: |
+          set -euo pipefail
+          for name in sql bdd behaviorspec jsx llm todo flow voice learn; do
+            echo "=== deprecating @lokascript/domain-${name} ==="
+            npm deprecate "@lokascript/domain-${name}@<=2.10.0" \
+              "Moved into @lokascript/domains (import from @lokascript/domains/${name})"
+          done
+      - name: Deprecate domain-config
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_DOMAIN }}
+        run: |
+          npm deprecate "@lokascript/domain-config@<=2.10.0" \
+            "Moved into @lokascript/domains (the root entry exports createDomainRegistry, registerAllDomains, DOMAIN_PRIORITY)"

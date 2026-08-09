@@ -1,0 +1,71 @@
+name: Publish @lokascript/domains
+
+# Manual publish of the single published package. Auth comes from the
+# NPM_DOMAIN repo secret (npm automation token). Run once with dry-run=true
+# to prove the token/registry path, then for real. The workflow re-runs the
+# full gate (build, tests, pack smoke) so a publish can never outrun CI.
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry-run:
+        description: 'Validate auth + run npm publish --dry-run only'
+        type: boolean
+        default: true
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          registry-url: 'https://registry.npmjs.org'
+      - run: npm ci
+      - run: npm run build
+      - run: npm run test:check
+      - run: bash scripts/pack-smoke.sh
+      # Real auth check — fails loudly on a bad/expired token, unlike --dry-run
+      # (which never contacts the registry with credentials).
+      - name: Verify npm auth
+        run: npm whoami
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_DOMAIN }}
+      - name: Publish (dry run)
+        if: ${{ inputs.dry-run }}
+        working-directory: packages/domains
+        run: npm publish --dry-run
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_DOMAIN }}
+      - name: Publish
+        if: ${{ !inputs.dry-run }}
+        working-directory: packages/domains
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_DOMAIN }}
+      - name: Tag release
+        if: ${{ !inputs.dry-run }}
+        run: |
+          set -euo pipefail
+          VERSION="$(node -p "require('./packages/domains/package.json').version")"
+          git tag "v${VERSION}" || echo "tag v${VERSION} already exists"
+          git push origin "v${VERSION}" || true
+      - name: Verify from registry
+        if: ${{ !inputs.dry-run }}
+        run: |
+          set -euo pipefail
+          VERSION="$(node -p "require('./packages/domains/package.json').version")"
+          for i in 1 2 3 4 5; do
+            PUBLISHED="$(npm view @lokascript/domains version 2>/dev/null || true)"
+            [ "$PUBLISHED" = "$VERSION" ] && break
+            echo "registry not caught up yet ($PUBLISHED != $VERSION), retry $i"; sleep 15
+          done
+          [ "$PUBLISHED" = "$VERSION" ] || { echo "FATAL: registry serves '$PUBLISHED', expected '$VERSION'"; exit 1; }
+          echo "npm serves @lokascript/domains@$PUBLISHED"
