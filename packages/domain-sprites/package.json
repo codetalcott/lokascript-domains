@@ -30,7 +30,7 @@
   },
   "scripts": {
     "build": "tsup && npm run build:types",
-    "build:types": "tsc --emitDeclarationOnly --outDir dist",
+    "build:types": "tsc --emitDeclarationOnly --outDir dist --noEmit false",
     "test": "vitest",
     "test:run": "vitest run",
     "test:check": "vitest run --reporter=dot",
@@ -57,5 +57,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "private": true
 }

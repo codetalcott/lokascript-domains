@@ -57,5 +57,6 @@
     "type": "git",
     "url": "git+https://github.com/codetalcott/lokascript-domains.git",
     "directory": "packages/domain-animation"
-  }
+  },
+  "private": true
 }

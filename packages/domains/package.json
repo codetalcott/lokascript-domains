@@ -21,11 +21,59 @@
     "./bdd": {
       "types": "./dist/bdd.d.ts",
       "import": "./dist/bdd.js"
+    },
+    "./behaviorspec": {
+      "types": "./dist/behaviorspec.d.ts",
+      "import": "./dist/behaviorspec.js"
+    },
+    "./jsx": {
+      "types": "./dist/jsx.d.ts",
+      "import": "./dist/jsx.js"
+    },
+    "./llm": {
+      "types": "./dist/llm.d.ts",
+      "import": "./dist/llm.js"
+    },
+    "./todo": {
+      "types": "./dist/todo.d.ts",
+      "import": "./dist/todo.js"
+    },
+    "./voice": {
+      "types": "./dist/voice.d.ts",
+      "import": "./dist/voice.js"
+    },
+    "./learn": {
+      "types": "./dist/learn.d.ts",
+      "import": "./dist/learn.js"
+    },
+    "./animation": {
+      "types": "./dist/animation.d.ts",
+      "import": "./dist/animation.js"
+    },
+    "./control": {
+      "types": "./dist/control.d.ts",
+      "import": "./dist/control.js"
+    },
+    "./events": {
+      "types": "./dist/events.d.ts",
+      "import": "./dist/events.js"
+    },
+    "./html": {
+      "types": "./dist/html.d.ts",
+      "import": "./dist/html.js"
+    },
+    "./hypermedia": {
+      "types": "./dist/hypermedia.d.ts",
+      "import": "./dist/hypermedia.js"
+    },
+    "./sprites": {
+      "types": "./dist/sprites.d.ts",
+      "import": "./dist/sprites.js"
     }
   },
   "scripts": {
     "build": "tsup",
-    "pretest": "../../scripts/ensure-fresh.sh ../domain-sql ../domain-flow ../domain-bdd ../domain-config && npm run build",
+    "pretest": "../../scripts/ensure-fresh.sh ../domain-sql ../domain-flow ../domain-bdd ../domain-behaviorspec ../domain-jsx ../domain-llm ../domain-todo ../domain-voice ../domain-learn ../domain-animation ../domain-control ../domain-events ../domain-html ../domain-hypermedia ../domain-sprites ../domain-config && npm run build",
     "test": "vitest",
     "test:run": "vitest run",
     "test:check": "VITEST_QUIET=1 bash ../../scripts/vitest-run.sh --reporter=dot",
@@ -36,10 +84,22 @@
     "@lokascript/semantic": "^2.10.0"
   },
   "devDependencies": {
+    "@lokascript/domain-animation": "^2.11.0",
     "@lokascript/domain-bdd": "^2.11.0",
+    "@lokascript/domain-behaviorspec": "^2.11.0",
     "@lokascript/domain-config": "^2.11.0",
+    "@lokascript/domain-control": "^2.11.0",
+    "@lokascript/domain-events": "^2.11.0",
     "@lokascript/domain-flow": "^2.11.0",
+    "@lokascript/domain-html": "^2.11.0",
+    "@lokascript/domain-hypermedia": "^2.11.0",
+    "@lokascript/domain-jsx": "^2.11.0",
+    "@lokascript/domain-learn": "^2.11.0",
+    "@lokascript/domain-llm": "^2.11.0",
+    "@lokascript/domain-sprites": "^2.11.0",
     "@lokascript/domain-sql": "^2.11.0",
+    "@lokascript/domain-todo": "^2.11.0",
+    "@lokascript/domain-voice": "^2.11.0",
     "@types/node": "^26.1.2",
     "tsup": "^8.0.0",
     "typescript": "^5.0.0",

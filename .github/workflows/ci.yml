@@ -25,3 +25,8 @@ jobs:
       - run: npm run build
       - run: npm run typecheck
       - run: npm run test:check
+      # Aggregate tarball smoke: install @lokascript/domains from a packed
+      # tarball into a clean dir and exercise subpaths + registry dispatch.
+      # Catches what workspace symlinks hide (files-array gaps, d.ts that
+      # reference the private workspace names, exports-map typos).
+      - run: bash scripts/pack-smoke.sh

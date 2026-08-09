@@ -13,9 +13,23 @@ import { defineConfig } from 'tsup';
 export default defineConfig({
   entry: {
     index: 'src/index.ts',
+    // the 9 registry-wired originals
     sql: 'src/sql.ts',
     flow: 'src/flow.ts',
     bdd: 'src/bdd.ts',
+    behaviorspec: 'src/behaviorspec.ts',
+    jsx: 'src/jsx.ts',
+    llm: 'src/llm.ts',
+    todo: 'src/todo.ts',
+    voice: 'src/voice.ts',
+    learn: 'src/learn.ts',
+    // the 6 absorbed strays (not in the registry/DOMAIN_PRIORITY; see README)
+    animation: 'src/animation.ts',
+    control: 'src/control.ts',
+    events: 'src/events.ts',
+    html: 'src/html.ts',
+    hypermedia: 'src/hypermedia.ts',
+    sprites: 'src/sprites.ts',
   },
   format: ['esm'],
   // resolve: inline the (private) domain packages' types into the emitted
