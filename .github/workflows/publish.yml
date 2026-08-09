@@ -21,6 +21,8 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     timeout-minutes: 25
+    permissions:
+      contents: write # push the release tag (the 2.11.0 run 403'd without this)
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -62,10 +64,13 @@ jobs:
         run: |
           set -euo pipefail
           VERSION="$(node -p "require('./packages/domains/package.json').version")"
-          for i in 1 2 3 4 5; do
+          # A brand-new package name took ~7 minutes to propagate on the
+          # 2.11.0 publish (version bumps of existing names are much faster) —
+          # poll for up to 15 minutes before declaring failure.
+          for i in $(seq 1 30); do
             PUBLISHED="$(npm view @lokascript/domains version 2>/dev/null || true)"
             [ "$PUBLISHED" = "$VERSION" ] && break
-            echo "registry not caught up yet ($PUBLISHED != $VERSION), retry $i"; sleep 15
+            echo "registry not caught up yet ($PUBLISHED != $VERSION), retry $i"; sleep 30
           done
           [ "$PUBLISHED" = "$VERSION" ] || { echo "FATAL: registry serves '$PUBLISHED', expected '$VERSION'"; exit 1; }
           echo "npm serves @lokascript/domains@$PUBLISHED"
