@@ -31,6 +31,8 @@ jobs:
           cache: npm
           registry-url: 'https://registry.npmjs.org'
       - run: npm ci
+      # Refuse to publish from a tree set-version.cjs did not produce.
+      - run: npm run version:validate
       - run: npm run build
       - run: npm run test:check
       - run: bash scripts/pack-smoke.sh

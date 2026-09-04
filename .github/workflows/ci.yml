@@ -22,6 +22,8 @@ jobs:
           node-version: '24'
           cache: npm
       - run: npm ci
+      # One version everywhere, internal ranges in lockstep, upstream on one major.
+      - run: npm run version:validate
       - run: npm run build
       - run: npm run typecheck
       - run: npm run test:check

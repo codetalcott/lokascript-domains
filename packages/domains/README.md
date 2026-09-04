@@ -9,6 +9,12 @@ per-language vocabulary — behind the `DomainDescriptor` contract from
 npm install @lokascript/domains
 ```
 
+`@lokascript/framework`, `@lokascript/semantic` and `@lokascript/intent` are
+**peer dependencies** (npm 7+ installs them for you): your project owns the
+single copy of the contract, and the aggregate's major tracks the framework
+major it is built against — `@lokascript/domains@3.x` needs framework 3.x.
+Projects still on framework 2.x stay on `@lokascript/domains@2.11.1`.
+
 ```ts
 // One domain — loads nothing else:
 import { createSQLDSL } from '@lokascript/domains/sql';

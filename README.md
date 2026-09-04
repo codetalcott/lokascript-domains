@@ -48,10 +48,32 @@ the extension seam for third parties is `@lokascript/framework`'s
 
 ## Versioning
 
-The family releases in **lockstep** (one version, continuing hyperfixi's 2.x
-line), now as a single publish of `@lokascript/domains`. Known consumers:
-`lokascript-learn` (exercise engine), `lokascript-examples` (13 apps), and
-hyperfixi's `@hyperfixi/mcp-server`.
+One version across every manifest here, published as `@lokascript/domains`.
+The **major tracks the `@lokascript/framework` major the family is built
+against** (3.x → framework 3.x); minor and patch are this repo's own and do
+not chase hyperfixi's. Framework, semantic and intent are **peer
+dependencies** of the aggregate: the consumer owns the single copy of the
+contract, so it can never fork against the consumer's own framework.
+
+- `npm run version:set <version>` — sets every package + root and rewrites
+  every internal workspace range to `^<version>` (npm has no `workspace:`
+  protocol; a stale range makes npm silently fetch the deprecated registry
+  copy of a private package instead of linking the workspace). Then
+  `npm install` to refresh the lockfile.
+- `npm run version:validate` — runs in CI and first in the publish workflow:
+  one version everywhere, internal ranges in lockstep, upstream ranges on one
+  major equal to the aggregate's own.
+- `scripts/pack-smoke.sh` also asserts the published peer majors equal what
+  the lockfile built and tested against.
+- Dependabot groups framework/semantic/intent/patterns-reference into one
+  weekly PR, so every hyperfixi release runs the full gate here. Green is the
+  evidence to bump; a framework **major** is a deliberate `version:set`
+  release, not an auto-merge.
+
+2.11.1 is the terminal 2.x release (framework 2.x). A 2.x fix, if ever
+needed, is cut from the `v2.11.1` tag on a maintenance branch. Known
+consumers: hyperfixi (`framework`, `server-bridge`, `mcp-server`),
+`lokascript-learn`, `lokascript-examples` (13 apps).
 
 ## Development
 
