@@ -1,0 +1,49 @@
+version: 2
+
+updates:
+  # Root npm workspace (packages/*) — covered by the root package-lock.json.
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+      day: 'monday'
+    open-pull-requests-limit: 10
+    groups:
+      # Every hyperfixi release becomes ONE PR here that runs the full gate
+      # (build, typecheck, every suite, pack smoke). A green PR is the
+      # evidence to bump; a red one is the evidence of a real contract change
+      # and the start of the work. Majors are grouped too: the aggregate's
+      # major tracks the framework major (see README "Versioning"), so a
+      # framework major is a deliberate `version:set` release, not an
+      # auto-merge.
+      lokascript-upstream:
+        patterns:
+          - '@lokascript/framework'
+          - '@lokascript/semantic'
+          - '@lokascript/intent'
+          - '@hyperfixi/patterns-reference'
+      # Everything else non-major in one weekly PR (tooling: tsup, vitest,
+      # typescript, hono, ...). CI is the reviewer.
+      tooling-minor-and-patch:
+        patterns:
+          - '*'
+        exclude-patterns:
+          - '@lokascript/*'
+          - '@hyperfixi/*'
+        update-types:
+          - 'minor'
+          - 'patch'
+      tooling-majors:
+        patterns:
+          - '*'
+        exclude-patterns:
+          - '@lokascript/*'
+          - '@hyperfixi/*'
+        update-types:
+          - 'major'
+
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+      day: 'monday'

@@ -1,6 +1,6 @@
 {
   "name": "@lokascript/domain-sprites",
-  "version": "2.11.0",
+  "version": "3.0.0",
   "description": "Multilingual DSL for Fly.io Sprites, built on @lokascript/framework",
   "type": "module",
   "main": "dist/index.cjs",
@@ -37,7 +37,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@lokascript/framework": "^2.10.0",
+    "@lokascript/framework": "^3.1.0",
     "@modelcontextprotocol/sdk": "^1.25.0"
   },
   "devDependencies": {

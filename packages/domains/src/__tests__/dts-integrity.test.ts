@@ -56,14 +56,19 @@ function relativeTargetExists(fromFile: string, spec: string): boolean {
 
 const declarationFiles = readdirSync(DIST).filter(f => f.endsWith('.d.ts') || f.endsWith('.d.cts'));
 
-/** Bare d.ts imports must be resolvable by consumers, i.e. declared dependencies. */
-const declaredDeps = new Set(
-  Object.keys(
-    (JSON.parse(readFileSync(resolve(__dirname, '../../package.json'), 'utf8')) as {
-      dependencies?: Record<string, string>;
-    }).dependencies ?? {}
-  )
-);
+/**
+ * Bare d.ts imports must be resolvable by consumers, i.e. declared as
+ * dependencies OR peerDependencies (framework/semantic/intent are peers: the
+ * consumer owns the single copy of the contract, see README "Versioning").
+ */
+const manifest = JSON.parse(readFileSync(resolve(__dirname, '../../package.json'), 'utf8')) as {
+  dependencies?: Record<string, string>;
+  peerDependencies?: Record<string, string>;
+};
+const declaredDeps = new Set([
+  ...Object.keys(manifest.dependencies ?? {}),
+  ...Object.keys(manifest.peerDependencies ?? {}),
+]);
 
 function packageNameOf(spec: string): string {
   const parts = spec.split('/');

@@ -1,6 +1,6 @@
 {
   "name": "lokascript-domains",
-  "version": "2.11.0",
+  "version": "3.0.0",
   "private": true,
   "description": "The LokaScript multilingual domain-DSL family — 16 domain DSLs built on @lokascript/framework, each multilingual from day one",
   "license": "MIT",
@@ -14,7 +14,10 @@
   "scripts": {
     "build": "bash scripts/build-all.sh",
     "test:check": "bash scripts/test-all.sh",
-    "typecheck": "bash scripts/typecheck-all.sh"
+    "typecheck": "bash scripts/typecheck-all.sh",
+    "version:set": "node scripts/set-version.cjs",
+    "version:validate": "node scripts/validate-versions.cjs",
+    "pack:smoke": "bash scripts/pack-smoke.sh"
   },
   "engines": {
     "node": ">=20"

@@ -7,6 +7,7 @@
 # typos. NEVER pipe this through tail/head — the pipeline exit code lies.
 set -euo pipefail
 cd "$(dirname "$0")/.."
+REPO="$(pwd)"
 
 PKG_DIR="packages/domains"
 TMP="$(mktemp -d)"
@@ -62,7 +63,7 @@ import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 const distDir = join(process.cwd(), 'node_modules/@lokascript/domains/dist');
 const pkg = JSON.parse(readFileSync(join(distDir, '../package.json'), 'utf8'));
-const deps = new Set(Object.keys(pkg.dependencies ?? {}));
+const deps = new Set([...Object.keys(pkg.dependencies ?? {}), ...Object.keys(pkg.peerDependencies ?? {})]);
 const dtsOffenders = [];
 for (const f of readdirSync(distDir).filter(f => /\.d\.(c)?ts$/.test(f))) {
   const src = readFileSync(join(distDir, f), 'utf8')
@@ -85,7 +86,28 @@ for (const f of readdirSync(distDir).filter(f => /\.d\.(c)?ts$/.test(f))) {
 }
 if (dtsOffenders.length) throw new Error(`d.ts integrity failed:\n${dtsOffenders.join('\n')}`);
 
-console.log(`PACK SMOKE OK — ${DOMAIN_PRIORITY.length} registry domains, ${SUBPATHS.length} subpaths load`);
+// The peer ranges the tarball declares must target the same MAJOR of
+// framework/semantic/intent that the repo's lockfile built and tested
+// against. Bumping one without the other publishes a package whose types and
+// tests were proven on a different contract than it asks consumers for.
+const lock = JSON.parse(readFileSync(process.env.REPO_LOCKFILE, 'utf8'));
+const majorOf = v => Number(/^[\^~]?(\d+)\./.exec(v)?.[1]);
+const peerOffenders = [];
+for (const [name, range] of Object.entries(pkg.peerDependencies ?? {})) {
+  const locked = lock.packages[`node_modules/${name}`]?.version;
+  if (!locked) { peerOffenders.push(`${name}: not in the repo lockfile`); continue; }
+  if (majorOf(range) !== majorOf(locked)) {
+    peerOffenders.push(`${name}: peer range ${range} but lockfile built/tested against ${locked}`);
+  }
+  // And the copy the consumer actually got must satisfy the same major.
+  const installed = JSON.parse(readFileSync(join(process.cwd(), 'node_modules', name, 'package.json'), 'utf8')).version;
+  if (majorOf(installed) !== majorOf(range)) {
+    peerOffenders.push(`${name}: consumer resolved ${installed} against peer range ${range}`);
+  }
+}
+if (peerOffenders.length) throw new Error(`peer-major guard failed:\n${peerOffenders.join('\n')}`);
+
+console.log(`PACK SMOKE OK — ${DOMAIN_PRIORITY.length} registry domains, ${SUBPATHS.length} subpaths load, peers on the lockfile's major`);
 EOF
 
-node smoke.mjs
+REPO_LOCKFILE="$REPO/package-lock.json" node smoke.mjs
