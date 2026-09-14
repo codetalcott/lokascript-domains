@@ -37,8 +37,8 @@
   "license": "MIT",
   "dependencies": {
     "@hono/node-server": "^2.0.11",
-    "@hyperfixi/patterns-reference": "^3.1.0",
-    "@lokascript/framework": "^3.1.0",
+    "@hyperfixi/patterns-reference": "^3.1.1",
+    "@lokascript/framework": "^3.1.1",
     "hono": "^4.13.0"
   },
   "peerDependencies": {
