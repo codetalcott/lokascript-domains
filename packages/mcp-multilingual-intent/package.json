@@ -1,6 +1,6 @@
 {
   "name": "@lokascript/mcp-multilingual-intent",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "private": true,
   "description": "Multilingual-intent MCP server — parses natural language in 24 languages, emits LSE protocol JSON. Wraps @lokascript/framework + @hyperfixi/patterns-reference behind a Siren HTTP API that siren-mcp bridges to MCP.",
   "type": "module",
@@ -42,14 +42,14 @@
     "hono": "^4.13.0"
   },
   "peerDependencies": {
-    "@lokascript/domain-bdd": "^3.0.0",
-    "@lokascript/domain-behaviorspec": "^3.0.0",
-    "@lokascript/domain-flow": "^3.0.0",
-    "@lokascript/domain-jsx": "^3.0.0",
-    "@lokascript/domain-llm": "^3.0.0",
-    "@lokascript/domain-sql": "^3.0.0",
-    "@lokascript/domain-todo": "^3.0.0",
-    "@lokascript/domain-voice": "^3.0.0"
+    "@lokascript/domain-bdd": "^3.0.1",
+    "@lokascript/domain-behaviorspec": "^3.0.1",
+    "@lokascript/domain-flow": "^3.0.1",
+    "@lokascript/domain-jsx": "^3.0.1",
+    "@lokascript/domain-llm": "^3.0.1",
+    "@lokascript/domain-sql": "^3.0.1",
+    "@lokascript/domain-todo": "^3.0.1",
+    "@lokascript/domain-voice": "^3.0.1"
   },
   "peerDependenciesMeta": {
     "@lokascript/domain-bdd": {
@@ -78,14 +78,14 @@
     }
   },
   "devDependencies": {
-    "@lokascript/domain-bdd": "^3.0.0",
-    "@lokascript/domain-behaviorspec": "^3.0.0",
-    "@lokascript/domain-flow": "^3.0.0",
-    "@lokascript/domain-jsx": "^3.0.0",
-    "@lokascript/domain-llm": "^3.0.0",
-    "@lokascript/domain-sql": "^3.0.0",
-    "@lokascript/domain-todo": "^3.0.0",
-    "@lokascript/domain-voice": "^3.0.0",
+    "@lokascript/domain-bdd": "^3.0.1",
+    "@lokascript/domain-behaviorspec": "^3.0.1",
+    "@lokascript/domain-flow": "^3.0.1",
+    "@lokascript/domain-jsx": "^3.0.1",
+    "@lokascript/domain-llm": "^3.0.1",
+    "@lokascript/domain-sql": "^3.0.1",
+    "@lokascript/domain-todo": "^3.0.1",
+    "@lokascript/domain-voice": "^3.0.1",
     "@types/node": "^26.1.2",
     "tsup": "^8.0.0",
     "tsx": "^4.23.1",

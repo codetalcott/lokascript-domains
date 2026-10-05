@@ -65,6 +65,14 @@ contract, so it can never fork against the consumer's own framework.
   major equal to the aggregate's own.
 - `scripts/pack-smoke.sh` also asserts the published peer majors equal what
   the lockfile built and tested against.
+- When a framework major renumbers the same contract (hyperfixi's lockstep
+  versioning: 4.0 changed `@hyperfixi/core`, not framework/semantic/intent),
+  a patch can **bridge** instead of a new major: peers `^3.1.0 || ^4.0.0`.
+  The first alternative is the major the lockfile builds against; prove the
+  second by packing hyperfixi's packages at that version and running
+  `UPSTREAM_TARBALLS="…/framework.tgz …/semantic.tgz …/intent.tgz"
+  bash scripts/pack-smoke.sh`, plus the test gate against them. The next real
+  build against 4.x is a `version:set 4.0.0` release as usual.
 - Dependabot groups framework/semantic/intent/patterns-reference into one
   weekly PR, so every hyperfixi release runs the full gate here. Green is the
   evidence to bump; a framework **major** is a deliberate `version:set`

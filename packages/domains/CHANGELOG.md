@@ -1,5 +1,26 @@
 # Changelog
 
+## 3.0.1
+
+- **Accepts `@lokascript/framework`, `semantic` and `intent` 4.x as well as
+  3.x** (peers `^3.1.0 || ^4.0.0`). hyperfixi 4.0 retires `@hyperfixi/core`'s
+  own engine; framework, semantic and intent reach 4.0.0 only because every
+  hyperfixi package shares one version, with no change to the contract this
+  family uses. Proven before 4.0 was published: the full build, typecheck and
+  test gate and the pack smoke pass against those three packages packed from
+  hyperfixi's 4.0 tree. Without this, a consumer of `@hyperfixi/mcp-server`
+  4.x would get a second framework copy nested under this package.
+- Built and tested against the latest 3.x (lockfile 3.1.0 → 3.3.0). The voice
+  domain's generated `show`/`hide` patterns follow semantic 3.2.0's schemas:
+  the target is optional (bare `show` shows the element itself, as in
+  \_hyperscript) and the style accepts an expression. Golden snapshot
+  regenerated; 4.0 generates the identical snapshot.
+- `scripts/pack-smoke.sh` accepts `UPSTREAM_TARBALLS` (tarballs installed in
+  place of the registry's framework/semantic/intent), and its peer guard
+  accepts a `^X || ^X+1` range: the first alternative must be the lockfile's
+  major, and the consumer's copy must be on a major the range lists.
+  `version:validate` accepts the same bridge shape and nothing looser.
+
 ## 3.0.0
 
 - **BREAKING: built for `@lokascript/framework` 3.x.** The family now targets
