@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "@lokascript/framework": "^3.1.0",
-    "@modelcontextprotocol/sdk": "^1.25.0"
+    "@modelcontextprotocol/sdk": "^1.31.0"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
