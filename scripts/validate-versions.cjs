@@ -13,7 +13,10 @@
  *   3. The upstream ranges (@lokascript/framework, /semantic, /intent) agree
  *      on ONE major across all packages, and it is the major the aggregate's
  *      OWN version targets. The aggregate's major tracks the framework major
- *      it is built against (see README "Versioning").
+ *      it is built against (see README "Versioning"). A range may also accept
+ *      the NEXT major (`^3.1.0 || ^4.0.0`) when that major is the same
+ *      contract renumbered; the FIRST alternative is the major it is built
+ *      against, and every later one must be a caret range on a higher major.
  *
  * Ported from hyperfixi/scripts/validate-versions.cjs, extended with 2 and 3.
  */
@@ -64,9 +67,17 @@ for (const { label, pkg } of manifests) {
 }
 
 // 3. Upstream majors agree, and match the aggregate's own major.
+// The major a range is built against: its first `||` alternative's. Later
+// alternatives (a bridge to the next major) must be carets on higher majors.
 const majorOf = r => {
-  const m = /^[\^~]?(\d+)\./.exec(r);
-  return m ? Number(m[1]) : null;
+  const [first, ...rest] = r.split('||').map(a => a.trim());
+  const m = /^[\^~]?(\d+)\./.exec(first);
+  if (!m) return null;
+  for (const alt of rest) {
+    const n = /^\^(\d+)\.\d+\.\d+$/.exec(alt);
+    if (!n || Number(n[1]) <= Number(m[1])) return null;
+  }
+  return Number(m[1]);
 };
 const upstreamMajors = new Map();
 for (const { label, pkg } of manifests) {
@@ -75,7 +86,7 @@ for (const { label, pkg } of manifests) {
       if (!UPSTREAM.includes(name)) continue;
       const major = majorOf(r);
       if (major === null) {
-        problems.push(`${label} ${field}.${name} = "${r}" is not a caret/tilde semver range`);
+        problems.push(`${label} ${field}.${name} = "${r}" is not a caret/tilde semver range (or a "^X || ^X+1" bridge)`);
         continue;
       }
       if (!upstreamMajors.has(major)) upstreamMajors.set(major, []);

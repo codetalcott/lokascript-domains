@@ -1,6 +1,6 @@
 {
   "name": "@lokascript/domain-events",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Multilingual Event Handling DSL built on @lokascript/framework — teaches event binding, delegation, and filtering across 8 languages",
   "type": "module",
   "main": "dist/index.cjs",

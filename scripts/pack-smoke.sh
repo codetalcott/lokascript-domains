@@ -5,6 +5,12 @@
 # Guards the class of failure workspace symlinks can never see: missing dist
 # chunks in `files`, d.ts that reference private package names, exports-map
 # typos. NEVER pipe this through tail/head — the pipeline exit code lies.
+#
+# UPSTREAM_TARBALLS (optional, space-separated absolute paths): framework/
+# semantic/intent tarballs to install beside the aggregate instead of the
+# registry's. That is how a peer range that reaches the NEXT major is proven
+# before that major is published (npm pack hyperfixi's packages at the new
+# version, then run this with them).
 set -euo pipefail
 cd "$(dirname "$0")/.."
 REPO="$(pwd)"
@@ -19,7 +25,8 @@ echo "packed: $TARBALL"
 cd "$TMP"
 npm init -y >/dev/null
 npm pkg set type=module >/dev/null
-npm install --no-audit --no-fund --silent "./$TARBALL"
+# shellcheck disable=SC2086 # UPSTREAM_TARBALLS is a list of paths
+npm install --no-audit --no-fund --silent "./$TARBALL" ${UPSTREAM_TARBALLS:-}
 
 cat > smoke.mjs <<'EOF'
 import { createSQLDSL } from '@lokascript/domains/sql';
@@ -88,26 +95,33 @@ if (dtsOffenders.length) throw new Error(`d.ts integrity failed:\n${dtsOffenders
 
 // The peer ranges the tarball declares must target the same MAJOR of
 // framework/semantic/intent that the repo's lockfile built and tested
-// against. Bumping one without the other publishes a package whose types and
-// tests were proven on a different contract than it asks consumers for.
+// against: the range's FIRST alternative. Bumping one without the other
+// publishes a package whose types and tests were proven on a different
+// contract than it asks consumers for. A later alternative (`^3.1.0 ||
+// ^4.0.0`) bridges to the next major; it is proven by running this script
+// with UPSTREAM_TARBALLS at that major, not by the lockfile.
 const lock = JSON.parse(readFileSync(process.env.REPO_LOCKFILE, 'utf8'));
-const majorOf = v => Number(/^[\^~]?(\d+)\./.exec(v)?.[1]);
+const majorOf = v => Number(/^[\^~]?(\d+)\./.exec(v.trim())?.[1]);
+const majorsOf = range => range.split('||').map(majorOf);
 const peerOffenders = [];
 for (const [name, range] of Object.entries(pkg.peerDependencies ?? {})) {
   const locked = lock.packages[`node_modules/${name}`]?.version;
   if (!locked) { peerOffenders.push(`${name}: not in the repo lockfile`); continue; }
-  if (majorOf(range) !== majorOf(locked)) {
+  if (majorsOf(range)[0] !== majorOf(locked)) {
     peerOffenders.push(`${name}: peer range ${range} but lockfile built/tested against ${locked}`);
   }
-  // And the copy the consumer actually got must satisfy the same major.
+  // And the copy the consumer actually got must be on a major the range accepts.
   const installed = JSON.parse(readFileSync(join(process.cwd(), 'node_modules', name, 'package.json'), 'utf8')).version;
-  if (majorOf(installed) !== majorOf(range)) {
+  if (!majorsOf(range).includes(majorOf(installed))) {
     peerOffenders.push(`${name}: consumer resolved ${installed} against peer range ${range}`);
   }
 }
+const resolved = Object.keys(pkg.peerDependencies ?? {})
+  .map(n => `${n.replace('@lokascript/', '')}@${JSON.parse(readFileSync(join(process.cwd(), 'node_modules', n, 'package.json'), 'utf8')).version}`)
+  .join(', ');
 if (peerOffenders.length) throw new Error(`peer-major guard failed:\n${peerOffenders.join('\n')}`);
 
-console.log(`PACK SMOKE OK — ${DOMAIN_PRIORITY.length} registry domains, ${SUBPATHS.length} subpaths load, peers on the lockfile's major`);
+console.log(`PACK SMOKE OK — ${DOMAIN_PRIORITY.length} registry domains, ${SUBPATHS.length} subpaths load, peers resolved ${resolved}`);
 EOF
 
 REPO_LOCKFILE="$REPO/package-lock.json" node smoke.mjs
