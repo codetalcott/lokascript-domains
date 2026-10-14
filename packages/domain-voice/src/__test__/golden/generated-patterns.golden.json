@@ -12,7 +12,9 @@
             {
               "type": "literal",
               "value": "navigate",
-              "alternatives": ["go"]
+              "alternatives": [
+                "go"
+              ]
             },
             {
               "type": "literal",
@@ -22,7 +24,9 @@
               "type": "role",
               "role": "destination",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -45,13 +49,19 @@
             {
               "type": "literal",
               "value": "click",
-              "alternatives": ["press", "tap"]
+              "alternatives": [
+                "press",
+                "tap"
+              ]
             },
             {
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             }
           ]
         },
@@ -72,13 +82,17 @@
             {
               "type": "literal",
               "value": "type",
-              "alternatives": ["enter"]
+              "alternatives": [
+                "enter"
+              ]
             },
             {
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "group",
@@ -92,7 +106,10 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": ["expression", "selector"]
+                  "expectedTypes": [
+                    "expression",
+                    "selector"
+                  ]
                 }
               ]
             }
@@ -123,7 +140,9 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "group",
@@ -137,7 +156,9 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": [
+                    "expression"
+                  ]
                 }
               ]
             }
@@ -163,13 +184,18 @@
             {
               "type": "literal",
               "value": "read",
-              "alternatives": ["say"]
+              "alternatives": [
+                "say"
+              ]
             },
             {
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             }
           ]
         },
@@ -195,7 +221,9 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -221,7 +249,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             }
           ]
         },
@@ -247,7 +278,9 @@
               "type": "role",
               "role": "quantity",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -273,7 +306,9 @@
               "type": "role",
               "role": "quantity",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -299,7 +334,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             }
           ]
         },
@@ -325,7 +363,9 @@
               "type": "role",
               "role": "patient",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -351,7 +391,9 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -372,13 +414,17 @@
             {
               "type": "literal",
               "value": "search",
-              "alternatives": ["find"]
+              "alternatives": [
+                "find"
+              ]
             },
             {
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "group",
@@ -392,7 +438,9 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": [
+                    "expression"
+                  ]
                 }
               ]
             }
@@ -423,259 +471,14 @@
               "type": "role",
               "role": "patient",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
         "extraction": {
           "patient": {}
-        }
-      }
-    ],
-    "toggle": [
-      {
-        "id": "toggle-en-generated",
-        "language": "en",
-        "command": "toggle",
-        "priority": 100,
-        "template": {
-          "format": "toggle {patient} on {destination}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "toggle"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": false,
-              "expectedTypes": ["selector", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "on"
-                },
-                {
-                  "type": "role",
-                  "role": "destination",
-                  "optional": true,
-                  "expectedTypes": ["selector", "reference", "expression"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {},
-          "destination": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            },
-            "marker": "on"
-          }
-        }
-      }
-    ],
-    "add": [
-      {
-        "id": "add-en-generated",
-        "language": "en",
-        "command": "add",
-        "priority": 100,
-        "template": {
-          "format": "add {patient} to {destination}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "add"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": false,
-              "expectedTypes": ["selector", "literal", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "to"
-                },
-                {
-                  "type": "role",
-                  "role": "destination",
-                  "optional": true,
-                  "expectedTypes": ["selector", "reference", "expression"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {},
-          "destination": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            },
-            "marker": "to"
-          }
-        }
-      }
-    ],
-    "remove": [
-      {
-        "id": "remove-en-generated",
-        "language": "en",
-        "command": "remove",
-        "priority": 100,
-        "template": {
-          "format": "remove {patient} from {source}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "remove"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": false,
-              "expectedTypes": ["selector", "reference", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "from"
-                },
-                {
-                  "type": "role",
-                  "role": "source",
-                  "optional": true,
-                  "expectedTypes": ["selector", "reference", "expression"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {},
-          "source": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            },
-            "marker": "from"
-          }
-        }
-      }
-    ],
-    "show": [
-      {
-        "id": "show-en-generated",
-        "language": "en",
-        "command": "show",
-        "priority": 100,
-        "template": {
-          "format": "show {patient} with {style}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "show"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": true,
-              "expectedTypes": ["selector", "reference", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "with"
-                },
-                {
-                  "type": "role",
-                  "role": "style",
-                  "optional": true,
-                  "expectedTypes": ["expression", "selector"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            }
-          },
-          "style": {
-            "marker": "with"
-          }
-        }
-      }
-    ],
-    "hide": [
-      {
-        "id": "hide-en-generated",
-        "language": "en",
-        "command": "hide",
-        "priority": 100,
-        "template": {
-          "format": "hide {patient} with {style}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "hide"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": true,
-              "expectedTypes": ["selector", "reference", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "with"
-                },
-                {
-                  "type": "role",
-                  "role": "style",
-                  "optional": true,
-                  "expectedTypes": ["expression", "selector"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            }
-          },
-          "style": {
-            "marker": "with"
-          }
         }
       }
     ]
@@ -693,7 +496,9 @@
             {
               "type": "literal",
               "value": "navegar",
-              "alternatives": ["ir"]
+              "alternatives": [
+                "ir"
+              ]
             },
             {
               "type": "literal",
@@ -703,7 +508,9 @@
               "type": "role",
               "role": "destination",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -726,13 +533,18 @@
             {
               "type": "literal",
               "value": "clic",
-              "alternatives": ["pulsar"]
+              "alternatives": [
+                "pulsar"
+              ]
             },
             {
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             }
           ]
         },
@@ -758,7 +570,9 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "group",
@@ -772,7 +586,10 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": ["expression", "selector"]
+                  "expectedTypes": [
+                    "expression",
+                    "selector"
+                  ]
                 }
               ]
             }
@@ -803,7 +620,9 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "group",
@@ -817,7 +636,9 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": [
+                    "expression"
+                  ]
                 }
               ]
             }
@@ -848,7 +669,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             }
           ]
         },
@@ -874,7 +698,9 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -900,7 +726,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             }
           ]
         },
@@ -921,13 +750,17 @@
             {
               "type": "literal",
               "value": "atrás",
-              "alternatives": ["volver"]
+              "alternatives": [
+                "volver"
+              ]
             },
             {
               "type": "role",
               "role": "quantity",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -953,7 +786,9 @@
               "type": "role",
               "role": "quantity",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -979,7 +814,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             }
           ]
         },
@@ -1005,7 +843,9 @@
               "type": "role",
               "role": "patient",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -1031,7 +871,9 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -1057,7 +899,9 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "group",
@@ -1071,7 +915,9 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": [
+                    "expression"
+                  ]
                 }
               ]
             }
@@ -1102,259 +948,14 @@
               "type": "role",
               "role": "patient",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
         "extraction": {
           "patient": {}
-        }
-      }
-    ],
-    "toggle": [
-      {
-        "id": "toggle-es-generated",
-        "language": "es",
-        "command": "toggle",
-        "priority": 100,
-        "template": {
-          "format": "alternar {patient} en {destination}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "alternar"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": false,
-              "expectedTypes": ["selector", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "en"
-                },
-                {
-                  "type": "role",
-                  "role": "destination",
-                  "optional": true,
-                  "expectedTypes": ["selector", "reference", "expression"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {},
-          "destination": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            },
-            "marker": "en"
-          }
-        }
-      }
-    ],
-    "add": [
-      {
-        "id": "add-es-generated",
-        "language": "es",
-        "command": "add",
-        "priority": 100,
-        "template": {
-          "format": "agregar {patient} a {destination}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "agregar"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": false,
-              "expectedTypes": ["selector", "literal", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "a"
-                },
-                {
-                  "type": "role",
-                  "role": "destination",
-                  "optional": true,
-                  "expectedTypes": ["selector", "reference", "expression"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {},
-          "destination": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            },
-            "marker": "a"
-          }
-        }
-      }
-    ],
-    "remove": [
-      {
-        "id": "remove-es-generated",
-        "language": "es",
-        "command": "remove",
-        "priority": 100,
-        "template": {
-          "format": "quitar {patient} de {source}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "quitar"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": false,
-              "expectedTypes": ["selector", "reference", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "de"
-                },
-                {
-                  "type": "role",
-                  "role": "source",
-                  "optional": true,
-                  "expectedTypes": ["selector", "reference", "expression"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {},
-          "source": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            },
-            "marker": "de"
-          }
-        }
-      }
-    ],
-    "show": [
-      {
-        "id": "show-es-generated",
-        "language": "es",
-        "command": "show",
-        "priority": 100,
-        "template": {
-          "format": "mostrar {patient} con {style}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "mostrar"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": true,
-              "expectedTypes": ["selector", "reference", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "con"
-                },
-                {
-                  "type": "role",
-                  "role": "style",
-                  "optional": true,
-                  "expectedTypes": ["expression", "selector"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            }
-          },
-          "style": {
-            "marker": "con"
-          }
-        }
-      }
-    ],
-    "hide": [
-      {
-        "id": "hide-es-generated",
-        "language": "es",
-        "command": "hide",
-        "priority": 100,
-        "template": {
-          "format": "ocultar {patient} con {style}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "ocultar"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": true,
-              "expectedTypes": ["selector", "reference", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "con"
-                },
-                {
-                  "type": "role",
-                  "role": "style",
-                  "optional": true,
-                  "expectedTypes": ["expression", "selector"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            }
-          },
-          "style": {
-            "marker": "con"
-          }
         }
       }
     ]
@@ -1373,7 +974,9 @@
               "type": "role",
               "role": "destination",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "literal",
@@ -1405,7 +1008,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             },
             {
               "type": "literal",
@@ -1441,7 +1047,10 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": ["expression", "selector"]
+                  "expectedTypes": [
+                    "expression",
+                    "selector"
+                  ]
                 },
                 {
                   "type": "literal",
@@ -1453,7 +1062,9 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "literal",
@@ -1488,7 +1099,9 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "group",
@@ -1498,7 +1111,9 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": [
+                    "expression"
+                  ]
                 },
                 {
                   "type": "literal",
@@ -1533,7 +1148,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             },
             {
               "type": "literal",
@@ -1565,7 +1183,9 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "literal",
@@ -1591,7 +1211,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             },
             {
               "type": "literal",
@@ -1627,7 +1250,9 @@
               "type": "role",
               "role": "quantity",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -1653,7 +1278,9 @@
               "type": "role",
               "role": "quantity",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -1675,7 +1302,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             },
             {
               "type": "literal",
@@ -1711,7 +1341,9 @@
                   "type": "role",
                   "role": "patient",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": [
+                    "expression"
+                  ]
                 },
                 {
                   "type": "literal",
@@ -1745,7 +1377,9 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "literal",
@@ -1781,7 +1415,9 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": [
+                    "expression"
+                  ]
                 },
                 {
                   "type": "literal",
@@ -1793,7 +1429,9 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "literal",
@@ -1832,259 +1470,14 @@
               "type": "role",
               "role": "patient",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
         "extraction": {
           "patient": {}
-        }
-      }
-    ],
-    "toggle": [
-      {
-        "id": "toggle-ja-generated",
-        "language": "ja",
-        "command": "toggle",
-        "priority": 100,
-        "template": {
-          "format": "に {destination} {patient} 切り替え",
-          "tokens": [
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "role",
-                  "role": "destination",
-                  "optional": true,
-                  "expectedTypes": ["selector", "reference", "expression"]
-                },
-                {
-                  "type": "literal",
-                  "value": "に"
-                }
-              ]
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": false,
-              "expectedTypes": ["selector", "expression"]
-            },
-            {
-              "type": "literal",
-              "value": "切り替え"
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {},
-          "destination": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            },
-            "marker": "に"
-          }
-        }
-      }
-    ],
-    "add": [
-      {
-        "id": "add-ja-generated",
-        "language": "ja",
-        "command": "add",
-        "priority": 100,
-        "template": {
-          "format": "に {destination} {patient} 追加",
-          "tokens": [
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "role",
-                  "role": "destination",
-                  "optional": true,
-                  "expectedTypes": ["selector", "reference", "expression"]
-                },
-                {
-                  "type": "literal",
-                  "value": "に"
-                }
-              ]
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": false,
-              "expectedTypes": ["selector", "literal", "expression"]
-            },
-            {
-              "type": "literal",
-              "value": "追加"
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {},
-          "destination": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            },
-            "marker": "に"
-          }
-        }
-      }
-    ],
-    "remove": [
-      {
-        "id": "remove-ja-generated",
-        "language": "ja",
-        "command": "remove",
-        "priority": 100,
-        "template": {
-          "format": "{source} から {patient} 削除",
-          "tokens": [
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "role",
-                  "role": "source",
-                  "optional": true,
-                  "expectedTypes": ["selector", "reference", "expression"]
-                },
-                {
-                  "type": "literal",
-                  "value": "から"
-                }
-              ]
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": false,
-              "expectedTypes": ["selector", "reference", "expression"]
-            },
-            {
-              "type": "literal",
-              "value": "削除"
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {},
-          "source": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            },
-            "marker": "から"
-          }
-        }
-      }
-    ],
-    "show": [
-      {
-        "id": "show-ja-generated",
-        "language": "ja",
-        "command": "show",
-        "priority": 100,
-        "template": {
-          "format": "{patient} {style} で 表示",
-          "tokens": [
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": true,
-              "expectedTypes": ["selector", "reference", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "role",
-                  "role": "style",
-                  "optional": true,
-                  "expectedTypes": ["expression", "selector"]
-                },
-                {
-                  "type": "literal",
-                  "value": "で"
-                }
-              ]
-            },
-            {
-              "type": "literal",
-              "value": "表示"
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            }
-          },
-          "style": {
-            "marker": "で"
-          }
-        }
-      }
-    ],
-    "hide": [
-      {
-        "id": "hide-ja-generated",
-        "language": "ja",
-        "command": "hide",
-        "priority": 100,
-        "template": {
-          "format": "{patient} {style} で 隠す",
-          "tokens": [
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": true,
-              "expectedTypes": ["selector", "reference", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "role",
-                  "role": "style",
-                  "optional": true,
-                  "expectedTypes": ["expression", "selector"]
-                },
-                {
-                  "type": "literal",
-                  "value": "で"
-                }
-              ]
-            },
-            {
-              "type": "literal",
-              "value": "隠す"
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            }
-          },
-          "style": {
-            "marker": "で"
-          }
         }
       }
     ]
@@ -2111,7 +1504,9 @@
               "type": "role",
               "role": "destination",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -2143,7 +1538,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             }
           ]
         },
@@ -2171,7 +1569,9 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "group",
@@ -2185,7 +1585,10 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": ["expression", "selector"]
+                  "expectedTypes": [
+                    "expression",
+                    "selector"
+                  ]
                 }
               ]
             }
@@ -2216,7 +1619,9 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "group",
@@ -2230,7 +1635,9 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": [
+                    "expression"
+                  ]
                 }
               ]
             }
@@ -2261,7 +1668,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             }
           ]
         },
@@ -2287,7 +1697,9 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -2313,7 +1725,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             }
           ]
         },
@@ -2339,7 +1754,9 @@
               "type": "role",
               "role": "quantity",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -2365,7 +1782,9 @@
               "type": "role",
               "role": "quantity",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -2395,7 +1814,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             }
           ]
         },
@@ -2423,7 +1845,9 @@
               "type": "role",
               "role": "patient",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -2449,7 +1873,9 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -2479,7 +1905,9 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "group",
@@ -2493,7 +1921,9 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": [
+                    "expression"
+                  ]
                 }
               ]
             }
@@ -2526,259 +1956,14 @@
               "type": "role",
               "role": "patient",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
         "extraction": {
           "patient": {}
-        }
-      }
-    ],
-    "toggle": [
-      {
-        "id": "toggle-ar-generated",
-        "language": "ar",
-        "command": "toggle",
-        "priority": 100,
-        "template": {
-          "format": "بدّل {patient} على {destination}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "بدّل"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": false,
-              "expectedTypes": ["selector", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "على"
-                },
-                {
-                  "type": "role",
-                  "role": "destination",
-                  "optional": true,
-                  "expectedTypes": ["selector", "reference", "expression"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {},
-          "destination": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            },
-            "marker": "على"
-          }
-        }
-      }
-    ],
-    "add": [
-      {
-        "id": "add-ar-generated",
-        "language": "ar",
-        "command": "add",
-        "priority": 100,
-        "template": {
-          "format": "أضف {patient} إلى {destination}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "أضف"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": false,
-              "expectedTypes": ["selector", "literal", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "إلى"
-                },
-                {
-                  "type": "role",
-                  "role": "destination",
-                  "optional": true,
-                  "expectedTypes": ["selector", "reference", "expression"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {},
-          "destination": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            },
-            "marker": "إلى"
-          }
-        }
-      }
-    ],
-    "remove": [
-      {
-        "id": "remove-ar-generated",
-        "language": "ar",
-        "command": "remove",
-        "priority": 100,
-        "template": {
-          "format": "احذف {patient} من {source}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "احذف"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": false,
-              "expectedTypes": ["selector", "reference", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "من"
-                },
-                {
-                  "type": "role",
-                  "role": "source",
-                  "optional": true,
-                  "expectedTypes": ["selector", "reference", "expression"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {},
-          "source": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            },
-            "marker": "من"
-          }
-        }
-      }
-    ],
-    "show": [
-      {
-        "id": "show-ar-generated",
-        "language": "ar",
-        "command": "show",
-        "priority": 100,
-        "template": {
-          "format": "اظهر {patient} بـ {style}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "اظهر"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": true,
-              "expectedTypes": ["selector", "reference", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "بـ"
-                },
-                {
-                  "type": "role",
-                  "role": "style",
-                  "optional": true,
-                  "expectedTypes": ["expression", "selector"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            }
-          },
-          "style": {
-            "marker": "بـ"
-          }
-        }
-      }
-    ],
-    "hide": [
-      {
-        "id": "hide-ar-generated",
-        "language": "ar",
-        "command": "hide",
-        "priority": 100,
-        "template": {
-          "format": "اخف {patient} بـ {style}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "اخف"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": true,
-              "expectedTypes": ["selector", "reference", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "بـ"
-                },
-                {
-                  "type": "role",
-                  "role": "style",
-                  "optional": true,
-                  "expectedTypes": ["expression", "selector"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            }
-          },
-          "style": {
-            "marker": "بـ"
-          }
         }
       }
     ]
@@ -2797,7 +1982,9 @@
               "type": "role",
               "role": "destination",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "literal",
@@ -2829,7 +2016,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             },
             {
               "type": "literal",
@@ -2865,7 +2055,10 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": ["expression", "selector"]
+                  "expectedTypes": [
+                    "expression",
+                    "selector"
+                  ]
                 },
                 {
                   "type": "literal",
@@ -2877,7 +2070,9 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "literal",
@@ -2912,7 +2107,9 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "group",
@@ -2922,7 +2119,9 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": [
+                    "expression"
+                  ]
                 },
                 {
                   "type": "literal",
@@ -2957,7 +2156,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             },
             {
               "type": "literal",
@@ -2989,7 +2191,9 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "literal",
@@ -3015,7 +2219,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             },
             {
               "type": "literal",
@@ -3051,7 +2258,9 @@
               "type": "role",
               "role": "quantity",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -3077,7 +2286,9 @@
               "type": "role",
               "role": "quantity",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -3099,7 +2310,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             },
             {
               "type": "literal",
@@ -3135,7 +2349,9 @@
                   "type": "role",
                   "role": "patient",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": [
+                    "expression"
+                  ]
                 },
                 {
                   "type": "literal",
@@ -3169,7 +2385,9 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "literal",
@@ -3205,7 +2423,9 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": [
+                    "expression"
+                  ]
                 },
                 {
                   "type": "literal",
@@ -3217,7 +2437,9 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "literal",
@@ -3256,259 +2478,14 @@
               "type": "role",
               "role": "patient",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
         "extraction": {
           "patient": {}
-        }
-      }
-    ],
-    "toggle": [
-      {
-        "id": "toggle-ko-generated",
-        "language": "ko",
-        "command": "toggle",
-        "priority": 100,
-        "template": {
-          "format": "에 {destination} {patient} 토글",
-          "tokens": [
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "role",
-                  "role": "destination",
-                  "optional": true,
-                  "expectedTypes": ["selector", "reference", "expression"]
-                },
-                {
-                  "type": "literal",
-                  "value": "에"
-                }
-              ]
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": false,
-              "expectedTypes": ["selector", "expression"]
-            },
-            {
-              "type": "literal",
-              "value": "토글"
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {},
-          "destination": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            },
-            "marker": "에"
-          }
-        }
-      }
-    ],
-    "add": [
-      {
-        "id": "add-ko-generated",
-        "language": "ko",
-        "command": "add",
-        "priority": 100,
-        "template": {
-          "format": "에 {destination} {patient} 추가",
-          "tokens": [
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "role",
-                  "role": "destination",
-                  "optional": true,
-                  "expectedTypes": ["selector", "reference", "expression"]
-                },
-                {
-                  "type": "literal",
-                  "value": "에"
-                }
-              ]
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": false,
-              "expectedTypes": ["selector", "literal", "expression"]
-            },
-            {
-              "type": "literal",
-              "value": "추가"
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {},
-          "destination": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            },
-            "marker": "에"
-          }
-        }
-      }
-    ],
-    "remove": [
-      {
-        "id": "remove-ko-generated",
-        "language": "ko",
-        "command": "remove",
-        "priority": 100,
-        "template": {
-          "format": "{source} 에서 {patient} 제거",
-          "tokens": [
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "role",
-                  "role": "source",
-                  "optional": true,
-                  "expectedTypes": ["selector", "reference", "expression"]
-                },
-                {
-                  "type": "literal",
-                  "value": "에서"
-                }
-              ]
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": false,
-              "expectedTypes": ["selector", "reference", "expression"]
-            },
-            {
-              "type": "literal",
-              "value": "제거"
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {},
-          "source": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            },
-            "marker": "에서"
-          }
-        }
-      }
-    ],
-    "show": [
-      {
-        "id": "show-ko-generated",
-        "language": "ko",
-        "command": "show",
-        "priority": 100,
-        "template": {
-          "format": "{patient} {style} 로 보이다",
-          "tokens": [
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": true,
-              "expectedTypes": ["selector", "reference", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "role",
-                  "role": "style",
-                  "optional": true,
-                  "expectedTypes": ["expression", "selector"]
-                },
-                {
-                  "type": "literal",
-                  "value": "로"
-                }
-              ]
-            },
-            {
-              "type": "literal",
-              "value": "보이다"
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            }
-          },
-          "style": {
-            "marker": "로"
-          }
-        }
-      }
-    ],
-    "hide": [
-      {
-        "id": "hide-ko-generated",
-        "language": "ko",
-        "command": "hide",
-        "priority": 100,
-        "template": {
-          "format": "{patient} {style} 로 숨기다",
-          "tokens": [
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": true,
-              "expectedTypes": ["selector", "reference", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "role",
-                  "role": "style",
-                  "optional": true,
-                  "expectedTypes": ["expression", "selector"]
-                },
-                {
-                  "type": "literal",
-                  "value": "로"
-                }
-              ]
-            },
-            {
-              "type": "literal",
-              "value": "숨기다"
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            }
-          },
-          "style": {
-            "marker": "로"
-          }
         }
       }
     ]
@@ -3535,7 +2512,9 @@
               "type": "role",
               "role": "destination",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -3563,7 +2542,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             }
           ]
         },
@@ -3589,7 +2571,9 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "group",
@@ -3603,7 +2587,10 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": ["expression", "selector"]
+                  "expectedTypes": [
+                    "expression",
+                    "selector"
+                  ]
                 }
               ]
             }
@@ -3634,7 +2621,9 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "group",
@@ -3648,7 +2637,9 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": [
+                    "expression"
+                  ]
                 }
               ]
             }
@@ -3679,7 +2670,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             }
           ]
         },
@@ -3705,7 +2699,9 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -3731,7 +2727,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             }
           ]
         },
@@ -3757,7 +2756,9 @@
               "type": "role",
               "role": "quantity",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -3783,7 +2784,9 @@
               "type": "role",
               "role": "quantity",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -3809,7 +2812,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             }
           ]
         },
@@ -3835,7 +2841,9 @@
               "type": "role",
               "role": "patient",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -3861,7 +2869,9 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -3887,7 +2897,9 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "group",
@@ -3901,7 +2913,9 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": [
+                    "expression"
+                  ]
                 }
               ]
             }
@@ -3932,259 +2946,14 @@
               "type": "role",
               "role": "patient",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
         "extraction": {
           "patient": {}
-        }
-      }
-    ],
-    "toggle": [
-      {
-        "id": "toggle-zh-generated",
-        "language": "zh",
-        "command": "toggle",
-        "priority": 100,
-        "template": {
-          "format": "切换 {patient} 在 {destination}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "切换"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": false,
-              "expectedTypes": ["selector", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "在"
-                },
-                {
-                  "type": "role",
-                  "role": "destination",
-                  "optional": true,
-                  "expectedTypes": ["selector", "reference", "expression"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {},
-          "destination": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            },
-            "marker": "在"
-          }
-        }
-      }
-    ],
-    "add": [
-      {
-        "id": "add-zh-generated",
-        "language": "zh",
-        "command": "add",
-        "priority": 100,
-        "template": {
-          "format": "添加 {patient} 到 {destination}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "添加"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": false,
-              "expectedTypes": ["selector", "literal", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "到"
-                },
-                {
-                  "type": "role",
-                  "role": "destination",
-                  "optional": true,
-                  "expectedTypes": ["selector", "reference", "expression"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {},
-          "destination": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            },
-            "marker": "到"
-          }
-        }
-      }
-    ],
-    "remove": [
-      {
-        "id": "remove-zh-generated",
-        "language": "zh",
-        "command": "remove",
-        "priority": 100,
-        "template": {
-          "format": "移除 {patient} 从 {source}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "移除"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": false,
-              "expectedTypes": ["selector", "reference", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "从"
-                },
-                {
-                  "type": "role",
-                  "role": "source",
-                  "optional": true,
-                  "expectedTypes": ["selector", "reference", "expression"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {},
-          "source": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            },
-            "marker": "从"
-          }
-        }
-      }
-    ],
-    "show": [
-      {
-        "id": "show-zh-generated",
-        "language": "zh",
-        "command": "show",
-        "priority": 100,
-        "template": {
-          "format": "显示 {patient} 用 {style}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "显示"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": true,
-              "expectedTypes": ["selector", "reference", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "用"
-                },
-                {
-                  "type": "role",
-                  "role": "style",
-                  "optional": true,
-                  "expectedTypes": ["expression", "selector"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            }
-          },
-          "style": {
-            "marker": "用"
-          }
-        }
-      }
-    ],
-    "hide": [
-      {
-        "id": "hide-zh-generated",
-        "language": "zh",
-        "command": "hide",
-        "priority": 100,
-        "template": {
-          "format": "隐藏 {patient} 用 {style}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "隐藏"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": true,
-              "expectedTypes": ["selector", "reference", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "用"
-                },
-                {
-                  "type": "role",
-                  "role": "style",
-                  "optional": true,
-                  "expectedTypes": ["expression", "selector"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            }
-          },
-          "style": {
-            "marker": "用"
-          }
         }
       }
     ]
@@ -4203,7 +2972,9 @@
               "type": "role",
               "role": "destination",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "literal",
@@ -4235,7 +3006,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             },
             {
               "type": "literal",
@@ -4265,7 +3039,10 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": ["expression", "selector"]
+                  "expectedTypes": [
+                    "expression",
+                    "selector"
+                  ]
                 },
                 {
                   "type": "literal",
@@ -4277,7 +3054,9 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "literal",
@@ -4306,7 +3085,9 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "group",
@@ -4316,7 +3097,9 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": [
+                    "expression"
+                  ]
                 },
                 {
                   "type": "literal",
@@ -4351,7 +3134,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             },
             {
               "type": "literal",
@@ -4377,7 +3163,9 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "literal",
@@ -4403,7 +3191,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             },
             {
               "type": "literal",
@@ -4433,7 +3224,9 @@
               "type": "role",
               "role": "quantity",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -4459,7 +3252,9 @@
               "type": "role",
               "role": "quantity",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -4481,7 +3276,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             },
             {
               "type": "literal",
@@ -4513,7 +3311,9 @@
               "type": "role",
               "role": "patient",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "literal",
@@ -4539,7 +3339,9 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "literal",
@@ -4569,7 +3371,9 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": [
+                    "expression"
+                  ]
                 },
                 {
                   "type": "literal",
@@ -4581,7 +3385,9 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "literal",
@@ -4614,259 +3420,14 @@
               "type": "role",
               "role": "patient",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
         "extraction": {
           "patient": {}
-        }
-      }
-    ],
-    "toggle": [
-      {
-        "id": "toggle-tr-generated",
-        "language": "tr",
-        "command": "toggle",
-        "priority": 100,
-        "template": {
-          "format": "e {destination} {patient} değiştir",
-          "tokens": [
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "role",
-                  "role": "destination",
-                  "optional": true,
-                  "expectedTypes": ["selector", "reference", "expression"]
-                },
-                {
-                  "type": "literal",
-                  "value": "e"
-                }
-              ]
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": false,
-              "expectedTypes": ["selector", "expression"]
-            },
-            {
-              "type": "literal",
-              "value": "değiştir"
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {},
-          "destination": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            },
-            "marker": "e"
-          }
-        }
-      }
-    ],
-    "add": [
-      {
-        "id": "add-tr-generated",
-        "language": "tr",
-        "command": "add",
-        "priority": 100,
-        "template": {
-          "format": "e {destination} {patient} ekle",
-          "tokens": [
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "role",
-                  "role": "destination",
-                  "optional": true,
-                  "expectedTypes": ["selector", "reference", "expression"]
-                },
-                {
-                  "type": "literal",
-                  "value": "e"
-                }
-              ]
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": false,
-              "expectedTypes": ["selector", "literal", "expression"]
-            },
-            {
-              "type": "literal",
-              "value": "ekle"
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {},
-          "destination": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            },
-            "marker": "e"
-          }
-        }
-      }
-    ],
-    "remove": [
-      {
-        "id": "remove-tr-generated",
-        "language": "tr",
-        "command": "remove",
-        "priority": 100,
-        "template": {
-          "format": "{source} den {patient} kaldır",
-          "tokens": [
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "role",
-                  "role": "source",
-                  "optional": true,
-                  "expectedTypes": ["selector", "reference", "expression"]
-                },
-                {
-                  "type": "literal",
-                  "value": "den"
-                }
-              ]
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": false,
-              "expectedTypes": ["selector", "reference", "expression"]
-            },
-            {
-              "type": "literal",
-              "value": "kaldır"
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {},
-          "source": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            },
-            "marker": "den"
-          }
-        }
-      }
-    ],
-    "show": [
-      {
-        "id": "show-tr-generated",
-        "language": "tr",
-        "command": "show",
-        "priority": 100,
-        "template": {
-          "format": "{patient} {style} le göster",
-          "tokens": [
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": true,
-              "expectedTypes": ["selector", "reference", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "role",
-                  "role": "style",
-                  "optional": true,
-                  "expectedTypes": ["expression", "selector"]
-                },
-                {
-                  "type": "literal",
-                  "value": "le"
-                }
-              ]
-            },
-            {
-              "type": "literal",
-              "value": "göster"
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            }
-          },
-          "style": {
-            "marker": "le"
-          }
-        }
-      }
-    ],
-    "hide": [
-      {
-        "id": "hide-tr-generated",
-        "language": "tr",
-        "command": "hide",
-        "priority": 100,
-        "template": {
-          "format": "{patient} {style} le gizle",
-          "tokens": [
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": true,
-              "expectedTypes": ["selector", "reference", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "role",
-                  "role": "style",
-                  "optional": true,
-                  "expectedTypes": ["expression", "selector"]
-                },
-                {
-                  "type": "literal",
-                  "value": "le"
-                }
-              ]
-            },
-            {
-              "type": "literal",
-              "value": "gizle"
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            }
-          },
-          "style": {
-            "marker": "le"
-          }
         }
       }
     ]
@@ -4884,7 +3445,9 @@
             {
               "type": "literal",
               "value": "naviguer",
-              "alternatives": ["aller"]
+              "alternatives": [
+                "aller"
+              ]
             },
             {
               "type": "literal",
@@ -4894,7 +3457,9 @@
               "type": "role",
               "role": "destination",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -4926,7 +3491,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             }
           ]
         },
@@ -4949,13 +3517,17 @@
             {
               "type": "literal",
               "value": "taper",
-              "alternatives": ["écrire"]
+              "alternatives": [
+                "écrire"
+              ]
             },
             {
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "group",
@@ -4969,7 +3541,10 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": ["expression", "selector"]
+                  "expectedTypes": [
+                    "expression",
+                    "selector"
+                  ]
                 }
               ]
             }
@@ -5000,7 +3575,9 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "group",
@@ -5014,7 +3591,9 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": [
+                    "expression"
+                  ]
                 }
               ]
             }
@@ -5045,7 +3624,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             }
           ]
         },
@@ -5071,7 +3653,9 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -5097,7 +3681,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             }
           ]
         },
@@ -5123,7 +3710,9 @@
               "type": "role",
               "role": "quantity",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -5149,7 +3738,9 @@
               "type": "role",
               "role": "quantity",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -5175,7 +3766,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             }
           ]
         },
@@ -5201,7 +3795,9 @@
               "type": "role",
               "role": "patient",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -5227,7 +3823,9 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -5248,13 +3846,17 @@
             {
               "type": "literal",
               "value": "chercher",
-              "alternatives": ["rechercher"]
+              "alternatives": [
+                "rechercher"
+              ]
             },
             {
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "group",
@@ -5268,7 +3870,9 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": [
+                    "expression"
+                  ]
                 }
               ]
             }
@@ -5299,259 +3903,14 @@
               "type": "role",
               "role": "patient",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
         "extraction": {
           "patient": {}
-        }
-      }
-    ],
-    "toggle": [
-      {
-        "id": "toggle-fr-generated",
-        "language": "fr",
-        "command": "toggle",
-        "priority": 100,
-        "template": {
-          "format": "basculer {patient} sur {destination}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "basculer"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": false,
-              "expectedTypes": ["selector", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "sur"
-                },
-                {
-                  "type": "role",
-                  "role": "destination",
-                  "optional": true,
-                  "expectedTypes": ["selector", "reference", "expression"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {},
-          "destination": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            },
-            "marker": "sur"
-          }
-        }
-      }
-    ],
-    "add": [
-      {
-        "id": "add-fr-generated",
-        "language": "fr",
-        "command": "add",
-        "priority": 100,
-        "template": {
-          "format": "ajouter {patient} à {destination}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "ajouter"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": false,
-              "expectedTypes": ["selector", "literal", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "à"
-                },
-                {
-                  "type": "role",
-                  "role": "destination",
-                  "optional": true,
-                  "expectedTypes": ["selector", "reference", "expression"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {},
-          "destination": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            },
-            "marker": "à"
-          }
-        }
-      }
-    ],
-    "remove": [
-      {
-        "id": "remove-fr-generated",
-        "language": "fr",
-        "command": "remove",
-        "priority": 100,
-        "template": {
-          "format": "supprimer {patient} de {source}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "supprimer"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": false,
-              "expectedTypes": ["selector", "reference", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "de"
-                },
-                {
-                  "type": "role",
-                  "role": "source",
-                  "optional": true,
-                  "expectedTypes": ["selector", "reference", "expression"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {},
-          "source": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            },
-            "marker": "de"
-          }
-        }
-      }
-    ],
-    "show": [
-      {
-        "id": "show-fr-generated",
-        "language": "fr",
-        "command": "show",
-        "priority": 100,
-        "template": {
-          "format": "montrer {patient} avec {style}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "montrer"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": true,
-              "expectedTypes": ["selector", "reference", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "avec"
-                },
-                {
-                  "type": "role",
-                  "role": "style",
-                  "optional": true,
-                  "expectedTypes": ["expression", "selector"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            }
-          },
-          "style": {
-            "marker": "avec"
-          }
-        }
-      }
-    ],
-    "hide": [
-      {
-        "id": "hide-fr-generated",
-        "language": "fr",
-        "command": "hide",
-        "priority": 100,
-        "template": {
-          "format": "cacher {patient} avec {style}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "cacher"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": true,
-              "expectedTypes": ["selector", "reference", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "avec"
-                },
-                {
-                  "type": "role",
-                  "role": "style",
-                  "optional": true,
-                  "expectedTypes": ["expression", "selector"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            }
-          },
-          "style": {
-            "marker": "avec"
-          }
         }
       }
     ]
@@ -5578,7 +3937,9 @@
               "type": "role",
               "role": "destination",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -5606,7 +3967,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             }
           ]
         },
@@ -5632,7 +3996,9 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "group",
@@ -5646,7 +4012,10 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": ["expression", "selector"]
+                  "expectedTypes": [
+                    "expression",
+                    "selector"
+                  ]
                 }
               ]
             }
@@ -5677,7 +4046,9 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "group",
@@ -5691,7 +4062,9 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": [
+                    "expression"
+                  ]
                 }
               ]
             }
@@ -5722,7 +4095,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             }
           ]
         },
@@ -5748,7 +4124,9 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -5774,7 +4152,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             }
           ]
         },
@@ -5800,7 +4181,9 @@
               "type": "role",
               "role": "quantity",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -5826,7 +4209,9 @@
               "type": "role",
               "role": "quantity",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -5852,7 +4237,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             }
           ]
         },
@@ -5878,7 +4266,9 @@
               "type": "role",
               "role": "patient",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -5904,7 +4294,9 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -5930,7 +4322,9 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "group",
@@ -5944,7 +4338,9 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": [
+                    "expression"
+                  ]
                 }
               ]
             }
@@ -5975,259 +4371,14 @@
               "type": "role",
               "role": "patient",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
         "extraction": {
           "patient": {}
-        }
-      }
-    ],
-    "toggle": [
-      {
-        "id": "toggle-de-generated",
-        "language": "de",
-        "command": "toggle",
-        "priority": 100,
-        "template": {
-          "format": "umschalten {patient} auf {destination}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "umschalten"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": false,
-              "expectedTypes": ["selector", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "auf"
-                },
-                {
-                  "type": "role",
-                  "role": "destination",
-                  "optional": true,
-                  "expectedTypes": ["selector", "reference", "expression"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {},
-          "destination": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            },
-            "marker": "auf"
-          }
-        }
-      }
-    ],
-    "add": [
-      {
-        "id": "add-de-generated",
-        "language": "de",
-        "command": "add",
-        "priority": 100,
-        "template": {
-          "format": "hinzufügen {patient} zu {destination}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "hinzufügen"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": false,
-              "expectedTypes": ["selector", "literal", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "zu"
-                },
-                {
-                  "type": "role",
-                  "role": "destination",
-                  "optional": true,
-                  "expectedTypes": ["selector", "reference", "expression"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {},
-          "destination": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            },
-            "marker": "zu"
-          }
-        }
-      }
-    ],
-    "remove": [
-      {
-        "id": "remove-de-generated",
-        "language": "de",
-        "command": "remove",
-        "priority": 100,
-        "template": {
-          "format": "entfernen {patient} von {source}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "entfernen"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": false,
-              "expectedTypes": ["selector", "reference", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "von"
-                },
-                {
-                  "type": "role",
-                  "role": "source",
-                  "optional": true,
-                  "expectedTypes": ["selector", "reference", "expression"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {},
-          "source": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            },
-            "marker": "von"
-          }
-        }
-      }
-    ],
-    "show": [
-      {
-        "id": "show-de-generated",
-        "language": "de",
-        "command": "show",
-        "priority": 100,
-        "template": {
-          "format": "zeigen {patient} mit {style}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "zeigen"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": true,
-              "expectedTypes": ["selector", "reference", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "mit"
-                },
-                {
-                  "type": "role",
-                  "role": "style",
-                  "optional": true,
-                  "expectedTypes": ["expression", "selector"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            }
-          },
-          "style": {
-            "marker": "mit"
-          }
-        }
-      }
-    ],
-    "hide": [
-      {
-        "id": "hide-de-generated",
-        "language": "de",
-        "command": "hide",
-        "priority": 100,
-        "template": {
-          "format": "verbergen {patient} mit {style}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "verbergen"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": true,
-              "expectedTypes": ["selector", "reference", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "mit"
-                },
-                {
-                  "type": "role",
-                  "role": "style",
-                  "optional": true,
-                  "expectedTypes": ["expression", "selector"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            }
-          },
-          "style": {
-            "marker": "mit"
-          }
         }
       }
     ]
@@ -6254,7 +4405,9 @@
               "type": "role",
               "role": "destination",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -6282,7 +4435,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             }
           ]
         },
@@ -6308,7 +4464,9 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "group",
@@ -6322,7 +4480,10 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": ["expression", "selector"]
+                  "expectedTypes": [
+                    "expression",
+                    "selector"
+                  ]
                 }
               ]
             }
@@ -6353,7 +4514,9 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "group",
@@ -6367,7 +4530,9 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": [
+                    "expression"
+                  ]
                 }
               ]
             }
@@ -6398,7 +4563,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             }
           ]
         },
@@ -6424,7 +4592,9 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -6450,7 +4620,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             }
           ]
         },
@@ -6476,7 +4649,9 @@
               "type": "role",
               "role": "quantity",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -6502,7 +4677,9 @@
               "type": "role",
               "role": "quantity",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -6528,7 +4705,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             }
           ]
         },
@@ -6554,7 +4734,9 @@
               "type": "role",
               "role": "patient",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -6580,7 +4762,9 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -6606,7 +4790,9 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "group",
@@ -6620,7 +4806,9 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": [
+                    "expression"
+                  ]
                 }
               ]
             }
@@ -6651,259 +4839,14 @@
               "type": "role",
               "role": "patient",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
         "extraction": {
           "patient": {}
-        }
-      }
-    ],
-    "toggle": [
-      {
-        "id": "toggle-pt-generated",
-        "language": "pt",
-        "command": "toggle",
-        "priority": 100,
-        "template": {
-          "format": "alternar {patient} em {destination}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "alternar"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": false,
-              "expectedTypes": ["selector", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "em"
-                },
-                {
-                  "type": "role",
-                  "role": "destination",
-                  "optional": true,
-                  "expectedTypes": ["selector", "reference", "expression"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {},
-          "destination": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            },
-            "marker": "em"
-          }
-        }
-      }
-    ],
-    "add": [
-      {
-        "id": "add-pt-generated",
-        "language": "pt",
-        "command": "add",
-        "priority": 100,
-        "template": {
-          "format": "adicionar {patient} a {destination}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "adicionar"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": false,
-              "expectedTypes": ["selector", "literal", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "a"
-                },
-                {
-                  "type": "role",
-                  "role": "destination",
-                  "optional": true,
-                  "expectedTypes": ["selector", "reference", "expression"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {},
-          "destination": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            },
-            "marker": "a"
-          }
-        }
-      }
-    ],
-    "remove": [
-      {
-        "id": "remove-pt-generated",
-        "language": "pt",
-        "command": "remove",
-        "priority": 100,
-        "template": {
-          "format": "remover {patient} de {source}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "remover"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": false,
-              "expectedTypes": ["selector", "reference", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "de"
-                },
-                {
-                  "type": "role",
-                  "role": "source",
-                  "optional": true,
-                  "expectedTypes": ["selector", "reference", "expression"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {},
-          "source": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            },
-            "marker": "de"
-          }
-        }
-      }
-    ],
-    "show": [
-      {
-        "id": "show-pt-generated",
-        "language": "pt",
-        "command": "show",
-        "priority": 100,
-        "template": {
-          "format": "mostrar {patient} com {style}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "mostrar"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": true,
-              "expectedTypes": ["selector", "reference", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "com"
-                },
-                {
-                  "type": "role",
-                  "role": "style",
-                  "optional": true,
-                  "expectedTypes": ["expression", "selector"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            }
-          },
-          "style": {
-            "marker": "com"
-          }
-        }
-      }
-    ],
-    "hide": [
-      {
-        "id": "hide-pt-generated",
-        "language": "pt",
-        "command": "hide",
-        "priority": 100,
-        "template": {
-          "format": "ocultar {patient} com {style}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "ocultar"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": true,
-              "expectedTypes": ["selector", "reference", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "com"
-                },
-                {
-                  "type": "role",
-                  "role": "style",
-                  "optional": true,
-                  "expectedTypes": ["expression", "selector"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            }
-          },
-          "style": {
-            "marker": "com"
-          }
         }
       }
     ]
@@ -6930,7 +4873,9 @@
               "type": "role",
               "role": "destination",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -6958,7 +4903,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             }
           ]
         },
@@ -6984,7 +4932,9 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "group",
@@ -6998,7 +4948,10 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": ["expression", "selector"]
+                  "expectedTypes": [
+                    "expression",
+                    "selector"
+                  ]
                 }
               ]
             }
@@ -7029,7 +4982,9 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "group",
@@ -7043,7 +4998,9 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": [
+                    "expression"
+                  ]
                 }
               ]
             }
@@ -7074,7 +5031,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             }
           ]
         },
@@ -7100,7 +5060,9 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -7126,7 +5088,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             }
           ]
         },
@@ -7152,7 +5117,9 @@
               "type": "role",
               "role": "quantity",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -7178,7 +5145,9 @@
               "type": "role",
               "role": "quantity",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -7204,7 +5173,10 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression", "selector"]
+              "expectedTypes": [
+                "expression",
+                "selector"
+              ]
             }
           ]
         },
@@ -7230,7 +5202,9 @@
               "type": "role",
               "role": "patient",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -7256,7 +5230,9 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
@@ -7282,7 +5258,9 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             },
             {
               "type": "group",
@@ -7296,7 +5274,9 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": [
+                    "expression"
+                  ]
                 }
               ]
             }
@@ -7327,259 +5307,14 @@
               "type": "role",
               "role": "patient",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "expectedTypes": [
+                "expression"
+              ]
             }
           ]
         },
         "extraction": {
           "patient": {}
-        }
-      }
-    ],
-    "toggle": [
-      {
-        "id": "toggle-ru-generated",
-        "language": "ru",
-        "command": "toggle",
-        "priority": 100,
-        "template": {
-          "format": "переключить {patient} в {destination}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "переключить"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": false,
-              "expectedTypes": ["selector", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "в"
-                },
-                {
-                  "type": "role",
-                  "role": "destination",
-                  "optional": true,
-                  "expectedTypes": ["selector", "reference", "expression"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {},
-          "destination": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            },
-            "marker": "в"
-          }
-        }
-      }
-    ],
-    "add": [
-      {
-        "id": "add-ru-generated",
-        "language": "ru",
-        "command": "add",
-        "priority": 100,
-        "template": {
-          "format": "добавить {patient} в {destination}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "добавить"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": false,
-              "expectedTypes": ["selector", "literal", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "в"
-                },
-                {
-                  "type": "role",
-                  "role": "destination",
-                  "optional": true,
-                  "expectedTypes": ["selector", "reference", "expression"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {},
-          "destination": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            },
-            "marker": "в"
-          }
-        }
-      }
-    ],
-    "remove": [
-      {
-        "id": "remove-ru-generated",
-        "language": "ru",
-        "command": "remove",
-        "priority": 100,
-        "template": {
-          "format": "удалить {patient} из {source}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "удалить"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": false,
-              "expectedTypes": ["selector", "reference", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "из"
-                },
-                {
-                  "type": "role",
-                  "role": "source",
-                  "optional": true,
-                  "expectedTypes": ["selector", "reference", "expression"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {},
-          "source": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            },
-            "marker": "из"
-          }
-        }
-      }
-    ],
-    "show": [
-      {
-        "id": "show-ru-generated",
-        "language": "ru",
-        "command": "show",
-        "priority": 100,
-        "template": {
-          "format": "показать {patient} с {style}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "показать"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": true,
-              "expectedTypes": ["selector", "reference", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "с"
-                },
-                {
-                  "type": "role",
-                  "role": "style",
-                  "optional": true,
-                  "expectedTypes": ["expression", "selector"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            }
-          },
-          "style": {
-            "marker": "с"
-          }
-        }
-      }
-    ],
-    "hide": [
-      {
-        "id": "hide-ru-generated",
-        "language": "ru",
-        "command": "hide",
-        "priority": 100,
-        "template": {
-          "format": "скрыть {patient} с {style}",
-          "tokens": [
-            {
-              "type": "literal",
-              "value": "скрыть"
-            },
-            {
-              "type": "role",
-              "role": "patient",
-              "optional": true,
-              "expectedTypes": ["selector", "reference", "expression"]
-            },
-            {
-              "type": "group",
-              "optional": true,
-              "tokens": [
-                {
-                  "type": "literal",
-                  "value": "с"
-                },
-                {
-                  "type": "role",
-                  "role": "style",
-                  "optional": true,
-                  "expectedTypes": ["expression", "selector"]
-                }
-              ]
-            }
-          ]
-        },
-        "extraction": {
-          "patient": {
-            "default": {
-              "type": "reference",
-              "value": "me"
-            }
-          },
-          "style": {
-            "marker": "с"
-          }
         }
       }
     ]

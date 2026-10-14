@@ -1,6 +1,6 @@
 # lokascript-domains
 
-The **LokaScript multilingual domain-DSL family** — 16 domain DSLs built on
+The **LokaScript multilingual domain-DSL family** — 8 domain DSLs built on
 [`@lokascript/framework`](https://www.npmjs.com/package/@lokascript/framework),
 each multilingual from day one. Extracted from
 [hyperfixi](https://github.com/codetalcott/hyperfixi) in 2026-08 (tag
@@ -30,27 +30,23 @@ the extension seam for third parties is `@lokascript/framework`'s
 | `@lokascript/domain-sql` | SQL DSL (11 languages) |
 | `@lokascript/domain-bdd` | BDD/Gherkin DSL (8 languages) |
 | `@lokascript/domain-behaviorspec` | Interaction-testing DSL (8 languages) |
-| `@lokascript/domain-jsx` | JSX/React DSL (11 languages) |
 | `@lokascript/domain-llm` | LLM prompt DSL (11 languages) |
 | `@lokascript/domain-todo` | Todo DSL (11 languages) |
 | `@lokascript/domain-flow` | Reactive data-flow DSL (11 languages) |
-| `@lokascript/domain-voice` | Voice/accessibility DSL (11 languages) |
+| `@lokascript/domain-voice` | Voice/accessibility page-control DSL (11 languages) |
 | `@lokascript/domain-learn` | Language-learning DSL (10 languages) |
-| `@lokascript/domain-events` | Domain-events DSL (absorbed from lokascript-lessons) |
-| `@lokascript/domain-animation` | Animation DSL (absorbed from lokascript-lessons) |
-| `@lokascript/domain-control` | Control-flow DSL (absorbed from lokascript-lessons) |
-| `@lokascript/domain-html` | HTML DSL (absorbed from lokascript-lessons) |
-| `@lokascript/domain-hypermedia` | Hypermedia DSL (absorbed from lokascript-lessons) |
-| `@lokascript/domain-sprites` | Sprite DSL (absorbed from sprite-dsl) |
 | `@lokascript/domain-config` | The registry choke point — lazy imports, per-domain language sets, dispatcher priorities; re-exported by the aggregate's root entry |
 | `@lokascript/domain-toolkit` | Shared test harness (dev-dep of the family) |
-| `mcp-multilingual-intent` | Private MCP surface for the domain family |
+
+Retired in 4.0.0, with their sources under the tag `archived/domains-preview-2026-10`:
+`domain-jsx`, `domain-animation`, `domain-control`, `domain-events`, `domain-html`,
+`domain-hypermedia`, `domain-sprites` and `mcp-multilingual-intent`.
 
 ## Versioning
 
 One version across every manifest here, published as `@lokascript/domains`.
 The **major tracks the `@lokascript/framework` major the family is built
-against** (3.x → framework 3.x); minor and patch are this repo's own and do
+against** (4.x → framework 4.x); minor and patch are this repo's own and do
 not chase hyperfixi's. Framework, semantic and intent are **peer
 dependencies** of the aggregate: the consumer owns the single copy of the
 contract, so it can never fork against the consumer's own framework.
