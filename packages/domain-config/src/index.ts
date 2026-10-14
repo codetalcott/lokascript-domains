@@ -6,15 +6,16 @@
  * domains behind a CrossDomainDispatcher).
  *
  * Single source of truth for:
- *   - Which domains exist (sql, bdd, jsx, todo, behaviorspec, llm, flow,
- *     voice, learn)
+ *   - Which domains exist (sql, bdd, todo, behaviorspec, llm, flow, voice,
+ *     learn)
  *   - How each domain loads its DSL and renderer (lazy dynamic imports)
  *   - How each domain surfaces for AOT/Vite plugin scanning (scanConfig)
  *   - How the dispatcher breaks ambiguity when multiple domains match
  *
  * Previously duplicated between @hyperfixi/mcp-server and
- * @lokascript/mcp-multilingual-intent. Consolidating here prevents drift on
- * new domain additions, schema changes, or priority reordering.
+ * @lokascript/mcp-multilingual-intent (retired in 4.0.0). Consolidating here
+ * prevents drift on new domain additions, schema changes, or priority
+ * reordering.
  */
 
 import { DomainRegistry } from '@lokascript/framework';
@@ -47,7 +48,7 @@ export const LEARN_LANGUAGES = BRIDGE_LANGUAGES.slice(0, 10);
 export const CLASSIC_LANGUAGES = BRIDGE_LANGUAGES.slice(0, 8);
 
 /**
- * Create and populate a DomainRegistry with all 9 LokaScript domains.
+ * Create and populate a DomainRegistry with all 8 LokaScript domains.
  *
  * Schemas are loaded lazily on first access so startup stays fast. An
  * asynchronous pass attaches each domain's schemas to the registry (used by
@@ -62,7 +63,7 @@ export function createDomainRegistry(): DomainRegistry {
 }
 
 /**
- * Register all 9 domains into an existing registry. The returned promise
+ * Register all 8 domains into an existing registry. The returned promise
  * resolves once the async schema-attachment pass completes — await it when a
  * caller needs `getSchemas`/`generatePrompt` to be populated (tests, one-shot
  * CLI tools); fire-and-forget callers get the same lazy behavior as
@@ -97,23 +98,6 @@ export async function registerAllDomains(registry: DomainRegistry): Promise<void
     scanConfig: {
       attributes: ['data-bdd', '_bdd'],
       scriptTypes: ['text/bdd'],
-      defaultLanguage: 'en',
-    },
-  });
-
-  registry.register({
-    name: 'jsx',
-    description: 'natural language JSX/React',
-    languages: BRIDGE_LANGUAGES,
-    inputLabel: 'code',
-    inputDescription:
-      'JSX description in natural language (e.g., "element div with className app")',
-    outputDescription: 'JSX/React component markup',
-    getDSL: () => import('@lokascript/domain-jsx').then(m => m.createJSXDSL()),
-    getRenderer: () => import('@lokascript/domain-jsx').then(m => m.renderJSX),
-    scanConfig: {
-      attributes: ['data-jsx', '_jsx'],
-      scriptTypes: ['text/jsx-dsl'],
       defaultLanguage: 'en',
     },
   });
@@ -230,7 +214,6 @@ async function loadAllSchemas(registry: DomainRegistry): Promise<void> {
   const loaders: Array<{ domain: string; load: () => Promise<unknown[]> }> = [
     { domain: 'sql', load: () => import('@lokascript/domain-sql').then(m => [...m.allSchemas]) },
     { domain: 'bdd', load: () => import('@lokascript/domain-bdd').then(m => [...m.allSchemas]) },
-    { domain: 'jsx', load: () => import('@lokascript/domain-jsx').then(m => [...m.allSchemas]) },
     { domain: 'todo', load: () => import('@lokascript/domain-todo').then(m => [...m.allSchemas]) },
     {
       domain: 'behaviorspec',
@@ -265,9 +248,9 @@ async function loadAllSchemas(registry: DomainRegistry): Promise<void> {
  * confidence ties. Specific syntaxes (sql, bdd) come before more generic
  * pattern matchers (voice, flow) that otherwise overmatch.
  *
- * Load-bearing: the dispatcher routing guard in mcp-multilingual-intent's
- * detect-domain.test.ts pins `sql` before `todo`, which is relied on by the
- * natural-language `add X into Y` → sql routing.
+ * Load-bearing: the dispatcher routing guard in
+ * `__tests__/dispatcher-routing.test.ts` pins `sql` before `todo`, which is
+ * relied on by the natural-language `add X into Y` → sql routing.
  *
  * `learn` is last: its vocabulary is generic hyperscript-style verbs
  * (add/remove/toggle/…), so anything earlier would steal matches from the
@@ -277,7 +260,6 @@ export const DOMAIN_PRIORITY: readonly string[] = [
   'sql',
   'bdd',
   'behaviorspec',
-  'jsx',
   'todo',
   'llm',
   'flow',

@@ -11,7 +11,6 @@ export default defineConfig({
     '@lokascript/framework',
     '@lokascript/domain-sql',
     '@lokascript/domain-bdd',
-    '@lokascript/domain-jsx',
     '@lokascript/domain-todo',
     '@lokascript/domain-behaviorspec',
     '@lokascript/domain-llm',

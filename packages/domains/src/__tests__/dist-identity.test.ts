@@ -13,23 +13,16 @@ import { DomainRegistry } from '@lokascript/framework';
 import { createDomainRegistry, registerAllDomains, DOMAIN_PRIORITY } from '../../dist/index.js';
 import * as sqlEntry from '../../dist/sql.js';
 
-/** subpath → its DSL factory export (the 9 registry-wired + 6 strays). */
+/** subpath → its DSL factory export (the 8 registry-wired domains). */
 const SUBPATH_FACTORIES: Record<string, string> = {
   sql: 'createSQLDSL',
   flow: 'createFlowDSL',
   bdd: 'createBDDDSL',
   behaviorspec: 'createBehaviorSpecDSL',
-  jsx: 'createJSXDSL',
   llm: 'createLLMDSL',
   todo: 'createTodoDSL',
   voice: 'createVoiceDSL',
   learn: 'createLearnDSL',
-  animation: 'createAnimationDSL',
-  control: 'createControlDSL',
-  events: 'createEventsDSL',
-  html: 'createHtmlDSL',
-  hypermedia: 'createHypermediaDSL',
-  sprites: 'createSpriteDSL',
 };
 
 describe('every subpath entry loads and exposes its factory', () => {
@@ -43,7 +36,7 @@ describe('every subpath entry loads and exposes its factory', () => {
 });
 
 describe('dist-level module identity (singleton-fork guard)', () => {
-  it('registry schema objects ARE the subpath-export schema objects, all 9 domains', async () => {
+  it('registry schema objects ARE the subpath-export schema objects, all 8 domains', async () => {
     const registry = new DomainRegistry();
     await registerAllDomains(registry);
 

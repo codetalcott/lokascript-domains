@@ -55,8 +55,7 @@ if (!createDomainRegistry().canHandle('parse_flow')) {
 }
 
 // Every subpath export must load from the installed copy.
-const SUBPATHS = ['sql','flow','bdd','behaviorspec','jsx','llm','todo','voice','learn',
-                  'animation','control','events','html','hypermedia','sprites'];
+const SUBPATHS = ['sql','flow','bdd','behaviorspec','llm','todo','voice','learn'];
 for (const s of SUBPATHS) {
   const mod = await import(`@lokascript/domains/${s}`);
   if (!mod.allSchemas) throw new Error(`subpath ${s}: allSchemas missing`);

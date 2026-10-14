@@ -1,5 +1,37 @@
 # Changelog
 
+## 4.0.0
+
+- **BREAKING: built for `@lokascript/framework` 4.x.** The framework,
+  semantic and intent peers are `^4.0.0` (3.x is dropped), and the family is
+  built and tested against 4.5.0 (lockfile 3.3.0 → 4.5.0). 3.0.1 accepted 4.x
+  but was only ever run on it from hyperfixi's side; this release runs its own
+  build, typecheck, test gate and pack smoke on 4.x.
+- **BREAKING: seven domains retired.** The subpaths `./jsx`, `./animation`,
+  `./control`, `./events`, `./html`, `./hypermedia` and `./sprites` are gone,
+  and `jsx` leaves `registerAllDomains` and `DOMAIN_PRIORITY` (8 registry
+  domains, from 9). Their sources stay under the tag
+  `archived/domains-preview-2026-10`. This is the first step of hyperfixi's
+  domains rethink (`docs-internal/DOMAINS_RETHINK.md` there), which moves the
+  family onto one shared matcher and keeps only the DSLs worth moving:
+  events, hypermedia, animation and control emitted hyperscript or a skeleton
+  (events partly invalid on the engine), html and sprites had no consumer,
+  and sql, flow and behaviorspec already do jsx's job as a second example.
+  2.x, which lokascript-learn and lokascript-examples pin, keeps all of them.
+- **BREAKING: voice drops `toggle`, `add`, `remove`, `show` and `hide`.** They
+  were semantic's hyperscript schemas, borrowed, and voice's generator
+  compiled every one of them to `// Unknown voice command: <action>`. semantic
+  4.x changed them under voice (toggle gained a `goal` role,
+  `toggle between .a and .b`), which failed voice's lint and golden checks.
+  `voiceToggleSchema`, `voiceAddSchema`, `voiceRemoveSchema`,
+  `voiceShowSchema`, `voiceHideSchema` and `behaviorSchemas` are no longer
+  exported. voice's 14 page-control commands are unchanged: their generated
+  patterns are identical.
+- The private `mcp-multilingual-intent` package (a stale copy of the registry
+  behind a Hono Siren API) is retired. Its dispatcher routing guard
+  (`add X into Y` → sql, `add X to Y` → todo) moves to domain-config's tests,
+  beside the `DOMAIN_PRIORITY` it pins.
+
 ## 3.0.1
 
 - **Accepts `@lokascript/framework`, `semantic` and `intent` 4.x as well as

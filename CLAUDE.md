@@ -4,11 +4,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repo is
 
-The LokaScript multilingual domain-DSL family: 16 domain DSLs (SQL, BDD, JSX, flow, …) built on
-`@lokascript/framework`, published as **one** npm package, `@lokascript/domains`
-(`packages/domains`). Every other `packages/*` directory is a **private** workspace package that the
-aggregate bundles into its dist at build time. Extracted from hyperfixi in 2026-08; releases stay in
-lockstep on hyperfixi's 2.x line.
+The LokaScript multilingual domain-DSL family: 8 domain DSLs (SQL, flow, BDD, behavior specs, LLM
+prompts, todo, voice, learn) built on `@lokascript/framework`, published as **one** npm package,
+`@lokascript/domains` (`packages/domains`). Every other `packages/*` directory is a **private**
+workspace package that the aggregate bundles into its dist at build time. Extracted from hyperfixi in
+2026-08. 4.0.0 retired jsx, animation, control, events, html, hypermedia, sprites and the private
+mcp-multilingual-intent (sources under the tag `archived/domains-preview-2026-10`).
+
+**The family is being rebuilt.** hyperfixi's `docs-internal/DOMAINS_RETHINK.md` (decisions D1–D6,
+2026-10-14) moves every kept domain onto one matcher built from semantic's, with a round-trip gate in
+this repo first (its Phase 2). Read it before changing a domain's schemas or the factory it uses.
 
 Upstream deps (`@lokascript/framework`, `@lokascript/semantic`, `@lokascript/intent`,
 `@hyperfixi/patterns-reference`) come from the npm registry. Nothing here assumes a sibling hyperfixi
@@ -19,7 +24,7 @@ are **peerDependencies** (mirrored in devDependencies for local dev); the consum
 
 ```bash
 npm install              # root; npm workspaces
-npm run build            # topological: scripts/build-all.sh (toolkit → 16 domains → domain-config → domains → mcp)
+npm run build            # topological: scripts/build-all.sh (toolkit → 8 domains → domain-config → domains)
 npm run typecheck        # every package with a typecheck script
 npm run test:check       # compact gate over every package with a test:check script
 bash scripts/pack-smoke.sh   # npm pack the aggregate, install into a clean tmp dir, smoke every subpath + d.ts
@@ -48,16 +53,12 @@ timeout with no summary, or a non-zero exit with a passing summary (coverage mis
 
 Never pipe `pack-smoke.sh` through `tail`/`head`; the pipeline exit code lies.
 
-MCP server (`packages/mcp-multilingual-intent`): `npm run dev` starts the Hono Siren API on :3030,
-`npm run mcp:test` verifies the Siren format, `npm run mcp` bridges it to stdio MCP via a
-sibling `siren-grail` checkout.
-
 ## Release and versioning
 
-One version across all 20 manifests, never hand-edited:
+One version across all 12 manifests, never hand-edited:
 
 ```bash
-npm run version:set 3.1.0     # every package + root, rewrites internal ranges to ^3.1.0
+npm run version:set 4.1.0     # every package + root, rewrites internal ranges to ^4.1.0
 npm install                   # refresh package-lock.json
 npm run version:validate      # CI + first publish step run this too
 ```
@@ -102,17 +103,13 @@ groups the four upstream packages into one weekly PR that runs the full gate.
 ### The registry choke point (`packages/domain-config`)
 
 `src/index.ts` is the single source of truth for which domains exist for dispatch:
-`registerAllDomains(registry)` registers the **9 registry-wired** domains (sql, bdd, behaviorspec,
-jsx, todo, llm, flow, voice, learn) with lazy `import()` loaders, then awaits an async
+`registerAllDomains(registry)` registers the **8** domains (sql, bdd, behaviorspec, todo, llm,
+flow, voice, learn) with lazy `import()` loaders, then awaits an async
 schema-attachment pass (failures swallowed; `createDomainRegistry()` fires and forgets it).
 `DOMAIN_PRIORITY` is the `CrossDomainDispatcher` tie-break order and is load-bearing: `sql` before
 `todo` (natural-language `add X into Y` routes to sql), `learn` last (generic verbs overmatch).
 Language sets (`BRIDGE_LANGUAGES` 11, `LEARN_LANGUAGES` 10, `CLASSIC_LANGUAGES` 8) are static so
 registration stays lazy; `languages.test.ts` catches drift against the DSLs.
-
-The other 6 domains (animation, control, events, html, hypermedia, sprites) are absorbed "strays":
-they build, ship as subpaths, and have suites, but are **not** in `DOMAIN_PRIORITY` and are
-documented as preview-quality.
 
 ### Anatomy of a domain package
 

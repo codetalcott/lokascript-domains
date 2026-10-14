@@ -27,7 +27,7 @@ const registry = createDomainRegistry();
 await registry.handleToolCall('parse_sql', { query: 'select name from users', language: 'en' });
 ```
 
-`registerAllDomains(registry)` registers the same nine domains into an existing
+`registerAllDomains(registry)` registers the same eight domains into an existing
 `DomainRegistry` and resolves once the async schema-attachment pass completes —
 await it when `getSchemas`/`generatePrompt` must be populated.
 
@@ -41,24 +41,14 @@ await it when `getSchemas`/`generatePrompt` must be populated.
 | `/flow` | Reactive data flow (fetch, poll, stream, submit) | 11 |
 | `/bdd` | BDD/Gherkin → Playwright | 8 |
 | `/behaviorspec` | Interaction-testing specs | 8 |
-| `/jsx` | JSX/React description | 11 |
 | `/llm` | LLM prompt specs | 11 |
 | `/todo` | Todo management | 11 |
-| `/voice` | Voice/accessibility commands | 11 |
+| `/voice` | Voice/accessibility page-control commands | 11 |
 | `/learn` | Language-learning drills with morphology | 10 |
 
-**Strays** — earlier experiments absorbed for continuity. They build, parse, and
-carry per-domain suites, but have seen far less production hardening and are
-**not** registered in `DOMAIN_PRIORITY`; treat them as preview-quality:
-
-| Subpath | DSL |
-| --- | --- |
-| `/animation` | Declarative animations |
-| `/control` | Control flow |
-| `/events` | Domain events |
-| `/html` | HTML structure |
-| `/hypermedia` | Hypermedia interactions |
-| `/sprites` | Sprite/game scripting |
+jsx, animation, control, events, html, hypermedia and sprites were retired in
+4.0.0 (see the changelog); 2.x still ships them, and their sources are under
+the tag `archived/domains-preview-2026-10`.
 
 ## Migrating from `@lokascript/domain-*`
 
