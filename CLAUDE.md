@@ -100,6 +100,37 @@ groups the four upstream packages into one weekly PR that runs the full gate.
   to it. That override is what shipped 2.11.0 with subpath types silently degraded to `any`
   (per-module tsc tree overwrote tsup's bundle; consumers use `skipLibCheck`). See the changelog.
 
+### The domain gate (`packages/domains/gate`)
+
+`src/__tests__/round-trip.test.ts` runs every command of every domain, in each of its languages, on
+the built dist (hyperfixi's `docs-internal/DOMAINS_RETHINK.md`, Phase 2). A case is a command
+(bracket syntax, read in English) and a language:
+
+- **round trip**: the domain's renderer writes it, its parser reads it back. `pass` when the parse is
+  the reference node or (every domain but learn, whose output is a sentence per language) when the
+  text compiles to the English reference's code: bdd's parser keeps ja `表示` and its generator
+  normalizes it to `visible`. `refused` when there is no render or the parse throws; `silent` when it
+  reads, or compiles to, something else.
+- **leftover**: the same render plus one unknown word (`zzqx`). Expected `refused`; a parse that
+  returns accepted input it did not read (`silent`).
+
+The values each role gets are in `gate/values.ts`: realistic shapes (selectors, URLs, durations,
+quoted strings), and for a role that takes fixed words every word the domain's renderer and generator
+know, so a word one of the two tables lacks fails in the languages where it is missing. A test holds
+every key there to a role the domain has. `baselines/round-trip.json` lists every case not at its best
+outcome, and the upstream versions it was measured on: the gate fails on a case worse than listed, on
+one better (prune), and on a listed case that no longer exists. Regenerate after a change:
+
+```bash
+cd packages/domains
+npm run gate:regen                  # rebuilds, rewrites the baseline; refuses a worse case
+npm run gate:regen -- --allow-new   # records worse cases (a decision, say why in the PR)
+npm run gate:regen -- --report      # the per-domain queue, by language and by what went wrong
+```
+
+A framework bump (Dependabot's upstream group) moves the gate too: its numbers are always the
+framework the lockfile holds.
+
 ### The registry choke point (`packages/domain-config`)
 
 `src/index.ts` is the single source of truth for which domains exist for dispatch:
