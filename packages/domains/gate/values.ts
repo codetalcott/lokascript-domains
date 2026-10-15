@@ -16,7 +16,7 @@ export interface DomainFixture {
    */
   oracle: 'compile' | 'node';
   values: Record<string, string[]>;
-  /** Actions whose English does not compile on its own (the gate checks every other one does). */
+  /** Actions that do not compile on their own (the gate checks every other one does). */
   englishDoesNotCompile?: string[];
 }
 
