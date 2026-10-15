@@ -1,5 +1,16 @@
 # Changelog
 
+## Unreleased
+
+- **bdd and behaviorspec read a hyphenated word as one word.** `When
+  double-click on #button`, es `doble-clic`, ar `نقر-مزدوج`, behaviorspec
+  `user double-clicks` / `right-clicks` (in English, Arabic and Chinese
+  renders too) split at the hyphen and read `double`, so they compiled to a
+  comment, or to a plain `click()`. They now compile to `dblclick()` and
+  `click({ button: 'right' })`. Found by the domain gate.
+- **bdd renders fr `hover` without a target as `survol`**, not `vol sur`: the
+  target marker was stripped from inside the word.
+
 ## 4.0.0
 
 - **BREAKING: built for `@lokascript/framework` 4.x.** The framework,

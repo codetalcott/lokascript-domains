@@ -418,8 +418,15 @@ function schemaMarker(action: string, role: string, lang: string): string {
 function stripActionTargetMarker(phrase: string, action: string, lang: string): string {
   const marker = ACTION_TARGET_MARKER[action.toLowerCase()]?.[lang];
   if (!marker) return phrase;
-  if (phrase.startsWith(marker)) return phrase.slice(marker.length).trim();
-  if (phrase.endsWith(marker)) return phrase.slice(0, -marker.length).trim();
+  // A phrase of several words loses the marker as a whole word: fr hover is `survol sur`, and a bare
+  // prefix test stripped `sur` from `survol`. A one-word phrase has it glued on (zh `导航到`).
+  if (phrase.includes(' ')) {
+    if (phrase.startsWith(`${marker} `)) return phrase.slice(marker.length).trim();
+    if (phrase.endsWith(` ${marker}`)) return phrase.slice(0, -marker.length).trim();
+    return phrase;
+  }
+  if (phrase.startsWith(marker)) return phrase.slice(marker.length);
+  if (phrase.endsWith(marker)) return phrase.slice(0, -marker.length);
   return phrase;
 }
 

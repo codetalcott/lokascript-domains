@@ -8,9 +8,9 @@
     "bdd": {
       "roundTrip": {
         "cases": 344,
-        "pass": 234,
+        "pass": 248,
         "refused": 35,
-        "silent": 75
+        "silent": 61
       },
       "leftover": {
         "cases": 309,
@@ -22,15 +22,15 @@
     "behaviorspec": {
       "roundTrip": {
         "cases": 448,
-        "pass": 330,
-        "refused": 76,
-        "silent": 42
+        "pass": 346,
+        "refused": 72,
+        "silent": 30
       },
       "leftover": {
-        "cases": 372,
+        "cases": 376,
         "pass": 0,
         "refused": 0,
-        "silent": 372
+        "silent": 376
       }
     },
     "flow": {
@@ -125,54 +125,6 @@
           "outcome": "refused",
           "text": "#box0 devre dışı dir Varsayalım",
           "why": "No pattern matched for input: #box0 devre dışı dir Varsayalım"
-        }
-      },
-      "[when action_type:hover]": {
-        "fr": {
-          "outcome": "silent",
-          "text": "Quand vol sur",
-          "why": "compiles differently; reads action_type: vol"
-        }
-      },
-      "[when action_type:double-click]": {
-        "en": {
-          "outcome": "silent",
-          "text": "When double-click",
-          "why": "compiles differently; reads action_type: double"
-        },
-        "es": {
-          "outcome": "silent",
-          "text": "Cuando doble-clic",
-          "why": "compiles differently; reads action_type: doble"
-        },
-        "ar": {
-          "outcome": "silent",
-          "text": "عند نقر-مزدوج",
-          "why": "compiles differently; reads action_type: نقر"
-        }
-      },
-      "[when action_type:right-click]": {
-        "en": {
-          "outcome": "silent",
-          "text": "When right-click",
-          "why": "compiles differently; reads action_type: right"
-        },
-        "es": {
-          "outcome": "silent",
-          "text": "Cuando clic-derecho",
-          "why": "compiles differently; reads action_type: clic"
-        },
-        "ar": {
-          "outcome": "silent",
-          "text": "عند نقر-يمين",
-          "why": "compiles differently; reads action_type: نقر"
-        }
-      },
-      "[when action_type:uncheck]": {
-        "ar": {
-          "outcome": "silent",
-          "text": "عند إلغاء-تحديد",
-          "why": "compiles differently; reads action_type: إلغاء"
         }
       },
       "[when action_type:click target:#box1 value:v2x]": {
@@ -306,21 +258,6 @@
         }
       },
       "[when action_type:double-click target:#box1 value:v2x]": {
-        "en": {
-          "outcome": "silent",
-          "text": "When double-click on #box1 v2x",
-          "why": "compiles differently; reads value lost, action_type: double"
-        },
-        "es": {
-          "outcome": "silent",
-          "text": "Cuando doble-clic en #box1 v2x",
-          "why": "compiles differently; reads value lost, action_type: doble"
-        },
-        "ar": {
-          "outcome": "silent",
-          "text": "عند نقر-مزدوج على #box1",
-          "why": "compiles differently; reads value lost, action_type: نقر"
-        },
         "zh": {
           "outcome": "silent",
           "text": "当 双击 #box1 v2x",
@@ -328,21 +265,6 @@
         }
       },
       "[when action_type:right-click target:#box1 value:v2x]": {
-        "en": {
-          "outcome": "silent",
-          "text": "When right-click on #box1 v2x",
-          "why": "compiles differently; reads value lost, action_type: right"
-        },
-        "es": {
-          "outcome": "silent",
-          "text": "Cuando clic-derecho en #box1 v2x",
-          "why": "compiles differently; reads value lost, action_type: clic"
-        },
-        "ar": {
-          "outcome": "silent",
-          "text": "عند نقر-يمين على #box1",
-          "why": "compiles differently; reads value lost, action_type: نقر"
-        },
         "zh": {
           "outcome": "silent",
           "text": "当 右击 #box1 v2x",
@@ -437,7 +359,7 @@
         "ar": {
           "outcome": "silent",
           "text": "عند إلغاء-تحديد #box1",
-          "why": "compiles differently; reads target lost, value lost, action_type: إلغاء"
+          "why": "compiles differently; reads target lost, value lost, action_type: إلغاء-تحديد"
         },
         "zh": {
           "outcome": "silent",
@@ -829,30 +751,15 @@
         }
       },
       "[when action:double-clicks]": {
-        "en": {
-          "outcome": "silent",
-          "text": "when double-clicks",
-          "why": "compiles differently; reads actor added (double), action: -"
-        },
         "ja": {
           "outcome": "refused",
           "text": "double-clicks 操作",
           "why": "No pattern matched for input: double-clicks 操作"
         },
-        "ar": {
-          "outcome": "silent",
-          "text": "عندما double-clicks",
-          "why": "compiles differently; reads actor added (double), action: -"
-        },
         "ko": {
           "outcome": "refused",
           "text": "double-clicks 동작",
           "why": "No pattern matched for input: double-clicks 동작"
-        },
-        "zh": {
-          "outcome": "silent",
-          "text": "当 double-clicks",
-          "why": "compiles differently; reads actor added (double), action: -"
         },
         "tr": {
           "outcome": "refused",
@@ -861,30 +768,15 @@
         }
       },
       "[when action:right-clicks]": {
-        "en": {
-          "outcome": "silent",
-          "text": "when right-clicks",
-          "why": "compiles differently; reads actor added (right), action: -"
-        },
         "ja": {
           "outcome": "refused",
           "text": "right-clicks 操作",
           "why": "No pattern matched for input: right-clicks 操作"
         },
-        "ar": {
-          "outcome": "silent",
-          "text": "عندما right-clicks",
-          "why": "compiles differently; reads actor added (right), action: -"
-        },
         "ko": {
           "outcome": "refused",
           "text": "right-clicks 동작",
           "why": "No pattern matched for input: right-clicks 동작"
-        },
-        "zh": {
-          "outcome": "silent",
-          "text": "当 right-clicks",
-          "why": "compiles differently; reads actor added (right), action: -"
         },
         "tr": {
           "outcome": "refused",
@@ -924,60 +816,6 @@
           "outcome": "refused",
           "text": "clears eylem",
           "why": "No pattern matched for input: clears eylem"
-        }
-      },
-      "[when actor:user action:double-clicks target:#button destination:#form]": {
-        "en": {
-          "outcome": "silent",
-          "text": "when user double-clicks on #button into #form",
-          "why": "compiles differently; reads action: double"
-        },
-        "ja": {
-          "outcome": "refused",
-          "text": "user #button を #form に double-clicks 操作",
-          "why": "No pattern matched for input: user #button を #form に double-clicks 操作"
-        },
-        "ar": {
-          "outcome": "silent",
-          "text": "عندما user double-clicks على #button في #form",
-          "why": "compiles differently; reads action: double"
-        },
-        "ko": {
-          "outcome": "refused",
-          "text": "user #button 을 #form 에 double-clicks 동작",
-          "why": "No pattern matched for input: user #button 을 #form 에 double-clicks 동작"
-        },
-        "zh": {
-          "outcome": "silent",
-          "text": "当 user double-clicks 在 #button 到 #form",
-          "why": "compiles differently; reads action: double"
-        }
-      },
-      "[when actor:user action:right-clicks target:#button destination:#form]": {
-        "en": {
-          "outcome": "silent",
-          "text": "when user right-clicks on #button into #form",
-          "why": "compiles differently; reads action: right"
-        },
-        "ja": {
-          "outcome": "refused",
-          "text": "user #button を #form に right-clicks 操作",
-          "why": "No pattern matched for input: user #button を #form に right-clicks 操作"
-        },
-        "ar": {
-          "outcome": "silent",
-          "text": "عندما user right-clicks على #button في #form",
-          "why": "compiles differently; reads action: right"
-        },
-        "ko": {
-          "outcome": "refused",
-          "text": "user #button 을 #form 에 right-clicks 동작",
-          "why": "No pattern matched for input: user #button 을 #form 에 right-clicks 동작"
-        },
-        "zh": {
-          "outcome": "silent",
-          "text": "当 user right-clicks 在 #button 到 #form",
-          "why": "compiles differently; reads action: right"
         }
       },
       "[expect target:#toast assertion:appears value:hello]": {
@@ -2299,7 +2137,9 @@
       "[when actor:user action:double-clicks target:#button destination:#form]": [
         "en",
         "es",
+        "ja",
         "ar",
+        "ko",
         "zh",
         "fr",
         "tr"
@@ -2307,7 +2147,9 @@
       "[when actor:user action:right-clicks target:#button destination:#form]": [
         "en",
         "es",
+        "ja",
         "ar",
+        "ko",
         "zh",
         "fr",
         "tr"

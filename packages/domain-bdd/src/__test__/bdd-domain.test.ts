@@ -1088,3 +1088,27 @@ describe('Feature Generator', () => {
     expect(code).toContain('.click()');
   });
 });
+
+describe('Hyphenated words and glued markers (domain gate, 2026-10-15)', () => {
+  const bdd = createBDDDSL();
+
+  it.each([
+    ['en', 'when double-click on #button'],
+    ['es', 'cuando doble-clic en #button'],
+    ['ar', 'عند نقر-مزدوج على #button'],
+  ])('%s reads a hyphenated action as one word: %s', (language, input) => {
+    const result = bdd.compile(input, language);
+    expect(result.ok).toBe(true);
+    expect(result.code).toContain("locator('#button').dblclick()");
+  });
+
+  it('fr hover without a target keeps its word (the marker strip stopped inside survol)', () => {
+    const node = bdd.parse('[when action_type:hover]', 'en');
+    expect(renderBDD(node, 'fr')).toBe('Quand survol');
+  });
+
+  it('zh navigate without a target still drops its glued marker', () => {
+    const node = bdd.parse('[when action_type:navigate]', 'en');
+    expect(renderBDD(node, 'zh')).toBe('当 导航');
+  });
+});
