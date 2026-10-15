@@ -17,7 +17,8 @@
     "typecheck": "bash scripts/typecheck-all.sh",
     "version:set": "node scripts/set-version.cjs",
     "version:validate": "node scripts/validate-versions.cjs",
-    "pack:smoke": "bash scripts/pack-smoke.sh"
+    "pack:smoke": "bash scripts/pack-smoke.sh",
+    "gate:upstream": "bash scripts/gate-upstream.sh"
   },
   "engines": {
     "node": ">=20"
