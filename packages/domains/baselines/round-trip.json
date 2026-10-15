@@ -1,0 +1,3430 @@
+{
+  "upstream": {
+    "@lokascript/framework": "4.5.0",
+    "@lokascript/semantic": "4.5.0",
+    "@lokascript/intent": "4.5.0"
+  },
+  "counts": {
+    "bdd": {
+      "roundTrip": {
+        "cases": 344,
+        "pass": 265,
+        "refused": 35,
+        "silent": 44
+      },
+      "leftover": {
+        "cases": 309,
+        "pass": 0,
+        "refused": 0,
+        "silent": 309
+      }
+    },
+    "behaviorspec": {
+      "roundTrip": {
+        "cases": 448,
+        "pass": 372,
+        "refused": 76,
+        "silent": 0
+      },
+      "leftover": {
+        "cases": 372,
+        "pass": 0,
+        "refused": 0,
+        "silent": 372
+      }
+    },
+    "flow": {
+      "roundTrip": {
+        "cases": 308,
+        "pass": 298,
+        "refused": 3,
+        "silent": 7
+      },
+      "leftover": {
+        "cases": 305,
+        "pass": 0,
+        "refused": 0,
+        "silent": 305
+      }
+    },
+    "learn": {
+      "roundTrip": {
+        "cases": 210,
+        "pass": 188,
+        "refused": 21,
+        "silent": 1
+      },
+      "leftover": {
+        "cases": 189,
+        "pass": 0,
+        "refused": 0,
+        "silent": 189
+      }
+    },
+    "llm": {
+      "roundTrip": {
+        "cases": 66,
+        "pass": 61,
+        "refused": 5,
+        "silent": 0
+      },
+      "leftover": {
+        "cases": 61,
+        "pass": 0,
+        "refused": 0,
+        "silent": 61
+      }
+    },
+    "sql": {
+      "roundTrip": {
+        "cases": 99,
+        "pass": 99,
+        "refused": 0,
+        "silent": 0
+      },
+      "leftover": {
+        "cases": 99,
+        "pass": 0,
+        "refused": 0,
+        "silent": 99
+      }
+    },
+    "todo": {
+      "roundTrip": {
+        "cases": 55,
+        "pass": 55,
+        "refused": 0,
+        "silent": 0
+      },
+      "leftover": {
+        "cases": 55,
+        "pass": 0,
+        "refused": 0,
+        "silent": 55
+      }
+    },
+    "voice": {
+      "roundTrip": {
+        "cases": 363,
+        "pass": 354,
+        "refused": 9,
+        "silent": 0
+      },
+      "leftover": {
+        "cases": 354,
+        "pass": 0,
+        "refused": 0,
+        "silent": 354
+      }
+    }
+  },
+  "roundTrip": {
+    "bdd": {
+      "[given target:#box0 state:disabled]": {
+        "tr": {
+          "outcome": "refused",
+          "text": "#box0 devre dışı dir Varsayalım",
+          "why": "No pattern matched for input: #box0 devre dışı dir Varsayalım"
+        }
+      },
+      "[when action_type:hover]": {
+        "fr": {
+          "outcome": "silent",
+          "text": "Quand vol sur",
+          "why": "compiles differently; reads action_type: vol"
+        }
+      },
+      "[when action_type:double-click]": {
+        "es": {
+          "outcome": "silent",
+          "text": "Cuando doble-clic",
+          "why": "compiles differently; reads action_type: doble"
+        },
+        "ja": {
+          "outcome": "silent",
+          "text": "ダブルクリック したら",
+          "why": "compiles differently; reads action_type: ダブルクリック"
+        },
+        "ar": {
+          "outcome": "silent",
+          "text": "عند نقر-مزدوج",
+          "why": "compiles differently; reads action_type: نقر"
+        },
+        "ko": {
+          "outcome": "silent",
+          "text": "더블클릭 만약",
+          "why": "compiles differently; reads action_type: 더블클릭"
+        },
+        "zh": {
+          "outcome": "silent",
+          "text": "当 双击",
+          "why": "compiles differently; reads action_type: 双击"
+        },
+        "tr": {
+          "outcome": "silent",
+          "text": "çift-tıkla Olduğunda",
+          "why": "compiles differently; reads action_type: çift-tıkla"
+        },
+        "fr": {
+          "outcome": "silent",
+          "text": "Quand double-clic",
+          "why": "compiles differently; reads action_type: double-clic"
+        }
+      },
+      "[when action_type:right-click]": {
+        "es": {
+          "outcome": "silent",
+          "text": "Cuando clic-derecho",
+          "why": "compiles differently; reads action_type: clic"
+        },
+        "ja": {
+          "outcome": "silent",
+          "text": "右クリック したら",
+          "why": "compiles differently; reads action_type: 右クリック"
+        },
+        "ar": {
+          "outcome": "silent",
+          "text": "عند نقر-يمين",
+          "why": "compiles differently; reads action_type: نقر"
+        },
+        "ko": {
+          "outcome": "silent",
+          "text": "우클릭 만약",
+          "why": "compiles differently; reads action_type: 우클릭"
+        },
+        "zh": {
+          "outcome": "silent",
+          "text": "当 右击",
+          "why": "compiles differently; reads action_type: 右击"
+        },
+        "tr": {
+          "outcome": "silent",
+          "text": "sağ-tıkla Olduğunda",
+          "why": "compiles differently; reads action_type: sağ-tıkla"
+        },
+        "fr": {
+          "outcome": "silent",
+          "text": "Quand clic-droit",
+          "why": "compiles differently; reads action_type: clic-droit"
+        }
+      },
+      "[when action_type:uncheck]": {
+        "ar": {
+          "outcome": "silent",
+          "text": "عند إلغاء-تحديد",
+          "why": "compiles differently; reads action_type: إلغاء"
+        }
+      },
+      "[when action_type:click target:#box1 value:v2x]": {
+        "zh": {
+          "outcome": "silent",
+          "text": "当 点击 #box1 v2x",
+          "why": "compiles differently; reads target lost, value lost, action_type: 点击"
+        }
+      },
+      "[when action_type:type target:#box1 value:v2x]": {
+        "ja": {
+          "outcome": "refused",
+          "text": "#box1 に 入力 したら",
+          "why": "No pattern matched for input: #box1 に 入力 したら"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "#box1 에 입력 만약",
+          "why": "No pattern matched for input: #box1 에 입력 만약"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "#box1 yaz Olduğunda",
+          "why": "No pattern matched for input: #box1 yaz Olduğunda"
+        }
+      },
+      "[when action_type:hover target:#box1 value:v2x]": {
+        "zh": {
+          "outcome": "silent",
+          "text": "当 悬停 #box1 v2x",
+          "why": "compiles differently; reads target lost, value lost, action_type: 悬停"
+        }
+      },
+      "[when action_type:navigate target:#box1 value:v2x]": {
+        "ja": {
+          "outcome": "refused",
+          "text": "#box1 に 移動 したら",
+          "why": "No pattern matched for input: #box1 に 移動 したら"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "#box1 로 이동 만약",
+          "why": "No pattern matched for input: #box1 로 이동 만약"
+        },
+        "zh": {
+          "outcome": "silent",
+          "text": "当 导航到 #box1 v2x",
+          "why": "compiles differently; reads target lost, value lost, action_type: 导航到"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "#box1 git Olduğunda",
+          "why": "No pattern matched for input: #box1 git Olduğunda"
+        }
+      },
+      "[when action_type:submit target:#box1 value:v2x]": {
+        "ja": {
+          "outcome": "silent",
+          "text": "#box1 を 送信 したら",
+          "why": "compiles differently; reads value lost, action_type: 送信"
+        },
+        "ko": {
+          "outcome": "silent",
+          "text": "#box1 를 제출 만약",
+          "why": "compiles differently; reads value lost, action_type: 제출"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "#box1 gönder Olduğunda",
+          "why": "No pattern matched for input: #box1 gönder Olduğunda"
+        }
+      },
+      "[when action_type:double-click target:#box1 value:v2x]": {
+        "es": {
+          "outcome": "silent",
+          "text": "Cuando doble-clic en #box1 v2x",
+          "why": "compiles differently; reads value lost, action_type: doble"
+        },
+        "ja": {
+          "outcome": "silent",
+          "text": "#box1 を ダブルクリック したら",
+          "why": "compiles differently; reads value lost, action_type: ダブルクリック"
+        },
+        "ar": {
+          "outcome": "silent",
+          "text": "عند نقر-مزدوج على #box1",
+          "why": "compiles differently; reads value lost, action_type: نقر"
+        },
+        "ko": {
+          "outcome": "silent",
+          "text": "#box1 를 더블클릭 만약",
+          "why": "compiles differently; reads value lost, action_type: 더블클릭"
+        },
+        "zh": {
+          "outcome": "silent",
+          "text": "当 双击 #box1 v2x",
+          "why": "compiles differently; reads target lost, value lost, action_type: 双击"
+        },
+        "tr": {
+          "outcome": "silent",
+          "text": "#box1 üzerinde çift-tıkla Olduğunda",
+          "why": "compiles differently; reads value lost, action_type: çift-tıkla"
+        },
+        "fr": {
+          "outcome": "silent",
+          "text": "Quand double-clic sur #box1 v2x",
+          "why": "compiles differently; reads value lost, action_type: double-clic"
+        }
+      },
+      "[when action_type:right-click target:#box1 value:v2x]": {
+        "es": {
+          "outcome": "silent",
+          "text": "Cuando clic-derecho en #box1 v2x",
+          "why": "compiles differently; reads value lost, action_type: clic"
+        },
+        "ja": {
+          "outcome": "silent",
+          "text": "#box1 を 右クリック したら",
+          "why": "compiles differently; reads value lost, action_type: 右クリック"
+        },
+        "ar": {
+          "outcome": "silent",
+          "text": "عند نقر-يمين على #box1",
+          "why": "compiles differently; reads value lost, action_type: نقر"
+        },
+        "ko": {
+          "outcome": "silent",
+          "text": "#box1 를 우클릭 만약",
+          "why": "compiles differently; reads value lost, action_type: 우클릭"
+        },
+        "zh": {
+          "outcome": "silent",
+          "text": "当 右击 #box1 v2x",
+          "why": "compiles differently; reads target lost, value lost, action_type: 右击"
+        },
+        "tr": {
+          "outcome": "silent",
+          "text": "#box1 üzerinde sağ-tıkla Olduğunda",
+          "why": "compiles differently; reads value lost, action_type: sağ-tıkla"
+        },
+        "fr": {
+          "outcome": "silent",
+          "text": "Quand clic-droit sur #box1 v2x",
+          "why": "compiles differently; reads value lost, action_type: clic-droit"
+        }
+      },
+      "[when action_type:press target:#box1 value:v2x]": {
+        "ja": {
+          "outcome": "refused",
+          "text": "#box1 キー したら",
+          "why": "No pattern matched for input: #box1 キー したら"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "#box1 키 만약",
+          "why": "No pattern matched for input: #box1 키 만약"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "#box1 bas Olduğunda",
+          "why": "No pattern matched for input: #box1 bas Olduğunda"
+        }
+      },
+      "[when action_type:check target:#box1 value:v2x]": {
+        "ja": {
+          "outcome": "silent",
+          "text": "#box1 を チェック したら",
+          "why": "compiles differently; reads value lost, action_type: チェック"
+        },
+        "ko": {
+          "outcome": "silent",
+          "text": "#box1 를 체크 만약",
+          "why": "compiles differently; reads value lost, action_type: 체크"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "#box1 işaretle Olduğunda",
+          "why": "No pattern matched for input: #box1 işaretle Olduğunda"
+        }
+      },
+      "[when action_type:uncheck target:#box1 value:v2x]": {
+        "ja": {
+          "outcome": "silent",
+          "text": "#box1 を チェック解除 したら",
+          "why": "compiles differently; reads value lost, action_type: チェック解除"
+        },
+        "ar": {
+          "outcome": "silent",
+          "text": "عند إلغاء-تحديد #box1",
+          "why": "compiles differently; reads target lost, value lost, action_type: إلغاء"
+        },
+        "ko": {
+          "outcome": "silent",
+          "text": "#box1 를 체크해제 만약",
+          "why": "compiles differently; reads value lost, action_type: 체크해제"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "#box1 işareti-kaldır Olduğunda",
+          "why": "No pattern matched for input: #box1 işareti-kaldır Olduğunda"
+        }
+      },
+      "[when action_type:select target:#box1 value:v2x]": {
+        "ja": {
+          "outcome": "silent",
+          "text": "#box1 を 選択 したら",
+          "why": "compiles differently; reads value lost, action_type: 選択"
+        },
+        "ko": {
+          "outcome": "silent",
+          "text": "#box1 를 선택 만약",
+          "why": "compiles differently; reads value lost, action_type: 선택"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "#box1 seç Olduğunda",
+          "why": "No pattern matched for input: #box1 seç Olduğunda"
+        }
+      },
+      "[when action_type:wait target:#box1 value:v2x]": {
+        "ja": {
+          "outcome": "silent",
+          "text": "#box1 を 待機 したら",
+          "why": "compiles differently; reads value lost, action_type: 待機"
+        },
+        "ko": {
+          "outcome": "silent",
+          "text": "#box1 를 대기 만약",
+          "why": "compiles differently; reads value lost, action_type: 대기"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "#box1 bekle Olduğunda",
+          "why": "No pattern matched for input: #box1 bekle Olduğunda"
+        }
+      },
+      "[then target:#box0 assertion:visible]": {
+        "tr": {
+          "outcome": "refused",
+          "text": "#box0 sahip görünür Sonra",
+          "why": "No pattern matched for input: #box0 sahip görünür Sonra"
+        }
+      },
+      "[then target:#box0 assertion:hidden]": {
+        "tr": {
+          "outcome": "refused",
+          "text": "#box0 sahip gizli Sonra",
+          "why": "No pattern matched for input: #box0 sahip gizli Sonra"
+        }
+      },
+      "[then target:#box0 assertion:text]": {
+        "tr": {
+          "outcome": "refused",
+          "text": "#box0 sahip metin Sonra",
+          "why": "No pattern matched for input: #box0 sahip metin Sonra"
+        }
+      },
+      "[then target:#box0 assertion:count]": {
+        "tr": {
+          "outcome": "refused",
+          "text": "#box0 sahip sayı Sonra",
+          "why": "No pattern matched for input: #box0 sahip sayı Sonra"
+        }
+      },
+      "[then target:#box0 assertion:value]": {
+        "tr": {
+          "outcome": "refused",
+          "text": "#box0 sahip değer Sonra",
+          "why": "No pattern matched for input: #box0 sahip değer Sonra"
+        }
+      },
+      "[then target:#box0 assertion:visible expected_value:v2x]": {
+        "ja": {
+          "outcome": "refused",
+          "text": "#box0 に visible v2x ならば",
+          "why": "No pattern matched for input: #box0 に visible v2x ならば"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "#box0 에 표시 v2x 그러면",
+          "why": "No pattern matched for input: #box0 에 표시 v2x 그러면"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "#box0 sahip görünür v2x Sonra",
+          "why": "No pattern matched for input: #box0 sahip görünür v2x Sonra"
+        }
+      },
+      "[then target:#box0 assertion:hidden expected_value:v2x]": {
+        "ja": {
+          "outcome": "refused",
+          "text": "#box0 に 非表示 v2x ならば",
+          "why": "No pattern matched for input: #box0 に 非表示 v2x ならば"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "#box0 에 숨김 v2x 그러면",
+          "why": "No pattern matched for input: #box0 에 숨김 v2x 그러면"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "#box0 sahip gizli v2x Sonra",
+          "why": "No pattern matched for input: #box0 sahip gizli v2x Sonra"
+        }
+      },
+      "[then target:#box0 assertion:text expected_value:v2x]": {
+        "ja": {
+          "outcome": "refused",
+          "text": "#box0 に テキスト v2x ならば",
+          "why": "No pattern matched for input: #box0 に テキスト v2x ならば"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "#box0 에 텍스트 v2x 그러면",
+          "why": "No pattern matched for input: #box0 에 텍스트 v2x 그러면"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "#box0 sahip metin v2x Sonra",
+          "why": "No pattern matched for input: #box0 sahip metin v2x Sonra"
+        }
+      },
+      "[then target:#box0 assertion:count expected_value:v2x]": {
+        "ja": {
+          "outcome": "refused",
+          "text": "#box0 に 数 v2x ならば",
+          "why": "No pattern matched for input: #box0 に 数 v2x ならば"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "#box0 에 수 v2x 그러면",
+          "why": "No pattern matched for input: #box0 에 수 v2x 그러면"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "#box0 sahip sayı v2x Sonra",
+          "why": "No pattern matched for input: #box0 sahip sayı v2x Sonra"
+        }
+      },
+      "[then target:#box0 assertion:value expected_value:v2x]": {
+        "ja": {
+          "outcome": "refused",
+          "text": "#box0 に 値 v2x ならば",
+          "why": "No pattern matched for input: #box0 に 値 v2x ならば"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "#box0 에 값 v2x 그러면",
+          "why": "No pattern matched for input: #box0 에 값 v2x 그러면"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "#box0 sahip değer v2x Sonra",
+          "why": "No pattern matched for input: #box0 sahip değer v2x Sonra"
+        }
+      }
+    },
+    "behaviorspec": {
+      "[when action:clicks]": {
+        "ja": {
+          "outcome": "refused",
+          "text": "clicks 操作",
+          "why": "No pattern matched for input: clicks 操作"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "clicks 동작",
+          "why": "No pattern matched for input: clicks 동작"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "clicks eylem",
+          "why": "No pattern matched for input: clicks eylem"
+        }
+      },
+      "[when action:types]": {
+        "ja": {
+          "outcome": "refused",
+          "text": "types 操作",
+          "why": "No pattern matched for input: types 操作"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "types 동작",
+          "why": "No pattern matched for input: types 동작"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "types eylem",
+          "why": "No pattern matched for input: types eylem"
+        }
+      },
+      "[when action:submits]": {
+        "ja": {
+          "outcome": "refused",
+          "text": "submits 操作",
+          "why": "No pattern matched for input: submits 操作"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "submits 동작",
+          "why": "No pattern matched for input: submits 동작"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "submits eylem",
+          "why": "No pattern matched for input: submits eylem"
+        }
+      },
+      "[when action:hovers]": {
+        "ja": {
+          "outcome": "refused",
+          "text": "hovers 操作",
+          "why": "No pattern matched for input: hovers 操作"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "hovers 동작",
+          "why": "No pattern matched for input: hovers 동작"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "hovers eylem",
+          "why": "No pattern matched for input: hovers eylem"
+        }
+      },
+      "[when action:scrolls]": {
+        "ja": {
+          "outcome": "refused",
+          "text": "scrolls 操作",
+          "why": "No pattern matched for input: scrolls 操作"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "scrolls 동작",
+          "why": "No pattern matched for input: scrolls 동작"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "scrolls eylem",
+          "why": "No pattern matched for input: scrolls eylem"
+        }
+      },
+      "[when action:drags]": {
+        "ja": {
+          "outcome": "refused",
+          "text": "drags 操作",
+          "why": "No pattern matched for input: drags 操作"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "drags 동작",
+          "why": "No pattern matched for input: drags 동작"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "drags eylem",
+          "why": "No pattern matched for input: drags eylem"
+        }
+      },
+      "[when action:double-clicks]": {
+        "ja": {
+          "outcome": "refused",
+          "text": "double-clicks 操作",
+          "why": "No pattern matched for input: double-clicks 操作"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "double-clicks 동작",
+          "why": "No pattern matched for input: double-clicks 동작"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "double-clicks eylem",
+          "why": "No pattern matched for input: double-clicks eylem"
+        }
+      },
+      "[when action:right-clicks]": {
+        "ja": {
+          "outcome": "refused",
+          "text": "right-clicks 操作",
+          "why": "No pattern matched for input: right-clicks 操作"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "right-clicks 동작",
+          "why": "No pattern matched for input: right-clicks 동작"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "right-clicks eylem",
+          "why": "No pattern matched for input: right-clicks eylem"
+        }
+      },
+      "[when action:focuses]": {
+        "ja": {
+          "outcome": "refused",
+          "text": "focuses 操作",
+          "why": "No pattern matched for input: focuses 操作"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "focuses 동작",
+          "why": "No pattern matched for input: focuses 동작"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "focuses eylem",
+          "why": "No pattern matched for input: focuses eylem"
+        }
+      },
+      "[when action:clears]": {
+        "ja": {
+          "outcome": "refused",
+          "text": "clears 操作",
+          "why": "No pattern matched for input: clears 操作"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "clears 동작",
+          "why": "No pattern matched for input: clears 동작"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "clears eylem",
+          "why": "No pattern matched for input: clears eylem"
+        }
+      },
+      "[when actor:user action:double-clicks target:#button destination:#form]": {
+        "ja": {
+          "outcome": "refused",
+          "text": "user #button を #form に double-clicks 操作",
+          "why": "No pattern matched for input: user #button を #form に double-clicks 操作"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "user #button 을 #form 에 double-clicks 동작",
+          "why": "No pattern matched for input: user #button 을 #form 에 double-clicks 동작"
+        }
+      },
+      "[when actor:user action:right-clicks target:#button destination:#form]": {
+        "ja": {
+          "outcome": "refused",
+          "text": "user #button を #form に right-clicks 操作",
+          "why": "No pattern matched for input: user #button を #form に right-clicks 操作"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "user #button 을 #form 에 right-clicks 동작",
+          "why": "No pattern matched for input: user #button 을 #form 에 right-clicks 동작"
+        }
+      },
+      "[expect target:#toast assertion:appears value:hello]": {
+        "ja": {
+          "outcome": "refused",
+          "text": "#toast appears hello 期待",
+          "why": "No pattern matched for input: #toast appears hello 期待"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "#toast appears hello 기대",
+          "why": "No pattern matched for input: #toast appears hello 기대"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "#toast appears hello bekle",
+          "why": "No pattern matched for input: #toast appears hello bekle"
+        }
+      },
+      "[expect target:#toast assertion:disappears value:hello]": {
+        "ja": {
+          "outcome": "refused",
+          "text": "#toast disappears hello 期待",
+          "why": "No pattern matched for input: #toast disappears hello 期待"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "#toast disappears hello 기대",
+          "why": "No pattern matched for input: #toast disappears hello 기대"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "#toast disappears hello bekle",
+          "why": "No pattern matched for input: #toast disappears hello bekle"
+        }
+      },
+      "[expect target:#toast assertion:has value:hello]": {
+        "ja": {
+          "outcome": "refused",
+          "text": "#toast has hello 期待",
+          "why": "No pattern matched for input: #toast has hello 期待"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "#toast has hello 기대",
+          "why": "No pattern matched for input: #toast has hello 기대"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "#toast has hello bekle",
+          "why": "No pattern matched for input: #toast has hello bekle"
+        }
+      },
+      "[expect target:#toast assertion:shows value:hello]": {
+        "ja": {
+          "outcome": "refused",
+          "text": "#toast shows hello 期待",
+          "why": "No pattern matched for input: #toast shows hello 期待"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "#toast shows hello 기대",
+          "why": "No pattern matched for input: #toast shows hello 기대"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "#toast shows hello bekle",
+          "why": "No pattern matched for input: #toast shows hello bekle"
+        }
+      },
+      "[expect target:#toast assertion:changes value:hello]": {
+        "ja": {
+          "outcome": "refused",
+          "text": "#toast changes hello 期待",
+          "why": "No pattern matched for input: #toast changes hello 期待"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "#toast changes hello 기대",
+          "why": "No pattern matched for input: #toast changes hello 기대"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "#toast changes hello bekle",
+          "why": "No pattern matched for input: #toast changes hello bekle"
+        }
+      },
+      "[expect target:#toast assertion:contains value:hello]": {
+        "ja": {
+          "outcome": "refused",
+          "text": "#toast contains hello 期待",
+          "why": "No pattern matched for input: #toast contains hello 期待"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "#toast contains hello 기대",
+          "why": "No pattern matched for input: #toast contains hello 기대"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "#toast contains hello bekle",
+          "why": "No pattern matched for input: #toast contains hello bekle"
+        }
+      },
+      "[expect target:#toast assertion:enabled value:hello]": {
+        "ja": {
+          "outcome": "refused",
+          "text": "#toast enabled hello 期待",
+          "why": "No pattern matched for input: #toast enabled hello 期待"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "#toast enabled hello 기대",
+          "why": "No pattern matched for input: #toast enabled hello 기대"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "#toast enabled hello bekle",
+          "why": "No pattern matched for input: #toast enabled hello bekle"
+        }
+      },
+      "[expect target:#toast assertion:disabled value:hello]": {
+        "ja": {
+          "outcome": "refused",
+          "text": "#toast disabled hello 期待",
+          "why": "No pattern matched for input: #toast disabled hello 期待"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "#toast disabled hello 기대",
+          "why": "No pattern matched for input: #toast disabled hello 기대"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "#toast disabled hello bekle",
+          "why": "No pattern matched for input: #toast disabled hello bekle"
+        }
+      },
+      "[expect target:#toast assertion:checked value:hello]": {
+        "ja": {
+          "outcome": "refused",
+          "text": "#toast checked hello 期待",
+          "why": "No pattern matched for input: #toast checked hello 期待"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "#toast checked hello 기대",
+          "why": "No pattern matched for input: #toast checked hello 기대"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "#toast checked hello bekle",
+          "why": "No pattern matched for input: #toast checked hello bekle"
+        }
+      },
+      "[expect target:#toast assertion:focused value:hello]": {
+        "ja": {
+          "outcome": "refused",
+          "text": "#toast focused hello 期待",
+          "why": "No pattern matched for input: #toast focused hello 期待"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "#toast focused hello 기대",
+          "why": "No pattern matched for input: #toast focused hello 기대"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "#toast focused hello bekle",
+          "why": "No pattern matched for input: #toast focused hello bekle"
+        }
+      },
+      "[expect target:#toast assertion:editable value:hello]": {
+        "ja": {
+          "outcome": "refused",
+          "text": "#toast editable hello 期待",
+          "why": "No pattern matched for input: #toast editable hello 期待"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "#toast editable hello 기대",
+          "why": "No pattern matched for input: #toast editable hello 기대"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "#toast editable hello bekle",
+          "why": "No pattern matched for input: #toast editable hello bekle"
+        }
+      },
+      "[expect target:#toast assertion:empty value:hello]": {
+        "ja": {
+          "outcome": "refused",
+          "text": "#toast empty hello 期待",
+          "why": "No pattern matched for input: #toast empty hello 期待"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "#toast empty hello 기대",
+          "why": "No pattern matched for input: #toast empty hello 기대"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "#toast empty hello bekle",
+          "why": "No pattern matched for input: #toast empty hello bekle"
+        }
+      },
+      "[expect target:#toast assertion:count value:hello]": {
+        "ja": {
+          "outcome": "refused",
+          "text": "#toast count hello 期待",
+          "why": "No pattern matched for input: #toast count hello 期待"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "#toast count hello 기대",
+          "why": "No pattern matched for input: #toast count hello 기대"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "#toast count hello bekle",
+          "why": "No pattern matched for input: #toast count hello bekle"
+        }
+      },
+      "[expect target:#toast assertion:value value:hello]": {
+        "ja": {
+          "outcome": "refused",
+          "text": "#toast value hello 期待",
+          "why": "No pattern matched for input: #toast value hello 期待"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "#toast value hello 기대",
+          "why": "No pattern matched for input: #toast value hello 기대"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "#toast value hello bekle",
+          "why": "No pattern matched for input: #toast value hello bekle"
+        }
+      }
+    },
+    "flow": {
+      "[enter source:/api]": {
+        "es": {
+          "outcome": "silent",
+          "text": "entrar con /api",
+          "why": "compiles differently; reads source: con"
+        },
+        "ja": {
+          "outcome": "refused",
+          "text": "/api で 入る",
+          "why": "No pattern matched for input: /api で 入る"
+        },
+        "ar": {
+          "outcome": "silent",
+          "text": "ادخل ب /api",
+          "why": "compiles differently; reads source: ب"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "/api 로 진입",
+          "why": "No pattern matched for input: /api 로 진입"
+        },
+        "zh": {
+          "outcome": "silent",
+          "text": "进入 用 /api",
+          "why": "compiles differently; reads source: 用"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "/api ile gir",
+          "why": "No pattern matched for input: /api ile gir"
+        },
+        "fr": {
+          "outcome": "silent",
+          "text": "entrer avec /api",
+          "why": "compiles differently; reads source: avec"
+        },
+        "de": {
+          "outcome": "silent",
+          "text": "eintreten mit /api",
+          "why": "compiles differently; reads source: mit"
+        },
+        "pt": {
+          "outcome": "silent",
+          "text": "entrar com /api",
+          "why": "compiles differently; reads source: com"
+        },
+        "ru": {
+          "outcome": "silent",
+          "text": "войти с /api",
+          "why": "compiles differently; reads source: с"
+        }
+      }
+    },
+    "learn": {
+      "[fetch source:/api]": {
+        "en": {
+          "outcome": "refused",
+          "text": "fetch /api",
+          "why": "No pattern matched for input: fetch /api"
+        },
+        "ja": {
+          "outcome": "refused",
+          "text": "/api から 取得",
+          "why": "No pattern matched for input: /api から 取得"
+        },
+        "es": {
+          "outcome": "refused",
+          "text": "buscar /api",
+          "why": "No pattern matched for input: buscar /api"
+        },
+        "ar": {
+          "outcome": "refused",
+          "text": "أحضر /api",
+          "why": "No pattern matched for input: أحضر /api"
+        },
+        "zh": {
+          "outcome": "refused",
+          "text": "抓取 /api",
+          "why": "No pattern matched for input: 抓取 /api"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "/api 에서 패치",
+          "why": "No pattern matched for input: /api 에서 패치"
+        },
+        "fr": {
+          "outcome": "refused",
+          "text": "récupérer /api",
+          "why": "No pattern matched for input: récupérer /api"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "/api getir",
+          "why": "No pattern matched for input: /api getir"
+        },
+        "de": {
+          "outcome": "refused",
+          "text": "abrufen /api",
+          "why": "No pattern matched for input: abrufen /api"
+        },
+        "pt": {
+          "outcome": "refused",
+          "text": "buscar /api",
+          "why": "No pattern matched for input: buscar /api"
+        }
+      },
+      "[send patient:click destination:#box]": {
+        "tr": {
+          "outcome": "refused",
+          "text": "#box -e click gönder",
+          "why": "No pattern matched for input: #box -e click gönder"
+        }
+      },
+      "[go destination:/home]": {
+        "en": {
+          "outcome": "refused",
+          "text": "go /home",
+          "why": "No pattern matched for input: go /home"
+        },
+        "ja": {
+          "outcome": "refused",
+          "text": "/home 行",
+          "why": "No pattern matched for input: /home 行"
+        },
+        "es": {
+          "outcome": "refused",
+          "text": "ir a /home",
+          "why": "No pattern matched for input: ir a /home"
+        },
+        "ar": {
+          "outcome": "refused",
+          "text": "اذهب إلى /home",
+          "why": "No pattern matched for input: اذهب إلى /home"
+        },
+        "zh": {
+          "outcome": "refused",
+          "text": "前往 /home",
+          "why": "No pattern matched for input: 前往 /home"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "/home 에 이동",
+          "why": "No pattern matched for input: /home 에 이동"
+        },
+        "fr": {
+          "outcome": "refused",
+          "text": "aller à /home",
+          "why": "No pattern matched for input: aller à /home"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "/home a git",
+          "why": "No pattern matched for input: /home a git"
+        },
+        "de": {
+          "outcome": "refused",
+          "text": "gehen zu /home",
+          "why": "No pattern matched for input: gehen zu /home"
+        },
+        "pt": {
+          "outcome": "refused",
+          "text": "ir para /home",
+          "why": "No pattern matched for input: ir para /home"
+        }
+      },
+      "[take patient:.active]": {
+        "tr": {
+          "outcome": "silent",
+          "text": ".active al",
+          "why": "reads another command: get"
+        }
+      }
+    },
+    "llm": {
+      "[ask patient:\"What is this?\" source:#article manner:bullets]": {
+        "ko": {
+          "outcome": "refused",
+          "text": "#article 에서 \"What is this?\" 로 bullets 질문",
+          "why": "No pattern matched for input: #article 에서 \"What is this?\" 로 bullets 질문"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "#article dan \"What is this?\" olarak bullets sor",
+          "why": "No pattern matched for input: #article dan \"What is this?\" olarak bullets sor"
+        }
+      },
+      "[summarize patient:#document quantity:3 manner:bullets]": {
+        "ja": {
+          "outcome": "refused",
+          "text": "#document で 3 要約 として bullets",
+          "why": "No pattern matched for input: #document で 3 要約 として bullets"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "#document 에서 3 요약 로 bullets",
+          "why": "No pattern matched for input: #document 에서 3 요약 로 bullets"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "#document ile 3 özetle olarak bullets",
+          "why": "No pattern matched for input: #document ile 3 özetle olarak bullets"
+        }
+      }
+    },
+    "voice": {
+      "[navigate destination:/home]": {
+        "ja": {
+          "outcome": "refused",
+          "text": "/home に 移動",
+          "why": "No pattern matched for input: /home に 移動"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "/home 로 이동",
+          "why": "No pattern matched for input: /home 로 이동"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "/home ya git",
+          "why": "No pattern matched for input: /home ya git"
+        }
+      },
+      "[focus patient:#login]": {
+        "ar": {
+          "outcome": "refused",
+          "text": "ركز #login",
+          "why": "No pattern matched for input: ركز #login"
+        }
+      },
+      "[open patient:/new-page]": {
+        "ja": {
+          "outcome": "refused",
+          "text": "/new-page を 開く",
+          "why": "No pattern matched for input: /new-page を 開く"
+        },
+        "ko": {
+          "outcome": "refused",
+          "text": "/new-page 을 열기",
+          "why": "No pattern matched for input: /new-page 을 열기"
+        },
+        "tr": {
+          "outcome": "refused",
+          "text": "/new-page aç",
+          "why": "No pattern matched for input: /new-page aç"
+        }
+      },
+      "[search patient:hello]": {
+        "ar": {
+          "outcome": "refused",
+          "text": "ابحث hello",
+          "why": "No pattern matched for input: ابحث hello"
+        }
+      },
+      "[search patient:hello destination:#search]": {
+        "ar": {
+          "outcome": "refused",
+          "text": "ابحث hello في #search",
+          "why": "No pattern matched for input: ابحث hello في #search"
+        }
+      }
+    }
+  },
+  "leftover": {
+    "bdd": {
+      "[given target:#box0 state:visible]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr"
+      ],
+      "[given target:#box0 state:exists]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr"
+      ],
+      "[given target:#box0 state:hidden]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr"
+      ],
+      "[given target:#box0 state:loaded]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr"
+      ],
+      "[given target:#box0 state:disabled]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr"
+      ],
+      "[given target:#box0 state:enabled]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr"
+      ],
+      "[given target:#box0 state:checked]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr"
+      ],
+      "[given target:#box0 state:focused]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr"
+      ],
+      "[when action_type:click]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr"
+      ],
+      "[when action_type:type]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr"
+      ],
+      "[when action_type:hover]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr"
+      ],
+      "[when action_type:navigate]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr"
+      ],
+      "[when action_type:submit]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr"
+      ],
+      "[when action_type:double-click]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr"
+      ],
+      "[when action_type:right-click]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr"
+      ],
+      "[when action_type:press]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr"
+      ],
+      "[when action_type:check]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr"
+      ],
+      "[when action_type:uncheck]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr"
+      ],
+      "[when action_type:select]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr"
+      ],
+      "[when action_type:wait]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr"
+      ],
+      "[when action_type:click target:#box1 value:v2x]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr"
+      ],
+      "[when action_type:type target:#box1 value:v2x]": [
+        "en",
+        "es",
+        "ar",
+        "zh",
+        "fr"
+      ],
+      "[when action_type:hover target:#box1 value:v2x]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr"
+      ],
+      "[when action_type:navigate target:#box1 value:v2x]": [
+        "en",
+        "es",
+        "ar",
+        "zh",
+        "fr"
+      ],
+      "[when action_type:submit target:#box1 value:v2x]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr"
+      ],
+      "[when action_type:double-click target:#box1 value:v2x]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr"
+      ],
+      "[when action_type:right-click target:#box1 value:v2x]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr"
+      ],
+      "[when action_type:press target:#box1 value:v2x]": [
+        "en",
+        "es",
+        "ar",
+        "zh",
+        "fr"
+      ],
+      "[when action_type:check target:#box1 value:v2x]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr"
+      ],
+      "[when action_type:uncheck target:#box1 value:v2x]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr"
+      ],
+      "[when action_type:select target:#box1 value:v2x]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr"
+      ],
+      "[when action_type:wait target:#box1 value:v2x]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr"
+      ],
+      "[then target:#box0 assertion:visible]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr"
+      ],
+      "[then target:#box0 assertion:hidden]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr"
+      ],
+      "[then target:#box0 assertion:text]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr"
+      ],
+      "[then target:#box0 assertion:count]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr"
+      ],
+      "[then target:#box0 assertion:value]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr"
+      ],
+      "[then target:#box0 assertion:visible expected_value:v2x]": [
+        "en",
+        "es",
+        "ar",
+        "zh",
+        "fr"
+      ],
+      "[then target:#box0 assertion:hidden expected_value:v2x]": [
+        "en",
+        "es",
+        "ar",
+        "zh",
+        "fr"
+      ],
+      "[then target:#box0 assertion:text expected_value:v2x]": [
+        "en",
+        "es",
+        "ar",
+        "zh",
+        "fr"
+      ],
+      "[then target:#box0 assertion:count expected_value:v2x]": [
+        "en",
+        "es",
+        "ar",
+        "zh",
+        "fr"
+      ],
+      "[then target:#box0 assertion:value expected_value:v2x]": [
+        "en",
+        "es",
+        "ar",
+        "zh",
+        "fr"
+      ],
+      "[and content:v0x]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr"
+      ]
+    },
+    "behaviorspec": {
+      "[test name:Login]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr",
+        "tr"
+      ],
+      "[given subject:page]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr",
+        "tr"
+      ],
+      "[given subject:viewport]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr",
+        "tr"
+      ],
+      "[given subject:page value:/home]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr",
+        "tr"
+      ],
+      "[given subject:viewport value:/home]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr",
+        "tr"
+      ],
+      "[when action:clicks]": [
+        "en",
+        "es",
+        "ar",
+        "zh",
+        "fr"
+      ],
+      "[when action:types]": [
+        "en",
+        "es",
+        "ar",
+        "zh",
+        "fr"
+      ],
+      "[when action:submits]": [
+        "en",
+        "es",
+        "ar",
+        "zh",
+        "fr"
+      ],
+      "[when action:hovers]": [
+        "en",
+        "es",
+        "ar",
+        "zh",
+        "fr"
+      ],
+      "[when action:scrolls]": [
+        "en",
+        "es",
+        "ar",
+        "zh",
+        "fr"
+      ],
+      "[when action:drags]": [
+        "en",
+        "es",
+        "ar",
+        "zh",
+        "fr"
+      ],
+      "[when action:double-clicks]": [
+        "en",
+        "es",
+        "ar",
+        "zh",
+        "fr"
+      ],
+      "[when action:right-clicks]": [
+        "en",
+        "es",
+        "ar",
+        "zh",
+        "fr"
+      ],
+      "[when action:focuses]": [
+        "en",
+        "es",
+        "ar",
+        "zh",
+        "fr"
+      ],
+      "[when action:clears]": [
+        "en",
+        "es",
+        "ar",
+        "zh",
+        "fr"
+      ],
+      "[when actor:user action:clicks target:#button destination:#form]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr",
+        "tr"
+      ],
+      "[when actor:user action:types target:#button destination:#form]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr",
+        "tr"
+      ],
+      "[when actor:user action:submits target:#button destination:#form]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr",
+        "tr"
+      ],
+      "[when actor:user action:hovers target:#button destination:#form]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr",
+        "tr"
+      ],
+      "[when actor:user action:scrolls target:#button destination:#form]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr",
+        "tr"
+      ],
+      "[when actor:user action:drags target:#button destination:#form]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr",
+        "tr"
+      ],
+      "[when actor:user action:double-clicks target:#button destination:#form]": [
+        "en",
+        "es",
+        "ar",
+        "zh",
+        "fr",
+        "tr"
+      ],
+      "[when actor:user action:right-clicks target:#button destination:#form]": [
+        "en",
+        "es",
+        "ar",
+        "zh",
+        "fr",
+        "tr"
+      ],
+      "[when actor:user action:focuses target:#button destination:#form]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr",
+        "tr"
+      ],
+      "[when actor:user action:clears target:#button destination:#form]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr",
+        "tr"
+      ],
+      "[expect target:#toast assertion:appears]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr",
+        "tr"
+      ],
+      "[expect target:#toast assertion:disappears]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr",
+        "tr"
+      ],
+      "[expect target:#toast assertion:has]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr",
+        "tr"
+      ],
+      "[expect target:#toast assertion:shows]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr",
+        "tr"
+      ],
+      "[expect target:#toast assertion:changes]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr",
+        "tr"
+      ],
+      "[expect target:#toast assertion:contains]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr",
+        "tr"
+      ],
+      "[expect target:#toast assertion:enabled]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr",
+        "tr"
+      ],
+      "[expect target:#toast assertion:disabled]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr",
+        "tr"
+      ],
+      "[expect target:#toast assertion:checked]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr",
+        "tr"
+      ],
+      "[expect target:#toast assertion:focused]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr",
+        "tr"
+      ],
+      "[expect target:#toast assertion:editable]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr",
+        "tr"
+      ],
+      "[expect target:#toast assertion:empty]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr",
+        "tr"
+      ],
+      "[expect target:#toast assertion:count]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr",
+        "tr"
+      ],
+      "[expect target:#toast assertion:value]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr",
+        "tr"
+      ],
+      "[expect target:#toast assertion:appears value:hello]": [
+        "en",
+        "es",
+        "ar",
+        "zh",
+        "fr"
+      ],
+      "[expect target:#toast assertion:disappears value:hello]": [
+        "en",
+        "es",
+        "ar",
+        "zh",
+        "fr"
+      ],
+      "[expect target:#toast assertion:has value:hello]": [
+        "en",
+        "es",
+        "ar",
+        "zh",
+        "fr"
+      ],
+      "[expect target:#toast assertion:shows value:hello]": [
+        "en",
+        "es",
+        "ar",
+        "zh",
+        "fr"
+      ],
+      "[expect target:#toast assertion:changes value:hello]": [
+        "en",
+        "es",
+        "ar",
+        "zh",
+        "fr"
+      ],
+      "[expect target:#toast assertion:contains value:hello]": [
+        "en",
+        "es",
+        "ar",
+        "zh",
+        "fr"
+      ],
+      "[expect target:#toast assertion:enabled value:hello]": [
+        "en",
+        "es",
+        "ar",
+        "zh",
+        "fr"
+      ],
+      "[expect target:#toast assertion:disabled value:hello]": [
+        "en",
+        "es",
+        "ar",
+        "zh",
+        "fr"
+      ],
+      "[expect target:#toast assertion:checked value:hello]": [
+        "en",
+        "es",
+        "ar",
+        "zh",
+        "fr"
+      ],
+      "[expect target:#toast assertion:focused value:hello]": [
+        "en",
+        "es",
+        "ar",
+        "zh",
+        "fr"
+      ],
+      "[expect target:#toast assertion:editable value:hello]": [
+        "en",
+        "es",
+        "ar",
+        "zh",
+        "fr"
+      ],
+      "[expect target:#toast assertion:empty value:hello]": [
+        "en",
+        "es",
+        "ar",
+        "zh",
+        "fr"
+      ],
+      "[expect target:#toast assertion:count value:hello]": [
+        "en",
+        "es",
+        "ar",
+        "zh",
+        "fr"
+      ],
+      "[expect target:#toast assertion:value value:hello]": [
+        "en",
+        "es",
+        "ar",
+        "zh",
+        "fr"
+      ],
+      "[after duration:2s]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr",
+        "tr"
+      ],
+      "[after duration:300ms]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr",
+        "tr"
+      ],
+      "[not content:v0x]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "fr",
+        "tr"
+      ]
+    },
+    "flow": {
+      "[fetch source:/api/users]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[fetch source:/api/users style:json destination:#list]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[fetch source:/api/users style:html destination:#list]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[fetch source:/api/users style:text destination:#list]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[fetch source:/api/users style:sse destination:#list]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[poll source:/api/status duration:5s]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[poll source:/api/status duration:5s style:json destination:#list]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[poll source:/api/status duration:5s style:html destination:#list]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[poll source:/api/status duration:5s style:text destination:#list]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[poll source:/api/status duration:5s style:sse destination:#list]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[stream source:/api/events]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[stream source:/api/events style:json destination:#list]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[stream source:/api/events style:html destination:#list]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[stream source:/api/events style:text destination:#list]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[stream source:/api/events style:sse destination:#list]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[submit patient:#checkout destination:/api/order]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[submit patient:#checkout destination:/api/order style:json]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[submit patient:#checkout destination:/api/order style:html]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[submit patient:#checkout destination:/api/order style:text]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[submit patient:#checkout destination:/api/order style:sse]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[transform patient:data instrument:uppercase]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[enter source:/api]": [
+        "en",
+        "es",
+        "ar",
+        "zh",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[follow patient:orders]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[follow patient:orders instrument:next]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[perform patient:createOrder]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[perform patient:createOrder source:#checkout]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[capture destination:orders]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[capture patient:message destination:orders]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ]
+    },
+    "learn": {
+      "[add patient:.active]": [
+        "en",
+        "ja",
+        "es",
+        "ar",
+        "zh",
+        "ko",
+        "fr",
+        "tr",
+        "de",
+        "pt"
+      ],
+      "[add patient:.active destination:#box]": [
+        "en",
+        "ja",
+        "es",
+        "ar",
+        "zh",
+        "ko",
+        "fr",
+        "tr",
+        "de",
+        "pt"
+      ],
+      "[remove patient:.active]": [
+        "en",
+        "ja",
+        "es",
+        "ar",
+        "zh",
+        "ko",
+        "fr",
+        "tr",
+        "de",
+        "pt"
+      ],
+      "[remove patient:.active source:#box]": [
+        "en",
+        "ja",
+        "es",
+        "ar",
+        "zh",
+        "ko",
+        "fr",
+        "tr",
+        "de",
+        "pt"
+      ],
+      "[toggle patient:.active]": [
+        "en",
+        "ja",
+        "es",
+        "ar",
+        "zh",
+        "ko",
+        "fr",
+        "tr",
+        "de",
+        "pt"
+      ],
+      "[toggle patient:.active destination:#box]": [
+        "en",
+        "ja",
+        "es",
+        "ar",
+        "zh",
+        "ko",
+        "fr",
+        "tr",
+        "de",
+        "pt"
+      ],
+      "[put patient:\"hi\"]": [
+        "en",
+        "ja",
+        "es",
+        "ar",
+        "zh",
+        "ko",
+        "fr",
+        "tr",
+        "de",
+        "pt"
+      ],
+      "[put patient:\"hi\" destination:#box]": [
+        "en",
+        "ja",
+        "es",
+        "ar",
+        "zh",
+        "ko",
+        "fr",
+        "tr",
+        "de",
+        "pt"
+      ],
+      "[set destination:x patient:5]": [
+        "en",
+        "ja",
+        "es",
+        "ar",
+        "zh",
+        "ko",
+        "fr",
+        "tr",
+        "de",
+        "pt"
+      ],
+      "[show patient:#box]": [
+        "en",
+        "ja",
+        "es",
+        "ar",
+        "zh",
+        "ko",
+        "fr",
+        "tr",
+        "de",
+        "pt"
+      ],
+      "[hide patient:#box]": [
+        "en",
+        "ja",
+        "es",
+        "ar",
+        "zh",
+        "ko",
+        "fr",
+        "tr",
+        "de",
+        "pt"
+      ],
+      "[get source:#box]": [
+        "en",
+        "ja",
+        "es",
+        "ar",
+        "zh",
+        "ko",
+        "fr",
+        "tr",
+        "de",
+        "pt"
+      ],
+      "[wait patient:2s]": [
+        "en",
+        "ja",
+        "es",
+        "ar",
+        "zh",
+        "ko",
+        "fr",
+        "tr",
+        "de",
+        "pt"
+      ],
+      "[send patient:click]": [
+        "en",
+        "ja",
+        "es",
+        "ar",
+        "zh",
+        "ko",
+        "fr",
+        "tr",
+        "de",
+        "pt"
+      ],
+      "[send patient:click destination:#box]": [
+        "en",
+        "ja",
+        "es",
+        "ar",
+        "zh",
+        "ko",
+        "fr",
+        "de",
+        "pt"
+      ],
+      "[increment patient:x]": [
+        "en",
+        "ja",
+        "es",
+        "ar",
+        "zh",
+        "ko",
+        "fr",
+        "tr",
+        "de",
+        "pt"
+      ],
+      "[decrement patient:x]": [
+        "en",
+        "ja",
+        "es",
+        "ar",
+        "zh",
+        "ko",
+        "fr",
+        "tr",
+        "de",
+        "pt"
+      ],
+      "[take patient:.active]": [
+        "en",
+        "ja",
+        "es",
+        "ar",
+        "zh",
+        "ko",
+        "fr",
+        "tr",
+        "de",
+        "pt"
+      ],
+      "[take patient:.active source:#box]": [
+        "en",
+        "ja",
+        "es",
+        "ar",
+        "zh",
+        "ko",
+        "fr",
+        "tr",
+        "de",
+        "pt"
+      ]
+    },
+    "llm": {
+      "[ask patient:\"What is this?\"]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[ask patient:\"What is this?\" source:#article manner:bullets]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "zh",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[summarize patient:#document]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[summarize patient:#document quantity:3 manner:bullets]": [
+        "en",
+        "es",
+        "ar",
+        "zh",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[analyze patient:#text manner:sentiment]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[translate patient:#text source:english destination:japanese]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ]
+    },
+    "sql": {
+      "[select columns:name source:users]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[select columns:name source:users condition:active]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[insert values:Bob destination:users]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[update source:users values:Bob]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[update source:users values:Bob condition:active]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[delete source:users]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[delete source:users condition:active]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[get source:users]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[get source:users condition:active limit:10]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ]
+    },
+    "todo": {
+      "[add item:milk]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[add item:milk list:groceries]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[complete item:milk]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[list]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[list list:groceries]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ]
+    },
+    "voice": {
+      "[navigate destination:/home]": [
+        "en",
+        "es",
+        "ar",
+        "zh",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[click patient:#login]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[type patient:hello]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[type patient:hello destination:#search]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[scroll manner:down]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[scroll manner:up]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[scroll manner:left]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[scroll manner:right]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[scroll manner:top]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[scroll manner:bottom]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[scroll manner:down quantity:500]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[scroll manner:up quantity:500]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[scroll manner:left quantity:500]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[scroll manner:right quantity:500]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[scroll manner:top quantity:500]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[scroll manner:bottom quantity:500]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[read patient:#login]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[zoom manner:in]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[zoom manner:out]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[zoom manner:reset]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[select patient:all]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[back]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[back quantity:2]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[forward]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[forward quantity:2]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[focus patient:#login]": [
+        "en",
+        "es",
+        "ja",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[close]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[close patient:tab]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[open patient:/new-page]": [
+        "en",
+        "es",
+        "ar",
+        "zh",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[search patient:hello]": [
+        "en",
+        "es",
+        "ja",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[search patient:hello destination:#search]": [
+        "en",
+        "es",
+        "ja",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[help]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ],
+      "[help patient:navigate]": [
+        "en",
+        "es",
+        "ja",
+        "ar",
+        "ko",
+        "zh",
+        "tr",
+        "fr",
+        "de",
+        "pt",
+        "ru"
+      ]
+    }
+  }
+}
