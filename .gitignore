@@ -4,3 +4,5 @@ coverage/
 *.log
 *.tsbuildinfo
 .DS_Store
+# scripts/gate-upstream.sh unpacks upstream tarballs here (removed on exit)
+.gate-upstream/

@@ -362,7 +362,9 @@ export async function upstreamVersions(): Promise<Record<string, string>> {
   const { createRequire } = await import('node:module');
   const { existsSync, readFileSync } = await import('node:fs');
   const { dirname, join } = await import('node:path');
-  const require = createRequire(import.meta.url);
+  // Under scripts/gate-upstream.sh, resolve from the unpacked tarballs, as the resolve hook does.
+  const upstreamRoot = process.env.GATE_UPSTREAM_ROOT;
+  const require = createRequire(upstreamRoot ? join(upstreamRoot, 'resolver.js') : import.meta.url);
   const out: Record<string, string> = {};
   for (const name of ['@lokascript/framework', '@lokascript/semantic', '@lokascript/intent']) {
     // `./package.json` is not in their exports: walk up from the entry to the manifest.

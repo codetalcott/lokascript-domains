@@ -134,7 +134,18 @@ moved even where no outcome did (a value's type, a role a passing case gained, w
 reads now). `gate:regen` rewrites it with the baseline; its diff is the review.
 
 A framework bump (Dependabot's upstream group) moves the gate too: its numbers are always the
-framework the lockfile holds.
+framework the lockfile holds. To measure an UNPUBLISHED hyperfixi build before it is released, pack
+it there and run the gate on it here (report only; exits 1 on a case worse than the baseline):
+
+```bash
+# hyperfixi:  npm run build --prefix packages/framework && (cd packages/framework && npm pack)
+UPSTREAM_TARBALLS="/abs/lokascript-framework-4.5.0.tgz" npm run gate:upstream
+```
+
+`scripts/gate-upstream.sh` unpacks the tarballs into `packages/domains/.gate-upstream/` and runs the
+report with a resolve hook (`gate/upstream.mjs`) that points `@lokascript/framework`, `semantic` and
+`intent` there; a package not given keeps the lockfile's copy. The regen tool refuses to write under
+it.
 
 ### The registry choke point (`packages/domain-config`)
 

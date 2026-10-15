@@ -31,6 +31,16 @@ import {
 const args = new Set(process.argv.slice(2));
 const report = args.has('--report');
 const allowNew = args.has('--allow-new');
+/** With --report: exit 1 when a case is worse than the baseline (scripts/gate-upstream.sh). */
+const failOnWorse = args.has('--fail-on-worse');
+// Under scripts/gate-upstream.sh the upstream packages are an unpublished build: the committed
+// baseline must stay measured on the lockfile's, so this run may only report.
+if (process.env.GATE_UPSTREAM_ROOT && !report) {
+  console.error(
+    'GATE_UPSTREAM_ROOT is set: an unpublished upstream may only be reported (--report).'
+  );
+  process.exit(2);
+}
 
 const previous: Baseline | null = existsSync(BASELINE_PATH)
   ? (JSON.parse(readFileSync(BASELINE_PATH, 'utf8')) as Baseline)
@@ -106,7 +116,14 @@ for (const domain of DOMAINS) {
   }
 }
 
-if (report) process.exit(0);
+console.log(
+  `\nMeasured on ${Object.entries(next.upstream)
+    .map(([name, version]) => `${name}@${version}`)
+    .join(
+      ', '
+    )}${process.env.GATE_UPSTREAM_ROOT ? ' (unpublished: GATE_UPSTREAM_ROOT)' : ''}: ${worse} worse, ${better} better, ${moved} parses moved`
+);
+if (report) process.exit(failOnWorse && worse ? 1 : 0);
 if (worse && !allowNew) {
   console.error(
     `\nRefusing to write: ${worse} case(s) worse than the baseline. Fix them, or record them with --allow-new.`
