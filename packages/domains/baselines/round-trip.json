@@ -8,9 +8,9 @@
     "bdd": {
       "roundTrip": {
         "cases": 344,
-        "pass": 265,
+        "pass": 234,
         "refused": 35,
-        "silent": 44
+        "silent": 75
       },
       "leftover": {
         "cases": 309,
@@ -22,9 +22,9 @@
     "behaviorspec": {
       "roundTrip": {
         "cases": 448,
-        "pass": 372,
+        "pass": 330,
         "refused": 76,
-        "silent": 0
+        "silent": 42
       },
       "leftover": {
         "cases": 372,
@@ -36,9 +36,9 @@
     "flow": {
       "roundTrip": {
         "cases": 308,
-        "pass": 298,
+        "pass": 297,
         "refused": 3,
-        "silent": 7
+        "silent": 8
       },
       "leftover": {
         "cases": 305,
@@ -106,9 +106,9 @@
     "voice": {
       "roundTrip": {
         "cases": 363,
-        "pass": 354,
+        "pass": 338,
         "refused": 9,
-        "silent": 0
+        "silent": 16
       },
       "leftover": {
         "cases": 354,
@@ -135,77 +135,37 @@
         }
       },
       "[when action_type:double-click]": {
+        "en": {
+          "outcome": "silent",
+          "text": "When double-click",
+          "why": "compiles differently; reads action_type: double"
+        },
         "es": {
           "outcome": "silent",
           "text": "Cuando doble-clic",
           "why": "compiles differently; reads action_type: doble"
         },
-        "ja": {
-          "outcome": "silent",
-          "text": "ダブルクリック したら",
-          "why": "compiles differently; reads action_type: ダブルクリック"
-        },
         "ar": {
           "outcome": "silent",
           "text": "عند نقر-مزدوج",
           "why": "compiles differently; reads action_type: نقر"
-        },
-        "ko": {
-          "outcome": "silent",
-          "text": "더블클릭 만약",
-          "why": "compiles differently; reads action_type: 더블클릭"
-        },
-        "zh": {
-          "outcome": "silent",
-          "text": "当 双击",
-          "why": "compiles differently; reads action_type: 双击"
-        },
-        "tr": {
-          "outcome": "silent",
-          "text": "çift-tıkla Olduğunda",
-          "why": "compiles differently; reads action_type: çift-tıkla"
-        },
-        "fr": {
-          "outcome": "silent",
-          "text": "Quand double-clic",
-          "why": "compiles differently; reads action_type: double-clic"
         }
       },
       "[when action_type:right-click]": {
+        "en": {
+          "outcome": "silent",
+          "text": "When right-click",
+          "why": "compiles differently; reads action_type: right"
+        },
         "es": {
           "outcome": "silent",
           "text": "Cuando clic-derecho",
           "why": "compiles differently; reads action_type: clic"
         },
-        "ja": {
-          "outcome": "silent",
-          "text": "右クリック したら",
-          "why": "compiles differently; reads action_type: 右クリック"
-        },
         "ar": {
           "outcome": "silent",
           "text": "عند نقر-يمين",
           "why": "compiles differently; reads action_type: نقر"
-        },
-        "ko": {
-          "outcome": "silent",
-          "text": "우클릭 만약",
-          "why": "compiles differently; reads action_type: 우클릭"
-        },
-        "zh": {
-          "outcome": "silent",
-          "text": "当 右击",
-          "why": "compiles differently; reads action_type: 右击"
-        },
-        "tr": {
-          "outcome": "silent",
-          "text": "sağ-tıkla Olduğunda",
-          "why": "compiles differently; reads action_type: sağ-tıkla"
-        },
-        "fr": {
-          "outcome": "silent",
-          "text": "Quand clic-droit",
-          "why": "compiles differently; reads action_type: clic-droit"
         }
       },
       "[when action_type:uncheck]": {
@@ -223,20 +183,45 @@
         }
       },
       "[when action_type:type target:#box1 value:v2x]": {
+        "en": {
+          "outcome": "silent",
+          "text": "When type #box1 v2x",
+          "why": "compiles differently; reads target lost, value lost"
+        },
+        "es": {
+          "outcome": "silent",
+          "text": "Cuando escribir #box1 v2x",
+          "why": "compiles differently; reads target lost, value lost, action_type: escribir"
+        },
         "ja": {
           "outcome": "refused",
           "text": "#box1 に 入力 したら",
           "why": "No pattern matched for input: #box1 に 入力 したら"
+        },
+        "ar": {
+          "outcome": "silent",
+          "text": "عند كتابة #box1",
+          "why": "compiles differently; reads target lost, value lost, action_type: كتابة"
         },
         "ko": {
           "outcome": "refused",
           "text": "#box1 에 입력 만약",
           "why": "No pattern matched for input: #box1 에 입력 만약"
         },
+        "zh": {
+          "outcome": "silent",
+          "text": "当 输入 #box1 v2x",
+          "why": "compiles differently; reads target lost, value lost, action_type: 输入"
+        },
         "tr": {
           "outcome": "refused",
           "text": "#box1 yaz Olduğunda",
           "why": "No pattern matched for input: #box1 yaz Olduğunda"
+        },
+        "fr": {
+          "outcome": "silent",
+          "text": "Quand saisir #box1 v2x",
+          "why": "compiles differently; reads target lost, value lost, action_type: saisir"
         }
       },
       "[when action_type:hover target:#box1 value:v2x]": {
@@ -247,10 +232,25 @@
         }
       },
       "[when action_type:navigate target:#box1 value:v2x]": {
+        "en": {
+          "outcome": "silent",
+          "text": "When navigate to #box1 v2x",
+          "why": "compiles differently; reads target lost, value lost"
+        },
+        "es": {
+          "outcome": "silent",
+          "text": "Cuando navegar a #box1 v2x",
+          "why": "compiles differently; reads target lost, value lost, action_type: navegar"
+        },
         "ja": {
           "outcome": "refused",
           "text": "#box1 に 移動 したら",
           "why": "No pattern matched for input: #box1 に 移動 したら"
+        },
+        "ar": {
+          "outcome": "silent",
+          "text": "عند انتقال إلى #box1",
+          "why": "compiles differently; reads target lost, value lost, action_type: انتقال"
         },
         "ko": {
           "outcome": "refused",
@@ -266,187 +266,267 @@
           "outcome": "refused",
           "text": "#box1 git Olduğunda",
           "why": "No pattern matched for input: #box1 git Olduğunda"
+        },
+        "fr": {
+          "outcome": "silent",
+          "text": "Quand naviguer vers #box1 v2x",
+          "why": "compiles differently; reads target lost, value lost, action_type: naviguer"
         }
       },
       "[when action_type:submit target:#box1 value:v2x]": {
-        "ja": {
+        "en": {
           "outcome": "silent",
-          "text": "#box1 を 送信 したら",
-          "why": "compiles differently; reads value lost, action_type: 送信"
+          "text": "When submit #box1 v2x",
+          "why": "compiles differently; reads target lost, value lost"
         },
-        "ko": {
+        "es": {
           "outcome": "silent",
-          "text": "#box1 를 제출 만약",
-          "why": "compiles differently; reads value lost, action_type: 제출"
+          "text": "Cuando enviar #box1 v2x",
+          "why": "compiles differently; reads target lost, value lost, action_type: enviar"
+        },
+        "ar": {
+          "outcome": "silent",
+          "text": "عند إرسال #box1",
+          "why": "compiles differently; reads target lost, value lost, action_type: إرسال"
+        },
+        "zh": {
+          "outcome": "silent",
+          "text": "当 提交 #box1 v2x",
+          "why": "compiles differently; reads target lost, value lost, action_type: 提交"
         },
         "tr": {
           "outcome": "refused",
           "text": "#box1 gönder Olduğunda",
           "why": "No pattern matched for input: #box1 gönder Olduğunda"
+        },
+        "fr": {
+          "outcome": "silent",
+          "text": "Quand soumettre #box1 v2x",
+          "why": "compiles differently; reads target lost, value lost, action_type: soumettre"
         }
       },
       "[when action_type:double-click target:#box1 value:v2x]": {
+        "en": {
+          "outcome": "silent",
+          "text": "When double-click on #box1 v2x",
+          "why": "compiles differently; reads value lost, action_type: double"
+        },
         "es": {
           "outcome": "silent",
           "text": "Cuando doble-clic en #box1 v2x",
           "why": "compiles differently; reads value lost, action_type: doble"
-        },
-        "ja": {
-          "outcome": "silent",
-          "text": "#box1 を ダブルクリック したら",
-          "why": "compiles differently; reads value lost, action_type: ダブルクリック"
         },
         "ar": {
           "outcome": "silent",
           "text": "عند نقر-مزدوج على #box1",
           "why": "compiles differently; reads value lost, action_type: نقر"
         },
-        "ko": {
-          "outcome": "silent",
-          "text": "#box1 를 더블클릭 만약",
-          "why": "compiles differently; reads value lost, action_type: 더블클릭"
-        },
         "zh": {
           "outcome": "silent",
           "text": "当 双击 #box1 v2x",
           "why": "compiles differently; reads target lost, value lost, action_type: 双击"
-        },
-        "tr": {
-          "outcome": "silent",
-          "text": "#box1 üzerinde çift-tıkla Olduğunda",
-          "why": "compiles differently; reads value lost, action_type: çift-tıkla"
-        },
-        "fr": {
-          "outcome": "silent",
-          "text": "Quand double-clic sur #box1 v2x",
-          "why": "compiles differently; reads value lost, action_type: double-clic"
         }
       },
       "[when action_type:right-click target:#box1 value:v2x]": {
+        "en": {
+          "outcome": "silent",
+          "text": "When right-click on #box1 v2x",
+          "why": "compiles differently; reads value lost, action_type: right"
+        },
         "es": {
           "outcome": "silent",
           "text": "Cuando clic-derecho en #box1 v2x",
           "why": "compiles differently; reads value lost, action_type: clic"
-        },
-        "ja": {
-          "outcome": "silent",
-          "text": "#box1 を 右クリック したら",
-          "why": "compiles differently; reads value lost, action_type: 右クリック"
         },
         "ar": {
           "outcome": "silent",
           "text": "عند نقر-يمين على #box1",
           "why": "compiles differently; reads value lost, action_type: نقر"
         },
-        "ko": {
-          "outcome": "silent",
-          "text": "#box1 를 우클릭 만약",
-          "why": "compiles differently; reads value lost, action_type: 우클릭"
-        },
         "zh": {
           "outcome": "silent",
           "text": "当 右击 #box1 v2x",
           "why": "compiles differently; reads target lost, value lost, action_type: 右击"
-        },
-        "tr": {
-          "outcome": "silent",
-          "text": "#box1 üzerinde sağ-tıkla Olduğunda",
-          "why": "compiles differently; reads value lost, action_type: sağ-tıkla"
-        },
-        "fr": {
-          "outcome": "silent",
-          "text": "Quand clic-droit sur #box1 v2x",
-          "why": "compiles differently; reads value lost, action_type: clic-droit"
         }
       },
       "[when action_type:press target:#box1 value:v2x]": {
+        "en": {
+          "outcome": "silent",
+          "text": "When press #box1 v2x",
+          "why": "compiles differently; reads target lost, value lost"
+        },
+        "es": {
+          "outcome": "silent",
+          "text": "Cuando presionar #box1 v2x",
+          "why": "compiles differently; reads target lost, value lost, action_type: presionar"
+        },
         "ja": {
           "outcome": "refused",
           "text": "#box1 キー したら",
           "why": "No pattern matched for input: #box1 キー したら"
+        },
+        "ar": {
+          "outcome": "silent",
+          "text": "عند ضغط #box1",
+          "why": "compiles differently; reads target lost, value lost, action_type: ضغط"
         },
         "ko": {
           "outcome": "refused",
           "text": "#box1 키 만약",
           "why": "No pattern matched for input: #box1 키 만약"
         },
+        "zh": {
+          "outcome": "silent",
+          "text": "当 按 #box1 v2x",
+          "why": "compiles differently; reads target lost, value lost, action_type: 按"
+        },
         "tr": {
           "outcome": "refused",
           "text": "#box1 bas Olduğunda",
           "why": "No pattern matched for input: #box1 bas Olduğunda"
+        },
+        "fr": {
+          "outcome": "silent",
+          "text": "Quand appuyer #box1 v2x",
+          "why": "compiles differently; reads target lost, value lost, action_type: appuyer"
         }
       },
       "[when action_type:check target:#box1 value:v2x]": {
-        "ja": {
+        "en": {
           "outcome": "silent",
-          "text": "#box1 を チェック したら",
-          "why": "compiles differently; reads value lost, action_type: チェック"
+          "text": "When check #box1 v2x",
+          "why": "compiles differently; reads target lost, value lost"
         },
-        "ko": {
+        "es": {
           "outcome": "silent",
-          "text": "#box1 를 체크 만약",
-          "why": "compiles differently; reads value lost, action_type: 체크"
+          "text": "Cuando marcar #box1 v2x",
+          "why": "compiles differently; reads target lost, value lost, action_type: marcar"
+        },
+        "ar": {
+          "outcome": "silent",
+          "text": "عند تحديد #box1",
+          "why": "compiles differently; reads target lost, value lost, action_type: تحديد"
+        },
+        "zh": {
+          "outcome": "silent",
+          "text": "当 勾选 #box1 v2x",
+          "why": "compiles differently; reads target lost, value lost, action_type: 勾选"
         },
         "tr": {
           "outcome": "refused",
           "text": "#box1 işaretle Olduğunda",
           "why": "No pattern matched for input: #box1 işaretle Olduğunda"
+        },
+        "fr": {
+          "outcome": "silent",
+          "text": "Quand cocher #box1 v2x",
+          "why": "compiles differently; reads target lost, value lost, action_type: cocher"
         }
       },
       "[when action_type:uncheck target:#box1 value:v2x]": {
-        "ja": {
+        "en": {
           "outcome": "silent",
-          "text": "#box1 を チェック解除 したら",
-          "why": "compiles differently; reads value lost, action_type: チェック解除"
+          "text": "When uncheck #box1 v2x",
+          "why": "compiles differently; reads target lost, value lost"
+        },
+        "es": {
+          "outcome": "silent",
+          "text": "Cuando desmarcar #box1 v2x",
+          "why": "compiles differently; reads target lost, value lost, action_type: desmarcar"
         },
         "ar": {
           "outcome": "silent",
           "text": "عند إلغاء-تحديد #box1",
           "why": "compiles differently; reads target lost, value lost, action_type: إلغاء"
         },
-        "ko": {
+        "zh": {
           "outcome": "silent",
-          "text": "#box1 를 체크해제 만약",
-          "why": "compiles differently; reads value lost, action_type: 체크해제"
+          "text": "当 取消勾选 #box1 v2x",
+          "why": "compiles differently; reads target lost, value lost, action_type: 取消勾选"
         },
         "tr": {
           "outcome": "refused",
           "text": "#box1 işareti-kaldır Olduğunda",
           "why": "No pattern matched for input: #box1 işareti-kaldır Olduğunda"
+        },
+        "fr": {
+          "outcome": "silent",
+          "text": "Quand décocher #box1 v2x",
+          "why": "compiles differently; reads target lost, value lost, action_type: décocher"
         }
       },
       "[when action_type:select target:#box1 value:v2x]": {
+        "en": {
+          "outcome": "silent",
+          "text": "When select #box1 v2x",
+          "why": "compiles differently; reads target lost, value lost"
+        },
+        "es": {
+          "outcome": "silent",
+          "text": "Cuando seleccionar #box1 v2x",
+          "why": "compiles differently; reads target lost, value lost, action_type: seleccionar"
+        },
         "ja": {
           "outcome": "silent",
           "text": "#box1 を 選択 したら",
           "why": "compiles differently; reads value lost, action_type: 選択"
+        },
+        "ar": {
+          "outcome": "silent",
+          "text": "عند اختيار #box1",
+          "why": "compiles differently; reads target lost, value lost, action_type: اختيار"
         },
         "ko": {
           "outcome": "silent",
           "text": "#box1 를 선택 만약",
           "why": "compiles differently; reads value lost, action_type: 선택"
         },
+        "zh": {
+          "outcome": "silent",
+          "text": "当 选择 #box1 v2x",
+          "why": "compiles differently; reads target lost, value lost, action_type: 选择"
+        },
         "tr": {
           "outcome": "refused",
           "text": "#box1 seç Olduğunda",
           "why": "No pattern matched for input: #box1 seç Olduğunda"
+        },
+        "fr": {
+          "outcome": "silent",
+          "text": "Quand sélectionner #box1 v2x",
+          "why": "compiles differently; reads target lost, value lost, action_type: sélectionner"
         }
       },
       "[when action_type:wait target:#box1 value:v2x]": {
-        "ja": {
+        "en": {
           "outcome": "silent",
-          "text": "#box1 を 待機 したら",
-          "why": "compiles differently; reads value lost, action_type: 待機"
+          "text": "When wait for #box1 v2x",
+          "why": "compiles differently; reads target lost, value lost"
         },
-        "ko": {
+        "es": {
           "outcome": "silent",
-          "text": "#box1 를 대기 만약",
-          "why": "compiles differently; reads value lost, action_type: 대기"
+          "text": "Cuando esperar #box1 v2x",
+          "why": "compiles differently; reads target lost, value lost, action_type: esperar"
+        },
+        "ar": {
+          "outcome": "silent",
+          "text": "عند انتظار #box1",
+          "why": "compiles differently; reads target lost, value lost, action_type: انتظار"
+        },
+        "zh": {
+          "outcome": "silent",
+          "text": "当 等待 #box1 v2x",
+          "why": "compiles differently; reads target lost, value lost, action_type: 等待"
         },
         "tr": {
           "outcome": "refused",
           "text": "#box1 bekle Olduğunda",
           "why": "No pattern matched for input: #box1 bekle Olduğunda"
+        },
+        "fr": {
+          "outcome": "silent",
+          "text": "Quand attendre #box1 v2x",
+          "why": "compiles differently; reads target lost, value lost, action_type: attendre"
         }
       },
       "[then target:#box0 assertion:visible]": {
@@ -519,54 +599,129 @@
         }
       },
       "[then target:#box0 assertion:text expected_value:v2x]": {
+        "en": {
+          "outcome": "silent",
+          "text": "Then #box0 has text v2x",
+          "why": "compiles differently; reads expected_value lost"
+        },
+        "es": {
+          "outcome": "silent",
+          "text": "Entonces #box0 tiene texto v2x",
+          "why": "compiles differently; reads expected_value lost, assertion: texto"
+        },
         "ja": {
           "outcome": "refused",
           "text": "#box0 に テキスト v2x ならば",
           "why": "No pattern matched for input: #box0 に テキスト v2x ならば"
+        },
+        "ar": {
+          "outcome": "silent",
+          "text": "فإن #box0 يحتوي نص v2x",
+          "why": "compiles differently; reads expected_value lost, assertion: نص"
         },
         "ko": {
           "outcome": "refused",
           "text": "#box0 에 텍스트 v2x 그러면",
           "why": "No pattern matched for input: #box0 에 텍스트 v2x 그러면"
         },
+        "zh": {
+          "outcome": "silent",
+          "text": "那么 #box0 有 文本 v2x",
+          "why": "compiles differently; reads expected_value lost, assertion: 文本"
+        },
         "tr": {
           "outcome": "refused",
           "text": "#box0 sahip metin v2x Sonra",
           "why": "No pattern matched for input: #box0 sahip metin v2x Sonra"
+        },
+        "fr": {
+          "outcome": "silent",
+          "text": "Alors #box0 a texte v2x",
+          "why": "compiles differently; reads expected_value lost, assertion: texte"
         }
       },
       "[then target:#box0 assertion:count expected_value:v2x]": {
+        "en": {
+          "outcome": "silent",
+          "text": "Then #box0 has count v2x",
+          "why": "compiles differently; reads expected_value lost"
+        },
+        "es": {
+          "outcome": "silent",
+          "text": "Entonces #box0 tiene cantidad v2x",
+          "why": "compiles differently; reads expected_value lost, assertion: cantidad"
+        },
         "ja": {
           "outcome": "refused",
           "text": "#box0 に 数 v2x ならば",
           "why": "No pattern matched for input: #box0 に 数 v2x ならば"
+        },
+        "ar": {
+          "outcome": "silent",
+          "text": "فإن #box0 يحتوي عدد v2x",
+          "why": "compiles differently; reads expected_value lost, assertion: عدد"
         },
         "ko": {
           "outcome": "refused",
           "text": "#box0 에 수 v2x 그러면",
           "why": "No pattern matched for input: #box0 에 수 v2x 그러면"
         },
+        "zh": {
+          "outcome": "silent",
+          "text": "那么 #box0 有 数量 v2x",
+          "why": "compiles differently; reads expected_value lost, assertion: 数量"
+        },
         "tr": {
           "outcome": "refused",
           "text": "#box0 sahip sayı v2x Sonra",
           "why": "No pattern matched for input: #box0 sahip sayı v2x Sonra"
+        },
+        "fr": {
+          "outcome": "silent",
+          "text": "Alors #box0 a nombre v2x",
+          "why": "compiles differently; reads expected_value lost, assertion: nombre"
         }
       },
       "[then target:#box0 assertion:value expected_value:v2x]": {
+        "en": {
+          "outcome": "silent",
+          "text": "Then #box0 has value v2x",
+          "why": "compiles differently; reads expected_value lost"
+        },
+        "es": {
+          "outcome": "silent",
+          "text": "Entonces #box0 tiene valor v2x",
+          "why": "compiles differently; reads expected_value lost, assertion: valor"
+        },
         "ja": {
           "outcome": "refused",
           "text": "#box0 に 値 v2x ならば",
           "why": "No pattern matched for input: #box0 に 値 v2x ならば"
+        },
+        "ar": {
+          "outcome": "silent",
+          "text": "فإن #box0 يحتوي قيمة v2x",
+          "why": "compiles differently; reads expected_value lost, assertion: قيمة"
         },
         "ko": {
           "outcome": "refused",
           "text": "#box0 에 값 v2x 그러면",
           "why": "No pattern matched for input: #box0 에 값 v2x 그러면"
         },
+        "zh": {
+          "outcome": "silent",
+          "text": "那么 #box0 有 值 v2x",
+          "why": "compiles differently; reads expected_value lost, assertion: 值"
+        },
         "tr": {
           "outcome": "refused",
           "text": "#box0 sahip değer v2x Sonra",
           "why": "No pattern matched for input: #box0 sahip değer v2x Sonra"
+        },
+        "fr": {
+          "outcome": "silent",
+          "text": "Alors #box0 a valeur v2x",
+          "why": "compiles differently; reads expected_value lost, assertion: valeur"
         }
       }
     },
@@ -674,15 +829,30 @@
         }
       },
       "[when action:double-clicks]": {
+        "en": {
+          "outcome": "silent",
+          "text": "when double-clicks",
+          "why": "compiles differently; reads actor added (double), action: -"
+        },
         "ja": {
           "outcome": "refused",
           "text": "double-clicks 操作",
           "why": "No pattern matched for input: double-clicks 操作"
         },
+        "ar": {
+          "outcome": "silent",
+          "text": "عندما double-clicks",
+          "why": "compiles differently; reads actor added (double), action: -"
+        },
         "ko": {
           "outcome": "refused",
           "text": "double-clicks 동작",
           "why": "No pattern matched for input: double-clicks 동작"
+        },
+        "zh": {
+          "outcome": "silent",
+          "text": "当 double-clicks",
+          "why": "compiles differently; reads actor added (double), action: -"
         },
         "tr": {
           "outcome": "refused",
@@ -691,15 +861,30 @@
         }
       },
       "[when action:right-clicks]": {
+        "en": {
+          "outcome": "silent",
+          "text": "when right-clicks",
+          "why": "compiles differently; reads actor added (right), action: -"
+        },
         "ja": {
           "outcome": "refused",
           "text": "right-clicks 操作",
           "why": "No pattern matched for input: right-clicks 操作"
         },
+        "ar": {
+          "outcome": "silent",
+          "text": "عندما right-clicks",
+          "why": "compiles differently; reads actor added (right), action: -"
+        },
         "ko": {
           "outcome": "refused",
           "text": "right-clicks 동작",
           "why": "No pattern matched for input: right-clicks 동작"
+        },
+        "zh": {
+          "outcome": "silent",
+          "text": "当 right-clicks",
+          "why": "compiles differently; reads actor added (right), action: -"
         },
         "tr": {
           "outcome": "refused",
@@ -742,27 +927,57 @@
         }
       },
       "[when actor:user action:double-clicks target:#button destination:#form]": {
+        "en": {
+          "outcome": "silent",
+          "text": "when user double-clicks on #button into #form",
+          "why": "compiles differently; reads action: double"
+        },
         "ja": {
           "outcome": "refused",
           "text": "user #button を #form に double-clicks 操作",
           "why": "No pattern matched for input: user #button を #form に double-clicks 操作"
         },
+        "ar": {
+          "outcome": "silent",
+          "text": "عندما user double-clicks على #button في #form",
+          "why": "compiles differently; reads action: double"
+        },
         "ko": {
           "outcome": "refused",
           "text": "user #button 을 #form 에 double-clicks 동작",
           "why": "No pattern matched for input: user #button 을 #form 에 double-clicks 동작"
+        },
+        "zh": {
+          "outcome": "silent",
+          "text": "当 user double-clicks 在 #button 到 #form",
+          "why": "compiles differently; reads action: double"
         }
       },
       "[when actor:user action:right-clicks target:#button destination:#form]": {
+        "en": {
+          "outcome": "silent",
+          "text": "when user right-clicks on #button into #form",
+          "why": "compiles differently; reads action: right"
+        },
         "ja": {
           "outcome": "refused",
           "text": "user #button を #form に right-clicks 操作",
           "why": "No pattern matched for input: user #button を #form に right-clicks 操作"
         },
+        "ar": {
+          "outcome": "silent",
+          "text": "عندما user right-clicks على #button في #form",
+          "why": "compiles differently; reads action: right"
+        },
         "ko": {
           "outcome": "refused",
           "text": "user #button 을 #form 에 right-clicks 동작",
           "why": "No pattern matched for input: user #button 을 #form 에 right-clicks 동작"
+        },
+        "zh": {
+          "outcome": "silent",
+          "text": "当 user right-clicks 在 #button 到 #form",
+          "why": "compiles differently; reads action: right"
         }
       },
       "[expect target:#toast assertion:appears value:hello]": {
@@ -800,15 +1015,40 @@
         }
       },
       "[expect target:#toast assertion:has value:hello]": {
+        "en": {
+          "outcome": "silent",
+          "text": "expect #toast has hello",
+          "why": "compiles differently; reads value lost"
+        },
+        "es": {
+          "outcome": "silent",
+          "text": "esperar #toast has hello",
+          "why": "compiles differently; reads value lost"
+        },
         "ja": {
           "outcome": "refused",
           "text": "#toast has hello 期待",
           "why": "No pattern matched for input: #toast has hello 期待"
         },
+        "ar": {
+          "outcome": "silent",
+          "text": "توقع #toast has hello",
+          "why": "compiles differently; reads value lost"
+        },
         "ko": {
           "outcome": "refused",
           "text": "#toast has hello 기대",
           "why": "No pattern matched for input: #toast has hello 기대"
+        },
+        "zh": {
+          "outcome": "silent",
+          "text": "期望 #toast has hello",
+          "why": "compiles differently; reads value lost"
+        },
+        "fr": {
+          "outcome": "silent",
+          "text": "attendre #toast has hello",
+          "why": "compiles differently; reads value lost"
         },
         "tr": {
           "outcome": "refused",
@@ -817,15 +1057,40 @@
         }
       },
       "[expect target:#toast assertion:shows value:hello]": {
+        "en": {
+          "outcome": "silent",
+          "text": "expect #toast shows hello",
+          "why": "compiles differently; reads value lost"
+        },
+        "es": {
+          "outcome": "silent",
+          "text": "esperar #toast shows hello",
+          "why": "compiles differently; reads value lost"
+        },
         "ja": {
           "outcome": "refused",
           "text": "#toast shows hello 期待",
           "why": "No pattern matched for input: #toast shows hello 期待"
         },
+        "ar": {
+          "outcome": "silent",
+          "text": "توقع #toast shows hello",
+          "why": "compiles differently; reads value lost"
+        },
         "ko": {
           "outcome": "refused",
           "text": "#toast shows hello 기대",
           "why": "No pattern matched for input: #toast shows hello 기대"
+        },
+        "zh": {
+          "outcome": "silent",
+          "text": "期望 #toast shows hello",
+          "why": "compiles differently; reads value lost"
+        },
+        "fr": {
+          "outcome": "silent",
+          "text": "attendre #toast shows hello",
+          "why": "compiles differently; reads value lost"
         },
         "tr": {
           "outcome": "refused",
@@ -834,15 +1099,40 @@
         }
       },
       "[expect target:#toast assertion:changes value:hello]": {
+        "en": {
+          "outcome": "silent",
+          "text": "expect #toast changes hello",
+          "why": "compiles differently; reads value lost"
+        },
+        "es": {
+          "outcome": "silent",
+          "text": "esperar #toast changes hello",
+          "why": "compiles differently; reads value lost"
+        },
         "ja": {
           "outcome": "refused",
           "text": "#toast changes hello 期待",
           "why": "No pattern matched for input: #toast changes hello 期待"
         },
+        "ar": {
+          "outcome": "silent",
+          "text": "توقع #toast changes hello",
+          "why": "compiles differently; reads value lost"
+        },
         "ko": {
           "outcome": "refused",
           "text": "#toast changes hello 기대",
           "why": "No pattern matched for input: #toast changes hello 기대"
+        },
+        "zh": {
+          "outcome": "silent",
+          "text": "期望 #toast changes hello",
+          "why": "compiles differently; reads value lost"
+        },
+        "fr": {
+          "outcome": "silent",
+          "text": "attendre #toast changes hello",
+          "why": "compiles differently; reads value lost"
         },
         "tr": {
           "outcome": "refused",
@@ -851,15 +1141,40 @@
         }
       },
       "[expect target:#toast assertion:contains value:hello]": {
+        "en": {
+          "outcome": "silent",
+          "text": "expect #toast contains hello",
+          "why": "compiles differently; reads value lost"
+        },
+        "es": {
+          "outcome": "silent",
+          "text": "esperar #toast contains hello",
+          "why": "compiles differently; reads value lost"
+        },
         "ja": {
           "outcome": "refused",
           "text": "#toast contains hello 期待",
           "why": "No pattern matched for input: #toast contains hello 期待"
         },
+        "ar": {
+          "outcome": "silent",
+          "text": "توقع #toast contains hello",
+          "why": "compiles differently; reads value lost"
+        },
         "ko": {
           "outcome": "refused",
           "text": "#toast contains hello 기대",
           "why": "No pattern matched for input: #toast contains hello 기대"
+        },
+        "zh": {
+          "outcome": "silent",
+          "text": "期望 #toast contains hello",
+          "why": "compiles differently; reads value lost"
+        },
+        "fr": {
+          "outcome": "silent",
+          "text": "attendre #toast contains hello",
+          "why": "compiles differently; reads value lost"
         },
         "tr": {
           "outcome": "refused",
@@ -970,15 +1285,40 @@
         }
       },
       "[expect target:#toast assertion:count value:hello]": {
+        "en": {
+          "outcome": "silent",
+          "text": "expect #toast count hello",
+          "why": "compiles differently; reads value lost"
+        },
+        "es": {
+          "outcome": "silent",
+          "text": "esperar #toast count hello",
+          "why": "compiles differently; reads value lost"
+        },
         "ja": {
           "outcome": "refused",
           "text": "#toast count hello 期待",
           "why": "No pattern matched for input: #toast count hello 期待"
         },
+        "ar": {
+          "outcome": "silent",
+          "text": "توقع #toast count hello",
+          "why": "compiles differently; reads value lost"
+        },
         "ko": {
           "outcome": "refused",
           "text": "#toast count hello 기대",
           "why": "No pattern matched for input: #toast count hello 기대"
+        },
+        "zh": {
+          "outcome": "silent",
+          "text": "期望 #toast count hello",
+          "why": "compiles differently; reads value lost"
+        },
+        "fr": {
+          "outcome": "silent",
+          "text": "attendre #toast count hello",
+          "why": "compiles differently; reads value lost"
         },
         "tr": {
           "outcome": "refused",
@@ -987,15 +1327,40 @@
         }
       },
       "[expect target:#toast assertion:value value:hello]": {
+        "en": {
+          "outcome": "silent",
+          "text": "expect #toast value hello",
+          "why": "compiles differently; reads value lost"
+        },
+        "es": {
+          "outcome": "silent",
+          "text": "esperar #toast value hello",
+          "why": "compiles differently; reads value lost"
+        },
         "ja": {
           "outcome": "refused",
           "text": "#toast value hello 期待",
           "why": "No pattern matched for input: #toast value hello 期待"
         },
+        "ar": {
+          "outcome": "silent",
+          "text": "توقع #toast value hello",
+          "why": "compiles differently; reads value lost"
+        },
         "ko": {
           "outcome": "refused",
           "text": "#toast value hello 기대",
           "why": "No pattern matched for input: #toast value hello 기대"
+        },
+        "zh": {
+          "outcome": "silent",
+          "text": "期望 #toast value hello",
+          "why": "compiles differently; reads value lost"
+        },
+        "fr": {
+          "outcome": "silent",
+          "text": "attendre #toast value hello",
+          "why": "compiles differently; reads value lost"
         },
         "tr": {
           "outcome": "refused",
@@ -1006,6 +1371,11 @@
     },
     "flow": {
       "[enter source:/api]": {
+        "en": {
+          "outcome": "silent",
+          "text": "enter with /api",
+          "why": "compiles differently; reads source: with"
+        },
         "es": {
           "outcome": "silent",
           "text": "entrar con /api",
@@ -1211,20 +1581,60 @@
     },
     "voice": {
       "[navigate destination:/home]": {
+        "en": {
+          "outcome": "silent",
+          "text": "navigate to /home",
+          "why": "compiles differently; reads destination: /"
+        },
+        "es": {
+          "outcome": "silent",
+          "text": "navegar a /home",
+          "why": "compiles differently; reads destination: /"
+        },
         "ja": {
           "outcome": "refused",
           "text": "/home に 移動",
           "why": "No pattern matched for input: /home に 移動"
+        },
+        "ar": {
+          "outcome": "silent",
+          "text": "انتقل إلى /home",
+          "why": "compiles differently; reads destination: /"
         },
         "ko": {
           "outcome": "refused",
           "text": "/home 로 이동",
           "why": "No pattern matched for input: /home 로 이동"
         },
+        "zh": {
+          "outcome": "silent",
+          "text": "导航 到 /home",
+          "why": "compiles differently; reads destination: /"
+        },
         "tr": {
           "outcome": "refused",
           "text": "/home ya git",
           "why": "No pattern matched for input: /home ya git"
+        },
+        "fr": {
+          "outcome": "silent",
+          "text": "naviguer vers /home",
+          "why": "compiles differently; reads destination: /"
+        },
+        "de": {
+          "outcome": "silent",
+          "text": "navigieren zu /home",
+          "why": "compiles differently; reads destination: /"
+        },
+        "pt": {
+          "outcome": "silent",
+          "text": "navegar para /home",
+          "why": "compiles differently; reads destination: /"
+        },
+        "ru": {
+          "outcome": "silent",
+          "text": "перейти на /home",
+          "why": "compiles differently; reads destination: /"
         }
       },
       "[focus patient:#login]": {
@@ -1235,20 +1645,60 @@
         }
       },
       "[open patient:/new-page]": {
+        "en": {
+          "outcome": "silent",
+          "text": "open /new-page",
+          "why": "compiles differently; reads patient: /"
+        },
+        "es": {
+          "outcome": "silent",
+          "text": "abrir /new-page",
+          "why": "compiles differently; reads patient: /"
+        },
         "ja": {
           "outcome": "refused",
           "text": "/new-page を 開く",
           "why": "No pattern matched for input: /new-page を 開く"
+        },
+        "ar": {
+          "outcome": "silent",
+          "text": "افتح /new-page",
+          "why": "compiles differently; reads patient: /"
         },
         "ko": {
           "outcome": "refused",
           "text": "/new-page 을 열기",
           "why": "No pattern matched for input: /new-page 을 열기"
         },
+        "zh": {
+          "outcome": "silent",
+          "text": "打开 /new-page",
+          "why": "compiles differently; reads patient: /"
+        },
         "tr": {
           "outcome": "refused",
           "text": "/new-page aç",
           "why": "No pattern matched for input: /new-page aç"
+        },
+        "fr": {
+          "outcome": "silent",
+          "text": "ouvrir /new-page",
+          "why": "compiles differently; reads patient: /"
+        },
+        "de": {
+          "outcome": "silent",
+          "text": "öffnen /new-page",
+          "why": "compiles differently; reads patient: /"
+        },
+        "pt": {
+          "outcome": "silent",
+          "text": "abrir /new-page",
+          "why": "compiles differently; reads patient: /"
+        },
+        "ru": {
+          "outcome": "silent",
+          "text": "открыть /new-page",
+          "why": "compiles differently; reads patient: /"
         }
       },
       "[search patient:hello]": {

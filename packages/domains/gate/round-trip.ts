@@ -5,10 +5,11 @@
  * A case is a command (bracket syntax, parsed in English) and a language:
  *
  * - **round trip**: `render(ref, lang)`, then `parse`. `pass` when the parse is the reference node, or,
- *   for a domain whose compiled output does not depend on the language, when the text compiles to the
- *   reference's code (a parser may keep a translated word that the generator normalizes: bdd ja
- *   `#box0 が 表示 前提` is `visible`). `refused` when the render is null or the parse throws: the
- *   caller is told. `silent` otherwise: it reads, or compiles to, something else.
+ *   for a domain whose compiled output does not depend on the language, when the text compiles to what
+ *   the command itself (its bracket form) compiles to (a parser may keep a translated word that the
+ *   generator normalizes: bdd ja `#box0 が 表示 前提` is `visible`). English is a lane like the others.
+ *   `refused` when the render is null or the parse throws: the caller is told. `silent` otherwise: it
+ *   reads, or compiles to, something else.
  * - **leftover**: the same render plus one unknown word. `refused` is the expected outcome; a parse
  *   that returns accepted input it did not read (`silent`).
  *
@@ -168,6 +169,16 @@ function describeRead(want: Record<string, string>, ref: Node, back: Node): stri
 
 const message = (e: unknown) => String((e as Error)?.message ?? e).slice(0, 160);
 
+/** What a command (bracket syntax) compiles to; null when it does not compile on its own. */
+export function referenceCode(dsl: DSL, source: string): string | null {
+  try {
+    const c = dsl.compile(source, 'en');
+    return c.ok && typeof c.code === 'string' ? c.code : null;
+  } catch {
+    return null;
+  }
+}
+
 export async function runDomain(domain: Domain): Promise<CaseResult[]> {
   const { dsl, schemas } = await loadDomain(domain);
   const { oracle } = DOMAIN_VALUES[domain];
@@ -180,20 +191,11 @@ export async function runDomain(domain: Domain): Promise<CaseResult[]> {
     const sameNode = (back: Node) =>
       back.action === ref.action && JSON.stringify(roleValues(back)) === JSON.stringify(want);
 
-    // The code the command compiles to, read from its English render; null when there is none, and
-    // then only the node can pass.
-    let refCode: string | null = null;
-    if (oracle === 'compile') {
-      const english = dsl.render?.(ref, 'en');
-      if (english) {
-        try {
-          const c = dsl.compile(english, 'en');
-          if (c.ok && typeof c.code === 'string') refCode = c.code;
-        } catch {
-          // stays null
-        }
-      }
-    }
+    // The code the command itself compiles to: its bracket form, not its English render, or the English
+    // lane would be measured against itself (bdd's `When double-click` reads `double`, and compiled to a
+    // comment that every correct language then "differed" from). Null when the command does not compile
+    // alone; then only the node can pass.
+    const refCode = oracle === 'compile' ? referenceCode(dsl, source) : null;
 
     for (const lang of languages) {
       const at = { domain, source, lang };

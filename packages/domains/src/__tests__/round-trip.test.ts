@@ -15,6 +15,7 @@ import {
   commandsFor,
   compare,
   loadDomain,
+  referenceCode,
   runDomain,
   upstreamVersions,
   type Baseline,
@@ -64,23 +65,13 @@ describe.each(DOMAINS)('%s', domain => {
   });
 
   it.runIf(DOMAIN_VALUES[domain].oracle === 'compile')(
-    'every command compiles in English (or the gate cannot compare code)',
+    'every command compiles on its own (or the gate cannot compare code)',
     async () => {
       const { dsl, schemas } = await loadDomain(domain);
       const exempt = new Set(DOMAIN_VALUES[domain].englishDoesNotCompile ?? []);
-      const failing: string[] = [];
-      for (const source of commandsFor(domain, schemas)) {
-        const ref = dsl.parse(source, 'en');
-        if (exempt.has(ref.action)) continue;
-        const english = dsl.render?.(ref, 'en');
-        let ok = false;
-        try {
-          ok = !!english && dsl.compile(english, 'en').ok;
-        } catch {
-          ok = false;
-        }
-        if (!ok) failing.push(`${source} (${JSON.stringify(english)})`);
-      }
+      const failing = commandsFor(domain, schemas).filter(
+        source => !exempt.has(dsl.parse(source, 'en').action) && referenceCode(dsl, source) === null
+      );
       expect(failing).toEqual([]);
     }
   );
