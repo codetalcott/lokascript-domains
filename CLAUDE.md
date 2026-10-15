@@ -128,6 +128,11 @@ npm run gate:regen -- --allow-new   # records worse cases (a decision, say why i
 npm run gate:regen -- --report      # the per-domain queue, by language and by what went wrong
 ```
 
+`baselines/parse-snapshot.json` (`parse-snapshot.test.ts`) records every round trip's parse as one
+line, `action role:type=value …` or `refused`, and fails on any that moved, so a change shows what it
+moved even where no outcome did (a value's type, a role a passing case gained, what a silent case
+reads now). `gate:regen` rewrites it with the baseline; its diff is the review.
+
 A framework bump (Dependabot's upstream group) moves the gate too: its numbers are always the
 framework the lockfile holds.
 
