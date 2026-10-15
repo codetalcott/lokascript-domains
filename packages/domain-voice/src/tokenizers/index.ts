@@ -28,9 +28,38 @@ import { VOICE_LANGUAGES } from '../vocab';
 // Shared CSS selector extractor instance
 const cssSelectorExtractor = new CssSelectorExtractor();
 
+/**
+ * A URL path (`/home`, `/new-page`) as one token, as behaviorspec reads it. Without it `navigate to
+ * /home` read `/` and compiled to `window.location.href = '/'`.
+ */
+class URLExtractor implements ValueExtractor {
+  readonly name = 'url';
+
+  canExtract(input: string, position: number): boolean {
+    if (input[position] !== '/') return false;
+    // Must be preceded by whitespace or start of input
+    if (position > 0 && !/\s/.test(input[position - 1])) return false;
+    // Must be followed by a word character
+    const next = input[position + 1];
+    return next !== undefined && /[a-zA-Z0-9_.-]/.test(next);
+  }
+
+  extract(input: string, position: number): ExtractionResult | null {
+    let end = position;
+    while (end < input.length && !/\s/.test(input[end])) {
+      end++;
+    }
+    return end > position ? { value: input.slice(position, end), length: end - position } : null;
+  }
+}
+
+const urlExtractor = new URLExtractor();
+
 function tokenizerFor(code: string): LanguageTokenizer {
   const { slice, vocab } = VOICE_LANGUAGES[code];
-  return buildDomainTokenizer(slice, vocab, { customExtractors: [cssSelectorExtractor] });
+  return buildDomainTokenizer(slice, vocab, {
+    customExtractors: [cssSelectorExtractor, urlExtractor],
+  });
 }
 
 export const EnglishVoiceTokenizer: LanguageTokenizer = tokenizerFor('en');

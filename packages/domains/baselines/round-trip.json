@@ -106,15 +106,15 @@
     "voice": {
       "roundTrip": {
         "cases": 363,
-        "pass": 338,
-        "refused": 9,
-        "silent": 16
+        "pass": 360,
+        "refused": 3,
+        "silent": 0
       },
       "leftover": {
-        "cases": 354,
+        "cases": 360,
         "pass": 0,
         "refused": 0,
-        "silent": 354
+        "silent": 360
       }
     }
   },
@@ -1418,125 +1418,11 @@
       }
     },
     "voice": {
-      "[navigate destination:/home]": {
-        "en": {
-          "outcome": "silent",
-          "text": "navigate to /home",
-          "why": "compiles differently; reads destination: /"
-        },
-        "es": {
-          "outcome": "silent",
-          "text": "navegar a /home",
-          "why": "compiles differently; reads destination: /"
-        },
-        "ja": {
-          "outcome": "refused",
-          "text": "/home に 移動",
-          "why": "No pattern matched for input: /home に 移動"
-        },
-        "ar": {
-          "outcome": "silent",
-          "text": "انتقل إلى /home",
-          "why": "compiles differently; reads destination: /"
-        },
-        "ko": {
-          "outcome": "refused",
-          "text": "/home 로 이동",
-          "why": "No pattern matched for input: /home 로 이동"
-        },
-        "zh": {
-          "outcome": "silent",
-          "text": "导航 到 /home",
-          "why": "compiles differently; reads destination: /"
-        },
-        "tr": {
-          "outcome": "refused",
-          "text": "/home ya git",
-          "why": "No pattern matched for input: /home ya git"
-        },
-        "fr": {
-          "outcome": "silent",
-          "text": "naviguer vers /home",
-          "why": "compiles differently; reads destination: /"
-        },
-        "de": {
-          "outcome": "silent",
-          "text": "navigieren zu /home",
-          "why": "compiles differently; reads destination: /"
-        },
-        "pt": {
-          "outcome": "silent",
-          "text": "navegar para /home",
-          "why": "compiles differently; reads destination: /"
-        },
-        "ru": {
-          "outcome": "silent",
-          "text": "перейти на /home",
-          "why": "compiles differently; reads destination: /"
-        }
-      },
       "[focus patient:#login]": {
         "ar": {
           "outcome": "refused",
           "text": "ركز #login",
           "why": "No pattern matched for input: ركز #login"
-        }
-      },
-      "[open patient:/new-page]": {
-        "en": {
-          "outcome": "silent",
-          "text": "open /new-page",
-          "why": "compiles differently; reads patient: /"
-        },
-        "es": {
-          "outcome": "silent",
-          "text": "abrir /new-page",
-          "why": "compiles differently; reads patient: /"
-        },
-        "ja": {
-          "outcome": "refused",
-          "text": "/new-page を 開く",
-          "why": "No pattern matched for input: /new-page を 開く"
-        },
-        "ar": {
-          "outcome": "silent",
-          "text": "افتح /new-page",
-          "why": "compiles differently; reads patient: /"
-        },
-        "ko": {
-          "outcome": "refused",
-          "text": "/new-page 을 열기",
-          "why": "No pattern matched for input: /new-page 을 열기"
-        },
-        "zh": {
-          "outcome": "silent",
-          "text": "打开 /new-page",
-          "why": "compiles differently; reads patient: /"
-        },
-        "tr": {
-          "outcome": "refused",
-          "text": "/new-page aç",
-          "why": "No pattern matched for input: /new-page aç"
-        },
-        "fr": {
-          "outcome": "silent",
-          "text": "ouvrir /new-page",
-          "why": "compiles differently; reads patient: /"
-        },
-        "de": {
-          "outcome": "silent",
-          "text": "öffnen /new-page",
-          "why": "compiles differently; reads patient: /"
-        },
-        "pt": {
-          "outcome": "silent",
-          "text": "abrir /new-page",
-          "why": "compiles differently; reads patient: /"
-        },
-        "ru": {
-          "outcome": "silent",
-          "text": "открыть /new-page",
-          "why": "compiles differently; reads patient: /"
         }
       },
       "[search patient:hello]": {
@@ -3300,8 +3186,11 @@
       "[navigate destination:/home]": [
         "en",
         "es",
+        "ja",
         "ar",
+        "ko",
         "zh",
+        "tr",
         "fr",
         "de",
         "pt",
@@ -3660,8 +3549,11 @@
       "[open patient:/new-page]": [
         "en",
         "es",
+        "ja",
         "ar",
+        "ko",
         "zh",
+        "tr",
         "fr",
         "de",
         "pt",

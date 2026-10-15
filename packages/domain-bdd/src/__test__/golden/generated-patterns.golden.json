@@ -178,7 +178,8 @@
               "type": "role",
               "role": "content",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": ["expression"],
+              "greedy": true
             }
           ]
         },
@@ -367,7 +368,8 @@
               "type": "role",
               "role": "content",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": ["expression"],
+              "greedy": true
             }
           ]
         },
@@ -552,7 +554,8 @@
               "type": "role",
               "role": "content",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": ["expression"],
+              "greedy": true
             },
             {
               "type": "literal",
@@ -745,7 +748,8 @@
               "type": "role",
               "role": "content",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": ["expression"],
+              "greedy": true
             }
           ]
         },
@@ -930,7 +934,8 @@
               "type": "role",
               "role": "content",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": ["expression"],
+              "greedy": true
             },
             {
               "type": "literal",
@@ -1123,7 +1128,8 @@
               "type": "role",
               "role": "content",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": ["expression"],
+              "greedy": true
             }
           ]
         },
@@ -1314,7 +1320,8 @@
               "type": "role",
               "role": "content",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": ["expression"],
+              "greedy": true
             },
             {
               "type": "literal",
@@ -1507,7 +1514,8 @@
               "type": "role",
               "role": "content",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": ["expression"],
+              "greedy": true
             }
           ]
         },

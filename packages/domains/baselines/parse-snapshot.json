@@ -1887,17 +1887,17 @@
     },
     "voice": {
       "[navigate destination:/home]": {
-        "en": "navigate destination:expression=/",
-        "es": "navigate destination:expression=/",
-        "ja": "refused",
-        "ar": "navigate destination:expression=/",
-        "ko": "refused",
-        "zh": "navigate destination:expression=/",
-        "tr": "refused",
-        "fr": "navigate destination:expression=/",
-        "de": "navigate destination:expression=/",
-        "pt": "navigate destination:expression=/",
-        "ru": "navigate destination:expression=/"
+        "en": "navigate destination:expression=/home",
+        "es": "navigate destination:expression=/home",
+        "ja": "navigate destination:expression=/home",
+        "ar": "navigate destination:expression=/home",
+        "ko": "navigate destination:expression=/home",
+        "zh": "navigate destination:expression=/home",
+        "tr": "navigate destination:expression=/home",
+        "fr": "navigate destination:expression=/home",
+        "de": "navigate destination:expression=/home",
+        "pt": "navigate destination:expression=/home",
+        "ru": "navigate destination:expression=/home"
       },
       "[click patient:#login]": {
         "en": "click patient:expression=#login",
@@ -2251,17 +2251,17 @@
         "ru": "close patient:expression=tab"
       },
       "[open patient:/new-page]": {
-        "en": "open patient:expression=/",
-        "es": "open patient:expression=/",
-        "ja": "refused",
-        "ar": "open patient:expression=/",
-        "ko": "refused",
-        "zh": "open patient:expression=/",
-        "tr": "refused",
-        "fr": "open patient:expression=/",
-        "de": "open patient:expression=/",
-        "pt": "open patient:expression=/",
-        "ru": "open patient:expression=/"
+        "en": "open patient:expression=/new-page",
+        "es": "open patient:expression=/new-page",
+        "ja": "open patient:expression=/new-page",
+        "ar": "open patient:expression=/new-page",
+        "ko": "open patient:expression=/new-page",
+        "zh": "open patient:expression=/new-page",
+        "tr": "open patient:expression=/new-page",
+        "fr": "open patient:expression=/new-page",
+        "de": "open patient:expression=/new-page",
+        "pt": "open patient:expression=/new-page",
+        "ru": "open patient:expression=/new-page"
       },
       "[search patient:hello]": {
         "en": "search patient:expression=hello",

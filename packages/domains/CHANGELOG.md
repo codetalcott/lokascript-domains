@@ -10,6 +10,17 @@
   `click({ button: 'right' })`. Found by the domain gate.
 - **bdd renders fr `hover` without a target as `survol`**, not `vol sur`: the
   target marker was stripped from inside the word.
+- **bdd's `and` reads the rest of its step.** `and #panel is visible` read
+  `#panel` as the whole continuation, so a scenario rebuilt it as `given
+  #panel` (which fails) and kept a bare `and` step. Its content now runs to
+  the end of the step.
+- **voice reads a URL path as one value.** `navigate to /home` and `open
+  /new-page` read `/` and compiled to `window.location.href = '/'`; voice's
+  tokenizers now take a path whole, as behaviorspec's do.
+- These three were found by running the suites against hyperfixi's
+  framework Phase 3 (a parse refuses input it did not read), which refuses
+  each of them; behaviorspec's tests now write a class value with its marker
+  (`expect #button has saying .active`), since the unmarked form dropped it.
 
 ## 4.0.0
 
