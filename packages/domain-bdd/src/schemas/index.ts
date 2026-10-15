@@ -194,6 +194,9 @@ export const andSchema = defineCommand({
       description: 'The step content to be resolved as the previous step type',
       required: true,
       expectedTypes: ['expression'],
+      // The rest of the step: `and #panel is visible` continues with `#panel is visible`. It read one
+      // word, so the scenario parser rebuilt `given #panel`, which fails, and kept a bare `and` node.
+      greedy: true,
       svoPosition: 1,
       sovPosition: 1,
     }),

@@ -152,10 +152,13 @@ describe('English parsing', () => {
     expect(roleValue(node, 'assertion')).toBe('disappears');
   });
 
+  // The value is marked (`saying`). Unmarked, `expect #button has .active` read the assertion and
+  // dropped `.active`; framework's Phase 3 refuses it as input left unread.
   it('parses expect with has class assertion', () => {
-    const node = dsl.parse('expect #button has .active', 'en');
+    const node = dsl.parse('expect #button has saying .active', 'en');
     expect(node.action).toBe('expect');
     expect(roleValue(node, 'target')).toBe('#button');
+    expect(roleValue(node, 'value')).toBe('.active');
   });
 
   it('parses after with milliseconds', () => {
@@ -842,10 +845,11 @@ describe('Edge cases', () => {
   });
 
   it('handles expect with class assertion via has', () => {
-    const node = dsl.parse('expect #button has .active', 'en');
+    const node = dsl.parse('expect #button has saying .active', 'en');
     expect(node.action).toBe('expect');
     expect(roleValue(node, 'target')).toBe('#button');
     expect(roleValue(node, 'assertion')).toBe('has');
+    expect(roleValue(node, 'value')).toBe('.active');
   });
 
   it('compiles toHaveClass for has class assertion', () => {

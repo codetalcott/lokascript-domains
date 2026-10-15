@@ -232,7 +232,7 @@ describe('Voice Domain', () => {
     it('compiles "navigate to /home" to JS with location', () => {
       const result = voice.compile('navigate to /home', 'en');
       expect(result.ok).toBe(true);
-      expect(result.code).toContain('window.location.href');
+      expect(result.code).toContain("window.location.href = '/home'");
     });
 
     it('compiles "scroll down" to JS with scrollBy', () => {
@@ -268,7 +268,7 @@ describe('Voice Domain', () => {
     it('compiles "open /new-page" to JS with window.open', () => {
       const result = voice.compile('open /new-page', 'en');
       expect(result.ok).toBe(true);
-      expect(result.code).toContain('window.open');
+      expect(result.code).toContain("window.open('/new-page'");
     });
 
     it('compiles "search hello" to JS with searchInput', () => {
@@ -679,9 +679,13 @@ describe('Voice Domain', () => {
       expect(result.action).toBe('scroll');
     });
 
-    it('parses "朗读 #文章" (read article)', () => {
-      const result = voice.parse('朗读 #文章', 'zh');
+    // An id in Han characters (`#文章`) is not read as a selector: the selector extractor stops at
+    // Han so a particle can follow a selector in ja/ko. It read `#` alone, and is refused from
+    // framework's Phase 3 on.
+    it('parses "朗读 #article" (read article)', () => {
+      const result = voice.parse('朗读 #article', 'zh');
       expect(result.action).toBe('read');
+      expect((result.roles.get('patient') as { raw?: string })?.raw).toBe('#article');
     });
 
     it('parses "选择 全部" (select all)', () => {
