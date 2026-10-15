@@ -114,7 +114,7 @@
         "ko": "when action_type:expression=호버",
         "zh": "when action_type:expression=悬停",
         "tr": "when action_type:expression=hover",
-        "fr": "when action_type:expression=vol"
+        "fr": "when action_type:expression=survol"
       },
       "[when action_type:navigate]": {
         "en": "when action_type:expression=navigate",
@@ -137,20 +137,20 @@
         "fr": "when action_type:expression=soumettre"
       },
       "[when action_type:double-click]": {
-        "en": "when action_type:expression=double",
-        "es": "when action_type:expression=doble",
+        "en": "when action_type:expression=double-click",
+        "es": "when action_type:expression=doble-clic",
         "ja": "when action_type:expression=ダブルクリック",
-        "ar": "when action_type:expression=نقر",
+        "ar": "when action_type:expression=نقر-مزدوج",
         "ko": "when action_type:expression=더블클릭",
         "zh": "when action_type:expression=双击",
         "tr": "when action_type:expression=çift-tıkla",
         "fr": "when action_type:expression=double-clic"
       },
       "[when action_type:right-click]": {
-        "en": "when action_type:expression=right",
-        "es": "when action_type:expression=clic",
+        "en": "when action_type:expression=right-click",
+        "es": "when action_type:expression=clic-derecho",
         "ja": "when action_type:expression=右クリック",
-        "ar": "when action_type:expression=نقر",
+        "ar": "when action_type:expression=نقر-يمين",
         "ko": "when action_type:expression=우클릭",
         "zh": "when action_type:expression=右击",
         "tr": "when action_type:expression=sağ-tıkla",
@@ -180,7 +180,7 @@
         "en": "when action_type:expression=uncheck",
         "es": "when action_type:expression=desmarcar",
         "ja": "when action_type:expression=チェック解除",
-        "ar": "when action_type:expression=إلغاء",
+        "ar": "when action_type:expression=إلغاء-تحديد",
         "ko": "when action_type:expression=체크해제",
         "zh": "when action_type:expression=取消勾选",
         "tr": "when action_type:expression=işareti-kaldır",
@@ -257,20 +257,20 @@
         "fr": "when action_type:expression=soumettre"
       },
       "[when action_type:double-click target:#box1 value:v2x]": {
-        "en": "when action_type:expression=double target:selector=#box1",
-        "es": "when action_type:expression=doble target:selector=#box1",
+        "en": "when action_type:expression=double-click target:selector=#box1",
+        "es": "when action_type:expression=doble-clic target:selector=#box1",
         "ja": "when action_type:expression=ダブルクリック target:selector=#box1",
-        "ar": "when action_type:expression=نقر target:selector=#box1",
+        "ar": "when action_type:expression=نقر-مزدوج target:selector=#box1",
         "ko": "when action_type:expression=더블클릭 target:selector=#box1",
         "zh": "when action_type:expression=双击",
         "tr": "when action_type:expression=çift-tıkla target:selector=#box1",
         "fr": "when action_type:expression=double-clic target:selector=#box1"
       },
       "[when action_type:right-click target:#box1 value:v2x]": {
-        "en": "when action_type:expression=right target:selector=#box1",
-        "es": "when action_type:expression=clic target:selector=#box1",
+        "en": "when action_type:expression=right-click target:selector=#box1",
+        "es": "when action_type:expression=clic-derecho target:selector=#box1",
         "ja": "when action_type:expression=右クリック target:selector=#box1",
-        "ar": "when action_type:expression=نقر target:selector=#box1",
+        "ar": "when action_type:expression=نقر-يمين target:selector=#box1",
         "ko": "when action_type:expression=우클릭 target:selector=#box1",
         "zh": "when action_type:expression=右击",
         "tr": "when action_type:expression=sağ-tıkla target:selector=#box1",
@@ -300,7 +300,7 @@
         "en": "when action_type:expression=uncheck",
         "es": "when action_type:expression=desmarcar",
         "ja": "when action_type:expression=チェック解除 target:selector=#box1",
-        "ar": "when action_type:expression=إلغاء",
+        "ar": "when action_type:expression=إلغاء-تحديد",
         "ko": "when action_type:expression=체크해제 target:selector=#box1",
         "zh": "when action_type:expression=取消勾选",
         "tr": "refused",
@@ -549,22 +549,22 @@
         "tr": "refused"
       },
       "[when action:double-clicks]": {
-        "en": "when action:expression=- actor:expression=double",
+        "en": "when action:expression=double-clicks",
         "es": "when action:expression=double-clicks",
         "ja": "refused",
-        "ar": "when action:expression=- actor:expression=double",
+        "ar": "when action:expression=double-clicks",
         "ko": "refused",
-        "zh": "when action:expression=- actor:expression=double",
+        "zh": "when action:expression=double-clicks",
         "fr": "when action:expression=double-clicks",
         "tr": "refused"
       },
       "[when action:right-clicks]": {
-        "en": "when action:expression=- actor:expression=right",
+        "en": "when action:expression=right-clicks",
         "es": "when action:expression=right-clicks",
         "ja": "refused",
-        "ar": "when action:expression=- actor:expression=right",
+        "ar": "when action:expression=right-clicks",
         "ko": "refused",
-        "zh": "when action:expression=- actor:expression=right",
+        "zh": "when action:expression=right-clicks",
         "fr": "when action:expression=right-clicks",
         "tr": "refused"
       },
@@ -649,22 +649,22 @@
         "tr": "when action:expression=drags actor:expression=user destination:selector=#form target:selector=#button"
       },
       "[when actor:user action:double-clicks target:#button destination:#form]": {
-        "en": "when action:expression=double actor:expression=user destination:selector=#form target:selector=#button",
+        "en": "when action:expression=double-clicks actor:expression=user destination:selector=#form target:selector=#button",
         "es": "when action:expression=double-clicks actor:expression=user destination:selector=#form target:selector=#button",
-        "ja": "refused",
-        "ar": "when action:expression=double actor:expression=user destination:selector=#form target:selector=#button",
-        "ko": "refused",
-        "zh": "when action:expression=double actor:expression=user destination:selector=#form target:selector=#button",
+        "ja": "when action:expression=double-clicks actor:expression=user destination:selector=#form target:selector=#button",
+        "ar": "when action:expression=double-clicks actor:expression=user destination:selector=#form target:selector=#button",
+        "ko": "when action:expression=double-clicks actor:expression=user destination:selector=#form target:selector=#button",
+        "zh": "when action:expression=double-clicks actor:expression=user destination:selector=#form target:selector=#button",
         "fr": "when action:expression=double-clicks actor:expression=user destination:selector=#form target:selector=#button",
         "tr": "when action:expression=double-clicks actor:expression=user destination:selector=#form target:selector=#button"
       },
       "[when actor:user action:right-clicks target:#button destination:#form]": {
-        "en": "when action:expression=right actor:expression=user destination:selector=#form target:selector=#button",
+        "en": "when action:expression=right-clicks actor:expression=user destination:selector=#form target:selector=#button",
         "es": "when action:expression=right-clicks actor:expression=user destination:selector=#form target:selector=#button",
-        "ja": "refused",
-        "ar": "when action:expression=right actor:expression=user destination:selector=#form target:selector=#button",
-        "ko": "refused",
-        "zh": "when action:expression=right actor:expression=user destination:selector=#form target:selector=#button",
+        "ja": "when action:expression=right-clicks actor:expression=user destination:selector=#form target:selector=#button",
+        "ar": "when action:expression=right-clicks actor:expression=user destination:selector=#form target:selector=#button",
+        "ko": "when action:expression=right-clicks actor:expression=user destination:selector=#form target:selector=#button",
+        "zh": "when action:expression=right-clicks actor:expression=user destination:selector=#form target:selector=#button",
         "fr": "when action:expression=right-clicks actor:expression=user destination:selector=#form target:selector=#button",
         "tr": "when action:expression=right-clicks actor:expression=user destination:selector=#form target:selector=#button"
       },

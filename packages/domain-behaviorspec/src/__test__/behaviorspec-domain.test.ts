@@ -1416,3 +1416,17 @@ describe('Error collection', () => {
     expect(result.errors[0]).toMatch(/Line \d+/);
   });
 });
+
+describe('Hyphenated interaction words (domain gate, 2026-10-15)', () => {
+  const spec = createBehaviorSpecDSL();
+
+  it.each([
+    ['en', 'when user double-clicks on #button', "locator('#button').dblclick()"],
+    ['en', 'when user right-clicks on #button', "click({ button: 'right' })"],
+    ['zh', '当 user double-clicks 在 #button', "locator('#button').dblclick()"],
+  ])('%s reads a hyphenated action as one word: %s', (language, input, expected) => {
+    const result = spec.compile(input, language);
+    expect(result.ok).toBe(true);
+    expect(result.code).toContain(expected);
+  });
+});

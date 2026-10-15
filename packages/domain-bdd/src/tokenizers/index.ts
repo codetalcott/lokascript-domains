@@ -41,12 +41,35 @@ function getExtendedLatinBDDExtractors(): ValueExtractor[] {
  * BDD specs reference DOM elements by selector.
  */
 /**
- * Get BDD-specific extractors: default + CSS selectors.
- * CSS selector extractor must come before the default identifier extractor
- * so that #button and .active are captured as single tokens.
+ * A word whose letters are joined by hyphens (`double-click`, es `doble-clic`, ar `نقر-مزدوج`), as
+ * one token. The default identifier extractor stops at a hyphen, so `When double-click` read
+ * `double`. It claims nothing without an internal hyphen, so every other token falls through to the
+ * extractors after it.
+ */
+const HYPHENATED_WORD = /[\p{L}\p{M}][\p{L}\p{M}\p{N}_]*(?:-[\p{L}\p{M}\p{N}_]+)+/uy;
+
+class HyphenatedWordExtractor implements ValueExtractor {
+  readonly name = 'hyphenated-word';
+
+  canExtract(input: string, position: number): boolean {
+    HYPHENATED_WORD.lastIndex = position;
+    return HYPHENATED_WORD.test(input);
+  }
+
+  extract(input: string, position: number): ExtractionResult | null {
+    HYPHENATED_WORD.lastIndex = position;
+    const match = HYPHENATED_WORD.exec(input);
+    return match ? { value: match[0], length: match[0].length } : null;
+  }
+}
+
+/**
+ * Get BDD-specific extractors: default + CSS selectors + hyphenated words.
+ * Both must come before the default identifier extractor so that #button,
+ * .active and double-click are captured as single tokens.
  */
 function getBDDExtractors(): ValueExtractor[] {
-  return [new CssSelectorExtractor(), ...getDefaultExtractors()];
+  return [new CssSelectorExtractor(), new HyphenatedWordExtractor(), ...getDefaultExtractors()];
 }
 
 // =============================================================================
