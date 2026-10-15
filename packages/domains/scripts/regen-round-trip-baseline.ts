@@ -1,5 +1,5 @@
 /**
- * Regenerate `baselines/round-trip.json` from the built dist (`npm run gate:regen`, which rebuilds
+ * Regenerate `baselines/round-trip.json` and `baselines/parse-snapshot.json` from the built dist (`npm run gate:regen`, which rebuilds
  * first), or report without writing (`--report`).
  *
  * Refuses to write when a case is worse than the current baseline lists, unless `--allow-new`: a new
@@ -15,13 +15,17 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import {
   BASELINE_PATH,
   DOMAINS,
+  SNAPSHOT_PATH,
   compare,
   countsOf,
   listingOf,
   runDomain,
+  snapshotChanges,
+  snapshotOf,
   upstreamVersions,
   type Baseline,
   type CaseResult,
+  type Snapshot,
 } from '../gate/round-trip.js';
 
 const args = new Set(process.argv.slice(2));
@@ -38,8 +42,13 @@ const next: Baseline = {
   roundTrip: {},
   leftover: {},
 };
+const previousSnapshot: Snapshot | null = existsSync(SNAPSHOT_PATH)
+  ? (JSON.parse(readFileSync(SNAPSHOT_PATH, 'utf8')) as Snapshot)
+  : null;
+const nextSnapshot: Snapshot = { upstream: next.upstream, parses: {} };
 let worse = 0;
 let better = 0;
+let moved = 0;
 
 /** The first clause of a reason, for grouping: "No pattern matched…", "compiles differently", … */
 const family = (r: CaseResult) =>
@@ -56,6 +65,7 @@ for (const domain of DOMAINS) {
   const listing = listingOf(results);
   if (Object.keys(listing.roundTrip).length) next.roundTrip[domain] = listing.roundTrip;
   if (Object.keys(listing.leftover).length) next.leftover[domain] = listing.leftover;
+  nextSnapshot.parses[domain] = snapshotOf(results);
 
   const rt = counts.roundTrip;
   console.log(
@@ -87,6 +97,13 @@ for (const domain of DOMAINS) {
       );
     if (drift.better.length) console.log(`  better than listed: ${drift.better.length}`);
   }
+  if (previousSnapshot) {
+    const changes = snapshotChanges(domain, results, previousSnapshot);
+    moved += changes.length;
+    for (const c of changes.slice(0, 20))
+      console.log(`  parse ${c.lang} ${c.source}: ${c.was ?? '(new)'} → ${c.now ?? '(gone)'}`);
+    if (changes.length > 20) console.log(`  … ${changes.length - 20} more parses moved`);
+  }
 }
 
 if (report) process.exit(0);
@@ -97,6 +114,8 @@ if (worse && !allowNew) {
   process.exit(1);
 }
 writeFileSync(BASELINE_PATH, `${JSON.stringify(next, null, 2)}\n`);
+writeFileSync(SNAPSHOT_PATH, `${JSON.stringify(nextSnapshot, null, 2)}\n`);
 console.log(
   `\nWrote ${BASELINE_PATH.pathname}${previous ? ` (${better} better, ${worse} worse than before)` : ''}`
 );
+console.log(`Wrote ${SNAPSHOT_PATH.pathname}${previousSnapshot ? ` (${moved} parses moved)` : ''}`);

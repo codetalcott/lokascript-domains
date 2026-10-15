@@ -54,6 +54,8 @@ export interface CaseResult {
   text?: string;
   /** Why it is not `pass`: the error, or what the parse read instead. */
   why?: string;
+  /** The round trip's parse, summarized (`summarize`); absent when it was refused. */
+  read?: string;
 }
 
 interface RoleSpec {
@@ -136,6 +138,20 @@ function roleValues(node: Node): Record<string, string> {
   );
 }
 
+/** A parse as one line: `action role:type=value …`, roles sorted. What the parse snapshot records. */
+export function summarize(node: Node): string {
+  const entries = node.roles instanceof Map ? [...node.roles] : Object.entries(node.roles ?? {});
+  const roles = entries
+    .map(([k, v]) => {
+      const t = (v as { type?: unknown })?.type;
+      const raw = (v as { value?: unknown })?.value ?? (v as { raw?: unknown })?.raw ?? v;
+      const text = String(raw);
+      return `${k}${t ? `:${String(t)}` : ''}=${/[\s=]/.test(text) ? JSON.stringify(text) : text}`;
+    })
+    .sort();
+  return [node.action, ...roles].join(' ');
+}
+
 function describeRead(want: Record<string, string>, ref: Node, back: Node): string {
   if (back.action !== ref.action) return `another command: ${back.action}`;
   const got = roleValues(back);
@@ -208,7 +224,14 @@ export async function runDomain(domain: Domain): Promise<CaseResult[]> {
         if (code === refCode) outcome = 'pass';
         else why = `compiles differently; reads ${describeRead(want, ref, back)}`;
       } else why = `reads ${describeRead(want, ref, back)}`;
-      results.push({ ...at, kind: 'roundTrip', outcome, text, ...(why ? { why } : {}) });
+      results.push({
+        ...at,
+        kind: 'roundTrip',
+        outcome,
+        text,
+        ...(why ? { why } : {}),
+        read: summarize(back),
+      });
 
       // Leftover input: only where the text itself reads, or a refusal would say nothing.
       const extended = `${text} ${UNKNOWN_WORD}`;
@@ -360,3 +383,54 @@ export async function upstreamVersions(): Promise<Record<string, string>> {
 }
 
 export const BASELINE_PATH = new URL('../baselines/round-trip.json', import.meta.url);
+
+// ---------------------------------------------------------------------------------------------------
+// The parse snapshot
+// ---------------------------------------------------------------------------------------------------
+
+/**
+ * Every round trip's parse, so a change that moves a parse shows it, whether or not an outcome moved
+ * (a value's type, a role a passing case gained, what a silent case reads now). `refused` where the
+ * parse threw. Leftover cases are not in it: their outcome is the baseline's.
+ */
+export interface Snapshot {
+  upstream: Record<string, string>;
+  /** Per domain, command and language. */
+  parses: Record<string, Record<string, Record<string, string>>>;
+}
+
+export const SNAPSHOT_PATH = new URL('../baselines/parse-snapshot.json', import.meta.url);
+
+export function snapshotOf(results: CaseResult[]): Record<string, Record<string, string>> {
+  const out: Record<string, Record<string, string>> = {};
+  for (const r of results)
+    if (r.kind === 'roundTrip') (out[r.source] ??= {})[r.lang] = r.read ?? 'refused';
+  return out;
+}
+
+export interface SnapshotChange {
+  source: string;
+  lang: string;
+  was?: string;
+  now?: string;
+}
+
+export function snapshotChanges(
+  domain: Domain,
+  results: CaseResult[],
+  snapshot: Snapshot
+): SnapshotChange[] {
+  const now = snapshotOf(results);
+  const was = snapshot.parses[domain] ?? {};
+  const changes: SnapshotChange[] = [];
+  for (const source of new Set([...Object.keys(was), ...Object.keys(now)]))
+    for (const lang of new Set([
+      ...Object.keys(was[source] ?? {}),
+      ...Object.keys(now[source] ?? {}),
+    ])) {
+      const a = was[source]?.[lang];
+      const b = now[source]?.[lang];
+      if (a !== b) changes.push({ source, lang, was: a, now: b });
+    }
+  return changes;
+}

@@ -3,6 +3,11 @@
   "compilerOptions": {
     "rootDir": "."
   },
-  "include": ["gate/**/*.ts", "scripts/**/*.ts", "src/__tests__/round-trip.test.ts"],
+  "include": [
+    "gate/**/*.ts",
+    "scripts/**/*.ts",
+    "src/__tests__/round-trip.test.ts",
+    "src/__tests__/parse-snapshot.test.ts"
+  ],
   "exclude": ["node_modules", "dist"]
 }
