@@ -7,7 +7,7 @@
         "command": "select",
         "priority": 100,
         "template": {
-          "format": "select {columns} from {source} where {condition}",
+          "format": "select {columns} from {source} [where {condition}]",
           "tokens": [
             {
               "type": "literal",
@@ -106,7 +106,7 @@
         "command": "update",
         "priority": 100,
         "template": {
-          "format": "update {source} set {values} where {condition}",
+          "format": "update {source} set {values} [where {condition}]",
           "tokens": [
             {
               "type": "literal",
@@ -167,7 +167,7 @@
         "command": "delete",
         "priority": 100,
         "template": {
-          "format": "delete from {source} where {condition}",
+          "format": "delete from {source} [where {condition}]",
           "tokens": [
             {
               "type": "literal",
@@ -220,7 +220,7 @@
         "command": "get",
         "priority": 100,
         "template": {
-          "format": "get {source} where {condition} limit {limit}",
+          "format": "get {source} [where {condition}] [limit {limit}]",
           "tokens": [
             {
               "type": "literal",
@@ -287,7 +287,7 @@
         "command": "select",
         "priority": 100,
         "template": {
-          "format": "seleccionar {columns} de {source} donde {condition}",
+          "format": "seleccionar {columns} de {source} [donde {condition}]",
           "tokens": [
             {
               "type": "literal",
@@ -386,7 +386,7 @@
         "command": "update",
         "priority": 100,
         "template": {
-          "format": "actualizar {source} establecer {values} donde {condition}",
+          "format": "actualizar {source} establecer {values} [donde {condition}]",
           "tokens": [
             {
               "type": "literal",
@@ -447,7 +447,7 @@
         "command": "delete",
         "priority": 100,
         "template": {
-          "format": "eliminar de {source} donde {condition}",
+          "format": "eliminar de {source} [donde {condition}]",
           "tokens": [
             {
               "type": "literal",
@@ -500,7 +500,7 @@
         "command": "get",
         "priority": 100,
         "template": {
-          "format": "obtener {source} donde {condition} límite {limit}",
+          "format": "obtener {source} [donde {condition}] [límite {limit}]",
           "tokens": [
             {
               "type": "literal",
@@ -567,7 +567,7 @@
         "command": "select",
         "priority": 100,
         "template": {
-          "format": "から {source} {columns} 条件 {condition} 選択",
+          "format": "から {source} {columns} [条件 {condition}] 選択",
           "tokens": [
             {
               "type": "role",
@@ -666,7 +666,7 @@
         "command": "update",
         "priority": 100,
         "template": {
-          "format": "{source} 設定 {values} 条件 {condition} 更新",
+          "format": "{source} 設定 {values} [条件 {condition}] 更新",
           "tokens": [
             {
               "type": "role",
@@ -727,7 +727,7 @@
         "command": "delete",
         "priority": 100,
         "template": {
-          "format": "から {source} 条件 {condition} 削除",
+          "format": "から {source} [条件 {condition}] 削除",
           "tokens": [
             {
               "type": "role",
@@ -780,7 +780,7 @@
         "command": "get",
         "priority": 100,
         "template": {
-          "format": "から {source} 条件 {condition} 件数 {limit} 取得",
+          "format": "から {source} [条件 {condition}] [件数 {limit}] 取得",
           "tokens": [
             {
               "type": "role",
@@ -853,7 +853,7 @@
         "command": "select",
         "priority": 100,
         "template": {
-          "format": "اختر {columns} من {source} حيث {condition}",
+          "format": "اختر {columns} من {source} [حيث {condition}]",
           "tokens": [
             {
               "type": "literal",
@@ -952,7 +952,7 @@
         "command": "update",
         "priority": 100,
         "template": {
-          "format": "حدّث {source} عيّن {values} حيث {condition}",
+          "format": "حدّث {source} عيّن {values} [حيث {condition}]",
           "tokens": [
             {
               "type": "literal",
@@ -1013,7 +1013,7 @@
         "command": "delete",
         "priority": 100,
         "template": {
-          "format": "احذف من {source} حيث {condition}",
+          "format": "احذف من {source} [حيث {condition}]",
           "tokens": [
             {
               "type": "literal",
@@ -1066,7 +1066,7 @@
         "command": "get",
         "priority": 100,
         "template": {
-          "format": "اجلب {source} حيث {condition} حد {limit}",
+          "format": "اجلب {source} [حيث {condition}] [حد {limit}]",
           "tokens": [
             {
               "type": "literal",
@@ -1133,7 +1133,7 @@
         "command": "select",
         "priority": 100,
         "template": {
-          "format": "에서 {source} {columns} 조건 {condition} 선택",
+          "format": "에서 {source} {columns} [조건 {condition}] 선택",
           "tokens": [
             {
               "type": "role",
@@ -1232,7 +1232,7 @@
         "command": "update",
         "priority": 100,
         "template": {
-          "format": "{source} 설정 {values} 조건 {condition} 갱신",
+          "format": "{source} 설정 {values} [조건 {condition}] 갱신",
           "tokens": [
             {
               "type": "role",
@@ -1293,7 +1293,7 @@
         "command": "delete",
         "priority": 100,
         "template": {
-          "format": "에서 {source} 조건 {condition} 삭제",
+          "format": "에서 {source} [조건 {condition}] 삭제",
           "tokens": [
             {
               "type": "role",
@@ -1346,7 +1346,7 @@
         "command": "get",
         "priority": 100,
         "template": {
-          "format": "에서 {source} 조건 {condition} 제한 {limit} 가져오기",
+          "format": "에서 {source} [조건 {condition}] [제한 {limit}] 가져오기",
           "tokens": [
             {
               "type": "role",
@@ -1419,7 +1419,7 @@
         "command": "select",
         "priority": 100,
         "template": {
-          "format": "查询 {columns} 从 {source} 条件 {condition}",
+          "format": "查询 {columns} 从 {source} [条件 {condition}]",
           "tokens": [
             {
               "type": "literal",
@@ -1518,7 +1518,7 @@
         "command": "update",
         "priority": 100,
         "template": {
-          "format": "更新 {source} 设置 {values} 条件 {condition}",
+          "format": "更新 {source} 设置 {values} [条件 {condition}]",
           "tokens": [
             {
               "type": "literal",
@@ -1579,7 +1579,7 @@
         "command": "delete",
         "priority": 100,
         "template": {
-          "format": "删除 从 {source} 条件 {condition}",
+          "format": "删除 从 {source} [条件 {condition}]",
           "tokens": [
             {
               "type": "literal",
@@ -1632,7 +1632,7 @@
         "command": "get",
         "priority": 100,
         "template": {
-          "format": "获取 {source} 条件 {condition} 限制 {limit}",
+          "format": "获取 {source} [条件 {condition}] [限制 {limit}]",
           "tokens": [
             {
               "type": "literal",
@@ -1699,7 +1699,7 @@
         "command": "select",
         "priority": 100,
         "template": {
-          "format": "den {source} {columns} koşul {condition} seç",
+          "format": "den {source} {columns} [koşul {condition}] seç",
           "tokens": [
             {
               "type": "role",
@@ -1797,7 +1797,7 @@
         "command": "update",
         "priority": 100,
         "template": {
-          "format": "{source} ayarla {values} koşul {condition} güncelle",
+          "format": "{source} ayarla {values} [koşul {condition}] güncelle",
           "tokens": [
             {
               "type": "role",
@@ -1858,7 +1858,7 @@
         "command": "delete",
         "priority": 100,
         "template": {
-          "format": "den {source} koşul {condition} sil",
+          "format": "den {source} [koşul {condition}] sil",
           "tokens": [
             {
               "type": "role",
@@ -1911,7 +1911,7 @@
         "command": "get",
         "priority": 100,
         "template": {
-          "format": "den {source} koşul {condition} limit {limit} al",
+          "format": "den {source} [koşul {condition}] [limit {limit}] al",
           "tokens": [
             {
               "type": "role",
@@ -1984,7 +1984,7 @@
         "command": "select",
         "priority": 100,
         "template": {
-          "format": "sélectionner {columns} de {source} où {condition}",
+          "format": "sélectionner {columns} de {source} [où {condition}]",
           "tokens": [
             {
               "type": "literal",
@@ -2083,7 +2083,7 @@
         "command": "update",
         "priority": 100,
         "template": {
-          "format": "mettre-à-jour {source} définir {values} où {condition}",
+          "format": "mettre-à-jour {source} définir {values} [où {condition}]",
           "tokens": [
             {
               "type": "literal",
@@ -2144,7 +2144,7 @@
         "command": "delete",
         "priority": 100,
         "template": {
-          "format": "supprimer de {source} où {condition}",
+          "format": "supprimer de {source} [où {condition}]",
           "tokens": [
             {
               "type": "literal",
@@ -2197,7 +2197,7 @@
         "command": "get",
         "priority": 100,
         "template": {
-          "format": "obtenir {source} où {condition} limite {limit}",
+          "format": "obtenir {source} [où {condition}] [limite {limit}]",
           "tokens": [
             {
               "type": "literal",
@@ -2264,7 +2264,7 @@
         "command": "select",
         "priority": 100,
         "template": {
-          "format": "auswählen {columns} von {source} wo {condition}",
+          "format": "auswählen {columns} von {source} [wo {condition}]",
           "tokens": [
             {
               "type": "literal",
@@ -2364,7 +2364,7 @@
         "command": "update",
         "priority": 100,
         "template": {
-          "format": "aktualisieren {source} setzen {values} wo {condition}",
+          "format": "aktualisieren {source} setzen {values} [wo {condition}]",
           "tokens": [
             {
               "type": "literal",
@@ -2425,7 +2425,7 @@
         "command": "delete",
         "priority": 100,
         "template": {
-          "format": "löschen von {source} wo {condition}",
+          "format": "löschen von {source} [wo {condition}]",
           "tokens": [
             {
               "type": "literal",
@@ -2478,7 +2478,7 @@
         "command": "get",
         "priority": 100,
         "template": {
-          "format": "holen {source} wo {condition} limit {limit}",
+          "format": "holen {source} [wo {condition}] [limit {limit}]",
           "tokens": [
             {
               "type": "literal",
@@ -2545,7 +2545,7 @@
         "command": "select",
         "priority": 100,
         "template": {
-          "format": "selecionar {columns} de {source} onde {condition}",
+          "format": "selecionar {columns} de {source} [onde {condition}]",
           "tokens": [
             {
               "type": "literal",
@@ -2644,7 +2644,7 @@
         "command": "update",
         "priority": 100,
         "template": {
-          "format": "atualizar {source} definir {values} onde {condition}",
+          "format": "atualizar {source} definir {values} [onde {condition}]",
           "tokens": [
             {
               "type": "literal",
@@ -2705,7 +2705,7 @@
         "command": "delete",
         "priority": 100,
         "template": {
-          "format": "excluir de {source} onde {condition}",
+          "format": "excluir de {source} [onde {condition}]",
           "tokens": [
             {
               "type": "literal",
@@ -2758,7 +2758,7 @@
         "command": "get",
         "priority": 100,
         "template": {
-          "format": "obter {source} onde {condition} limite {limit}",
+          "format": "obter {source} [onde {condition}] [limite {limit}]",
           "tokens": [
             {
               "type": "literal",
@@ -2825,7 +2825,7 @@
         "command": "select",
         "priority": 100,
         "template": {
-          "format": "выбрать {columns} из {source} где {condition}",
+          "format": "выбрать {columns} из {source} [где {condition}]",
           "tokens": [
             {
               "type": "literal",
@@ -2925,7 +2925,7 @@
         "command": "update",
         "priority": 100,
         "template": {
-          "format": "обновить {source} установить {values} где {condition}",
+          "format": "обновить {source} установить {values} [где {condition}]",
           "tokens": [
             {
               "type": "literal",
@@ -2986,7 +2986,7 @@
         "command": "delete",
         "priority": 100,
         "template": {
-          "format": "удалить из {source} где {condition}",
+          "format": "удалить из {source} [где {condition}]",
           "tokens": [
             {
               "type": "literal",
@@ -3039,7 +3039,7 @@
         "command": "get",
         "priority": 100,
         "template": {
-          "format": "получить {source} где {condition} лимит {limit}",
+          "format": "получить {source} [где {condition}] [лимит {limit}]",
           "tokens": [
             {
               "type": "literal",

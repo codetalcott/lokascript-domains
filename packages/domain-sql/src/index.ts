@@ -106,6 +106,7 @@ export interface DomainDSLOptions {
 export function createSQLDSL(options: DomainDSLOptions = {}): MultilingualDSL {
   return /*#__PURE__*/ createMultilingualDSL({
     name: 'SQL',
+    engine: 'core',
     schemas: allSchemas,
     languages: [
       {

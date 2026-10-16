@@ -1,11 +1,11 @@
 /**
- * Golden-snapshot parity for generated patterns.
+ * Golden-snapshot parity for the patterns the DSL reads with.
  *
- * Asserts `generatePatternVariants` output for every registered language
- * profile × every schema is byte-identical to the committed golden file.
- * This is the "no silent behavior change" gate for the framework↔semantic
- * bridge migration: any diff in profiles, schemas, or the framework generator
- * must show up as a reviewed golden-file update, never slip through.
+ * Asserts the patterns `createSQLDSL()` matches input against, for every registered language × every
+ * schema, are byte-identical to the committed golden file: any change to profiles, schemas, or the
+ * framework's generator shows up as a reviewed golden-file update, never slips through. On the core
+ * (`engine: 'core'`, hyperfixi domains rethink Phase 5) these are the schema-pattern generator's; before
+ * it they were `generatePatternVariants`', which the DSL no longer runs.
  *
  * Regenerate after an intentional change:
  *   npx tsx scripts/generate-golden-patterns.ts
@@ -15,9 +15,9 @@ import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { generatePatternVariants } from '@lokascript/framework';
 import { allSchemas } from '../schemas';
 import { allProfiles } from '../profiles';
+import { dslPatterns } from './dsl-patterns';
 
 const goldenPath = join(
   dirname(fileURLToPath(import.meta.url)),
@@ -32,12 +32,14 @@ describe('domain-sql: generated-pattern parity (golden snapshot)', () => {
     expect(Object.keys(golden).sort()).toEqual(allProfiles.map(p => p.code).sort());
   });
 
+  const live = dslPatterns();
   for (const profile of allProfiles) {
     describe(`language: ${profile.code}`, () => {
       for (const schema of allSchemas) {
         it(`${schema.action} patterns match golden`, () => {
-          const live = JSON.parse(JSON.stringify(generatePatternVariants(schema, profile)));
-          expect(live).toEqual(golden[profile.code]?.[schema.action]);
+          expect(live[profile.code]?.[schema.action]).toEqual(
+            golden[profile.code]?.[schema.action]
+          );
         });
       }
     });
