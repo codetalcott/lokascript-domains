@@ -1,14 +1,15 @@
 /**
  * Domain lint: structural + cross-file invariants for domain-sql.
  *
- * Uses @lokascript/domain-toolkit to check the domain's schemas, profiles,
+ * Uses the linter in @lokascript/framework/testing/gate to check the domain's schemas, profiles,
  * tokenizers, and renderer tables stay consistent. Fails CI on errors;
  * warnings are printed for visibility but don't fail.
  */
 
 import { describe, it, expect } from 'vitest';
-import { lintDomain, formatResult } from '@lokascript/domain-toolkit';
-import type { DomainLintInput } from '@lokascript/domain-toolkit';
+import { lintDomain, formatResult } from '@lokascript/framework/testing/gate';
+import type { DomainLintInput } from '@lokascript/framework/testing/gate';
+import { validateCommandSchema } from '@lokascript/semantic';
 
 import { allSchemas } from '../schemas';
 import { allProfiles } from '../profiles';
@@ -30,6 +31,10 @@ import { COMMAND_KEYWORDS, MARKERS } from '../generators/sql-renderer';
 function buildInput(): DomainLintInput {
   return {
     name: 'sql',
+    // R1/R2: semantic's schema validator. Its schema type names hyperscript's actions; the checks
+    // read only the roles.
+    validateSchema: schema =>
+      validateCommandSchema(schema as unknown as Parameters<typeof validateCommandSchema>[0]),
     schemas: allSchemas,
     profiles: allProfiles,
     tokenizers: {

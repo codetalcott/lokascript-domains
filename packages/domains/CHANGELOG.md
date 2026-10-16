@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+- **Built and tested against `@lokascript/framework`, `semantic` and `intent`
+  4.7.0** (lockfile 4.6.0 → 4.7.0; the peers stay `^4.0.0`). The round-trip
+  gate and the eight lint tests run on framework's gate kit
+  (`@lokascript/framework/testing/gate`), which took this repo's gate code and
+  `@lokascript/domain-toolkit`'s lint rules; the toolkit, a private dev
+  harness, is retired. The gate reads every case as before (no outcome and no
+  parse moved). Nothing a consumer runs changes.
+
 ## 4.0.1
 
 - **Built and tested against `@lokascript/framework`, `semantic` and `intent`

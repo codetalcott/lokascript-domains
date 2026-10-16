@@ -24,7 +24,7 @@ are **peerDependencies** (mirrored in devDependencies for local dev); the consum
 
 ```bash
 npm install              # root; npm workspaces
-npm run build            # topological: scripts/build-all.sh (toolkit → 8 domains → domain-config → domains)
+npm run build            # topological: scripts/build-all.sh (8 domains → domain-config → domains)
 npm run typecheck        # every package with a typecheck script
 npm run test:check       # compact gate over every package with a test:check script
 bash scripts/pack-smoke.sh   # npm pack the aggregate, install into a clean tmp dir, smoke every subpath + d.ts
@@ -179,8 +179,10 @@ never hand-authored per language:
 Standard suites in `src/__test__/`:
 
 - `<x>-domain.test.ts`: parse/compile/translate behavior per language.
-- `lint.test.ts`: `lintDomain()` from `@lokascript/domain-toolkit` (rules R1–R10: schema structure,
-  keyword classification/coverage, marker tokenization, position ordering, renderer coherence).
+- `lint.test.ts`: `lintDomain()` from `@lokascript/framework/testing/gate` (rules R1–R10: schema
+  structure, keyword classification/coverage, marker tokenization, position ordering, renderer
+  coherence; R1/R2 run semantic's `validateCommandSchema`, which each test passes in). It was
+  `@lokascript/domain-toolkit` until framework 4.7.0 took its rules (hyperfixi domains rethink Phase 4.6).
   Errors fail; warnings print. `waivers` exist but are debt (only `domain-learn` uses them).
 - `pattern-parity.test.ts`: `generatePatternVariants` output for every profile × schema must be
   byte-identical to `golden/generated-patterns.golden.json`. Any profile/schema/framework change

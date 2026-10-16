@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
-import { lintDomain, formatResult } from '@lokascript/domain-toolkit';
-import type { DomainLintInput } from '@lokascript/domain-toolkit';
+import { lintDomain, formatResult } from '@lokascript/framework/testing/gate';
+import type { DomainLintInput } from '@lokascript/framework/testing/gate';
+import { validateCommandSchema } from '@lokascript/semantic';
 
 import { allSchemas } from '../schemas';
 import {
@@ -27,6 +28,10 @@ import {
 function buildInput(): DomainLintInput {
   return {
     name: 'behaviorspec',
+    // R1/R2: semantic's schema validator. Its schema type names hyperscript's actions; the checks
+    // read only the roles.
+    validateSchema: schema =>
+      validateCommandSchema(schema as unknown as Parameters<typeof validateCommandSchema>[0]),
     schemas: allSchemas,
     profiles: [
       englishProfile,

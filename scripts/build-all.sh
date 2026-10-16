@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
-# Topological build: toolkit (dev harness) -> the 8 domains -> domain-config
+# Topological build: the 8 domains -> domain-config
 # (depends on all 8) -> domains (the published aggregate).
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
 ORDER=(
-  domain-toolkit
   domain-sql domain-bdd domain-behaviorspec domain-llm
   domain-todo domain-flow domain-voice domain-learn
   domain-config

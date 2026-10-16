@@ -1,8 +1,8 @@
 {
   "upstream": {
-    "@lokascript/framework": "4.6.0",
-    "@lokascript/semantic": "4.6.0",
-    "@lokascript/intent": "4.6.0"
+    "@lokascript/framework": "4.7.0",
+    "@lokascript/semantic": "4.7.0",
+    "@lokascript/intent": "4.7.0"
   },
   "counts": {
     "bdd": {
