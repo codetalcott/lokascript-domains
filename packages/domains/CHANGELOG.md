@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- **llm reads and writes on framework's core** (`engine: 'core'`, as sql
+  below). The domain gate moves no case and no parse: 61 of 66 round trips,
+  the same 5 refused (one now says which words it left unread). The golden
+  patterns differ from `generatePatternVariants`' only in the template's
+  bracket notation for optional groups.
 - **sql reads and writes on framework's core** (`engine: 'core'`, framework
   4.7.0; hyperfixi domains rethink Phase 5). The framework peer is `^4.7.0`;
   on 4.6.0 the option is ignored and sql reads with the classic engine, which
