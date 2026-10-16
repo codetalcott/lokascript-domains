@@ -2,6 +2,16 @@
 
 ## Unreleased
 
+## 4.1.0
+
+- **Six of the seven DSLs read and write on framework 4.7.0's core**
+  (hyperfixi domains rethink Phase 5): sql, llm, flow, voice, todo and
+  behaviorspec pass `engine: 'core'` to `createMultilingualDSL`, so the
+  aggregate's `@lokascript/framework` peer is now `^4.7.0` (semantic and intent
+  stay `^4.0.0`); bdd and learn stay on the classic engine for now. Measured
+  on the domain gate: no case worse in any domain, behaviorspec 30 better.
+  Two inputs that compiled with a word silently dropped are now refused
+  (below).
 - **behaviorspec reads and writes on framework's core** (`engine: 'core'`, as
   sql below), and reads 30 sentences it refused before: `when` with an action
   and no actor in ja, ko and tr (`clicks 操作`, for each of the ten actions).
