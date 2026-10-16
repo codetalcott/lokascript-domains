@@ -2,6 +2,21 @@
 
 ## Unreleased
 
+- **behaviorspec reads and writes on framework's core** (`engine: 'core'`, as
+  sql below), and reads 30 sentences it refused before: `when` with an action
+  and no actor in ja, ko and tr (`clicks 操作`, for each of the ten actions).
+  The domain gate: 336 of 448 round trips (306 before), 0 worse; the 30 new
+  ones refuse an unknown word after them, so the 78 accepted leftover cases
+  are unchanged.
+- **behaviorspec refuses typed text it does not read.** `when user types
+  'hello' into #search` compiled to `fill('')`: the classic engine skipped
+  `'hello'` on its way to `into` and counted it as read. The typed text is
+  `when`'s `target`, which English marks with `on` (`when user types on
+  'hello' into #search` fills `hello`); unmarked, the core refuses it.
+- The golden patterns differ from `generatePatternVariants`' in the
+  template's bracket notation, and in `given`'s greedy `value` and `when`'s
+  `actor`, optional roles without a marker, which are optional groups on the
+  core (8 languages each).
 - **todo reads and writes on framework's core** (`engine: 'core'`, as sql
   below). The domain gate moves no case and no parse: 55 of 55 round trips,
   the same 8 leftover cases accepted. The golden patterns differ from
