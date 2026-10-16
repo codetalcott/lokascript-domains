@@ -2,6 +2,15 @@
 
 ## Unreleased
 
+- **sql reads and writes on framework's core** (`engine: 'core'`, framework
+  4.7.0; hyperfixi domains rethink Phase 5). The framework peer is `^4.7.0`;
+  on 4.6.0 the option is ignored and sql reads with the classic engine, which
+  reads it the same way today. The domain gate moves no case and no parse: 99
+  of 99 round trips, and 32 leftover cases still accepted (an unknown word
+  after `where …` or `set …`, read into the condition or the values). The
+  golden pattern test now pins the patterns the DSL reads with; they differ
+  from `generatePatternVariants`' only in the template's notation (optional
+  groups in brackets: `select {columns} from {source} [where {condition}]`).
 - **Built and tested against `@lokascript/framework`, `semantic` and `intent`
   4.7.0** (lockfile 4.6.0 → 4.7.0; the peers stay `^4.0.0`). The round-trip
   gate and the eight lint tests run on framework's gate kit
