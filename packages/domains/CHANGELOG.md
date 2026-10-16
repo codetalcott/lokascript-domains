@@ -2,6 +2,15 @@
 
 ## Unreleased
 
+## 4.0.1
+
+- **Built and tested against `@lokascript/framework`, `semantic` and `intent`
+  4.6.0** (lockfile 4.5.0 → 4.6.0; the peers stay `^4.0.0`). Framework 4.6.0
+  refuses a domain command it did not read to the end, and a translation that
+  does not read back as its source. With 4.0.0 it refuses bdd's and
+  behaviorspec's hyphenated actions (`double-click`), bdd's `and` steps of
+  more than one word, and voice's URL paths, all of which 4.0.0 misread
+  without a word; this release reads them (below).
 - **bdd and behaviorspec read a hyphenated word as one word.** `When
   double-click on #button`, es `doble-clic`, ar `نقر-مزدوج`, behaviorspec
   `user double-clicks` / `right-clicks` (in English, Arabic and Chinese
@@ -17,9 +26,9 @@
 - **voice reads a URL path as one value.** `navigate to /home` and `open
   /new-page` read `/` and compiled to `window.location.href = '/'`; voice's
   tokenizers now take a path whole, as behaviorspec's do.
-- These three were found by running the suites against hyperfixi's
-  framework Phase 3 (a parse refuses input it did not read), which refuses
-  each of them; behaviorspec's tests now write a class value with its marker
+- These three were found by running the suites against framework 4.6.0's
+  Phase 3 (a parse refuses input it did not read), which refuses each of
+  them; behaviorspec's tests now write a class value with its marker
   (`expect #button has saying .active`), since the unmarked form dropped it.
 
 ## 4.0.0
