@@ -86,6 +86,7 @@ export interface DomainDSLOptions {
 export function createVoiceDSL(options: DomainDSLOptions = {}): MultilingualDSL {
   return /*#__PURE__*/ createMultilingualDSL({
     name: 'Voice',
+    engine: 'core',
     schemas: allSchemas,
     languages: [
       {

@@ -2,6 +2,16 @@
 
 ## Unreleased
 
+- **voice reads and writes on framework's core** (`engine: 'core'`, as sql
+  below). The domain gate moves no case and no parse: 360 of 363 round trips,
+  the same 3 refused, and the same 41 leftover cases accepted (an unknown word
+  after a `back` / `forward` quantity, a `close` / `help` target). The golden
+  patterns differ from `generatePatternVariants`' in the template's bracket
+  notation; in the optional, marker-less roles, which are optional groups on
+  the core (42: `back` and `forward`'s quantity, `close` and `help`'s
+  target); and in ar `focus` and `search`, whose marker carries the schema's
+  `renderOverride: { ar: '' }` as `renderSuppress` (voice renders with its
+  own renderer, so nothing it writes changes).
 - **flow reads and writes on framework's core** (`engine: 'core'`, as sql
   below). The domain gate moves no case and no parse: 297 of 308 round trips,
   the same 11 refused. The golden patterns differ from

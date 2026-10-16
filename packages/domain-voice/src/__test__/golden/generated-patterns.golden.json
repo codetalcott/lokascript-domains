@@ -12,9 +12,7 @@
             {
               "type": "literal",
               "value": "navigate",
-              "alternatives": [
-                "go"
-              ]
+              "alternatives": ["go"]
             },
             {
               "type": "literal",
@@ -24,9 +22,7 @@
               "type": "role",
               "role": "destination",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             }
           ]
         },
@@ -49,19 +45,13 @@
             {
               "type": "literal",
               "value": "click",
-              "alternatives": [
-                "press",
-                "tap"
-              ]
+              "alternatives": ["press", "tap"]
             },
             {
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             }
           ]
         },
@@ -77,22 +67,18 @@
         "command": "type",
         "priority": 100,
         "template": {
-          "format": "type {patient} into {destination}",
+          "format": "type {patient} [into {destination}]",
           "tokens": [
             {
               "type": "literal",
               "value": "type",
-              "alternatives": [
-                "enter"
-              ]
+              "alternatives": ["enter"]
             },
             {
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "group",
@@ -106,10 +92,7 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": [
-                    "expression",
-                    "selector"
-                  ]
+                  "expectedTypes": ["expression", "selector"]
                 }
               ]
             }
@@ -130,7 +113,7 @@
         "command": "scroll",
         "priority": 100,
         "template": {
-          "format": "scroll {manner} by {quantity}",
+          "format": "scroll {manner} [by {quantity}]",
           "tokens": [
             {
               "type": "literal",
@@ -140,9 +123,7 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "group",
@@ -156,9 +137,7 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": [
-                    "expression"
-                  ]
+                  "expectedTypes": ["expression"]
                 }
               ]
             }
@@ -184,18 +163,13 @@
             {
               "type": "literal",
               "value": "read",
-              "alternatives": [
-                "say"
-              ]
+              "alternatives": ["say"]
             },
             {
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             }
           ]
         },
@@ -221,9 +195,7 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             }
           ]
         },
@@ -249,10 +221,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             }
           ]
         },
@@ -268,18 +237,22 @@
         "command": "back",
         "priority": 100,
         "template": {
-          "format": "back {quantity}",
+          "format": "back [{quantity}]",
           "tokens": [
             {
               "type": "literal",
               "value": "back"
             },
             {
-              "type": "role",
-              "role": "quantity",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "quantity",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -296,18 +269,22 @@
         "command": "forward",
         "priority": 100,
         "template": {
-          "format": "forward {quantity}",
+          "format": "forward [{quantity}]",
           "tokens": [
             {
               "type": "literal",
               "value": "forward"
             },
             {
-              "type": "role",
-              "role": "quantity",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "quantity",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -334,10 +311,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             }
           ]
         },
@@ -353,18 +327,22 @@
         "command": "close",
         "priority": 100,
         "template": {
-          "format": "close {patient}",
+          "format": "close [{patient}]",
           "tokens": [
             {
               "type": "literal",
               "value": "close"
             },
             {
-              "type": "role",
-              "role": "patient",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "patient",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -391,9 +369,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             }
           ]
         },
@@ -409,22 +385,18 @@
         "command": "search",
         "priority": 100,
         "template": {
-          "format": "search {patient} in {destination}",
+          "format": "search {patient} [in {destination}]",
           "tokens": [
             {
               "type": "literal",
               "value": "search",
-              "alternatives": [
-                "find"
-              ]
+              "alternatives": ["find"]
             },
             {
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "group",
@@ -438,9 +410,7 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": [
-                    "expression"
-                  ]
+                  "expectedTypes": ["expression"]
                 }
               ]
             }
@@ -461,18 +431,22 @@
         "command": "help",
         "priority": 100,
         "template": {
-          "format": "help {patient}",
+          "format": "help [{patient}]",
           "tokens": [
             {
               "type": "literal",
               "value": "help"
             },
             {
-              "type": "role",
-              "role": "patient",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "patient",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -496,9 +470,7 @@
             {
               "type": "literal",
               "value": "navegar",
-              "alternatives": [
-                "ir"
-              ]
+              "alternatives": ["ir"]
             },
             {
               "type": "literal",
@@ -508,9 +480,7 @@
               "type": "role",
               "role": "destination",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             }
           ]
         },
@@ -533,18 +503,13 @@
             {
               "type": "literal",
               "value": "clic",
-              "alternatives": [
-                "pulsar"
-              ]
+              "alternatives": ["pulsar"]
             },
             {
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             }
           ]
         },
@@ -560,7 +525,7 @@
         "command": "type",
         "priority": 100,
         "template": {
-          "format": "escribir {patient} en {destination}",
+          "format": "escribir {patient} [en {destination}]",
           "tokens": [
             {
               "type": "literal",
@@ -570,9 +535,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "group",
@@ -586,10 +549,7 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": [
-                    "expression",
-                    "selector"
-                  ]
+                  "expectedTypes": ["expression", "selector"]
                 }
               ]
             }
@@ -610,7 +570,7 @@
         "command": "scroll",
         "priority": 100,
         "template": {
-          "format": "desplazar {manner} por {quantity}",
+          "format": "desplazar {manner} [por {quantity}]",
           "tokens": [
             {
               "type": "literal",
@@ -620,9 +580,7 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "group",
@@ -636,9 +594,7 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": [
-                    "expression"
-                  ]
+                  "expectedTypes": ["expression"]
                 }
               ]
             }
@@ -669,10 +625,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             }
           ]
         },
@@ -698,9 +651,7 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             }
           ]
         },
@@ -726,10 +677,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             }
           ]
         },
@@ -745,21 +693,23 @@
         "command": "back",
         "priority": 100,
         "template": {
-          "format": "atrás {quantity}",
+          "format": "atrás [{quantity}]",
           "tokens": [
             {
               "type": "literal",
               "value": "atrás",
-              "alternatives": [
-                "volver"
-              ]
+              "alternatives": ["volver"]
             },
             {
-              "type": "role",
-              "role": "quantity",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "quantity",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -776,18 +726,22 @@
         "command": "forward",
         "priority": 100,
         "template": {
-          "format": "adelante {quantity}",
+          "format": "adelante [{quantity}]",
           "tokens": [
             {
               "type": "literal",
               "value": "adelante"
             },
             {
-              "type": "role",
-              "role": "quantity",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "quantity",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -814,10 +768,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             }
           ]
         },
@@ -833,18 +784,22 @@
         "command": "close",
         "priority": 100,
         "template": {
-          "format": "cerrar {patient}",
+          "format": "cerrar [{patient}]",
           "tokens": [
             {
               "type": "literal",
               "value": "cerrar"
             },
             {
-              "type": "role",
-              "role": "patient",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "patient",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -871,9 +826,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             }
           ]
         },
@@ -889,7 +842,7 @@
         "command": "search",
         "priority": 100,
         "template": {
-          "format": "buscar {patient} en {destination}",
+          "format": "buscar {patient} [en {destination}]",
           "tokens": [
             {
               "type": "literal",
@@ -899,9 +852,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "group",
@@ -915,9 +866,7 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": [
-                    "expression"
-                  ]
+                  "expectedTypes": ["expression"]
                 }
               ]
             }
@@ -938,18 +887,22 @@
         "command": "help",
         "priority": 100,
         "template": {
-          "format": "ayuda {patient}",
+          "format": "ayuda [{patient}]",
           "tokens": [
             {
               "type": "literal",
               "value": "ayuda"
             },
             {
-              "type": "role",
-              "role": "patient",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "patient",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -974,9 +927,7 @@
               "type": "role",
               "role": "destination",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "literal",
@@ -1008,10 +959,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             },
             {
               "type": "literal",
@@ -1037,7 +985,7 @@
         "command": "type",
         "priority": 100,
         "template": {
-          "format": "に {destination} を {patient} 入力",
+          "format": "[に {destination}] を {patient} 入力",
           "tokens": [
             {
               "type": "group",
@@ -1047,10 +995,7 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": [
-                    "expression",
-                    "selector"
-                  ]
+                  "expectedTypes": ["expression", "selector"]
                 },
                 {
                   "type": "literal",
@@ -1062,9 +1007,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "literal",
@@ -1093,15 +1036,13 @@
         "command": "scroll",
         "priority": 100,
         "template": {
-          "format": "{manner} だけ {quantity} スクロール",
+          "format": "{manner} [だけ {quantity}] スクロール",
           "tokens": [
             {
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "group",
@@ -1111,9 +1052,7 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": [
-                    "expression"
-                  ]
+                  "expectedTypes": ["expression"]
                 },
                 {
                   "type": "literal",
@@ -1148,10 +1087,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             },
             {
               "type": "literal",
@@ -1183,9 +1119,7 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "literal",
@@ -1211,10 +1145,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             },
             {
               "type": "literal",
@@ -1240,18 +1171,22 @@
         "command": "back",
         "priority": 100,
         "template": {
-          "format": "戻る {quantity}",
+          "format": "[{quantity}] 戻る",
           "tokens": [
             {
               "type": "literal",
               "value": "戻る"
             },
             {
-              "type": "role",
-              "role": "quantity",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "quantity",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -1268,18 +1203,22 @@
         "command": "forward",
         "priority": 100,
         "template": {
-          "format": "進む {quantity}",
+          "format": "[{quantity}] 進む",
           "tokens": [
             {
               "type": "literal",
               "value": "進む"
             },
             {
-              "type": "role",
-              "role": "quantity",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "quantity",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -1302,10 +1241,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             },
             {
               "type": "literal",
@@ -1331,7 +1267,7 @@
         "command": "close",
         "priority": 100,
         "template": {
-          "format": "を {patient} 閉じる",
+          "format": "[を {patient}] 閉じる",
           "tokens": [
             {
               "type": "group",
@@ -1341,9 +1277,7 @@
                   "type": "role",
                   "role": "patient",
                   "optional": true,
-                  "expectedTypes": [
-                    "expression"
-                  ]
+                  "expectedTypes": ["expression"]
                 },
                 {
                   "type": "literal",
@@ -1377,9 +1311,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "literal",
@@ -1405,7 +1337,7 @@
         "command": "search",
         "priority": 100,
         "template": {
-          "format": "で {destination} を {patient} 検索",
+          "format": "[で {destination}] を {patient} 検索",
           "tokens": [
             {
               "type": "group",
@@ -1415,9 +1347,7 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": [
-                    "expression"
-                  ]
+                  "expectedTypes": ["expression"]
                 },
                 {
                   "type": "literal",
@@ -1429,9 +1359,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "literal",
@@ -1460,18 +1388,22 @@
         "command": "help",
         "priority": 100,
         "template": {
-          "format": "ヘルプ {patient}",
+          "format": "[{patient}] ヘルプ",
           "tokens": [
             {
               "type": "literal",
               "value": "ヘルプ"
             },
             {
-              "type": "role",
-              "role": "patient",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "patient",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -1504,9 +1436,7 @@
               "type": "role",
               "role": "destination",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             }
           ]
         },
@@ -1538,10 +1468,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             }
           ]
         },
@@ -1559,7 +1486,7 @@
         "command": "type",
         "priority": 100,
         "template": {
-          "format": "اكتب {patient} في {destination}",
+          "format": "اكتب {patient} [في {destination}]",
           "tokens": [
             {
               "type": "literal",
@@ -1569,9 +1496,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "group",
@@ -1585,10 +1510,7 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": [
-                    "expression",
-                    "selector"
-                  ]
+                  "expectedTypes": ["expression", "selector"]
                 }
               ]
             }
@@ -1609,7 +1531,7 @@
         "command": "scroll",
         "priority": 100,
         "template": {
-          "format": "تمرير {manner} ب {quantity}",
+          "format": "تمرير {manner} [ب {quantity}]",
           "tokens": [
             {
               "type": "literal",
@@ -1619,9 +1541,7 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "group",
@@ -1635,9 +1555,7 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": [
-                    "expression"
-                  ]
+                  "expectedTypes": ["expression"]
                 }
               ]
             }
@@ -1668,10 +1586,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             }
           ]
         },
@@ -1697,9 +1612,7 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             }
           ]
         },
@@ -1725,10 +1638,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             }
           ]
         },
@@ -1744,18 +1654,22 @@
         "command": "back",
         "priority": 100,
         "template": {
-          "format": "رجوع {quantity}",
+          "format": "رجوع [{quantity}]",
           "tokens": [
             {
               "type": "literal",
               "value": "رجوع"
             },
             {
-              "type": "role",
-              "role": "quantity",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "quantity",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -1772,18 +1686,22 @@
         "command": "forward",
         "priority": 100,
         "template": {
-          "format": "تقدم {quantity}",
+          "format": "تقدم [{quantity}]",
           "tokens": [
             {
               "type": "literal",
               "value": "تقدم"
             },
             {
-              "type": "role",
-              "role": "quantity",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "quantity",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -1808,16 +1726,14 @@
             },
             {
               "type": "literal",
-              "value": "على"
+              "value": "على",
+              "renderSuppress": true
             },
             {
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             }
           ]
         },
@@ -1835,18 +1751,22 @@
         "command": "close",
         "priority": 100,
         "template": {
-          "format": "أغلق {patient}",
+          "format": "أغلق [{patient}]",
           "tokens": [
             {
               "type": "literal",
               "value": "أغلق"
             },
             {
-              "type": "role",
-              "role": "patient",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "patient",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -1873,9 +1793,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             }
           ]
         },
@@ -1891,7 +1809,7 @@
         "command": "search",
         "priority": 100,
         "template": {
-          "format": "ابحث عن {patient} في {destination}",
+          "format": "ابحث عن {patient} [في {destination}]",
           "tokens": [
             {
               "type": "literal",
@@ -1899,15 +1817,14 @@
             },
             {
               "type": "literal",
-              "value": "عن"
+              "value": "عن",
+              "renderSuppress": true
             },
             {
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "group",
@@ -1921,9 +1838,7 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": [
-                    "expression"
-                  ]
+                  "expectedTypes": ["expression"]
                 }
               ]
             }
@@ -1946,18 +1861,22 @@
         "command": "help",
         "priority": 100,
         "template": {
-          "format": "مساعدة {patient}",
+          "format": "مساعدة [{patient}]",
           "tokens": [
             {
               "type": "literal",
               "value": "مساعدة"
             },
             {
-              "type": "role",
-              "role": "patient",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "patient",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -1982,9 +1901,7 @@
               "type": "role",
               "role": "destination",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "literal",
@@ -2016,10 +1933,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             },
             {
               "type": "literal",
@@ -2045,7 +1959,7 @@
         "command": "type",
         "priority": 100,
         "template": {
-          "format": "에 {destination} 을 {patient} 입력",
+          "format": "[에 {destination}] 을 {patient} 입력",
           "tokens": [
             {
               "type": "group",
@@ -2055,10 +1969,7 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": [
-                    "expression",
-                    "selector"
-                  ]
+                  "expectedTypes": ["expression", "selector"]
                 },
                 {
                   "type": "literal",
@@ -2070,9 +1981,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "literal",
@@ -2101,15 +2010,13 @@
         "command": "scroll",
         "priority": 100,
         "template": {
-          "format": "{manner} 만큼 {quantity} 스크롤",
+          "format": "{manner} [만큼 {quantity}] 스크롤",
           "tokens": [
             {
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "group",
@@ -2119,9 +2026,7 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": [
-                    "expression"
-                  ]
+                  "expectedTypes": ["expression"]
                 },
                 {
                   "type": "literal",
@@ -2156,10 +2061,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             },
             {
               "type": "literal",
@@ -2191,9 +2093,7 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "literal",
@@ -2219,10 +2119,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             },
             {
               "type": "literal",
@@ -2248,18 +2145,22 @@
         "command": "back",
         "priority": 100,
         "template": {
-          "format": "뒤로 {quantity}",
+          "format": "[{quantity}] 뒤로",
           "tokens": [
             {
               "type": "literal",
               "value": "뒤로"
             },
             {
-              "type": "role",
-              "role": "quantity",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "quantity",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -2276,18 +2177,22 @@
         "command": "forward",
         "priority": 100,
         "template": {
-          "format": "앞으로 {quantity}",
+          "format": "[{quantity}] 앞으로",
           "tokens": [
             {
               "type": "literal",
               "value": "앞으로"
             },
             {
-              "type": "role",
-              "role": "quantity",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "quantity",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -2310,10 +2215,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             },
             {
               "type": "literal",
@@ -2339,7 +2241,7 @@
         "command": "close",
         "priority": 100,
         "template": {
-          "format": "를 {patient} 닫기",
+          "format": "[를 {patient}] 닫기",
           "tokens": [
             {
               "type": "group",
@@ -2349,9 +2251,7 @@
                   "type": "role",
                   "role": "patient",
                   "optional": true,
-                  "expectedTypes": [
-                    "expression"
-                  ]
+                  "expectedTypes": ["expression"]
                 },
                 {
                   "type": "literal",
@@ -2385,9 +2285,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "literal",
@@ -2413,7 +2311,7 @@
         "command": "search",
         "priority": 100,
         "template": {
-          "format": "에서 {destination} 을 {patient} 검색",
+          "format": "[에서 {destination}] 을 {patient} 검색",
           "tokens": [
             {
               "type": "group",
@@ -2423,9 +2321,7 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": [
-                    "expression"
-                  ]
+                  "expectedTypes": ["expression"]
                 },
                 {
                   "type": "literal",
@@ -2437,9 +2333,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "literal",
@@ -2468,18 +2362,22 @@
         "command": "help",
         "priority": 100,
         "template": {
-          "format": "도움말 {patient}",
+          "format": "[{patient}] 도움말",
           "tokens": [
             {
               "type": "literal",
               "value": "도움말"
             },
             {
-              "type": "role",
-              "role": "patient",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "patient",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -2512,9 +2410,7 @@
               "type": "role",
               "role": "destination",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             }
           ]
         },
@@ -2542,10 +2438,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             }
           ]
         },
@@ -2561,7 +2454,7 @@
         "command": "type",
         "priority": 100,
         "template": {
-          "format": "输入 {patient} 到 {destination}",
+          "format": "输入 {patient} [到 {destination}]",
           "tokens": [
             {
               "type": "literal",
@@ -2571,9 +2464,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "group",
@@ -2587,10 +2478,7 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": [
-                    "expression",
-                    "selector"
-                  ]
+                  "expectedTypes": ["expression", "selector"]
                 }
               ]
             }
@@ -2611,7 +2499,7 @@
         "command": "scroll",
         "priority": 100,
         "template": {
-          "format": "滚动 {manner} 幅 {quantity}",
+          "format": "滚动 {manner} [幅 {quantity}]",
           "tokens": [
             {
               "type": "literal",
@@ -2621,9 +2509,7 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "group",
@@ -2637,9 +2523,7 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": [
-                    "expression"
-                  ]
+                  "expectedTypes": ["expression"]
                 }
               ]
             }
@@ -2670,10 +2554,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             }
           ]
         },
@@ -2699,9 +2580,7 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             }
           ]
         },
@@ -2727,10 +2606,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             }
           ]
         },
@@ -2746,18 +2622,22 @@
         "command": "back",
         "priority": 100,
         "template": {
-          "format": "返回 {quantity}",
+          "format": "返回 [{quantity}]",
           "tokens": [
             {
               "type": "literal",
               "value": "返回"
             },
             {
-              "type": "role",
-              "role": "quantity",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "quantity",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -2774,18 +2654,22 @@
         "command": "forward",
         "priority": 100,
         "template": {
-          "format": "前进 {quantity}",
+          "format": "前进 [{quantity}]",
           "tokens": [
             {
               "type": "literal",
               "value": "前进"
             },
             {
-              "type": "role",
-              "role": "quantity",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "quantity",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -2812,10 +2696,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             }
           ]
         },
@@ -2831,18 +2712,22 @@
         "command": "close",
         "priority": 100,
         "template": {
-          "format": "关闭 {patient}",
+          "format": "关闭 [{patient}]",
           "tokens": [
             {
               "type": "literal",
               "value": "关闭"
             },
             {
-              "type": "role",
-              "role": "patient",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "patient",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -2869,9 +2754,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             }
           ]
         },
@@ -2887,7 +2770,7 @@
         "command": "search",
         "priority": 100,
         "template": {
-          "format": "搜索 {patient} 在 {destination}",
+          "format": "搜索 {patient} [在 {destination}]",
           "tokens": [
             {
               "type": "literal",
@@ -2897,9 +2780,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "group",
@@ -2913,9 +2794,7 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": [
-                    "expression"
-                  ]
+                  "expectedTypes": ["expression"]
                 }
               ]
             }
@@ -2936,18 +2815,22 @@
         "command": "help",
         "priority": 100,
         "template": {
-          "format": "帮助 {patient}",
+          "format": "帮助 [{patient}]",
           "tokens": [
             {
               "type": "literal",
               "value": "帮助"
             },
             {
-              "type": "role",
-              "role": "patient",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "patient",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -2972,9 +2855,7 @@
               "type": "role",
               "role": "destination",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "literal",
@@ -3006,10 +2887,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             },
             {
               "type": "literal",
@@ -3029,7 +2907,7 @@
         "command": "type",
         "priority": 100,
         "template": {
-          "format": "ya {destination} {patient} yaz",
+          "format": "[ya {destination}] {patient} yaz",
           "tokens": [
             {
               "type": "group",
@@ -3039,10 +2917,7 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": [
-                    "expression",
-                    "selector"
-                  ]
+                  "expectedTypes": ["expression", "selector"]
                 },
                 {
                   "type": "literal",
@@ -3054,9 +2929,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "literal",
@@ -3079,15 +2952,13 @@
         "command": "scroll",
         "priority": 100,
         "template": {
-          "format": "{manner} kadar {quantity} kaydır",
+          "format": "{manner} [kadar {quantity}] kaydır",
           "tokens": [
             {
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "group",
@@ -3097,9 +2968,7 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": [
-                    "expression"
-                  ]
+                  "expectedTypes": ["expression"]
                 },
                 {
                   "type": "literal",
@@ -3134,10 +3003,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             },
             {
               "type": "literal",
@@ -3163,9 +3029,7 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "literal",
@@ -3191,10 +3055,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             },
             {
               "type": "literal",
@@ -3214,18 +3075,22 @@
         "command": "back",
         "priority": 100,
         "template": {
-          "format": "geri {quantity}",
+          "format": "[{quantity}] geri",
           "tokens": [
             {
               "type": "literal",
               "value": "geri"
             },
             {
-              "type": "role",
-              "role": "quantity",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "quantity",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -3242,18 +3107,22 @@
         "command": "forward",
         "priority": 100,
         "template": {
-          "format": "ileri {quantity}",
+          "format": "[{quantity}] ileri",
           "tokens": [
             {
               "type": "literal",
               "value": "ileri"
             },
             {
-              "type": "role",
-              "role": "quantity",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "quantity",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -3276,10 +3145,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             },
             {
               "type": "literal",
@@ -3305,14 +3171,18 @@
         "command": "close",
         "priority": 100,
         "template": {
-          "format": "{patient} kapat",
+          "format": "[{patient}] kapat",
           "tokens": [
             {
-              "type": "role",
-              "role": "patient",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "patient",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             },
             {
@@ -3339,9 +3209,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "literal",
@@ -3361,7 +3229,7 @@
         "command": "search",
         "priority": 100,
         "template": {
-          "format": "da {destination} {patient} ara",
+          "format": "[da {destination}] {patient} ara",
           "tokens": [
             {
               "type": "group",
@@ -3371,9 +3239,7 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": [
-                    "expression"
-                  ]
+                  "expectedTypes": ["expression"]
                 },
                 {
                   "type": "literal",
@@ -3385,9 +3251,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "literal",
@@ -3410,18 +3274,22 @@
         "command": "help",
         "priority": 100,
         "template": {
-          "format": "yardım {patient}",
+          "format": "[{patient}] yardım",
           "tokens": [
             {
               "type": "literal",
               "value": "yardım"
             },
             {
-              "type": "role",
-              "role": "patient",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "patient",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -3445,9 +3313,7 @@
             {
               "type": "literal",
               "value": "naviguer",
-              "alternatives": [
-                "aller"
-              ]
+              "alternatives": ["aller"]
             },
             {
               "type": "literal",
@@ -3457,9 +3323,7 @@
               "type": "role",
               "role": "destination",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             }
           ]
         },
@@ -3491,10 +3355,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             }
           ]
         },
@@ -3512,22 +3373,18 @@
         "command": "type",
         "priority": 100,
         "template": {
-          "format": "taper {patient} dans {destination}",
+          "format": "taper {patient} [dans {destination}]",
           "tokens": [
             {
               "type": "literal",
               "value": "taper",
-              "alternatives": [
-                "écrire"
-              ]
+              "alternatives": ["écrire"]
             },
             {
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "group",
@@ -3541,10 +3398,7 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": [
-                    "expression",
-                    "selector"
-                  ]
+                  "expectedTypes": ["expression", "selector"]
                 }
               ]
             }
@@ -3565,7 +3419,7 @@
         "command": "scroll",
         "priority": 100,
         "template": {
-          "format": "défiler {manner} de {quantity}",
+          "format": "défiler {manner} [de {quantity}]",
           "tokens": [
             {
               "type": "literal",
@@ -3575,9 +3429,7 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "group",
@@ -3591,9 +3443,7 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": [
-                    "expression"
-                  ]
+                  "expectedTypes": ["expression"]
                 }
               ]
             }
@@ -3624,10 +3474,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             }
           ]
         },
@@ -3653,9 +3500,7 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             }
           ]
         },
@@ -3681,10 +3526,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             }
           ]
         },
@@ -3700,18 +3542,22 @@
         "command": "back",
         "priority": 100,
         "template": {
-          "format": "retour {quantity}",
+          "format": "retour [{quantity}]",
           "tokens": [
             {
               "type": "literal",
               "value": "retour"
             },
             {
-              "type": "role",
-              "role": "quantity",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "quantity",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -3728,18 +3574,22 @@
         "command": "forward",
         "priority": 100,
         "template": {
-          "format": "avancer {quantity}",
+          "format": "avancer [{quantity}]",
           "tokens": [
             {
               "type": "literal",
               "value": "avancer"
             },
             {
-              "type": "role",
-              "role": "quantity",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "quantity",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -3766,10 +3616,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             }
           ]
         },
@@ -3785,18 +3632,22 @@
         "command": "close",
         "priority": 100,
         "template": {
-          "format": "fermer {patient}",
+          "format": "fermer [{patient}]",
           "tokens": [
             {
               "type": "literal",
               "value": "fermer"
             },
             {
-              "type": "role",
-              "role": "patient",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "patient",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -3823,9 +3674,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             }
           ]
         },
@@ -3841,22 +3690,18 @@
         "command": "search",
         "priority": 100,
         "template": {
-          "format": "chercher {patient} dans {destination}",
+          "format": "chercher {patient} [dans {destination}]",
           "tokens": [
             {
               "type": "literal",
               "value": "chercher",
-              "alternatives": [
-                "rechercher"
-              ]
+              "alternatives": ["rechercher"]
             },
             {
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "group",
@@ -3870,9 +3715,7 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": [
-                    "expression"
-                  ]
+                  "expectedTypes": ["expression"]
                 }
               ]
             }
@@ -3893,18 +3736,22 @@
         "command": "help",
         "priority": 100,
         "template": {
-          "format": "aide {patient}",
+          "format": "aide [{patient}]",
           "tokens": [
             {
               "type": "literal",
               "value": "aide"
             },
             {
-              "type": "role",
-              "role": "patient",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "patient",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -3937,9 +3784,7 @@
               "type": "role",
               "role": "destination",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             }
           ]
         },
@@ -3967,10 +3812,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             }
           ]
         },
@@ -3986,7 +3828,7 @@
         "command": "type",
         "priority": 100,
         "template": {
-          "format": "eingeben {patient} in {destination}",
+          "format": "eingeben {patient} [in {destination}]",
           "tokens": [
             {
               "type": "literal",
@@ -3996,9 +3838,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "group",
@@ -4012,10 +3852,7 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": [
-                    "expression",
-                    "selector"
-                  ]
+                  "expectedTypes": ["expression", "selector"]
                 }
               ]
             }
@@ -4036,7 +3873,7 @@
         "command": "scroll",
         "priority": 100,
         "template": {
-          "format": "scrollen {manner} um {quantity}",
+          "format": "scrollen {manner} [um {quantity}]",
           "tokens": [
             {
               "type": "literal",
@@ -4046,9 +3883,7 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "group",
@@ -4062,9 +3897,7 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": [
-                    "expression"
-                  ]
+                  "expectedTypes": ["expression"]
                 }
               ]
             }
@@ -4095,10 +3928,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             }
           ]
         },
@@ -4124,9 +3954,7 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             }
           ]
         },
@@ -4152,10 +3980,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             }
           ]
         },
@@ -4171,18 +3996,22 @@
         "command": "back",
         "priority": 100,
         "template": {
-          "format": "zurück {quantity}",
+          "format": "zurück [{quantity}]",
           "tokens": [
             {
               "type": "literal",
               "value": "zurück"
             },
             {
-              "type": "role",
-              "role": "quantity",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "quantity",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -4199,18 +4028,22 @@
         "command": "forward",
         "priority": 100,
         "template": {
-          "format": "vorwärts {quantity}",
+          "format": "vorwärts [{quantity}]",
           "tokens": [
             {
               "type": "literal",
               "value": "vorwärts"
             },
             {
-              "type": "role",
-              "role": "quantity",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "quantity",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -4237,10 +4070,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             }
           ]
         },
@@ -4256,18 +4086,22 @@
         "command": "close",
         "priority": 100,
         "template": {
-          "format": "schließen {patient}",
+          "format": "schließen [{patient}]",
           "tokens": [
             {
               "type": "literal",
               "value": "schließen"
             },
             {
-              "type": "role",
-              "role": "patient",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "patient",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -4294,9 +4128,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             }
           ]
         },
@@ -4312,7 +4144,7 @@
         "command": "search",
         "priority": 100,
         "template": {
-          "format": "suchen {patient} in {destination}",
+          "format": "suchen {patient} [in {destination}]",
           "tokens": [
             {
               "type": "literal",
@@ -4322,9 +4154,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "group",
@@ -4338,9 +4168,7 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": [
-                    "expression"
-                  ]
+                  "expectedTypes": ["expression"]
                 }
               ]
             }
@@ -4361,18 +4189,22 @@
         "command": "help",
         "priority": 100,
         "template": {
-          "format": "hilfe {patient}",
+          "format": "hilfe [{patient}]",
           "tokens": [
             {
               "type": "literal",
               "value": "hilfe"
             },
             {
-              "type": "role",
-              "role": "patient",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "patient",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -4405,9 +4237,7 @@
               "type": "role",
               "role": "destination",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             }
           ]
         },
@@ -4435,10 +4265,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             }
           ]
         },
@@ -4454,7 +4281,7 @@
         "command": "type",
         "priority": 100,
         "template": {
-          "format": "digitar {patient} em {destination}",
+          "format": "digitar {patient} [em {destination}]",
           "tokens": [
             {
               "type": "literal",
@@ -4464,9 +4291,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "group",
@@ -4480,10 +4305,7 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": [
-                    "expression",
-                    "selector"
-                  ]
+                  "expectedTypes": ["expression", "selector"]
                 }
               ]
             }
@@ -4504,7 +4326,7 @@
         "command": "scroll",
         "priority": 100,
         "template": {
-          "format": "rolar {manner} por {quantity}",
+          "format": "rolar {manner} [por {quantity}]",
           "tokens": [
             {
               "type": "literal",
@@ -4514,9 +4336,7 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "group",
@@ -4530,9 +4350,7 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": [
-                    "expression"
-                  ]
+                  "expectedTypes": ["expression"]
                 }
               ]
             }
@@ -4563,10 +4381,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             }
           ]
         },
@@ -4592,9 +4407,7 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             }
           ]
         },
@@ -4620,10 +4433,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             }
           ]
         },
@@ -4639,18 +4449,22 @@
         "command": "back",
         "priority": 100,
         "template": {
-          "format": "voltar {quantity}",
+          "format": "voltar [{quantity}]",
           "tokens": [
             {
               "type": "literal",
               "value": "voltar"
             },
             {
-              "type": "role",
-              "role": "quantity",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "quantity",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -4667,18 +4481,22 @@
         "command": "forward",
         "priority": 100,
         "template": {
-          "format": "avançar {quantity}",
+          "format": "avançar [{quantity}]",
           "tokens": [
             {
               "type": "literal",
               "value": "avançar"
             },
             {
-              "type": "role",
-              "role": "quantity",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "quantity",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -4705,10 +4523,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             }
           ]
         },
@@ -4724,18 +4539,22 @@
         "command": "close",
         "priority": 100,
         "template": {
-          "format": "fechar {patient}",
+          "format": "fechar [{patient}]",
           "tokens": [
             {
               "type": "literal",
               "value": "fechar"
             },
             {
-              "type": "role",
-              "role": "patient",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "patient",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -4762,9 +4581,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             }
           ]
         },
@@ -4780,7 +4597,7 @@
         "command": "search",
         "priority": 100,
         "template": {
-          "format": "procurar {patient} em {destination}",
+          "format": "procurar {patient} [em {destination}]",
           "tokens": [
             {
               "type": "literal",
@@ -4790,9 +4607,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "group",
@@ -4806,9 +4621,7 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": [
-                    "expression"
-                  ]
+                  "expectedTypes": ["expression"]
                 }
               ]
             }
@@ -4829,18 +4642,22 @@
         "command": "help",
         "priority": 100,
         "template": {
-          "format": "ajuda {patient}",
+          "format": "ajuda [{patient}]",
           "tokens": [
             {
               "type": "literal",
               "value": "ajuda"
             },
             {
-              "type": "role",
-              "role": "patient",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "patient",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -4873,9 +4690,7 @@
               "type": "role",
               "role": "destination",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             }
           ]
         },
@@ -4903,10 +4718,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             }
           ]
         },
@@ -4922,7 +4734,7 @@
         "command": "type",
         "priority": 100,
         "template": {
-          "format": "ввести {patient} в {destination}",
+          "format": "ввести {patient} [в {destination}]",
           "tokens": [
             {
               "type": "literal",
@@ -4932,9 +4744,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "group",
@@ -4948,10 +4758,7 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": [
-                    "expression",
-                    "selector"
-                  ]
+                  "expectedTypes": ["expression", "selector"]
                 }
               ]
             }
@@ -4972,7 +4779,7 @@
         "command": "scroll",
         "priority": 100,
         "template": {
-          "format": "прокрутить {manner} на {quantity}",
+          "format": "прокрутить {manner} [на {quantity}]",
           "tokens": [
             {
               "type": "literal",
@@ -4982,9 +4789,7 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "group",
@@ -4998,9 +4803,7 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": [
-                    "expression"
-                  ]
+                  "expectedTypes": ["expression"]
                 }
               ]
             }
@@ -5031,10 +4834,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             }
           ]
         },
@@ -5060,9 +4860,7 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             }
           ]
         },
@@ -5088,10 +4886,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             }
           ]
         },
@@ -5107,18 +4902,22 @@
         "command": "back",
         "priority": 100,
         "template": {
-          "format": "назад {quantity}",
+          "format": "назад [{quantity}]",
           "tokens": [
             {
               "type": "literal",
               "value": "назад"
             },
             {
-              "type": "role",
-              "role": "quantity",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "quantity",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -5135,18 +4934,22 @@
         "command": "forward",
         "priority": 100,
         "template": {
-          "format": "вперёд {quantity}",
+          "format": "вперёд [{quantity}]",
           "tokens": [
             {
               "type": "literal",
               "value": "вперёд"
             },
             {
-              "type": "role",
-              "role": "quantity",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "quantity",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -5173,10 +4976,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression",
-                "selector"
-              ]
+              "expectedTypes": ["expression", "selector"]
             }
           ]
         },
@@ -5192,18 +4992,22 @@
         "command": "close",
         "priority": 100,
         "template": {
-          "format": "закрыть {patient}",
+          "format": "закрыть [{patient}]",
           "tokens": [
             {
               "type": "literal",
               "value": "закрыть"
             },
             {
-              "type": "role",
-              "role": "patient",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "patient",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]
@@ -5230,9 +5034,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             }
           ]
         },
@@ -5248,7 +5050,7 @@
         "command": "search",
         "priority": 100,
         "template": {
-          "format": "искать {patient} в {destination}",
+          "format": "искать {patient} [в {destination}]",
           "tokens": [
             {
               "type": "literal",
@@ -5258,9 +5060,7 @@
               "type": "role",
               "role": "patient",
               "optional": false,
-              "expectedTypes": [
-                "expression"
-              ]
+              "expectedTypes": ["expression"]
             },
             {
               "type": "group",
@@ -5274,9 +5074,7 @@
                   "type": "role",
                   "role": "destination",
                   "optional": true,
-                  "expectedTypes": [
-                    "expression"
-                  ]
+                  "expectedTypes": ["expression"]
                 }
               ]
             }
@@ -5297,18 +5095,22 @@
         "command": "help",
         "priority": 100,
         "template": {
-          "format": "помощь {patient}",
+          "format": "помощь [{patient}]",
           "tokens": [
             {
               "type": "literal",
               "value": "помощь"
             },
             {
-              "type": "role",
-              "role": "patient",
+              "type": "group",
               "optional": true,
-              "expectedTypes": [
-                "expression"
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "patient",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
               ]
             }
           ]

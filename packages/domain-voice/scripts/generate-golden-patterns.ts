@@ -1,11 +1,11 @@
 /**
  * Regenerate the golden pattern snapshot for domain-voice.
  *
- * Captures `generatePatternVariants` output for every registered language
- * profile × every schema. The parity test
- * (`src/__test__/pattern-parity.test.ts`) asserts the live output is
- * byte-identical to this snapshot, so any change to profiles, schemas, or the
- * framework generator shows up as a reviewable golden-file diff.
+ * Captures the patterns `createVoiceDSL()` reads with (on the core: the
+ * schema-pattern generator's) for every registered language × every schema.
+ * The parity test (`src/__test__/pattern-parity.test.ts`) asserts the live
+ * patterns are byte-identical to this snapshot, so any change to profiles,
+ * schemas, or the framework generator shows up as a reviewable golden-file diff.
  *
  * Run from packages/domain-voice:
  *   npx tsx scripts/generate-golden-patterns.ts
@@ -14,18 +14,10 @@
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { generatePatternVariants } from '@lokascript/framework';
 import { allSchemas } from '../src/schemas';
-import { allProfiles } from '../src/profiles';
+import { dslPatterns } from '../src/__test__/dsl-patterns';
 
-const golden: Record<string, Record<string, unknown>> = {};
-for (const profile of allProfiles) {
-  const perSchema: Record<string, unknown> = {};
-  for (const schema of allSchemas) {
-    perSchema[schema.action] = generatePatternVariants(schema, profile);
-  }
-  golden[profile.code] = perSchema;
-}
+const golden = dslPatterns();
 
 const outPath = join(
   dirname(fileURLToPath(import.meta.url)),
