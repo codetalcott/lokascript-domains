@@ -8,17 +8,15 @@
  * Keys are `<action>.<role>` or `<role>` (every action). The first value is the one the other cases use.
  */
 
-export interface DomainFixture {
-  /**
-   * `compile`: a round trip also passes when the text compiles to the English reference's code (the
-   * domain compiles to something that does not depend on the language). `node`: only the parse counts
-   * (learn compiles to a sentence in each language).
-   */
-  oracle: 'compile' | 'node';
-  values: Record<string, string[]>;
-  /** Actions that do not compile on their own (the gate checks every other one does). */
-  englishDoesNotCompile?: string[];
-}
+import type { GateFixture } from '@lokascript/framework/testing/gate';
+
+/**
+ * The kit's fixture (`@lokascript/framework/testing/gate`). `oracle: 'compile'`: a round trip also
+ * passes when the text compiles to the command's own code (the domain compiles to something that does
+ * not depend on the language); `'node'`: only the parse counts (learn compiles to a sentence in each
+ * language).
+ */
+export type DomainFixture = GateFixture;
 
 export const DOMAIN_VALUES: Record<string, DomainFixture> = {
   bdd: {

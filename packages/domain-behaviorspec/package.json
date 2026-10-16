@@ -28,7 +28,6 @@
     "@lokascript/semantic": "^4.0.0"
   },
   "devDependencies": {
-    "@lokascript/domain-toolkit": "^4.0.1",
     "@types/node": "^26.1.2",
     "tsup": "^8.0.0",
     "typescript": "^5.0.0",

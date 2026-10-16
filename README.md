@@ -36,7 +36,6 @@ the extension seam for third parties is `@lokascript/framework`'s
 | `@lokascript/domain-voice` | Voice/accessibility page-control DSL (11 languages) |
 | `@lokascript/domain-learn` | Language-learning DSL (10 languages) |
 | `@lokascript/domain-config` | The registry choke point — lazy imports, per-domain language sets, dispatcher priorities; re-exported by the aggregate's root entry |
-| `@lokascript/domain-toolkit` | Shared test harness (dev-dep of the family) |
 
 Retired in 4.0.0, with their sources under the tag `archived/domains-preview-2026-10`:
 `domain-jsx`, `domain-animation`, `domain-control`, `domain-events`, `domain-html`,

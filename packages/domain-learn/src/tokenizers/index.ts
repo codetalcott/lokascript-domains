@@ -414,7 +414,7 @@ export const TurkishLearnTokenizer: LanguageTokenizer = createSimpleTokenizer({
     // Correct-Turkish infinitives. The ASCII-folded spellings above are kept as
     // vocab alternatives so older content still parses, but the vocabulary's
     // canonical forms are these — and every profile keyword has to classify as a
-    // keyword here or the domain-toolkit keyword-classification lint fails.
+    // keyword here or the keyword-classification lint (framework testing/gate) fails.
     'kaldırmak',
     'değiştirmek',
     'göstermek',
