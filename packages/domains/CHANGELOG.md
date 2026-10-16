@@ -2,6 +2,17 @@
 
 ## Unreleased
 
+- **todo reads and writes on framework's core** (`engine: 'core'`, as sql
+  below). The domain gate moves no case and no parse: 55 of 55 round trips,
+  the same 8 leftover cases accepted. The golden patterns differ from
+  `generatePatternVariants`' in the template's bracket notation, and in
+  `list`'s optional, marker-less `list` role, an optional group on the core
+  (9 languages).
+- **todo refuses a multi-word item it does not quote.** `add buy milk to
+  groceries` added `buy` and dropped `milk` without a word: the classic engine
+  skipped it on its way to `to`. An item is one word or a quoted phrase (`add
+  "buy milk" to groceries`); unquoted, the core refuses the rest, and the
+  domain dispatcher's routing test now uses the quoted form.
 - **voice reads and writes on framework's core** (`engine: 'core'`, as sql
   below). The domain gate moves no case and no parse: 360 of 363 round trips,
   the same 3 refused, and the same 41 leftover cases accepted (an unknown word
