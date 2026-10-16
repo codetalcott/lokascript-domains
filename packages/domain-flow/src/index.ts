@@ -98,6 +98,7 @@ export interface DomainDSLOptions {
 export function createFlowDSL(options: DomainDSLOptions = {}): MultilingualDSL {
   return /*#__PURE__*/ createMultilingualDSL({
     name: 'FlowScript',
+    engine: 'core',
     schemas: allSchemas,
     languages: [
       {

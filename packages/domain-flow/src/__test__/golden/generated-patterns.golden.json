@@ -7,7 +7,7 @@
         "command": "fetch",
         "priority": 100,
         "template": {
-          "format": "fetch {source} as {style} into {destination}",
+          "format": "fetch {source} [as {style}] [into {destination}]",
           "tokens": [
             {
               "type": "literal",
@@ -71,7 +71,7 @@
         "command": "poll",
         "priority": 100,
         "template": {
-          "format": "poll {source} every {duration} as {style} into {destination}",
+          "format": "poll {source} every {duration} [as {style}] [into {destination}]",
           "tokens": [
             {
               "type": "literal",
@@ -148,7 +148,7 @@
         "command": "stream",
         "priority": 100,
         "template": {
-          "format": "stream {source} as {style} into {destination}",
+          "format": "stream {source} [as {style}] [into {destination}]",
           "tokens": [
             {
               "type": "literal",
@@ -212,7 +212,7 @@
         "command": "submit",
         "priority": 100,
         "template": {
-          "format": "submit {patient} to {destination} as {style}",
+          "format": "submit {patient} to {destination} [as {style}]",
           "tokens": [
             {
               "type": "literal",
@@ -335,7 +335,7 @@
         "command": "follow",
         "priority": 100,
         "template": {
-          "format": "follow {patient} item {instrument}",
+          "format": "follow {patient} [item {instrument}]",
           "tokens": [
             {
               "type": "literal",
@@ -380,7 +380,7 @@
         "command": "perform",
         "priority": 100,
         "template": {
-          "format": "perform {patient} with {source}",
+          "format": "perform {patient} [with {source}]",
           "tokens": [
             {
               "type": "literal",
@@ -425,17 +425,23 @@
         "command": "capture",
         "priority": 100,
         "template": {
-          "format": "capture {patient} as {destination}",
+          "format": "capture [{patient}] as {destination}",
           "tokens": [
             {
               "type": "literal",
               "value": "capture"
             },
             {
-              "type": "role",
-              "role": "patient",
+              "type": "group",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "patient",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
+              ]
             },
             {
               "type": "literal",
@@ -466,7 +472,7 @@
         "command": "fetch",
         "priority": 100,
         "template": {
-          "format": "obtener {source} como {style} en {destination}",
+          "format": "obtener {source} [como {style}] [en {destination}]",
           "tokens": [
             {
               "type": "literal",
@@ -530,7 +536,7 @@
         "command": "poll",
         "priority": 100,
         "template": {
-          "format": "sondear {source} cada {duration} como {style} en {destination}",
+          "format": "sondear {source} cada {duration} [como {style}] [en {destination}]",
           "tokens": [
             {
               "type": "literal",
@@ -607,7 +613,7 @@
         "command": "stream",
         "priority": 100,
         "template": {
-          "format": "transmitir {source} como {style} en {destination}",
+          "format": "transmitir {source} [como {style}] [en {destination}]",
           "tokens": [
             {
               "type": "literal",
@@ -671,7 +677,7 @@
         "command": "submit",
         "priority": 100,
         "template": {
-          "format": "enviar {patient} a {destination} como {style}",
+          "format": "enviar {patient} a {destination} [como {style}]",
           "tokens": [
             {
               "type": "literal",
@@ -794,7 +800,7 @@
         "command": "follow",
         "priority": 100,
         "template": {
-          "format": "seguir {patient} elemento {instrument}",
+          "format": "seguir {patient} [elemento {instrument}]",
           "tokens": [
             {
               "type": "literal",
@@ -839,7 +845,7 @@
         "command": "perform",
         "priority": 100,
         "template": {
-          "format": "ejecutar {patient} con {source}",
+          "format": "ejecutar {patient} [con {source}]",
           "tokens": [
             {
               "type": "literal",
@@ -884,17 +890,23 @@
         "command": "capture",
         "priority": 100,
         "template": {
-          "format": "capturar {patient} como {destination}",
+          "format": "capturar [{patient}] como {destination}",
           "tokens": [
             {
               "type": "literal",
               "value": "capturar"
             },
             {
-              "type": "role",
-              "role": "patient",
+              "type": "group",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "patient",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
+              ]
             },
             {
               "type": "literal",
@@ -925,7 +937,7 @@
         "command": "fetch",
         "priority": 100,
         "template": {
-          "format": "{source} で {style} 取得 に {destination}",
+          "format": "{source} [で {style}] [に {destination}] 取得",
           "tokens": [
             {
               "type": "role",
@@ -989,7 +1001,7 @@
         "command": "poll",
         "priority": 100,
         "template": {
-          "format": "{source} ごとに {duration} で {style} ポーリング に {destination}",
+          "format": "{source} ごとに {duration} [で {style}] [に {destination}] ポーリング",
           "tokens": [
             {
               "type": "role",
@@ -1066,7 +1078,7 @@
         "command": "stream",
         "priority": 100,
         "template": {
-          "format": "{source} で {style} ストリーム に {destination}",
+          "format": "{source} [で {style}] [に {destination}] ストリーム",
           "tokens": [
             {
               "type": "role",
@@ -1130,7 +1142,7 @@
         "command": "submit",
         "priority": 100,
         "template": {
-          "format": "{patient} に {destination} で {style} 送信",
+          "format": "{patient} に {destination} [で {style}] 送信",
           "tokens": [
             {
               "type": "role",
@@ -1253,7 +1265,7 @@
         "command": "follow",
         "priority": 100,
         "template": {
-          "format": "{patient} の {instrument} 辿る",
+          "format": "{patient} [の {instrument}] 辿る",
           "tokens": [
             {
               "type": "role",
@@ -1298,7 +1310,7 @@
         "command": "perform",
         "priority": 100,
         "template": {
-          "format": "で {source} {patient} 実行",
+          "format": "[で {source}] {patient} 実行",
           "tokens": [
             {
               "type": "group",
@@ -1343,13 +1355,19 @@
         "command": "capture",
         "priority": 100,
         "template": {
-          "format": "{patient} として {destination} 取得変数",
+          "format": "[{patient}] として {destination} 取得変数",
           "tokens": [
             {
-              "type": "role",
-              "role": "patient",
+              "type": "group",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "patient",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
+              ]
             },
             {
               "type": "role",
@@ -1384,7 +1402,7 @@
         "command": "fetch",
         "priority": 100,
         "template": {
-          "format": "جلب {source} ك {style} في {destination}",
+          "format": "جلب {source} [ك {style}] [في {destination}]",
           "tokens": [
             {
               "type": "literal",
@@ -1448,7 +1466,7 @@
         "command": "poll",
         "priority": 100,
         "template": {
-          "format": "استطلع {source} كل {duration} ك {style} في {destination}",
+          "format": "استطلع {source} كل {duration} [ك {style}] [في {destination}]",
           "tokens": [
             {
               "type": "literal",
@@ -1525,7 +1543,7 @@
         "command": "stream",
         "priority": 100,
         "template": {
-          "format": "بث {source} ك {style} في {destination}",
+          "format": "بث {source} [ك {style}] [في {destination}]",
           "tokens": [
             {
               "type": "literal",
@@ -1589,7 +1607,7 @@
         "command": "submit",
         "priority": 100,
         "template": {
-          "format": "أرسل {patient} إلى {destination} ك {style}",
+          "format": "أرسل {patient} إلى {destination} [ك {style}]",
           "tokens": [
             {
               "type": "literal",
@@ -1712,7 +1730,7 @@
         "command": "follow",
         "priority": 100,
         "template": {
-          "format": "اتبع {patient} عنصر {instrument}",
+          "format": "اتبع {patient} [عنصر {instrument}]",
           "tokens": [
             {
               "type": "literal",
@@ -1757,7 +1775,7 @@
         "command": "perform",
         "priority": 100,
         "template": {
-          "format": "نفّذ {patient} ب {source}",
+          "format": "نفّذ {patient} [ب {source}]",
           "tokens": [
             {
               "type": "literal",
@@ -1802,17 +1820,23 @@
         "command": "capture",
         "priority": 100,
         "template": {
-          "format": "التقط {patient} ك {destination}",
+          "format": "التقط [{patient}] ك {destination}",
           "tokens": [
             {
               "type": "literal",
               "value": "التقط"
             },
             {
-              "type": "role",
-              "role": "patient",
+              "type": "group",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "patient",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
+              ]
             },
             {
               "type": "literal",
@@ -1843,7 +1867,7 @@
         "command": "fetch",
         "priority": 100,
         "template": {
-          "format": "{source} 로 {style} 가져오기 에 {destination}",
+          "format": "{source} [로 {style}] [에 {destination}] 가져오기",
           "tokens": [
             {
               "type": "role",
@@ -1907,7 +1931,7 @@
         "command": "poll",
         "priority": 100,
         "template": {
-          "format": "{source} 마다 {duration} 로 {style} 폴링 에 {destination}",
+          "format": "{source} 마다 {duration} [로 {style}] [에 {destination}] 폴링",
           "tokens": [
             {
               "type": "role",
@@ -1984,7 +2008,7 @@
         "command": "stream",
         "priority": 100,
         "template": {
-          "format": "{source} 로 {style} 스트리밍 에 {destination}",
+          "format": "{source} [로 {style}] [에 {destination}] 스트리밍",
           "tokens": [
             {
               "type": "role",
@@ -2048,7 +2072,7 @@
         "command": "submit",
         "priority": 100,
         "template": {
-          "format": "{patient} 로 {destination} 로 {style} 제출",
+          "format": "{patient} 로 {destination} [로 {style}] 제출",
           "tokens": [
             {
               "type": "role",
@@ -2171,7 +2195,7 @@
         "command": "follow",
         "priority": 100,
         "template": {
-          "format": "{patient} 항목 {instrument} 따라가기",
+          "format": "{patient} [항목 {instrument}] 따라가기",
           "tokens": [
             {
               "type": "role",
@@ -2216,7 +2240,7 @@
         "command": "perform",
         "priority": 100,
         "template": {
-          "format": "로 {source} {patient} 실행",
+          "format": "[로 {source}] {patient} 실행",
           "tokens": [
             {
               "type": "group",
@@ -2261,13 +2285,19 @@
         "command": "capture",
         "priority": 100,
         "template": {
-          "format": "{patient} 로 {destination} 캡처",
+          "format": "[{patient}] 로 {destination} 캡처",
           "tokens": [
             {
-              "type": "role",
-              "role": "patient",
+              "type": "group",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "patient",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
+              ]
             },
             {
               "type": "role",
@@ -2302,7 +2332,7 @@
         "command": "fetch",
         "priority": 100,
         "template": {
-          "format": "获取 {source} 以 {style} 到 {destination}",
+          "format": "获取 {source} [以 {style}] [到 {destination}]",
           "tokens": [
             {
               "type": "literal",
@@ -2366,7 +2396,7 @@
         "command": "poll",
         "priority": 100,
         "template": {
-          "format": "轮询 {source} 每 {duration} 以 {style} 到 {destination}",
+          "format": "轮询 {source} 每 {duration} [以 {style}] [到 {destination}]",
           "tokens": [
             {
               "type": "literal",
@@ -2443,7 +2473,7 @@
         "command": "stream",
         "priority": 100,
         "template": {
-          "format": "流式 {source} 以 {style} 到 {destination}",
+          "format": "流式 {source} [以 {style}] [到 {destination}]",
           "tokens": [
             {
               "type": "literal",
@@ -2507,7 +2537,7 @@
         "command": "submit",
         "priority": 100,
         "template": {
-          "format": "提交 {patient} 到 {destination} 以 {style}",
+          "format": "提交 {patient} 到 {destination} [以 {style}]",
           "tokens": [
             {
               "type": "literal",
@@ -2630,7 +2660,7 @@
         "command": "follow",
         "priority": 100,
         "template": {
-          "format": "跟随 {patient} 项 {instrument}",
+          "format": "跟随 {patient} [项 {instrument}]",
           "tokens": [
             {
               "type": "literal",
@@ -2675,7 +2705,7 @@
         "command": "perform",
         "priority": 100,
         "template": {
-          "format": "执行 {patient} 用 {source}",
+          "format": "执行 {patient} [用 {source}]",
           "tokens": [
             {
               "type": "literal",
@@ -2720,17 +2750,23 @@
         "command": "capture",
         "priority": 100,
         "template": {
-          "format": "捕获 {patient} 为 {destination}",
+          "format": "捕获 [{patient}] 为 {destination}",
           "tokens": [
             {
               "type": "literal",
               "value": "捕获"
             },
             {
-              "type": "role",
-              "role": "patient",
+              "type": "group",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "patient",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
+              ]
             },
             {
               "type": "literal",
@@ -2761,7 +2797,7 @@
         "command": "fetch",
         "priority": 100,
         "template": {
-          "format": "{source} olarak {style} getir e {destination}",
+          "format": "{source} [olarak {style}] [e {destination}] getir",
           "tokens": [
             {
               "type": "role",
@@ -2825,7 +2861,7 @@
         "command": "poll",
         "priority": 100,
         "template": {
-          "format": "{source} her {duration} olarak {style} yokla e {destination}",
+          "format": "{source} her {duration} [olarak {style}] [e {destination}] yokla",
           "tokens": [
             {
               "type": "role",
@@ -2902,7 +2938,7 @@
         "command": "stream",
         "priority": 100,
         "template": {
-          "format": "{source} olarak {style} aktar e {destination}",
+          "format": "{source} [olarak {style}] [e {destination}] aktar",
           "tokens": [
             {
               "type": "role",
@@ -2966,7 +3002,7 @@
         "command": "submit",
         "priority": 100,
         "template": {
-          "format": "{patient} e {destination} olarak {style} gönder",
+          "format": "{patient} e {destination} [olarak {style}] gönder",
           "tokens": [
             {
               "type": "role",
@@ -3089,7 +3125,7 @@
         "command": "follow",
         "priority": 100,
         "template": {
-          "format": "{patient} öğe {instrument} izle",
+          "format": "{patient} [öğe {instrument}] izle",
           "tokens": [
             {
               "type": "role",
@@ -3134,7 +3170,7 @@
         "command": "perform",
         "priority": 100,
         "template": {
-          "format": "ile {source} {patient} yürüt",
+          "format": "[ile {source}] {patient} yürüt",
           "tokens": [
             {
               "type": "group",
@@ -3179,13 +3215,19 @@
         "command": "capture",
         "priority": 100,
         "template": {
-          "format": "{patient} olarak {destination} yakala",
+          "format": "[{patient}] olarak {destination} yakala",
           "tokens": [
             {
-              "type": "role",
-              "role": "patient",
+              "type": "group",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "patient",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
+              ]
             },
             {
               "type": "role",
@@ -3220,7 +3262,7 @@
         "command": "fetch",
         "priority": 100,
         "template": {
-          "format": "récupérer {source} comme {style} dans {destination}",
+          "format": "récupérer {source} [comme {style}] [dans {destination}]",
           "tokens": [
             {
               "type": "literal",
@@ -3284,7 +3326,7 @@
         "command": "poll",
         "priority": 100,
         "template": {
-          "format": "interroger {source} chaque {duration} comme {style} dans {destination}",
+          "format": "interroger {source} chaque {duration} [comme {style}] [dans {destination}]",
           "tokens": [
             {
               "type": "literal",
@@ -3361,7 +3403,7 @@
         "command": "stream",
         "priority": 100,
         "template": {
-          "format": "diffuser {source} comme {style} dans {destination}",
+          "format": "diffuser {source} [comme {style}] [dans {destination}]",
           "tokens": [
             {
               "type": "literal",
@@ -3425,7 +3467,7 @@
         "command": "submit",
         "priority": 100,
         "template": {
-          "format": "soumettre {patient} vers {destination} comme {style}",
+          "format": "soumettre {patient} vers {destination} [comme {style}]",
           "tokens": [
             {
               "type": "literal",
@@ -3548,7 +3590,7 @@
         "command": "follow",
         "priority": 100,
         "template": {
-          "format": "suivre {patient} élément {instrument}",
+          "format": "suivre {patient} [élément {instrument}]",
           "tokens": [
             {
               "type": "literal",
@@ -3593,7 +3635,7 @@
         "command": "perform",
         "priority": 100,
         "template": {
-          "format": "exécuter {patient} avec {source}",
+          "format": "exécuter {patient} [avec {source}]",
           "tokens": [
             {
               "type": "literal",
@@ -3638,17 +3680,23 @@
         "command": "capture",
         "priority": 100,
         "template": {
-          "format": "capturer {patient} comme {destination}",
+          "format": "capturer [{patient}] comme {destination}",
           "tokens": [
             {
               "type": "literal",
               "value": "capturer"
             },
             {
-              "type": "role",
-              "role": "patient",
+              "type": "group",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "patient",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
+              ]
             },
             {
               "type": "literal",
@@ -3679,7 +3727,7 @@
         "command": "fetch",
         "priority": 100,
         "template": {
-          "format": "abrufen {source} als {style} in {destination}",
+          "format": "abrufen {source} [als {style}] [in {destination}]",
           "tokens": [
             {
               "type": "literal",
@@ -3743,7 +3791,7 @@
         "command": "poll",
         "priority": 100,
         "template": {
-          "format": "abfragen {source} alle {duration} als {style} in {destination}",
+          "format": "abfragen {source} alle {duration} [als {style}] [in {destination}]",
           "tokens": [
             {
               "type": "literal",
@@ -3820,7 +3868,7 @@
         "command": "stream",
         "priority": 100,
         "template": {
-          "format": "streamen {source} als {style} in {destination}",
+          "format": "streamen {source} [als {style}] [in {destination}]",
           "tokens": [
             {
               "type": "literal",
@@ -3884,7 +3932,7 @@
         "command": "submit",
         "priority": 100,
         "template": {
-          "format": "senden {patient} an {destination} als {style}",
+          "format": "senden {patient} an {destination} [als {style}]",
           "tokens": [
             {
               "type": "literal",
@@ -4007,7 +4055,7 @@
         "command": "follow",
         "priority": 100,
         "template": {
-          "format": "folgen {patient} element {instrument}",
+          "format": "folgen {patient} [element {instrument}]",
           "tokens": [
             {
               "type": "literal",
@@ -4052,7 +4100,7 @@
         "command": "perform",
         "priority": 100,
         "template": {
-          "format": "ausführen {patient} mit {source}",
+          "format": "ausführen {patient} [mit {source}]",
           "tokens": [
             {
               "type": "literal",
@@ -4097,17 +4145,23 @@
         "command": "capture",
         "priority": 100,
         "template": {
-          "format": "erfassen {patient} als {destination}",
+          "format": "erfassen [{patient}] als {destination}",
           "tokens": [
             {
               "type": "literal",
               "value": "erfassen"
             },
             {
-              "type": "role",
-              "role": "patient",
+              "type": "group",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "patient",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
+              ]
             },
             {
               "type": "literal",
@@ -4138,7 +4192,7 @@
         "command": "fetch",
         "priority": 100,
         "template": {
-          "format": "buscar {source} como {style} em {destination}",
+          "format": "buscar {source} [como {style}] [em {destination}]",
           "tokens": [
             {
               "type": "literal",
@@ -4202,7 +4256,7 @@
         "command": "poll",
         "priority": 100,
         "template": {
-          "format": "sondar {source} cada {duration} como {style} em {destination}",
+          "format": "sondar {source} cada {duration} [como {style}] [em {destination}]",
           "tokens": [
             {
               "type": "literal",
@@ -4279,7 +4333,7 @@
         "command": "stream",
         "priority": 100,
         "template": {
-          "format": "transmitir {source} como {style} em {destination}",
+          "format": "transmitir {source} [como {style}] [em {destination}]",
           "tokens": [
             {
               "type": "literal",
@@ -4343,7 +4397,7 @@
         "command": "submit",
         "priority": 100,
         "template": {
-          "format": "enviar {patient} para {destination} como {style}",
+          "format": "enviar {patient} para {destination} [como {style}]",
           "tokens": [
             {
               "type": "literal",
@@ -4466,7 +4520,7 @@
         "command": "follow",
         "priority": 100,
         "template": {
-          "format": "seguir {patient} item {instrument}",
+          "format": "seguir {patient} [item {instrument}]",
           "tokens": [
             {
               "type": "literal",
@@ -4511,7 +4565,7 @@
         "command": "perform",
         "priority": 100,
         "template": {
-          "format": "executar {patient} com {source}",
+          "format": "executar {patient} [com {source}]",
           "tokens": [
             {
               "type": "literal",
@@ -4556,17 +4610,23 @@
         "command": "capture",
         "priority": 100,
         "template": {
-          "format": "capturar {patient} como {destination}",
+          "format": "capturar [{patient}] como {destination}",
           "tokens": [
             {
               "type": "literal",
               "value": "capturar"
             },
             {
-              "type": "role",
-              "role": "patient",
+              "type": "group",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "patient",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
+              ]
             },
             {
               "type": "literal",
@@ -4597,7 +4657,7 @@
         "command": "fetch",
         "priority": 100,
         "template": {
-          "format": "получить {source} как {style} в {destination}",
+          "format": "получить {source} [как {style}] [в {destination}]",
           "tokens": [
             {
               "type": "literal",
@@ -4661,7 +4721,7 @@
         "command": "poll",
         "priority": 100,
         "template": {
-          "format": "опрашивать {source} каждые {duration} как {style} в {destination}",
+          "format": "опрашивать {source} каждые {duration} [как {style}] [в {destination}]",
           "tokens": [
             {
               "type": "literal",
@@ -4738,7 +4798,7 @@
         "command": "stream",
         "priority": 100,
         "template": {
-          "format": "транслировать {source} как {style} в {destination}",
+          "format": "транслировать {source} [как {style}] [в {destination}]",
           "tokens": [
             {
               "type": "literal",
@@ -4802,7 +4862,7 @@
         "command": "submit",
         "priority": 100,
         "template": {
-          "format": "отправить {patient} на {destination} как {style}",
+          "format": "отправить {patient} на {destination} [как {style}]",
           "tokens": [
             {
               "type": "literal",
@@ -4925,7 +4985,7 @@
         "command": "follow",
         "priority": 100,
         "template": {
-          "format": "следовать {patient} элемент {instrument}",
+          "format": "следовать {patient} [элемент {instrument}]",
           "tokens": [
             {
               "type": "literal",
@@ -4970,7 +5030,7 @@
         "command": "perform",
         "priority": 100,
         "template": {
-          "format": "выполнить {patient} с {source}",
+          "format": "выполнить {patient} [с {source}]",
           "tokens": [
             {
               "type": "literal",
@@ -5015,17 +5075,23 @@
         "command": "capture",
         "priority": 100,
         "template": {
-          "format": "захватить {patient} как {destination}",
+          "format": "захватить [{patient}] как {destination}",
           "tokens": [
             {
               "type": "literal",
               "value": "захватить"
             },
             {
-              "type": "role",
-              "role": "patient",
+              "type": "group",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "patient",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
+              ]
             },
             {
               "type": "literal",
