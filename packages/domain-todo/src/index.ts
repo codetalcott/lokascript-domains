@@ -91,6 +91,7 @@ export interface DomainDSLOptions {
 export function createTodoDSL(options: DomainDSLOptions = {}): MultilingualDSL {
   return /*#__PURE__*/ createMultilingualDSL({
     name: 'Todo',
+    engine: 'core',
     schemas: allSchemas,
     languages: [
       {

@@ -7,7 +7,7 @@
         "command": "add",
         "priority": 100,
         "template": {
-          "format": "add {item} to {list}",
+          "format": "add {item} [to {list}]",
           "tokens": [
             {
               "type": "literal",
@@ -79,7 +79,7 @@
         "command": "list",
         "priority": 100,
         "template": {
-          "format": "list {list}",
+          "format": "list [{list}]",
           "tokens": [
             {
               "type": "literal",
@@ -87,10 +87,16 @@
               "alternatives": ["show"]
             },
             {
-              "type": "role",
-              "role": "list",
+              "type": "group",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "list",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
+              ]
             }
           ]
         },
@@ -108,7 +114,7 @@
         "command": "add",
         "priority": 100,
         "template": {
-          "format": "agregar {item} a {list}",
+          "format": "agregar {item} [a {list}]",
           "tokens": [
             {
               "type": "literal",
@@ -181,7 +187,7 @@
         "command": "list",
         "priority": 100,
         "template": {
-          "format": "listar {list}",
+          "format": "listar [{list}]",
           "tokens": [
             {
               "type": "literal",
@@ -189,10 +195,16 @@
               "alternatives": ["mostrar"]
             },
             {
-              "type": "role",
-              "role": "list",
+              "type": "group",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "list",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
+              ]
             }
           ]
         },
@@ -210,7 +222,7 @@
         "command": "add",
         "priority": 100,
         "template": {
-          "format": "に {list} を {item} 追加",
+          "format": "[に {list}] を {item} 追加",
           "tokens": [
             {
               "type": "group",
@@ -293,7 +305,7 @@
         "command": "list",
         "priority": 100,
         "template": {
-          "format": "を {list} 一覧",
+          "format": "[を {list}] 一覧",
           "tokens": [
             {
               "type": "group",
@@ -333,7 +345,7 @@
         "command": "add",
         "priority": 100,
         "template": {
-          "format": "أضف {item} إلى {list}",
+          "format": "أضف {item} [إلى {list}]",
           "tokens": [
             {
               "type": "literal",
@@ -404,17 +416,23 @@
         "command": "list",
         "priority": 100,
         "template": {
-          "format": "اعرض {list}",
+          "format": "اعرض [{list}]",
           "tokens": [
             {
               "type": "literal",
               "value": "اعرض"
             },
             {
-              "type": "role",
-              "role": "list",
+              "type": "group",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "list",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
+              ]
             }
           ]
         },
@@ -432,7 +450,7 @@
         "command": "add",
         "priority": 100,
         "template": {
-          "format": "에 {list} 를 {item} 추가",
+          "format": "[에 {list}] 를 {item} 추가",
           "tokens": [
             {
               "type": "group",
@@ -515,7 +533,7 @@
         "command": "list",
         "priority": 100,
         "template": {
-          "format": "를 {list} 목록",
+          "format": "[를 {list}] 목록",
           "tokens": [
             {
               "type": "group",
@@ -555,7 +573,7 @@
         "command": "add",
         "priority": 100,
         "template": {
-          "format": "添加 {item} 到 {list}",
+          "format": "添加 {item} [到 {list}]",
           "tokens": [
             {
               "type": "literal",
@@ -626,17 +644,23 @@
         "command": "list",
         "priority": 100,
         "template": {
-          "format": "列出 {list}",
+          "format": "列出 [{list}]",
           "tokens": [
             {
               "type": "literal",
               "value": "列出"
             },
             {
-              "type": "role",
-              "role": "list",
+              "type": "group",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "list",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
+              ]
             }
           ]
         },
@@ -654,7 +678,7 @@
         "command": "add",
         "priority": 100,
         "template": {
-          "format": "e {list} {item} ekle",
+          "format": "[e {list}] {item} ekle",
           "tokens": [
             {
               "type": "group",
@@ -725,13 +749,19 @@
         "command": "list",
         "priority": 100,
         "template": {
-          "format": "{list} listele",
+          "format": "[{list}] listele",
           "tokens": [
             {
-              "type": "role",
-              "role": "list",
+              "type": "group",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "list",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
+              ]
             },
             {
               "type": "literal",
@@ -753,7 +783,7 @@
         "command": "add",
         "priority": 100,
         "template": {
-          "format": "ajouter {item} à {list}",
+          "format": "ajouter {item} [à {list}]",
           "tokens": [
             {
               "type": "literal",
@@ -824,7 +854,7 @@
         "command": "list",
         "priority": 100,
         "template": {
-          "format": "lister {list}",
+          "format": "lister [{list}]",
           "tokens": [
             {
               "type": "literal",
@@ -832,10 +862,16 @@
               "alternatives": ["afficher"]
             },
             {
-              "type": "role",
-              "role": "list",
+              "type": "group",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "list",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
+              ]
             }
           ]
         },
@@ -853,7 +889,7 @@
         "command": "add",
         "priority": 100,
         "template": {
-          "format": "hinzufügen {item} zu {list}",
+          "format": "hinzufügen {item} [zu {list}]",
           "tokens": [
             {
               "type": "literal",
@@ -926,7 +962,7 @@
         "command": "list",
         "priority": 100,
         "template": {
-          "format": "auflisten {list}",
+          "format": "auflisten [{list}]",
           "tokens": [
             {
               "type": "literal",
@@ -934,10 +970,16 @@
               "alternatives": ["anzeigen"]
             },
             {
-              "type": "role",
-              "role": "list",
+              "type": "group",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "list",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
+              ]
             }
           ]
         },
@@ -955,7 +997,7 @@
         "command": "add",
         "priority": 100,
         "template": {
-          "format": "adicionar {item} a {list}",
+          "format": "adicionar {item} [a {list}]",
           "tokens": [
             {
               "type": "literal",
@@ -1028,7 +1070,7 @@
         "command": "list",
         "priority": 100,
         "template": {
-          "format": "listar {list}",
+          "format": "listar [{list}]",
           "tokens": [
             {
               "type": "literal",
@@ -1036,10 +1078,16 @@
               "alternatives": ["mostrar"]
             },
             {
-              "type": "role",
-              "role": "list",
+              "type": "group",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "list",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
+              ]
             }
           ]
         },
@@ -1057,7 +1105,7 @@
         "command": "add",
         "priority": 100,
         "template": {
-          "format": "добавить {item} в {list}",
+          "format": "добавить {item} [в {list}]",
           "tokens": [
             {
               "type": "literal",
@@ -1130,7 +1178,7 @@
         "command": "list",
         "priority": 100,
         "template": {
-          "format": "показать {list}",
+          "format": "показать [{list}]",
           "tokens": [
             {
               "type": "literal",
@@ -1138,10 +1186,16 @@
               "alternatives": ["перечислить"]
             },
             {
-              "type": "role",
-              "role": "list",
+              "type": "group",
               "optional": true,
-              "expectedTypes": ["expression"]
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "list",
+                  "optional": true,
+                  "expectedTypes": ["expression"]
+                }
+              ]
             }
           ]
         },
