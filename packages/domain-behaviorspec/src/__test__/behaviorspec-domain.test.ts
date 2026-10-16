@@ -125,12 +125,21 @@ describe('English parsing', () => {
     expect(roleValue(node, 'target')).toBe('#button');
   });
 
-  it('parses when with types and destination (marker scan)', () => {
-    // Framework marker scan allows 'hello' to sit between action and 'into' marker
-    const node = dsl.parse("when user types 'hello' into #search", 'en');
+  it('parses when with types, the typed text and destination', () => {
+    // The typed text is `target`, which English marks with `on`.
+    const node = dsl.parse("when user types on 'hello' into #search", 'en');
     expect(node.action).toBe('when');
     expect(roleValue(node, 'action')).toBe('types');
+    expect(roleValue(node, 'target')).toBe('hello');
     expect(roleValue(node, 'destination')).toBe('#search');
+  });
+
+  it('refuses typed text that no role reads', () => {
+    // Unmarked, `'hello'` is in no role. framework's classic engine skipped it while scanning for
+    // `into` and counted it as read, so this compiled to `fill('')` without a word; the core refuses.
+    expect(() => dsl.parse("when user types 'hello' into #search", 'en')).toThrow(
+      /leaving "'hello' into #search" unread/
+    );
   });
 
   it('parses expect with appears assertion', () => {
@@ -510,11 +519,10 @@ describe('Playwright generation', () => {
     expect(result.code).toContain('#button');
   });
 
-  it('generates fill for when types with marker scan', () => {
-    const result = dsl.compile("when user types 'hello' into #search", 'en');
+  it('generates fill for when types, with the typed text', () => {
+    const result = dsl.compile("when user types on 'hello' into #search", 'en');
     expect(result.ok).toBe(true);
-    expect(result.code).toContain('#search');
-    expect(result.code).toContain('fill');
+    expect(result.code).toBe("  await page.locator('#search').fill('hello');");
   });
 
   it('generates toBeVisible for expect appears', () => {

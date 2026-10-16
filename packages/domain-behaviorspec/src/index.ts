@@ -103,6 +103,7 @@ export interface DomainDSLOptions {
 export function createBehaviorSpecDSL(options: DomainDSLOptions = {}): MultilingualDSL {
   return /*#__PURE__*/ createMultilingualDSL({
     name: 'BehaviorSpec',
+    engine: 'core',
     schemas: allSchemas,
     languages: [
       {

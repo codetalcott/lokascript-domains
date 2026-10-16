@@ -22,14 +22,14 @@
     "behaviorspec": {
       "roundTrip": {
         "cases": 448,
-        "pass": 306,
-        "refused": 142,
+        "pass": 336,
+        "refused": 112,
         "silent": 0
       },
       "leftover": {
-        "cases": 306,
+        "cases": 336,
         "pass": 0,
-        "refused": 228,
+        "refused": 258,
         "silent": 78
       }
     },
@@ -758,176 +758,6 @@
       }
     },
     "behaviorspec": {
-      "[when action:clicks]": {
-        "ja": {
-          "outcome": "refused",
-          "text": "clicks 操作",
-          "why": "No pattern matched for input: clicks 操作"
-        },
-        "ko": {
-          "outcome": "refused",
-          "text": "clicks 동작",
-          "why": "No pattern matched for input: clicks 동작"
-        },
-        "tr": {
-          "outcome": "refused",
-          "text": "clicks eylem",
-          "why": "No pattern matched for input: clicks eylem"
-        }
-      },
-      "[when action:types]": {
-        "ja": {
-          "outcome": "refused",
-          "text": "types 操作",
-          "why": "No pattern matched for input: types 操作"
-        },
-        "ko": {
-          "outcome": "refused",
-          "text": "types 동작",
-          "why": "No pattern matched for input: types 동작"
-        },
-        "tr": {
-          "outcome": "refused",
-          "text": "types eylem",
-          "why": "No pattern matched for input: types eylem"
-        }
-      },
-      "[when action:submits]": {
-        "ja": {
-          "outcome": "refused",
-          "text": "submits 操作",
-          "why": "No pattern matched for input: submits 操作"
-        },
-        "ko": {
-          "outcome": "refused",
-          "text": "submits 동작",
-          "why": "No pattern matched for input: submits 동작"
-        },
-        "tr": {
-          "outcome": "refused",
-          "text": "submits eylem",
-          "why": "No pattern matched for input: submits eylem"
-        }
-      },
-      "[when action:hovers]": {
-        "ja": {
-          "outcome": "refused",
-          "text": "hovers 操作",
-          "why": "No pattern matched for input: hovers 操作"
-        },
-        "ko": {
-          "outcome": "refused",
-          "text": "hovers 동작",
-          "why": "No pattern matched for input: hovers 동작"
-        },
-        "tr": {
-          "outcome": "refused",
-          "text": "hovers eylem",
-          "why": "No pattern matched for input: hovers eylem"
-        }
-      },
-      "[when action:scrolls]": {
-        "ja": {
-          "outcome": "refused",
-          "text": "scrolls 操作",
-          "why": "No pattern matched for input: scrolls 操作"
-        },
-        "ko": {
-          "outcome": "refused",
-          "text": "scrolls 동작",
-          "why": "No pattern matched for input: scrolls 동작"
-        },
-        "tr": {
-          "outcome": "refused",
-          "text": "scrolls eylem",
-          "why": "No pattern matched for input: scrolls eylem"
-        }
-      },
-      "[when action:drags]": {
-        "ja": {
-          "outcome": "refused",
-          "text": "drags 操作",
-          "why": "No pattern matched for input: drags 操作"
-        },
-        "ko": {
-          "outcome": "refused",
-          "text": "drags 동작",
-          "why": "No pattern matched for input: drags 동작"
-        },
-        "tr": {
-          "outcome": "refused",
-          "text": "drags eylem",
-          "why": "No pattern matched for input: drags eylem"
-        }
-      },
-      "[when action:double-clicks]": {
-        "ja": {
-          "outcome": "refused",
-          "text": "double-clicks 操作",
-          "why": "No pattern matched for input: double-clicks 操作"
-        },
-        "ko": {
-          "outcome": "refused",
-          "text": "double-clicks 동작",
-          "why": "No pattern matched for input: double-clicks 동작"
-        },
-        "tr": {
-          "outcome": "refused",
-          "text": "double-clicks eylem",
-          "why": "No pattern matched for input: double-clicks eylem"
-        }
-      },
-      "[when action:right-clicks]": {
-        "ja": {
-          "outcome": "refused",
-          "text": "right-clicks 操作",
-          "why": "No pattern matched for input: right-clicks 操作"
-        },
-        "ko": {
-          "outcome": "refused",
-          "text": "right-clicks 동작",
-          "why": "No pattern matched for input: right-clicks 동작"
-        },
-        "tr": {
-          "outcome": "refused",
-          "text": "right-clicks eylem",
-          "why": "No pattern matched for input: right-clicks eylem"
-        }
-      },
-      "[when action:focuses]": {
-        "ja": {
-          "outcome": "refused",
-          "text": "focuses 操作",
-          "why": "No pattern matched for input: focuses 操作"
-        },
-        "ko": {
-          "outcome": "refused",
-          "text": "focuses 동작",
-          "why": "No pattern matched for input: focuses 동작"
-        },
-        "tr": {
-          "outcome": "refused",
-          "text": "focuses eylem",
-          "why": "No pattern matched for input: focuses eylem"
-        }
-      },
-      "[when action:clears]": {
-        "ja": {
-          "outcome": "refused",
-          "text": "clears 操作",
-          "why": "No pattern matched for input: clears 操作"
-        },
-        "ko": {
-          "outcome": "refused",
-          "text": "clears 동작",
-          "why": "No pattern matched for input: clears 동작"
-        },
-        "tr": {
-          "outcome": "refused",
-          "text": "clears eylem",
-          "why": "No pattern matched for input: clears eylem"
-        }
-      },
       "[expect target:#toast assertion:appears value:hello]": {
         "en": {
           "outcome": "refused",

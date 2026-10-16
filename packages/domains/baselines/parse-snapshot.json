@@ -491,102 +491,102 @@
       "[when action:clicks]": {
         "en": "when action:expression=clicks",
         "es": "when action:expression=clicks",
-        "ja": "refused",
+        "ja": "when action:expression=clicks",
         "ar": "when action:expression=clicks",
-        "ko": "refused",
+        "ko": "when action:expression=clicks",
         "zh": "when action:expression=clicks",
         "fr": "when action:expression=clicks",
-        "tr": "refused"
+        "tr": "when action:expression=clicks"
       },
       "[when action:types]": {
         "en": "when action:expression=types",
         "es": "when action:expression=types",
-        "ja": "refused",
+        "ja": "when action:expression=types",
         "ar": "when action:expression=types",
-        "ko": "refused",
+        "ko": "when action:expression=types",
         "zh": "when action:expression=types",
         "fr": "when action:expression=types",
-        "tr": "refused"
+        "tr": "when action:expression=types"
       },
       "[when action:submits]": {
         "en": "when action:expression=submits",
         "es": "when action:expression=submits",
-        "ja": "refused",
+        "ja": "when action:expression=submits",
         "ar": "when action:expression=submits",
-        "ko": "refused",
+        "ko": "when action:expression=submits",
         "zh": "when action:expression=submits",
         "fr": "when action:expression=submits",
-        "tr": "refused"
+        "tr": "when action:expression=submits"
       },
       "[when action:hovers]": {
         "en": "when action:expression=hovers",
         "es": "when action:expression=hovers",
-        "ja": "refused",
+        "ja": "when action:expression=hovers",
         "ar": "when action:expression=hovers",
-        "ko": "refused",
+        "ko": "when action:expression=hovers",
         "zh": "when action:expression=hovers",
         "fr": "when action:expression=hovers",
-        "tr": "refused"
+        "tr": "when action:expression=hovers"
       },
       "[when action:scrolls]": {
         "en": "when action:expression=scrolls",
         "es": "when action:expression=scrolls",
-        "ja": "refused",
+        "ja": "when action:expression=scrolls",
         "ar": "when action:expression=scrolls",
-        "ko": "refused",
+        "ko": "when action:expression=scrolls",
         "zh": "when action:expression=scrolls",
         "fr": "when action:expression=scrolls",
-        "tr": "refused"
+        "tr": "when action:expression=scrolls"
       },
       "[when action:drags]": {
         "en": "when action:expression=drags",
         "es": "when action:expression=drags",
-        "ja": "refused",
+        "ja": "when action:expression=drags",
         "ar": "when action:expression=drags",
-        "ko": "refused",
+        "ko": "when action:expression=drags",
         "zh": "when action:expression=drags",
         "fr": "when action:expression=drags",
-        "tr": "refused"
+        "tr": "when action:expression=drags"
       },
       "[when action:double-clicks]": {
         "en": "when action:expression=double-clicks",
         "es": "when action:expression=double-clicks",
-        "ja": "refused",
+        "ja": "when action:expression=double-clicks",
         "ar": "when action:expression=double-clicks",
-        "ko": "refused",
+        "ko": "when action:expression=double-clicks",
         "zh": "when action:expression=double-clicks",
         "fr": "when action:expression=double-clicks",
-        "tr": "refused"
+        "tr": "when action:expression=double-clicks"
       },
       "[when action:right-clicks]": {
         "en": "when action:expression=right-clicks",
         "es": "when action:expression=right-clicks",
-        "ja": "refused",
+        "ja": "when action:expression=right-clicks",
         "ar": "when action:expression=right-clicks",
-        "ko": "refused",
+        "ko": "when action:expression=right-clicks",
         "zh": "when action:expression=right-clicks",
         "fr": "when action:expression=right-clicks",
-        "tr": "refused"
+        "tr": "when action:expression=right-clicks"
       },
       "[when action:focuses]": {
         "en": "when action:expression=focuses",
         "es": "when action:expression=focuses",
-        "ja": "refused",
+        "ja": "when action:expression=focuses",
         "ar": "when action:expression=focuses",
-        "ko": "refused",
+        "ko": "when action:expression=focuses",
         "zh": "when action:expression=focuses",
         "fr": "when action:expression=focuses",
-        "tr": "refused"
+        "tr": "when action:expression=focuses"
       },
       "[when action:clears]": {
         "en": "when action:expression=clears",
         "es": "when action:expression=clears",
-        "ja": "refused",
+        "ja": "when action:expression=clears",
         "ar": "when action:expression=clears",
-        "ko": "refused",
+        "ko": "when action:expression=clears",
         "zh": "when action:expression=clears",
         "fr": "when action:expression=clears",
-        "tr": "refused"
+        "tr": "when action:expression=clears"
       },
       "[when actor:user action:clicks target:#button destination:#form]": {
         "en": "when action:expression=clicks actor:expression=user destination:selector=#form target:selector=#button",
