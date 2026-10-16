@@ -1713,7 +1713,7 @@
         "ja": {
           "outcome": "refused",
           "text": "#document で 3 要約 として bullets",
-          "why": "No pattern matched for input: #document で 3 要約 として bullets"
+          "why": "\"#document で 3 要約 として bullets\" (ja) reads as summarize only by leaving \"として bullets\" unread"
         },
         "ko": {
           "outcome": "refused",

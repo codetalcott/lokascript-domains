@@ -91,6 +91,7 @@ export interface DomainDSLOptions {
 export function createLLMDSL(options: DomainDSLOptions = {}): MultilingualDSL {
   return /*#__PURE__*/ createMultilingualDSL({
     name: 'LLM',
+    engine: 'core',
     schemas: allSchemas,
     languages: [
       {

@@ -7,7 +7,7 @@
         "command": "ask",
         "priority": 100,
         "template": {
-          "format": "ask {patient} from {source} as {manner}",
+          "format": "ask {patient} [from {source}] [as {manner}]",
           "tokens": [
             {
               "type": "literal",
@@ -71,7 +71,7 @@
         "command": "summarize",
         "priority": 100,
         "template": {
-          "format": "summarize {patient} in {quantity} as {manner}",
+          "format": "summarize {patient} [in {quantity}] [as {manner}]",
           "tokens": [
             {
               "type": "literal",
@@ -228,7 +228,7 @@
         "command": "ask",
         "priority": 100,
         "template": {
-          "format": "preguntar {patient} de {source} como {manner}",
+          "format": "preguntar {patient} [de {source}] [como {manner}]",
           "tokens": [
             {
               "type": "literal",
@@ -292,7 +292,7 @@
         "command": "summarize",
         "priority": 100,
         "template": {
-          "format": "resumir {patient} en {quantity} como {manner}",
+          "format": "resumir {patient} [en {quantity}] [como {manner}]",
           "tokens": [
             {
               "type": "literal",
@@ -449,7 +449,7 @@
         "command": "ask",
         "priority": 100,
         "template": {
-          "format": "から {source} {patient} として {manner} 聞く",
+          "format": "[から {source}] {patient} [として {manner}] 聞く",
           "tokens": [
             {
               "type": "group",
@@ -513,7 +513,7 @@
         "command": "summarize",
         "priority": 100,
         "template": {
-          "format": "{patient} で {quantity} として {manner} 要約",
+          "format": "{patient} [で {quantity}] [として {manner}] 要約",
           "tokens": [
             {
               "type": "role",
@@ -670,7 +670,7 @@
         "command": "ask",
         "priority": 100,
         "template": {
-          "format": "اسأل {patient} من {source} ك {manner}",
+          "format": "اسأل {patient} [من {source}] [ك {manner}]",
           "tokens": [
             {
               "type": "literal",
@@ -734,7 +734,7 @@
         "command": "summarize",
         "priority": 100,
         "template": {
-          "format": "لخّص {patient} في {quantity} ك {manner}",
+          "format": "لخّص {patient} [في {quantity}] [ك {manner}]",
           "tokens": [
             {
               "type": "literal",
@@ -891,7 +891,7 @@
         "command": "ask",
         "priority": 100,
         "template": {
-          "format": "에서 {source} {patient} 로 {manner} 질문",
+          "format": "[에서 {source}] {patient} [로 {manner}] 질문",
           "tokens": [
             {
               "type": "group",
@@ -955,7 +955,7 @@
         "command": "summarize",
         "priority": 100,
         "template": {
-          "format": "{patient} 에서 {quantity} 로 {manner} 요약",
+          "format": "{patient} [에서 {quantity}] [로 {manner}] 요약",
           "tokens": [
             {
               "type": "role",
@@ -1112,7 +1112,7 @@
         "command": "ask",
         "priority": 100,
         "template": {
-          "format": "提问 {patient} 从 {source} 以 {manner}",
+          "format": "提问 {patient} [从 {source}] [以 {manner}]",
           "tokens": [
             {
               "type": "literal",
@@ -1176,7 +1176,7 @@
         "command": "summarize",
         "priority": 100,
         "template": {
-          "format": "总结 {patient} 用 {quantity} 以 {manner}",
+          "format": "总结 {patient} [用 {quantity}] [以 {manner}]",
           "tokens": [
             {
               "type": "literal",
@@ -1333,7 +1333,7 @@
         "command": "ask",
         "priority": 100,
         "template": {
-          "format": "dan {source} {patient} olarak {manner} sor",
+          "format": "[dan {source}] {patient} [olarak {manner}] sor",
           "tokens": [
             {
               "type": "group",
@@ -1397,7 +1397,7 @@
         "command": "summarize",
         "priority": 100,
         "template": {
-          "format": "{patient} ile {quantity} olarak {manner} özetle",
+          "format": "{patient} [ile {quantity}] [olarak {manner}] özetle",
           "tokens": [
             {
               "type": "role",
@@ -1554,7 +1554,7 @@
         "command": "ask",
         "priority": 100,
         "template": {
-          "format": "demander {patient} de {source} comme {manner}",
+          "format": "demander {patient} [de {source}] [comme {manner}]",
           "tokens": [
             {
               "type": "literal",
@@ -1618,7 +1618,7 @@
         "command": "summarize",
         "priority": 100,
         "template": {
-          "format": "résumer {patient} en {quantity} comme {manner}",
+          "format": "résumer {patient} [en {quantity}] [comme {manner}]",
           "tokens": [
             {
               "type": "literal",
@@ -1775,7 +1775,7 @@
         "command": "ask",
         "priority": 100,
         "template": {
-          "format": "fragen {patient} aus {source} als {manner}",
+          "format": "fragen {patient} [aus {source}] [als {manner}]",
           "tokens": [
             {
               "type": "literal",
@@ -1839,7 +1839,7 @@
         "command": "summarize",
         "priority": 100,
         "template": {
-          "format": "zusammenfassen {patient} in {quantity} als {manner}",
+          "format": "zusammenfassen {patient} [in {quantity}] [als {manner}]",
           "tokens": [
             {
               "type": "literal",
@@ -1996,7 +1996,7 @@
         "command": "ask",
         "priority": 100,
         "template": {
-          "format": "perguntar {patient} de {source} como {manner}",
+          "format": "perguntar {patient} [de {source}] [como {manner}]",
           "tokens": [
             {
               "type": "literal",
@@ -2060,7 +2060,7 @@
         "command": "summarize",
         "priority": 100,
         "template": {
-          "format": "resumir {patient} em {quantity} como {manner}",
+          "format": "resumir {patient} [em {quantity}] [como {manner}]",
           "tokens": [
             {
               "type": "literal",
@@ -2217,7 +2217,7 @@
         "command": "ask",
         "priority": 100,
         "template": {
-          "format": "спросить {patient} из {source} как {manner}",
+          "format": "спросить {patient} [из {source}] [как {manner}]",
           "tokens": [
             {
               "type": "literal",
@@ -2281,7 +2281,7 @@
         "command": "summarize",
         "priority": 100,
         "template": {
-          "format": "суммировать {patient} в {quantity} как {manner}",
+          "format": "суммировать {patient} [в {quantity}] [как {manner}]",
           "tokens": [
             {
               "type": "literal",
