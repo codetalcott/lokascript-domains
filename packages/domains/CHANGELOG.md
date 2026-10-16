@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+- **flow reads and writes on framework's core** (`engine: 'core'`, as sql
+  below). The domain gate moves no case and no parse: 297 of 308 round trips,
+  the same 11 refused. The golden patterns differ from
+  `generatePatternVariants`' in the template's bracket notation, and in
+  `capture`: its optional `patient`, which has no marker, is an optional
+  group on the core (11 languages), the shape the core's reader gives back to
+  the required `destination` after it when it took that value.
 - **llm reads and writes on framework's core** (`engine: 'core'`, as sql
   below). The domain gate moves no case and no parse: 61 of 66 round trips,
   the same 5 refused (one now says which words it left unread). The golden
