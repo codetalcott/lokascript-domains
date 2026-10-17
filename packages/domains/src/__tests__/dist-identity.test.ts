@@ -17,7 +17,6 @@ import * as sqlEntry from '../../dist/sql.js';
 const SUBPATH_FACTORIES: Record<string, string> = {
   sql: 'createSQLDSL',
   flow: 'createFlowDSL',
-  bdd: 'createBDDDSL',
   behaviorspec: 'createBehaviorSpecDSL',
   llm: 'createLLMDSL',
   todo: 'createTodoDSL',

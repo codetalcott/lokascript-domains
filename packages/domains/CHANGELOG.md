@@ -1,5 +1,22 @@
 # Changelog
 
+## 5.0.0
+
+- **BREAKING: built for `@lokascript/framework` 5** (hyperfixi 5.0.0, which deletes the classic
+  DSL engine). The aggregate peers framework, semantic and intent `^5.0.0` (4.2.1 to 4.3.0
+  accepted 4.x or 5.x). No domain changes for it: every one reads on the core engine since
+  4.2.1, and the gate is the same on 5.0.0. A consumer on hyperfixi 4.x stays on domains 4.3.
+
+- **BREAKING: bdd is removed** (hyperfixi domains rethink Phase 6; deprecated in 4.2.0).
+  `@lokascript/domains/bdd` and the private `domain-bdd` package are gone: behaviorspec reads
+  bdd's preconditions, actions and assertions in its own syntax since 4.2.0
+  (`given #button is visible`, `when user presses 'Enter'`, `expect #title text Welcome`).
+  `createDomainRegistry()` registers seven domains and `DOMAIN_PRIORITY` no longer lists
+  `bdd`; an `omit` that names it is ignored, so a consumer that passed `{ omit: ['bdd'] }`
+  keeps working. The domain gate drops bdd's 344 cases and its 2 silent pairs, the last
+  silent pairs in the family: every domain reads back its own render or refuses it. bdd's
+  sources stay in 4.x (tag `v4.3.0`).
+
 ## 4.3.0
 
 - **voice: a direction compiles to its direction in every language.** The generator compared

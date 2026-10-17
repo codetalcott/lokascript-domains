@@ -39,7 +39,6 @@ await it when `getSchemas`/`generatePrompt` must be populated.
 | --- | --- | --- |
 | `/sql` | Natural-language SQL | 11 |
 | `/flow` | Reactive data flow (fetch, poll, stream, submit) | 11 |
-| `/bdd` | BDD/Gherkin → Playwright. **Deprecated**: `/behaviorspec` reads its preconditions, actions and assertions; removed in 5.0.0 | 8 |
 | `/behaviorspec` | Interaction-testing specs | 8 |
 | `/llm` | LLM prompt specs | 11 |
 | `/todo` | Todo management | 11 |
@@ -48,7 +47,9 @@ await it when `getSchemas`/`generatePrompt` must be populated.
 
 jsx, animation, control, events, html, hypermedia and sprites were retired in
 4.0.0 (see the changelog); 2.x still ships them, and their sources are under
-the tag `archived/domains-preview-2026-10`.
+the tag `archived/domains-preview-2026-10`. bdd was removed in 5.0.0:
+`/behaviorspec` reads its preconditions, actions and assertions (4.2.0), and
+4.x still ships `/bdd` (its sources are under the tag `v4.3.0`).
 
 ## Migrating from `@lokascript/domain-*`
 

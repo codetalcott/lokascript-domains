@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repo is
 
-The LokaScript multilingual domain-DSL family: 8 domain DSLs (SQL, flow, BDD, behavior specs, LLM
+The LokaScript multilingual domain-DSL family: 7 domain DSLs (SQL, flow, behavior specs, LLM
 prompts, todo, voice, learn) built on `@lokascript/framework`, published as **one** npm package,
 `@lokascript/domains` (`packages/domains`). Every other `packages/*` directory is a **private**
 workspace package that the aggregate bundles into its dist at build time. Extracted from hyperfixi in
@@ -24,7 +24,7 @@ are **peerDependencies** (mirrored in devDependencies for local dev); the consum
 
 ```bash
 npm install              # root; npm workspaces
-npm run build            # topological: scripts/build-all.sh (8 domains → domain-config → domains)
+npm run build            # topological: scripts/build-all.sh (7 domains → domain-config → domains)
 npm run typecheck        # every package with a typecheck script
 npm run test:check       # compact gate over every package with a test:check script
 bash scripts/pack-smoke.sh   # npm pack the aggregate, install into a clean tmp dir, smoke every subpath + d.ts
@@ -108,8 +108,7 @@ the built dist (hyperfixi's `docs-internal/DOMAINS_RETHINK.md`, Phase 2). A case
 
 - **round trip**: the domain's renderer writes it, its parser reads it back. `pass` when the parse is
   the reference node or (every domain but learn, whose output is a sentence per language) when the
-  text compiles to the English reference's code: bdd's parser keeps ja `表示` and its generator
-  normalizes it to `visible`. `refused` when there is no render or the parse throws; `silent` when it
+  text compiles to the English reference's code (a parser may keep a word its generator normalizes). `refused` when there is no render or the parse throws; `silent` when it
   reads, or compiles to, something else.
 - **leftover**: the same render plus one unknown word (`zzqx`). Expected `refused`; a parse that
   returns accepted input it did not read (`silent`).
@@ -150,7 +149,7 @@ it.
 ### The registry choke point (`packages/domain-config`)
 
 `src/index.ts` is the single source of truth for which domains exist for dispatch:
-`registerAllDomains(registry)` registers the **8** domains (sql, bdd, behaviorspec, todo, llm,
+`registerAllDomains(registry)` registers the **7** domains (sql, behaviorspec, todo, llm,
 flow, voice, learn) with lazy `import()` loaders, then awaits an async
 schema-attachment pass (failures swallowed; `createDomainRegistry()` fires and forgets it).
 `DOMAIN_PRIORITY` is the `CrossDomainDispatcher` tie-break order and is load-bearing: `sql` before

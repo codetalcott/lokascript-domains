@@ -19,42 +19,6 @@ import type { GateFixture } from '@lokascript/framework/testing/gate';
 export type DomainFixture = GateFixture;
 
 export const DOMAIN_VALUES: Record<string, DomainFixture> = {
-  bdd: {
-    oracle: 'compile',
-    // `and` continues the step before it; the generator has nothing to compile it to alone.
-    englishDoesNotCompile: ['and'],
-    values: {
-      // bdd-renderer.ts STATE_WORDS / ACTION_WORDS / ASSERTION_WORDS, mappings.ts in the generator.
-      'given.target': ['#box0'],
-      'given.state': [
-        'visible',
-        'exists',
-        'hidden',
-        'loaded',
-        'disabled',
-        'enabled',
-        'checked',
-        'focused',
-      ],
-      'when.action_type': [
-        'click',
-        'type',
-        'hover',
-        'navigate',
-        'submit',
-        'double-click',
-        'right-click',
-        'press',
-        'check',
-        'uncheck',
-        'select',
-        'wait',
-      ],
-      'when.target': ['#box1'],
-      'then.target': ['#box0'],
-      'then.assertion': ['visible', 'hidden', 'text', 'count', 'value'],
-    },
-  },
   behaviorspec: {
     oracle: 'compile',
     values: {

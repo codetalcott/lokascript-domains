@@ -10,7 +10,6 @@ export default defineConfig({
   external: [
     '@lokascript/framework',
     '@lokascript/domain-sql',
-    '@lokascript/domain-bdd',
     '@lokascript/domain-todo',
     '@lokascript/domain-behaviorspec',
     '@lokascript/domain-llm',

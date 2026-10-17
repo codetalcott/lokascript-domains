@@ -6,8 +6,7 @@
  * domains behind a CrossDomainDispatcher).
  *
  * Single source of truth for:
- *   - Which domains exist (sql, bdd, todo, behaviorspec, llm, flow, voice,
- *     learn)
+ *   - Which domains exist (sql, todo, behaviorspec, llm, flow, voice, learn)
  *   - How each domain loads its DSL and renderer (lazy dynamic imports)
  *   - How each domain surfaces for AOT/Vite plugin scanning (scanConfig)
  *   - How the dispatcher breaks ambiguity when multiple domains match
@@ -44,11 +43,11 @@ export const BRIDGE_LANGUAGES = [
 ] as const;
 /** learn's pre-existing 10-language set (no ru; morphology is hand-authored per language). */
 export const LEARN_LANGUAGES = BRIDGE_LANGUAGES.slice(0, 10);
-/** bdd/behaviorspec — still the pre-bridge 8 (renderer/marker tables gate vocab-only expansion). */
+/** behaviorspec — still the pre-bridge 8 (renderer/marker tables gate vocab-only expansion). */
 export const CLASSIC_LANGUAGES = BRIDGE_LANGUAGES.slice(0, 8);
 
 /**
- * Create and populate a DomainRegistry with all 8 LokaScript domains.
+ * Create and populate a DomainRegistry with all 7 LokaScript domains.
  *
  * Schemas are loaded lazily on first access so startup stays fast. An
  * asynchronous pass attaches each domain's schemas to the registry (used by
@@ -64,15 +63,12 @@ export function createDomainRegistry(options: RegisterOptions = {}): DomainRegis
 
 /** Which domains to leave out. */
 export interface RegisterOptions {
-  /**
-   * Domains not to register (no tools, no schemas): `['bdd']`, deprecated for behaviorspec, which
-   * an MCP server can drop while `@lokascript/domains/bdd` stays through 4.x.
-   */
+  /** Domains not to register (no tools, no schemas), by name: `['voice']`. */
   readonly omit?: readonly string[];
 }
 
 /**
- * Register all 8 domains (but those `options.omit` names) into an existing registry. The returned promise
+ * Register all 7 domains (but those `options.omit` names) into an existing registry. The returned promise
  * resolves once the async schema-attachment pass completes — await it when a
  * caller needs `getSchemas`/`generatePrompt` to be populated (tests, one-shot
  * CLI tools); fire-and-forget callers get the same lazy behavior as
@@ -100,22 +96,6 @@ export async function registerAllDomains(
     scanConfig: {
       attributes: ['data-sql', '_sql'],
       scriptTypes: ['text/sql-dsl'],
-      defaultLanguage: 'en',
-    },
-  });
-
-  registry.register({
-    name: 'bdd',
-    description: 'BDD scenario',
-    languages: CLASSIC_LANGUAGES,
-    inputLabel: 'scenario',
-    inputDescription: 'BDD scenario text (e.g., "given #button is exists")',
-    outputDescription: 'Playwright test code with Given/When/Then assertions',
-    getDSL: () => import('@lokascript/domain-bdd').then(m => m.createBDDDSL()),
-    getRenderer: () => import('@lokascript/domain-bdd').then(m => m.renderBDD),
-    scanConfig: {
-      attributes: ['data-bdd', '_bdd'],
-      scriptTypes: ['text/bdd'],
       defaultLanguage: 'en',
     },
   });
@@ -234,7 +214,6 @@ async function loadAllSchemas(
 ): Promise<void> {
   const loaders: Array<{ domain: string; load: () => Promise<unknown[]> }> = [
     { domain: 'sql', load: () => import('@lokascript/domain-sql').then(m => [...m.allSchemas]) },
-    { domain: 'bdd', load: () => import('@lokascript/domain-bdd').then(m => [...m.allSchemas]) },
     { domain: 'todo', load: () => import('@lokascript/domain-todo').then(m => [...m.allSchemas]) },
     {
       domain: 'behaviorspec',
@@ -268,7 +247,7 @@ async function loadAllSchemas(
 
 /**
  * Priority ordering for `CrossDomainDispatcher` — earlier domains win on
- * confidence ties. Specific syntaxes (sql, bdd) come before more generic
+ * confidence ties. Specific syntaxes (sql, behaviorspec) come before more generic
  * pattern matchers (voice, flow) that otherwise overmatch.
  *
  * Load-bearing: the dispatcher routing guard in
@@ -281,7 +260,6 @@ async function loadAllSchemas(
  */
 export const DOMAIN_PRIORITY: readonly string[] = [
   'sql',
-  'bdd',
   'behaviorspec',
   'todo',
   'llm',

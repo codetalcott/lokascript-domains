@@ -16,7 +16,6 @@ export default defineConfig({
     // the 8 registry-wired domains
     sql: 'src/sql.ts',
     flow: 'src/flow.ts',
-    bdd: 'src/bdd.ts',
     behaviorspec: 'src/behaviorspec.ts',
     llm: 'src/llm.ts',
     todo: 'src/todo.ts',
