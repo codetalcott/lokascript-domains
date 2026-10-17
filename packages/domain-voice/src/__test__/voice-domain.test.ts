@@ -268,7 +268,7 @@ describe('Voice Domain', () => {
     });
 
     it('closes only what it can close: a tab or a dialog', () => {
-      expect(voice.compile('close modal', 'en').code).toContain("dialog[open]");
+      expect(voice.compile('close modal', 'en').code).toContain('dialog[open]');
       // `close zzqx` compiled as a plain `close`, which closes any open dialog.
       expect(() => voice.parse('close zzqx', 'en')).toThrow(/leaving "zzqx" unread/);
     });
@@ -1291,5 +1291,99 @@ describe('Voice Domain', () => {
         ].sort()
       );
     });
+  });
+});
+
+// =============================================================================
+// Directions in every language (4.3.0). The generator compared a direction with its English name
+// only, so every other language's word compiled to the default: `desplazar arriba` scrolled down,
+// `zoom menos` zoomed in. The domain gate could not see it: its values are English words, and the
+// renderer wrote them untranslated.
+// =============================================================================
+
+describe('voice: directions in every language', () => {
+  const dsl = createVoiceDSL();
+  const code = (text: string, lang: string) => dsl.compile(text, lang).code;
+  const cases: Record<string, Record<string, string>> = {
+    'scroll up': {
+      es: 'desplazar arriba',
+      ja: '上 スクロール',
+      ar: 'تمرير لأعلى',
+      ko: '위 스크롤',
+      zh: '滚动 上',
+      tr: 'yukarı kaydır',
+      fr: 'défiler haut',
+      de: 'scrollen hoch',
+      pt: 'rolar cima',
+      ru: 'прокрутить вверх',
+    },
+    'scroll left': {
+      es: 'desplazar izquierda',
+      ja: '左 スクロール',
+      ar: 'تمرير يسار',
+      ko: '왼쪽 스크롤',
+      zh: '滚动 左',
+      tr: 'sol kaydır',
+      fr: 'défiler gauche',
+      de: 'scrollen links',
+      pt: 'rolar esquerda',
+      ru: 'прокрутить влево',
+    },
+    'zoom out': {
+      es: 'zoom menos',
+      ja: 'アウト ズーム',
+      zh: '缩放 缩小',
+      de: 'zoomen raus',
+      pt: 'ampliar fora',
+      ru: 'масштаб наружу',
+    },
+    'zoom reset': {
+      ja: 'リセット ズーム',
+      zh: '缩放 重置',
+      de: 'zoomen zurücksetzen',
+      pt: 'ampliar redefinir',
+      ru: 'масштаб сброс',
+    },
+    'zoom in': {
+      ar: 'تكبير',
+      ko: '확대',
+      tr: 'yakınlaş',
+      fr: 'zoomer',
+      es: 'zoom más',
+      zh: '缩放 放大',
+    },
+  };
+
+  for (const [english, byLang] of Object.entries(cases)) {
+    for (const [lang, text] of Object.entries(byLang)) {
+      it(`${lang} "${text}" compiles as "${english}"`, () => {
+        expect(code(text, lang)).toBe(code(english, 'en'));
+      });
+    }
+  }
+
+  it('writes the direction in the language and reads it back', () => {
+    for (const lang of ['es', 'ja', 'ar', 'ko', 'zh', 'tr', 'fr', 'de', 'pt', 'ru']) {
+      for (const english of ['scroll up', 'scroll down', 'zoom out', 'zoom in']) {
+        const rendered = renderVoice(dsl.parse(english, 'en'), lang);
+        expect(code(rendered, lang), `${lang}: ${rendered}`).toBe(code(english, 'en'));
+      }
+    }
+    expect(renderVoice(dsl.parse('scroll up', 'en'), 'es')).toBe('desplazar arriba');
+    expect(renderVoice(dsl.parse('zoom in', 'en'), 'ko')).toBe('확대');
+  });
+
+  it('refuses a word that is not a direction', () => {
+    expect(dsl.compile('scroll zzqx', 'en').ok).toBe(false);
+    expect(dsl.compile('zoom zzqx', 'en').ok).toBe(false);
+  });
+
+  it('reads Japanese 拡大 and 縮小 as in and out', () => {
+    expect(code('拡大 ズーム', 'ja')).toBe(code('zoom in', 'en'));
+    expect(code('縮小 ズーム', 'ja')).toBe(code('zoom out', 'en'));
+  });
+
+  it('reads Korean 으로 after a consonant', () => {
+    expect(code('홈 으로 이동', 'ko')).toBe(code('홈 로 이동', 'ko'));
   });
 });

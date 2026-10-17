@@ -1,5 +1,23 @@
 # Changelog
 
+## Unreleased
+
+- **voice: a direction compiles to its direction in every language.** The generator compared
+  a scroll's or a zoom's direction with its English name only, so every other language's
+  word compiled to the default: `desplazar arriba` (and `上 スクロール`, `yukarı kaydır`, …)
+  scrolled DOWN, and `zoom menos`, `アウト ズーム` and `缩放 缩小` zoomed IN. The domain gate
+  could not see it: its values are English words, and the renderer wrote them untranslated
+  (`desplazar up`). Now each language's words (its vocab's) map to the direction, the
+  renderer writes them (`desplazar arriba`), and the direction is read only from a
+  direction word, in any language: `scroll zzqx` is refused instead of scrolling down.
+- **voice: zoom's direction is optional, and Korean reads 으로.** `zoom` alone zooms in,
+  so the "zoom in" verbs of ar (`تكبير`), ko (`확대`), tr (`yakınlaş`) and fr (`zoomer`)
+  read on their own, and the renderer writes them so; ja reads `拡大` and `縮小`. navigate's
+  ko destination takes `으로` after a consonant (`홈 으로 이동`) beside `로`. Together these
+  were the five lokascript-examples voice-navigator reference examples that did not read.
+  Gate: 0 worse; voice 393/396 (11 new cases, bare zoom, all pass); 112 parses moved, each
+  a direction now written in its language.
+
 ## 4.2.1
 
 - **Accepts framework 5** (hyperfixi domains rethink Phase 6): the aggregate peers

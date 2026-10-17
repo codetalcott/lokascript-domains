@@ -1,6 +1,12 @@
 import { defineCommand, defineRole } from '@lokascript/framework';
 import type { CommandSchema } from '@lokascript/framework';
-import { DIALOG_WORDS, TAB_WORDS } from '../generators/voice-generator';
+import {
+  DIALOG_WORDS,
+  SCROLL_DIRECTIONS,
+  TAB_WORDS,
+  ZOOM_DIRECTIONS,
+  directionWords,
+} from '../generators/voice-generator';
 
 // =============================================================================
 // navigate — Go to URL, page section, or ARIA landmark
@@ -40,6 +46,8 @@ export const navigateSchema = defineCommand({
         pt: 'para',
         ru: 'на',
       },
+      // After a consonant Korean writes 으로 (`홈 으로 이동`).
+      markerVariants: { ko: ['으로'] },
     }),
   ],
 });
@@ -162,6 +170,8 @@ export const scrollSchema = defineCommand({
       description: 'Direction to scroll (up, down, left, right, top, bottom)',
       required: true,
       expectedTypes: ['expression'],
+      // Read only from a direction word, in any language (voice-generator.ts DIRECTION_WORDS).
+      words: { '*': directionWords(SCROLL_DIRECTIONS) },
       svoPosition: 2,
       sovPosition: 2,
     }),
@@ -240,9 +250,11 @@ export const zoomSchema = defineCommand({
   roles: [
     defineRole({
       role: 'manner',
-      description: 'Zoom direction (in, out, reset)',
-      required: true,
+      description: 'Zoom direction (in, out, reset); without one, zoom zooms in',
+      // Optional: ar تكبير, ko 확대, tr yakınlaş and fr zoomer are "zoom in" on their own.
+      required: false,
       expectedTypes: ['expression'],
+      words: { '*': directionWords(ZOOM_DIRECTIONS) },
       svoPosition: 1,
       sovPosition: 1,
     }),
