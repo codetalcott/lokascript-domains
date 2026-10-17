@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 4.3.0
 
 - **voice: a direction compiles to its direction in every language.** The generator compared
   a scroll's or a zoom's direction with its English name only, so every other language's
