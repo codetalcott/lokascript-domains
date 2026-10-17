@@ -251,7 +251,7 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": ["literal"]
                 }
               ]
             }
@@ -283,7 +283,7 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": ["literal"]
                 }
               ]
             }
@@ -708,7 +708,7 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": ["literal"]
                 }
               ]
             }
@@ -740,7 +740,7 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": ["literal"]
                 }
               ]
             }
@@ -1185,7 +1185,7 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": ["literal"]
                 }
               ]
             }
@@ -1217,7 +1217,7 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": ["literal"]
                 }
               ]
             }
@@ -1668,7 +1668,7 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": ["literal"]
                 }
               ]
             }
@@ -1700,7 +1700,7 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": ["literal"]
                 }
               ]
             }
@@ -2159,7 +2159,7 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": ["literal"]
                 }
               ]
             }
@@ -2191,7 +2191,7 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": ["literal"]
                 }
               ]
             }
@@ -2636,7 +2636,7 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": ["literal"]
                 }
               ]
             }
@@ -2668,7 +2668,7 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": ["literal"]
                 }
               ]
             }
@@ -3089,7 +3089,7 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": ["literal"]
                 }
               ]
             }
@@ -3121,7 +3121,7 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": ["literal"]
                 }
               ]
             }
@@ -3556,7 +3556,7 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": ["literal"]
                 }
               ]
             }
@@ -3588,7 +3588,7 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": ["literal"]
                 }
               ]
             }
@@ -4010,7 +4010,7 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": ["literal"]
                 }
               ]
             }
@@ -4042,7 +4042,7 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": ["literal"]
                 }
               ]
             }
@@ -4463,7 +4463,7 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": ["literal"]
                 }
               ]
             }
@@ -4495,7 +4495,7 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": ["literal"]
                 }
               ]
             }
@@ -4916,7 +4916,7 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": ["literal"]
                 }
               ]
             }
@@ -4948,7 +4948,7 @@
                   "type": "role",
                   "role": "quantity",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": ["literal"]
                 }
               ]
             }

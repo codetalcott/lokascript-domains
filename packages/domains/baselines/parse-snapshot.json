@@ -2250,6 +2250,32 @@
         "pt": "close patient:expression=tab",
         "ru": "close patient:expression=tab"
       },
+      "[close patient:dialog]": {
+        "en": "close patient:literal=dialog",
+        "es": "close patient:expression=dialog",
+        "ja": "close patient:expression=dialog",
+        "ar": "close patient:expression=dialog",
+        "ko": "close patient:expression=dialog",
+        "zh": "close patient:expression=dialog",
+        "tr": "close patient:expression=dialog",
+        "fr": "close patient:expression=dialog",
+        "de": "close patient:literal=dialog",
+        "pt": "close patient:expression=dialog",
+        "ru": "close patient:expression=dialog"
+      },
+      "[close patient:modal]": {
+        "en": "close patient:literal=modal",
+        "es": "close patient:expression=modal",
+        "ja": "close patient:expression=modal",
+        "ar": "close patient:expression=modal",
+        "ko": "close patient:expression=modal",
+        "zh": "close patient:expression=modal",
+        "tr": "close patient:expression=modal",
+        "fr": "close patient:expression=modal",
+        "de": "close patient:expression=modal",
+        "pt": "close patient:expression=modal",
+        "ru": "close patient:expression=modal"
+      },
       "[open patient:/new-page]": {
         "en": "open patient:expression=/new-page",
         "es": "open patient:expression=/new-page",
