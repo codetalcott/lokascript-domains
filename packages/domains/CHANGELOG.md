@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 4.2.1
 
 - **Accepts framework 5** (hyperfixi domains rethink Phase 6): the aggregate peers
   `@lokascript/framework` `^4.8.0 || ^5.0.0`, `intent` and `semantic` `^4.0.0 || ^5.0.0`.
