@@ -105,34 +105,29 @@ export function generateGloss(
 
   const isSOV = profile.frames.wordOrder === 'SOV';
 
-  if (isSOV) {
-    // SOV order: target, patient, verb
-    if (targetValue && targetRole) {
-      const marker = resolveMarker(verb, targetRole, language);
-      tokens.push(attachMarker(targetValue, marker));
-      roles.push(ROLE_LABELS[targetRole] || targetRole.toUpperCase());
-      english.push(attachMarker(targetValue, resolveMarker(verb, targetRole, 'en')));
-    }
-    if (patientValue && cmdProfile.hasPatient) {
-      const marker = resolveMarker(verb, 'patient', language);
-      tokens.push(attachMarker(patientValue, marker));
-      roles.push(ROLE_LABELS.patient);
-      english.push(patientValue);
-    }
+  const pushTarget = () => {
+    if (!targetValue || !targetRole) return;
+    const marker = resolveMarker(verb, targetRole, language);
+    tokens.push(attachMarker(targetValue, marker));
+    roles.push(ROLE_LABELS[targetRole] || targetRole.toUpperCase());
+    english.push(attachMarker(targetValue, resolveMarker(verb, targetRole, 'en')));
+  };
+  const pushPatient = () => {
+    if (!patientValue || !cmdProfile.hasPatient) return;
+    const marker = resolveMarker(verb, 'patient', language);
+    tokens.push(attachMarker(patientValue, marker));
+    roles.push(ROLE_LABELS.patient);
+    english.push(attachMarker(patientValue, resolveMarker(verb, 'patient', 'en')));
+  };
+
+  // SOV: target, patient, verb. SVO: patient, target — except `set`, which writes the variable
+  // (its target) before the value in every language, as the sentence generator does.
+  if (isSOV || verb === 'set') {
+    pushTarget();
+    pushPatient();
   } else {
-    // SVO order: patient, target (verb is handled separately)
-    if (patientValue && cmdProfile.hasPatient) {
-      const marker = resolveMarker(verb, 'patient', language);
-      tokens.push(attachMarker(patientValue, marker));
-      roles.push(ROLE_LABELS.patient);
-      english.push(patientValue);
-    }
-    if (targetValue && targetRole) {
-      const marker = resolveMarker(verb, targetRole, language);
-      tokens.push(attachMarker(targetValue, marker));
-      roles.push(ROLE_LABELS[targetRole] || targetRole.toUpperCase());
-      english.push(attachMarker(targetValue, resolveMarker(verb, targetRole, 'en')));
-    }
+    pushPatient();
+    pushTarget();
   }
 
   // Resolve verb form

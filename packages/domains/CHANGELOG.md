@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+- **learn's `set` reads the variable before the value** in its other
+  functions, in every language: `the system sets :count to 10`, `el sistema
+  establece :count a 10`, as semantic writes the command. It wrote `sets to 10
+  :count`, and the SVO languages put a preposition on the variable (es `en`,
+  fr `sur`, de `auf`, pt `em`, zh `在`); zh's value takes semantic's `到`. The
+  gloss follows the same order.
+
 ## 4.2.0
 
 - **No domain accepts input it does not read** (hyperfixi domains rethink

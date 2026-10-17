@@ -167,25 +167,27 @@ const MARKERS: Record<string, Record<string, Record<string, string>>> = {
       pt: 'em',
     },
   },
+  // `set :count to 10`: the destination is the variable set, its direct object (no preposition
+  // in the SVO languages); the patient is the value, marked as semantic marks it.
   set: {
     destination: {
       en: '',
       ja: 'を',
-      es: 'en',
+      es: '',
       ar: '',
-      zh: '在',
+      zh: '',
       ko: '를',
-      fr: 'sur',
+      fr: '',
       tr: 'i',
-      de: 'auf',
-      pt: 'em',
+      de: '',
+      pt: '',
     },
     patient: {
       en: 'to',
       ja: 'に',
       es: 'a',
       ar: 'إلى',
-      zh: '',
+      zh: '到',
       ko: '으로',
       fr: 'à',
       tr: 'e',
@@ -485,10 +487,14 @@ export function generateForFunction(
     targetStr = attachMarker(targetValue, targetMarker);
   }
 
+  // `set` writes the variable before the value in every language ("sets :count to 10",
+  // ":countを 10に 設定します"); a frame that places the patient first gets them swapped.
+  const swap =
+    verb === 'set' && frame.template.indexOf('{patient}') < frame.template.indexOf('{target}');
   let sentence = frame.template
     .replace(/\{subject\}/g, subject)
-    .replace(/\{patient\}/g, patientStr)
-    .replace(/\{target\}/g, targetStr);
+    .replace(/\{patient\}/g, swap ? targetStr : patientStr)
+    .replace(/\{target\}/g, swap ? patientStr : targetStr);
 
   // Replace verb form references: {verb.base}, {verb.present.el}, etc.
   sentence = sentence.replace(/\{verb\.([^}]+)\}/g, (_match, path: string) => {
