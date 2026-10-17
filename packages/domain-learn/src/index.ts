@@ -8,7 +8,9 @@
  *
  * Unlike domain-sql (natural language -> SQL), domain-learn's "compiled
  * output" IS natural language sentences with morphology applied. The
- * standard CodeGenerator.generate() returns the commanding form in English.
+ * commanding sentence, the command a learner types, is `@lokascript/semantic`'s:
+ * what the hyperscript adapter runs (hyperfixi domains rethink, decision D2), so
+ * the DSL reads and writes it with semantic. `compile` returns it in English.
  * The extended generateForFunction() powers the exercise engine.
  *
  * @example
@@ -31,126 +33,25 @@
  * // Interlinear gloss
  * import { generateGloss } from '@lokascript/domain-learn';
  * generateGloss(node, 'commanding', 'ja');
- * // -> { tokens: ['#buttonに', '.activeを', '追加して'], roles: ['DEST', 'PAT', 'VERB'], ... }
+ * // -> { tokens: ['#buttonに', '.activeを', '追加'], roles: ['DEST', 'PAT', 'VERB'], ... }
  * ```
  */
 
-import { createMultilingualDSL, type MultilingualDSL } from '@lokascript/framework';
-import { allSchemas } from './schemas';
-import {
-  ALL_PROFILES,
-  enProfile,
-  jaProfile,
-  esProfile,
-  arProfile,
-  zhProfile,
-  koProfile,
-  frProfile,
-  trProfile,
-  deProfile,
-  ptProfile,
-} from './profiles';
-import {
-  EnglishLearnTokenizer,
-  JapaneseLearnTokenizer,
-  SpanishLearnTokenizer,
-  ArabicLearnTokenizer,
-  ChineseLearnTokenizer,
-  KoreanLearnTokenizer,
-  FrenchLearnTokenizer,
-  TurkishLearnTokenizer,
-  GermanLearnTokenizer,
-  PortugueseLearnTokenizer,
-} from './tokenizers';
-import { learnCodeGenerator, registerProfile } from './generators/sentence-generator';
+import type { MultilingualDSL } from '@lokascript/framework';
+import { ALL_PROFILES } from './profiles';
+import { registerProfile } from './generators/sentence-generator';
+import { createSemanticLearnDSL } from './dsl';
 
 /**
- * Create a multilingual learning DSL instance with all 10 supported languages.
- * Also registers all language profiles with the sentence generator.
+ * Create the learning DSL: commanding sentences in its 10 languages, read and written by
+ * `@lokascript/semantic`. Also registers all language profiles with the sentence generator.
  */
 export function createLearnDSL(): MultilingualDSL {
   // Register all profiles with the sentence generator
   for (const [code, profile] of Object.entries(ALL_PROFILES)) {
     registerProfile(code, profile);
   }
-
-  return createMultilingualDSL({
-    name: 'Learn',
-    schemas: allSchemas,
-    languages: [
-      {
-        code: 'en',
-        name: 'English',
-        nativeName: 'English',
-        tokenizer: EnglishLearnTokenizer,
-        patternProfile: enProfile.patternProfile,
-      },
-      {
-        code: 'ja',
-        name: 'Japanese',
-        nativeName: '日本語',
-        tokenizer: JapaneseLearnTokenizer,
-        patternProfile: jaProfile.patternProfile,
-      },
-      {
-        code: 'es',
-        name: 'Spanish',
-        nativeName: 'Español',
-        tokenizer: SpanishLearnTokenizer,
-        patternProfile: esProfile.patternProfile,
-      },
-      {
-        code: 'ar',
-        name: 'Arabic',
-        nativeName: 'العربية',
-        tokenizer: ArabicLearnTokenizer,
-        patternProfile: arProfile.patternProfile,
-      },
-      {
-        code: 'zh',
-        name: 'Chinese',
-        nativeName: '中文',
-        tokenizer: ChineseLearnTokenizer,
-        patternProfile: zhProfile.patternProfile,
-      },
-      {
-        code: 'ko',
-        name: 'Korean',
-        nativeName: '한국어',
-        tokenizer: KoreanLearnTokenizer,
-        patternProfile: koProfile.patternProfile,
-      },
-      {
-        code: 'fr',
-        name: 'French',
-        nativeName: 'Français',
-        tokenizer: FrenchLearnTokenizer,
-        patternProfile: frProfile.patternProfile,
-      },
-      {
-        code: 'tr',
-        name: 'Turkish',
-        nativeName: 'Türkçe',
-        tokenizer: TurkishLearnTokenizer,
-        patternProfile: trProfile.patternProfile,
-      },
-      {
-        code: 'de',
-        name: 'German',
-        nativeName: 'Deutsch',
-        tokenizer: GermanLearnTokenizer,
-        patternProfile: deProfile.patternProfile,
-      },
-      {
-        code: 'pt',
-        name: 'Portuguese',
-        nativeName: 'Português',
-        tokenizer: PortugueseLearnTokenizer,
-        patternProfile: ptProfile.patternProfile,
-      },
-    ],
-    codeGenerator: learnCodeGenerator,
-  });
+  return createSemanticLearnDSL();
 }
 
 // ─── Re-exports ──────────────────────────────────────────────────
@@ -227,6 +128,8 @@ export {
 } from './generators/sentence-generator';
 
 export { renderLearn } from './generators/learn-renderer';
+export { commandingSentence, commandingVerb, toSemanticNode } from './commanding';
+export { LEARN_LANGUAGES } from './dsl';
 export { generateGloss } from './generators/gloss-generator';
 
 // Domain scan config (for AOT / Vite plugin integration)

@@ -11,6 +11,7 @@
 
 import type { SemanticNode, CodeGenerator } from '@lokascript/framework';
 import { extractRoleValue } from '@lokascript/framework';
+import { LEGACY_PATIENT, commandingSentence, commandingVerb } from '../commanding';
 import type {
   CommunicativeFunction,
   RenderedSentence,
@@ -386,6 +387,25 @@ function resolveFormPath(forms: AnyForms, path: string): string {
   return typeof current === 'string' ? current : `[${path}?]`;
 }
 
+/** The path of the form in `forms` that is `word` (`base`, `dictionary`), if one is. */
+function formPathOf(forms: AnyForms, word: string, prefix = ''): string | undefined {
+  for (const [key, value] of Object.entries(forms as unknown as Record<string, unknown>)) {
+    const path = prefix ? `${prefix}.${key}` : key;
+    if (value === word) return path;
+    if (value && typeof value === 'object') {
+      const found = formPathOf(value as AnyForms, word, path);
+      if (found) return found;
+    }
+  }
+  return undefined;
+}
+
+/** A command's patient: `send`'s event and `wait`'s duration, under either name. */
+export function patientOf(node: SemanticNode): string | undefined {
+  const legacy = LEGACY_PATIENT[node.action];
+  return extractRoleValue(node, 'patient') || (legacy ? extractRoleValue(node, legacy) : undefined);
+}
+
 // ─── Sentence Generator ─────────────────────────────────────────
 
 /** Registry of language profiles — populated by registerProfile() */
@@ -418,12 +438,31 @@ export function generateForFunction(
   const frame = profile.frames.frames.find(f => f.function === fn);
   if (!frame) return null;
 
+  // The commanding sentence is semantic's, what the product runs (D2); null where semantic cannot
+  // write the command whole in this language.
+  if (fn === 'commanding') {
+    let sentence: string;
+    try {
+      sentence = commandingSentence(node, language);
+    } catch {
+      return null;
+    }
+    const word = commandingVerb(verb, language) ?? '';
+    return {
+      language,
+      function: fn,
+      sentence,
+      verbForm: formPathOf(forms, word) ?? 'semantic',
+      verbValue: word,
+    };
+  }
+
   const verbValue = resolveFormPath(forms, frame.verbForm);
   const subject = profile.defaultSubject;
   const cmdProfile = COMMAND_PROFILES[verb];
 
-  // Extract patient/target from SemanticNode roles
-  const patientValue = extractRoleValue(node, 'patient') || '';
+  // Extract patient/target from SemanticNode roles (send's event and wait's duration are its patient)
+  const patientValue = patientOf(node) || '';
   const targetRole = cmdProfile?.targetRole;
 
   // For verbs like get/fetch/go, the primary value is in source/destination

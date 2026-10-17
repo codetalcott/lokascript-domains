@@ -122,7 +122,8 @@ export const DOMAIN_VALUES: Record<string, DomainFixture> = {
     },
   },
   learn: {
-    // learn's commands are hyperscript's; the values are the shapes its sentences carry.
+    // learn's commands are hyperscript's, written and read by semantic (D2); the values are the
+    // shapes its sentences carry.
     oracle: 'node',
     values: {
       'add.patient': ['.active'],
@@ -131,9 +132,9 @@ export const DOMAIN_VALUES: Record<string, DomainFixture> = {
       'put.patient': ['"hi"'],
       'set.destination': ['x'],
       'set.patient': ['5'],
-      'wait.patient': ['2s'],
+      'wait.duration': ['2s'],
       'fetch.source': ['/api'],
-      'send.patient': ['click'],
+      'send.event': ['click'],
       'go.destination': ['/home'],
       'increment.patient': ['x'],
       'decrement.patient': ['x'],

@@ -2,6 +2,35 @@
 
 ## Unreleased
 
+- **learn's commanding sentence is semantic's** (hyperfixi domains rethink,
+  decision D2): the command a learner is shown and types is what
+  `@lokascript/semantic` writes, and so what the hyperscript adapter runs.
+  learn wrote its own (`#box .active 追加`, `agrega .active a #box`), which
+  semantic read as the source in 74 of 135 cases; now 150 of 150 (15 commands
+  × 10 languages) read back as the same command.
+  - `createLearnDSL()` reads and writes with semantic: `parse` accepts what
+    semantic's `translate` carries whole (input it reads only in part is
+    refused, `UnreadInputError`), and only learn's fifteen verbs; `render`,
+    `renderLearn` and `generateForFunction(node, 'commanding', lang)` give
+    semantic's sentence (`#boxに .activeを 追加`, `agregar .active a #box`,
+    `go url "/home"`); `compile` gives it in English; `translate` is
+    semantic's, refused as `TranslationReadBackError` where semantic would
+    lose part of it.
+  - The other six functions (describing, narrating, …), the morphology and
+    the glosses stay learn's. The commanding gloss follows semantic's
+    sentence word by word; `verbValue` is semantic's word for the verb.
+  - `send`'s event and `wait`'s duration take semantic's role names (`event`,
+    `duration`; learn called both `patient`); a node with the old name still
+    renders. `put` requires its destination, as semantic's does.
+  - What semantic does not read, learn no longer reads: `add active to
+    button` (no selectors), Spanish `agrega` (semantic reads `agregar`), a
+    class name with diacritics (`.año`).
+  - The domain gate: learn's round trip 200 of 200 (188 of 210 before; `put`
+    without a destination is no longer a command). Three leftover cases read
+    the word into a role semantic has and learn does not teach (ja `fetch`'s
+    `as`, ar `increment`/`decrement`'s `by`): listed as accepted on framework
+    4.7.0, read under 4.8.0's rule.
+
 ## 4.1.0
 
 - **Six of the seven DSLs read and write on framework 4.7.0's core**

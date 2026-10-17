@@ -203,7 +203,8 @@ export const putSchema = defineCommand({
     defineRole({
       role: 'destination',
       description: 'Where to put the content',
-      required: false,
+      // semantic's put requires it (learn's sentences are semantic's).
+      required: true,
       expectedTypes: ['selector', 'reference', 'expression'],
       svoPosition: 2,
       sovPosition: 2,
@@ -348,17 +349,17 @@ export const getSchema = defineCommand({
 });
 
 // =============================================================================
-// wait — transitive: patient (duration or event)
+// wait — transitive: duration (semantic's role; learn called it patient)
 // =============================================================================
 
 export const waitSchema = defineCommand({
   action: 'wait',
   description: 'Wait for a duration or event',
   category: 'async',
-  primaryRole: 'patient',
+  primaryRole: 'duration',
   roles: [
     defineRole({
-      role: 'patient',
+      role: 'duration',
       description: 'Duration or event to wait for',
       required: true,
       expectedTypes: ['literal', 'expression'],
@@ -408,18 +409,17 @@ export const fetchSchema = defineCommand({
 });
 
 // =============================================================================
-// send — ditransitive: event (patient-like) + destination
-// Note: send's patient-equivalent is the 'event' role
+// send — ditransitive: event + destination (semantic's roles; learn called the event patient)
 // =============================================================================
 
 export const sendSchema = defineCommand({
   action: 'send',
   description: 'Send an event to an element',
   category: 'event',
-  primaryRole: 'patient',
+  primaryRole: 'event',
   roles: [
     defineRole({
-      role: 'patient',
+      role: 'event',
       description: 'The event to send',
       required: true,
       expectedTypes: ['literal', 'expression'],

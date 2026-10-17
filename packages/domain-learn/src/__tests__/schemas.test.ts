@@ -5,7 +5,7 @@
 import { describe, it, expect, beforeAll } from 'vitest';
 import { createLearnDSL, ALL_VERBS } from '../index';
 import type { MultilingualDSL } from '@lokascript/framework';
-import { extractRoleValue } from '@lokascript/framework';
+import { extractRoleValue, UnreadInputError } from '@lokascript/framework';
 
 describe('Learn Domain Schemas', () => {
   let learn: MultilingualDSL;
@@ -36,8 +36,8 @@ describe('Learn Domain Schemas', () => {
   });
 
   describe('English Parsing (SVO)', () => {
-    it('should parse "add active to button"', () => {
-      const node = learn.parse('add active to button', 'en');
+    it('should parse "add .active to #button"', () => {
+      const node = learn.parse('add .active to #button', 'en');
       expect(node.action).toBe('add');
     });
 
@@ -66,9 +66,10 @@ describe('Learn Domain Schemas', () => {
       expect(node.action).toBe('get');
     });
 
-    it('should parse "send event to target"', () => {
-      const node = learn.parse('send event to target', 'en');
+    it('should parse "send click to #button"', () => {
+      const node = learn.parse('send click to #button', 'en');
       expect(node.action).toBe('send');
+      expect(extractRoleValue(node, 'event')).toBe('click');
     });
 
     it('should parse "increment counter"', () => {
@@ -86,12 +87,11 @@ describe('Learn Domain Schemas', () => {
   describe('Natural-language parse captures whole selector values', () => {
     it.each([
       ['en', 'add .active to #button'],
-      ['es', 'agrega .active a #button'],
+      ['es', 'agregar .active a #button'],
       ['de', 'hinzufügen .active zu #button'],
-      // No ja/ko row: their natural-language parse fails on ANY input of this
-      // shape, before and after this fix — measured, not assumed. That is the
-      // separate 0/15 round-trip defect in DOMAIN-LEARN-PARITY-FINDINGS.md, and
-      // it is not a selector problem.
+      // learn reads with semantic now (D2), so ja and ko read too.
+      ['ja', '#buttonに .activeを 追加'],
+      ['ko', '#button에 .active을 추가'],
     ])('[%s] keeps the class and id intact', (language, sentence) => {
       const node = learn.parse(sentence, language);
       expect(node.action).toBe('add');
@@ -99,14 +99,10 @@ describe('Learn Domain Schemas', () => {
       expect(extractRoleValue(node, 'destination')).toBe('#button');
     });
 
-    // The selector body is Unicode so diacritics survive, but it must STOP at
-    // kana/Hangul/Han: those abut a selector with no space in the SOV languages,
-    // so a Unicode-wide body turns `#buttonに` into one token and swallows the
-    // role marker into the value.
-    it('keeps diacritics in class names', () => {
-      const node = learn.parse('agrega .año a #botón', 'es');
-      expect(extractRoleValue(node, 'patient')).toBe('.año');
-      expect(extractRoleValue(node, 'destination')).toBe('#botón');
+    // learn reads as the product does (D2): semantic's selector stops at `ñ`, so `.año` is refused
+    // whole, never read as `.a` (learn's own tokenizer read Unicode selector bodies).
+    it('refuses a class name with diacritics, which the product does not read', () => {
+      expect(() => learn.parse('agregar .año a #botón', 'es')).toThrow(UnreadInputError);
     });
   });
 

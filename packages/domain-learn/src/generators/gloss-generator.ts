@@ -2,9 +2,12 @@
  * Gloss Generator — Interlinear Gloss for Learning
  *
  * Produces interlinear glosses from a SemanticNode, showing:
- *   tokens:  target language tokens  ["#buttonに", ".activeを", "追加して"]
+ *   tokens:  target language tokens  ["#buttonに", ".activeを", "追加"]
  *   roles:   grammatical labels      ["DEST", "PAT", "VERB"]
- *   english: English gloss           ["to #button", ".active", "add (imperative)"]
+ *   english: English gloss           ["to #button", ".active", "add (command)"]
+ *
+ * The commanding gloss follows the sentence `@lokascript/semantic` writes (the product's, D2),
+ * word by word; the other functions' follow learn's own frames.
  *
  * Glosses help ESL students understand the grammatical function of each
  * word/particle in context, and help code students understand the mapping
@@ -14,7 +17,8 @@
 import type { SemanticNode } from '@lokascript/framework';
 import { extractRoleValue } from '@lokascript/framework';
 import type { InterlinearGloss, CommunicativeFunction } from '../types';
-import { resolveMarker, attachMarker, getProfile } from './sentence-generator';
+import { resolveMarker, attachMarker, getProfile, patientOf } from './sentence-generator';
+import { commandingGloss } from '../commanding';
 
 /** Abbreviated role labels for gloss display */
 const ROLE_LABELS: Record<string, string> = {
@@ -79,11 +83,23 @@ export function generateGloss(
   const frame = profile.frames.frames.find(f => f.function === fn);
   if (!frame) return null;
 
+  // The commanding sentence is semantic's (D2): its gloss follows the words semantic wrote.
+  if (fn === 'commanding') {
+    try {
+      return commandingGloss(node, language, role => {
+        const learnRole = role === 'event' || role === 'duration' ? 'patient' : role;
+        return resolveMarker(verb, learnRole, 'en').marker;
+      });
+    } catch {
+      return null;
+    }
+  }
+
   const tokens: string[] = [];
   const roles: string[] = [];
   const english: string[] = [];
 
-  const patientValue = extractRoleValue(node, 'patient') || '';
+  const patientValue = patientOf(node) || '';
   const targetRole = cmdProfile.targetRole;
   const targetValue = targetRole ? extractRoleValue(node, targetRole) || '' : '';
 
