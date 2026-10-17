@@ -2,6 +2,17 @@
 
 ## Unreleased
 
+## 4.2.0
+
+- **No domain accepts input it does not read** (hyperfixi domains rethink
+  Phase 5, on framework 4.8.0, whose peer the aggregate now takes): an
+  unknown word after a command is read into a role only where it reaches the
+  code, and refused otherwise. Leftover input accepted by the domain gate:
+  164 at 4.1.0, 0 now. behaviorspec reads back all 536 of its round trips (306
+  at 4.0.1), learn writes its commanding sentence with semantic (150 of 150
+  read back by the product), and behaviorspec takes bdd's preconditions,
+  actions and assertions, bdd deprecated. Each change below.
+
 - **behaviorspec reads bdd's preconditions, actions and assertions** (the
   owner's call, 2026-10-16: bdd merges into behaviorspec), in behaviorspec's
   own syntax:
