@@ -845,11 +845,18 @@ describe('Destination role', () => {
 
 describe('Edge cases', () => {
   it('handles when with system actor', () => {
-    const node = dsl.parse('when system triggers on #form', 'en');
+    const node = dsl.parse('when system submits on #form', 'en');
     expect(node.action).toBe('when');
     expect(roleValue(node, 'actor')).toBe('system');
-    expect(roleValue(node, 'action')).toBe('triggers');
+    expect(roleValue(node, 'action')).toBe('submits');
     expect(roleValue(node, 'target')).toBe('#form');
+  });
+
+  it('refuses an interaction the generator does not know, rather than compiling a comment', () => {
+    // `triggers` compiled to `// When: system triggers #form`, a step that did nothing.
+    expect(() => dsl.parse('when system triggers on #form', 'en')).toThrow();
+    // Nor is a known interaction read as the actor before an unknown word.
+    expect(() => dsl.parse('when clicks zzqx', 'en')).toThrow(/leaving "zzqx" unread/);
   });
 
   it('handles expect with class assertion via has', () => {

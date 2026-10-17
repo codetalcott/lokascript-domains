@@ -53,8 +53,22 @@ const FIND_EL = [
 // =============================================================================
 
 const SELECT_ALL_WORDS = new Set(['all', 'todo', '全て', '全部', 'الكل', '전체', 'hepsi', 'tout']);
-const TAB_WORDS = new Set(['tab', 'pestaña', 'タブ', '탭', '标签', 'sekme', 'onglet']);
-const DIALOG_WORDS = new Set([
+/**
+ * What `close` closes: a tab, or a dialog (the schema reads `close`'s target only from these). The
+ * words are the vocab's (`src/vocab/*.ts`) and, for Arabic, the tests'.
+ */
+export const TAB_WORDS = new Set([
+  'tab',
+  'pestaña',
+  'タブ',
+  '탭',
+  '标签',
+  'sekme',
+  'onglet',
+  'aba',
+  'вкладка',
+]);
+export const DIALOG_WORDS = new Set([
   'dialog',
   'modal',
   'diálogo',
@@ -63,6 +77,8 @@ const DIALOG_WORDS = new Set([
   '对话框',
   'diyalog',
   'dialogue',
+  'диалог',
+  'الحوار',
 ]);
 const PAGE_WORDS = new Set(['page', 'página', 'ページ', 'الصفحة', '페이지', '页面', 'sayfa']);
 

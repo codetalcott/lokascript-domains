@@ -2,6 +2,24 @@
 
 ## Unreleased
 
+- **framework 4.8.0** (hyperfixi #1546): behaviorspec, voice and the aggregate
+  take `^4.8.0`; the lock holds framework, semantic and intent 4.8.0.
+- **An unknown word read into a role is read, not accepted** (the gate's rule
+  from framework 4.8.0, the owner's of 2026-10-16): where the parse is the
+  text's own with the word in one role and the word reaches the code (sql's
+  `where active zzqx`, todo's `list zzqx`, voice's `help zzqx`, learn's three),
+  the gate counts it read; where it is read as something else, or goes
+  nowhere, it must be refused.
+- **behaviorspec's interaction and voice's thing to close read only the words
+  their generators know** (`RoleSpec.words`). `when clicks zzqx` read actor
+  `clicks`, action `zzqx`, and compiled to a comment, as did `when user frobs`;
+  `close zzqx` compiled as a plain `close`. Both are refused now. voice's close
+  words gain the vocab's own (pt `aba`, ru `вкладка`, `диалог`) and Arabic
+  `الحوار`.
+- The domain gate on 4.8.0: 0 worse, 135 better, 0 parses moved; leftover
+  input accepted in 10 cases (behaviorspec's `given viewport`, next), down
+  from 164 at 4.1.0.
+
 - **voice's `back` and `forward` take a page count only.** `back pages`
   compiled as a plain `back`: the quantity read any word and the generator
   ignored one it could not count. The quantity now reads a number (`back 3`,
