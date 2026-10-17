@@ -80,6 +80,9 @@ export interface DomainDSLOptions {
 export function createBDDDSL(options: DomainDSLOptions = {}): MultilingualDSL {
   return /*#__PURE__*/ createMultilingualDSL({
     name: 'BDD',
+    // The core reads bdd as the classic engine did (its suite and gate: 0 cases moved), and is the only
+    // engine in framework 5.0. Saying so here makes 4.x and 5.x read the same.
+    engine: 'core',
     schemas: allSchemas,
     languages: [
       {

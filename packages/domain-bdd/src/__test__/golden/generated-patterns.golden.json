@@ -46,7 +46,7 @@
         "command": "when",
         "priority": 100,
         "template": {
-          "format": "when {action_type} on {target} with {value}",
+          "format": "when {action_type} [on {target}] [with {value}]",
           "tokens": [
             {
               "type": "literal",
@@ -80,7 +80,8 @@
               "tokens": [
                 {
                   "type": "literal",
-                  "value": "with"
+                  "value": "with",
+                  "renderSuppress": true
                 },
                 {
                   "type": "role",
@@ -110,7 +111,7 @@
         "command": "then",
         "priority": 100,
         "template": {
-          "format": "then {target} has {assertion} of {expected_value}",
+          "format": "then {target} has {assertion} [of {expected_value}]",
           "tokens": [
             {
               "type": "literal",
@@ -138,7 +139,8 @@
               "tokens": [
                 {
                   "type": "literal",
-                  "value": "of"
+                  "value": "of",
+                  "renderSuppress": true
                 },
                 {
                   "type": "role",
@@ -236,7 +238,7 @@
         "command": "when",
         "priority": 100,
         "template": {
-          "format": "cuando {action_type} en {target} con {value}",
+          "format": "cuando {action_type} [en {target}] [con {value}]",
           "tokens": [
             {
               "type": "literal",
@@ -270,7 +272,8 @@
               "tokens": [
                 {
                   "type": "literal",
-                  "value": "con"
+                  "value": "con",
+                  "renderSuppress": true
                 },
                 {
                   "type": "role",
@@ -300,7 +303,7 @@
         "command": "then",
         "priority": 100,
         "template": {
-          "format": "entonces {target} tiene {assertion} de {expected_value}",
+          "format": "entonces {target} tiene {assertion} [de {expected_value}]",
           "tokens": [
             {
               "type": "literal",
@@ -328,7 +331,8 @@
               "tokens": [
                 {
                   "type": "literal",
-                  "value": "de"
+                  "value": "de",
+                  "renderSuppress": true
                 },
                 {
                   "type": "role",
@@ -426,7 +430,7 @@
         "command": "when",
         "priority": 100,
         "template": {
-          "format": "を {target} {action_type} で {value} したら",
+          "format": "[を {target}] {action_type} [で {value}] したら",
           "tokens": [
             {
               "type": "group",
@@ -462,7 +466,8 @@
                 },
                 {
                   "type": "literal",
-                  "value": "で"
+                  "value": "で",
+                  "renderSuppress": true
                 }
               ]
             },
@@ -490,7 +495,7 @@
         "command": "then",
         "priority": 100,
         "template": {
-          "format": "に {target} {assertion} の {expected_value} ならば",
+          "format": "に {target} {assertion} [の {expected_value}] ならば",
           "tokens": [
             {
               "type": "role",
@@ -520,7 +525,8 @@
                 },
                 {
                   "type": "literal",
-                  "value": "の"
+                  "value": "の",
+                  "renderSuppress": true
                 }
               ]
             },
@@ -616,7 +622,7 @@
         "command": "when",
         "priority": 100,
         "template": {
-          "format": "عند {action_type} على {target} ب {value}",
+          "format": "عند {action_type} [على {target}] [ب {value}]",
           "tokens": [
             {
               "type": "literal",
@@ -650,7 +656,8 @@
               "tokens": [
                 {
                   "type": "literal",
-                  "value": "ب"
+                  "value": "ب",
+                  "renderSuppress": true
                 },
                 {
                   "type": "role",
@@ -680,7 +687,7 @@
         "command": "then",
         "priority": 100,
         "template": {
-          "format": "فإن {target} يحتوي {assertion} من {expected_value}",
+          "format": "فإن {target} يحتوي {assertion} [من {expected_value}]",
           "tokens": [
             {
               "type": "literal",
@@ -708,7 +715,8 @@
               "tokens": [
                 {
                   "type": "literal",
-                  "value": "من"
+                  "value": "من",
+                  "renderSuppress": true
                 },
                 {
                   "type": "role",
@@ -806,7 +814,7 @@
         "command": "when",
         "priority": 100,
         "template": {
-          "format": "를 {target} {action_type} 로 {value} 만약",
+          "format": "[를 {target}] {action_type} [로 {value}] 만약",
           "tokens": [
             {
               "type": "group",
@@ -842,7 +850,8 @@
                 },
                 {
                   "type": "literal",
-                  "value": "로"
+                  "value": "로",
+                  "renderSuppress": true
                 }
               ]
             },
@@ -870,7 +879,7 @@
         "command": "then",
         "priority": 100,
         "template": {
-          "format": "에 {target} {assertion} 의 {expected_value} 그러면",
+          "format": "에 {target} {assertion} [의 {expected_value}] 그러면",
           "tokens": [
             {
               "type": "role",
@@ -900,7 +909,8 @@
                 },
                 {
                   "type": "literal",
-                  "value": "의"
+                  "value": "의",
+                  "renderSuppress": true
                 }
               ]
             },
@@ -996,7 +1006,7 @@
         "command": "when",
         "priority": 100,
         "template": {
-          "format": "当 {action_type} 在 {target} 用 {value}",
+          "format": "当 {action_type} [在 {target}] [用 {value}]",
           "tokens": [
             {
               "type": "literal",
@@ -1014,7 +1024,8 @@
               "tokens": [
                 {
                   "type": "literal",
-                  "value": "在"
+                  "value": "在",
+                  "renderSuppress": true
                 },
                 {
                   "type": "role",
@@ -1030,7 +1041,8 @@
               "tokens": [
                 {
                   "type": "literal",
-                  "value": "用"
+                  "value": "用",
+                  "renderSuppress": true
                 },
                 {
                   "type": "role",
@@ -1060,7 +1072,7 @@
         "command": "then",
         "priority": 100,
         "template": {
-          "format": "那么 {target} 有 {assertion} 的 {expected_value}",
+          "format": "那么 {target} 有 {assertion} [的 {expected_value}]",
           "tokens": [
             {
               "type": "literal",
@@ -1088,7 +1100,8 @@
               "tokens": [
                 {
                   "type": "literal",
-                  "value": "的"
+                  "value": "的",
+                  "renderSuppress": true
                 },
                 {
                   "type": "role",
@@ -1186,7 +1199,7 @@
         "command": "when",
         "priority": 100,
         "template": {
-          "format": "üzerinde {target} {action_type} ile {value} olduğunda",
+          "format": "[üzerinde {target}] {action_type} [ile {value}] olduğunda",
           "tokens": [
             {
               "type": "group",
@@ -1222,7 +1235,8 @@
                 },
                 {
                   "type": "literal",
-                  "value": "ile"
+                  "value": "ile",
+                  "renderSuppress": true
                 }
               ]
             },
@@ -1250,7 +1264,7 @@
         "command": "then",
         "priority": 100,
         "template": {
-          "format": "de {target} sahip {assertion} nin {expected_value} sonra",
+          "format": "de {target} sahip {assertion} [nin {expected_value}] sonra",
           "tokens": [
             {
               "type": "role",
@@ -1284,7 +1298,8 @@
                 },
                 {
                   "type": "literal",
-                  "value": "nin"
+                  "value": "nin",
+                  "renderSuppress": true
                 }
               ]
             },
@@ -1382,7 +1397,7 @@
         "command": "when",
         "priority": 100,
         "template": {
-          "format": "quand {action_type} sur {target} avec {value}",
+          "format": "quand {action_type} [sur {target}] [avec {value}]",
           "tokens": [
             {
               "type": "literal",
@@ -1416,7 +1431,8 @@
               "tokens": [
                 {
                   "type": "literal",
-                  "value": "avec"
+                  "value": "avec",
+                  "renderSuppress": true
                 },
                 {
                   "type": "role",
@@ -1446,7 +1462,7 @@
         "command": "then",
         "priority": 100,
         "template": {
-          "format": "alors {target} a {assertion} de {expected_value}",
+          "format": "alors {target} a {assertion} [de {expected_value}]",
           "tokens": [
             {
               "type": "literal",
@@ -1474,7 +1490,8 @@
               "tokens": [
                 {
                   "type": "literal",
-                  "value": "de"
+                  "value": "de",
+                  "renderSuppress": true
                 },
                 {
                   "type": "role",
