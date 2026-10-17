@@ -12,6 +12,7 @@ import type { SemanticNode, CommandSchema } from '@lokascript/framework';
 import { extractRoleValue, createDomainRenderer } from '@lokascript/framework';
 import { allProfiles } from '../profiles/index.js';
 import { allSchemas } from '../schemas/index';
+import { directionOf, directionWord, ZOOM_IN_VERB_LANGUAGES } from './voice-generator';
 
 // =============================================================================
 // Keyword Tables
@@ -313,8 +314,14 @@ function renderType(node: SemanticNode, lang: string): string {
   return parts.filter(Boolean).join(' ');
 }
 
+/** A direction in the target language's word (`arriba`, not `up`). */
+function renderDirection(node: SemanticNode, lang: string): string {
+  const value = extractRoleValue(node, 'manner') || '';
+  return value ? directionWord(directionOf(value) ?? value, lang) : '';
+}
+
 function renderScroll(node: SemanticNode, lang: string): string {
-  const manner = extractRoleValue(node, 'manner') || '';
+  const manner = renderDirection(node, lang);
   const quantity = extractRoleValue(node, 'quantity');
   const keyword = kw('scroll', lang);
 
@@ -342,10 +349,10 @@ function renderRead(node: SemanticNode, lang: string): string {
 }
 
 function renderZoom(node: SemanticNode, lang: string): string {
-  const manner = extractRoleValue(node, 'manner') || '';
+  const manner = renderDirection(node, lang);
   const keyword = kw('zoom', lang);
 
-  if (!manner) return keyword;
+  if (!manner || (manner === 'in' && ZOOM_IN_VERB_LANGUAGES.has(lang))) return keyword;
 
   if (SOV_LANGUAGES.has(lang)) {
     return `${manner} ${keyword}`;

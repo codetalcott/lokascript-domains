@@ -82,6 +82,110 @@ export const DIALOG_WORDS = new Set([
 ]);
 const PAGE_WORDS = new Set(['page', 'página', 'ページ', 'الصفحة', '페이지', '页面', 'sayfa']);
 
+/**
+ * Directions: where `scroll` scrolls and which way `zoom` zooms, each by its English name.
+ */
+export type ScrollDirection = 'up' | 'down' | 'left' | 'right' | 'top' | 'bottom';
+export type ZoomDirection = 'in' | 'out' | 'reset';
+export type Direction = ScrollDirection | ZoomDirection;
+export const SCROLL_DIRECTIONS: readonly ScrollDirection[] = [
+  'up',
+  'down',
+  'left',
+  'right',
+  'top',
+  'bottom',
+];
+export const ZOOM_DIRECTIONS: readonly ZoomDirection[] = ['in', 'out', 'reset'];
+
+/**
+ * Each language's word for a direction (the vocab's, `src/vocab/*.ts`). A direction a language has
+ * no word for is written in English, which every language reads. Until 4.3.0 the generator compared
+ * the word with the English names only, so `desplazar arriba` scrolled DOWN and `zoom menos`
+ * zoomed IN: every direction word but English compiled to the default.
+ */
+export const DIRECTION_WORDS: Readonly<Record<string, Partial<Record<Direction, string>>>> = {
+  es: { up: 'arriba', down: 'abajo', left: 'izquierda', right: 'derecha', in: 'más', out: 'menos' },
+  ja: {
+    up: '上',
+    down: '下',
+    left: '左',
+    right: '右',
+    in: 'イン',
+    out: 'アウト',
+    reset: 'リセット',
+  },
+  ar: { up: 'لأعلى', down: 'لأسفل', left: 'يسار', right: 'يمين' },
+  ko: { up: '위', down: '아래', left: '왼쪽', right: '오른쪽' },
+  zh: { up: '上', down: '下', left: '左', right: '右', in: '放大', out: '缩小', reset: '重置' },
+  tr: { up: 'yukarı', down: 'aşağı', left: 'sol', right: 'sağ' },
+  fr: { up: 'haut', down: 'bas', left: 'gauche', right: 'droite' },
+  de: {
+    up: 'hoch',
+    down: 'runter',
+    left: 'links',
+    right: 'rechts',
+    in: 'rein',
+    out: 'raus',
+    reset: 'zurücksetzen',
+  },
+  pt: {
+    up: 'cima',
+    down: 'baixo',
+    left: 'esquerda',
+    right: 'direita',
+    in: 'dentro',
+    out: 'fora',
+    reset: 'redefinir',
+  },
+  ru: {
+    up: 'вверх',
+    down: 'вниз',
+    left: 'влево',
+    right: 'вправо',
+    in: 'внутрь',
+    out: 'наружу',
+    reset: 'сброс',
+  },
+};
+
+/**
+ * Other words read as a direction: Arabic's bare `أعلى` / `أسفل` (the vocab's) beside `لأعلى` /
+ * `لأسفل`, and Japanese `拡大` / `縮小` (enlarge, shrink) beside `イン` / `アウト`.
+ */
+const DIRECTION_SPELLINGS: Readonly<Record<string, Direction>> = {
+  أعلى: 'up',
+  أسفل: 'down',
+  拡大: 'in',
+  縮小: 'out',
+};
+
+const DIRECTION_BY_WORD = new Map<string, Direction>([
+  ...[...SCROLL_DIRECTIONS, ...ZOOM_DIRECTIONS].map(d => [d, d] as const),
+  ...Object.values(DIRECTION_WORDS).flatMap(words =>
+    Object.entries(words).map(([d, w]) => [w.toLowerCase(), d as Direction] as const)
+  ),
+  ...Object.entries(DIRECTION_SPELLINGS),
+]);
+
+/** Languages whose zoom verb alone means "zoom in" (ar تكبير, ko 확대, tr yakınlaş, fr zoomer). */
+export const ZOOM_IN_VERB_LANGUAGES: ReadonlySet<string> = new Set(['ar', 'ko', 'tr', 'fr']);
+
+/** The English name of a direction word in any language, or undefined. */
+export function directionOf(word: string | undefined): Direction | undefined {
+  return word ? DIRECTION_BY_WORD.get(word.toLowerCase()) : undefined;
+}
+
+/** A language's word for a direction (English where it has none). */
+export function directionWord(direction: string, language: string): string {
+  return DIRECTION_WORDS[language]?.[direction as Direction] ?? direction;
+}
+
+/** Every word a scroll's (or a zoom's) direction is read from, in every language. */
+export function directionWords(directions: readonly Direction[]): string[] {
+  return [...DIRECTION_BY_WORD].filter(([, d]) => directions.includes(d)).map(([w]) => w);
+}
+
 // =============================================================================
 // Per-Command Generators
 // =============================================================================
@@ -125,7 +229,7 @@ function generateType(node: SemanticNode): string {
 }
 
 function generateScroll(node: SemanticNode): string {
-  const manner = (extractRoleValue(node, 'manner') || 'down').toLowerCase();
+  const manner = directionOf(extractRoleValue(node, 'manner')) ?? 'down';
   const quantity = extractRoleValue(node, 'quantity');
   const px = quantity ? parseInt(quantity, 10) || 300 : 300;
 
@@ -161,7 +265,7 @@ function generateRead(node: SemanticNode): string {
 }
 
 function generateZoom(node: SemanticNode): string {
-  const manner = (extractRoleValue(node, 'manner') || 'in').toLowerCase();
+  const manner = directionOf(extractRoleValue(node, 'manner')) ?? 'in';
   if (manner === 'reset') {
     return [
       `document.documentElement.dataset.zoom = '1';`,

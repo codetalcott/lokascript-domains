@@ -17,11 +17,18 @@
  * `scroll down`. Nothing in the schema could teach that, because the schema was
  * the correct one — the renderer was fixed instead. The round-trip case below
  * keeps it fixed.
+ *
+ * The second (4.3.0): `renderVoice` writes a direction in the target language's word
+ * (`desplazar arriba`, not `desplazar up`), and the bare verb for "zoom in" where the verb alone
+ * means it (ko `확대`). The schema renderer writes values as they are, so the comparison hands it
+ * the node with the direction already in the language's word (`inLanguage`): what it locks is
+ * the order and the markers around the value.
  */
 
 import { describe, it, expect } from 'vitest';
 import { createSchemaRenderer, type SemanticNode } from '@lokascript/framework';
 import { allSchemas, allProfiles, createVoiceDSL, renderVoice } from '../index';
+import { directionOf, directionWord, ZOOM_IN_VERB_LANGUAGES } from '../generators/voice-generator';
 
 const schemaRenderer = createSchemaRenderer(allSchemas, allProfiles);
 const voice = createVoiceDSL();
@@ -68,6 +75,19 @@ function stripOptionalRoles(node: SemanticNode): SemanticNode {
   return { ...node, roles };
 }
 
+/** The node with its direction in the language's word, as `renderVoice` writes it. */
+function inLanguage(node: SemanticNode, language: string): SemanticNode {
+  const manner = node.roles.get('manner');
+  const direction = manner && 'value' in manner ? directionOf(String(manner.value)) : undefined;
+  if (!manner || !direction) return node;
+  if (node.action === 'zoom' && direction === 'in' && ZOOM_IN_VERB_LANGUAGES.has(language)) {
+    return withoutRole(node, 'manner');
+  }
+  const roles = new Map(node.roles);
+  roles.set('manner', { ...manner, value: directionWord(direction, language) } as typeof manner);
+  return { ...node, roles };
+}
+
 function withoutRole(node: SemanticNode, role: string): SemanticNode {
   const roles = new Map([...node.roles].filter(([name]) => name !== role));
   return { ...node, roles };
@@ -96,11 +116,15 @@ describe('createSchemaRenderer agrees with renderVoice', () => {
 
     for (const language of LANGUAGES) {
       it(`${schema.action} × ${language} — all roles populated`, () => {
-        expect(schemaRenderer.render(full, language)).toBe(renderVoice(full, language));
+        expect(schemaRenderer.render(inLanguage(full, language), language)).toBe(
+          renderVoice(full, language)
+        );
       });
 
       it(`${schema.action} × ${language} — required roles only`, () => {
-        expect(schemaRenderer.render(minimal, language)).toBe(renderVoice(minimal, language));
+        expect(schemaRenderer.render(inLanguage(minimal, language), language)).toBe(
+          renderVoice(minimal, language)
+        );
       });
     }
   }

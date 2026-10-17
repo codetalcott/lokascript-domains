@@ -105,15 +105,15 @@
     },
     "voice": {
       "roundTrip": {
-        "cases": 385,
-        "pass": 382,
+        "cases": 396,
+        "pass": 393,
         "refused": 3,
         "silent": 0
       },
       "leftover": {
-        "cases": 382,
+        "cases": 393,
         "pass": 11,
-        "refused": 371,
+        "refused": 382,
         "silent": 0
       }
     }

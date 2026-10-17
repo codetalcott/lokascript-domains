@@ -123,7 +123,53 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": ["expression"],
+              "words": [
+                "up",
+                "down",
+                "left",
+                "right",
+                "top",
+                "bottom",
+                "arriba",
+                "abajo",
+                "izquierda",
+                "derecha",
+                "上",
+                "下",
+                "左",
+                "右",
+                "لأعلى",
+                "لأسفل",
+                "يسار",
+                "يمين",
+                "위",
+                "아래",
+                "왼쪽",
+                "오른쪽",
+                "yukarı",
+                "aşağı",
+                "sol",
+                "sağ",
+                "haut",
+                "bas",
+                "gauche",
+                "droite",
+                "hoch",
+                "runter",
+                "links",
+                "rechts",
+                "cima",
+                "baixo",
+                "esquerda",
+                "direita",
+                "вверх",
+                "вниз",
+                "влево",
+                "вправо",
+                "أعلى",
+                "أسفل"
+              ]
             },
             {
               "type": "group",
@@ -185,17 +231,47 @@
         "command": "zoom",
         "priority": 100,
         "template": {
-          "format": "zoom {manner}",
+          "format": "zoom [{manner}]",
           "tokens": [
             {
               "type": "literal",
               "value": "zoom"
             },
             {
-              "type": "role",
-              "role": "manner",
-              "optional": false,
-              "expectedTypes": ["expression"]
+              "type": "group",
+              "optional": true,
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "manner",
+                  "optional": true,
+                  "expectedTypes": ["expression"],
+                  "words": [
+                    "in",
+                    "out",
+                    "reset",
+                    "más",
+                    "menos",
+                    "イン",
+                    "アウト",
+                    "リセット",
+                    "放大",
+                    "缩小",
+                    "重置",
+                    "rein",
+                    "raus",
+                    "zurücksetzen",
+                    "dentro",
+                    "fora",
+                    "redefinir",
+                    "внутрь",
+                    "наружу",
+                    "сброс",
+                    "拡大",
+                    "縮小"
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -601,7 +677,53 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": ["expression"],
+              "words": [
+                "up",
+                "down",
+                "left",
+                "right",
+                "top",
+                "bottom",
+                "arriba",
+                "abajo",
+                "izquierda",
+                "derecha",
+                "上",
+                "下",
+                "左",
+                "右",
+                "لأعلى",
+                "لأسفل",
+                "يسار",
+                "يمين",
+                "위",
+                "아래",
+                "왼쪽",
+                "오른쪽",
+                "yukarı",
+                "aşağı",
+                "sol",
+                "sağ",
+                "haut",
+                "bas",
+                "gauche",
+                "droite",
+                "hoch",
+                "runter",
+                "links",
+                "rechts",
+                "cima",
+                "baixo",
+                "esquerda",
+                "direita",
+                "вверх",
+                "вниз",
+                "влево",
+                "вправо",
+                "أعلى",
+                "أسفل"
+              ]
             },
             {
               "type": "group",
@@ -662,17 +784,47 @@
         "command": "zoom",
         "priority": 100,
         "template": {
-          "format": "zoom {manner}",
+          "format": "zoom [{manner}]",
           "tokens": [
             {
               "type": "literal",
               "value": "zoom"
             },
             {
-              "type": "role",
-              "role": "manner",
-              "optional": false,
-              "expectedTypes": ["expression"]
+              "type": "group",
+              "optional": true,
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "manner",
+                  "optional": true,
+                  "expectedTypes": ["expression"],
+                  "words": [
+                    "in",
+                    "out",
+                    "reset",
+                    "más",
+                    "menos",
+                    "イン",
+                    "アウト",
+                    "リセット",
+                    "放大",
+                    "缩小",
+                    "重置",
+                    "rein",
+                    "raus",
+                    "zurücksetzen",
+                    "dentro",
+                    "fora",
+                    "redefinir",
+                    "внутрь",
+                    "наружу",
+                    "сброс",
+                    "拡大",
+                    "縮小"
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -1084,7 +1236,53 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": ["expression"],
+              "words": [
+                "up",
+                "down",
+                "left",
+                "right",
+                "top",
+                "bottom",
+                "arriba",
+                "abajo",
+                "izquierda",
+                "derecha",
+                "上",
+                "下",
+                "左",
+                "右",
+                "لأعلى",
+                "لأسفل",
+                "يسار",
+                "يمين",
+                "위",
+                "아래",
+                "왼쪽",
+                "오른쪽",
+                "yukarı",
+                "aşağı",
+                "sol",
+                "sağ",
+                "haut",
+                "bas",
+                "gauche",
+                "droite",
+                "hoch",
+                "runter",
+                "links",
+                "rechts",
+                "cima",
+                "baixo",
+                "esquerda",
+                "direita",
+                "вверх",
+                "вниз",
+                "влево",
+                "вправо",
+                "أعلى",
+                "أسفل"
+              ]
             },
             {
               "type": "group",
@@ -1155,13 +1353,43 @@
         "command": "zoom",
         "priority": 100,
         "template": {
-          "format": "{manner} ズーム",
+          "format": "[{manner}] ズーム",
           "tokens": [
             {
-              "type": "role",
-              "role": "manner",
-              "optional": false,
-              "expectedTypes": ["expression"]
+              "type": "group",
+              "optional": true,
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "manner",
+                  "optional": true,
+                  "expectedTypes": ["expression"],
+                  "words": [
+                    "in",
+                    "out",
+                    "reset",
+                    "más",
+                    "menos",
+                    "イン",
+                    "アウト",
+                    "リセット",
+                    "放大",
+                    "缩小",
+                    "重置",
+                    "rein",
+                    "raus",
+                    "zurücksetzen",
+                    "dentro",
+                    "fora",
+                    "redefinir",
+                    "внутрь",
+                    "наружу",
+                    "сброс",
+                    "拡大",
+                    "縮小"
+                  ]
+                }
+              ]
             },
             {
               "type": "literal",
@@ -1604,7 +1832,53 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": ["expression"],
+              "words": [
+                "up",
+                "down",
+                "left",
+                "right",
+                "top",
+                "bottom",
+                "arriba",
+                "abajo",
+                "izquierda",
+                "derecha",
+                "上",
+                "下",
+                "左",
+                "右",
+                "لأعلى",
+                "لأسفل",
+                "يسار",
+                "يمين",
+                "위",
+                "아래",
+                "왼쪽",
+                "오른쪽",
+                "yukarı",
+                "aşağı",
+                "sol",
+                "sağ",
+                "haut",
+                "bas",
+                "gauche",
+                "droite",
+                "hoch",
+                "runter",
+                "links",
+                "rechts",
+                "cima",
+                "baixo",
+                "esquerda",
+                "direita",
+                "вверх",
+                "вниз",
+                "влево",
+                "вправо",
+                "أعلى",
+                "أسفل"
+              ]
             },
             {
               "type": "group",
@@ -1665,17 +1939,47 @@
         "command": "zoom",
         "priority": 100,
         "template": {
-          "format": "تكبير {manner}",
+          "format": "تكبير [{manner}]",
           "tokens": [
             {
               "type": "literal",
               "value": "تكبير"
             },
             {
-              "type": "role",
-              "role": "manner",
-              "optional": false,
-              "expectedTypes": ["expression"]
+              "type": "group",
+              "optional": true,
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "manner",
+                  "optional": true,
+                  "expectedTypes": ["expression"],
+                  "words": [
+                    "in",
+                    "out",
+                    "reset",
+                    "más",
+                    "menos",
+                    "イン",
+                    "アウト",
+                    "リセット",
+                    "放大",
+                    "缩小",
+                    "重置",
+                    "rein",
+                    "raus",
+                    "zurücksetzen",
+                    "dentro",
+                    "fora",
+                    "redefinir",
+                    "внутрь",
+                    "наружу",
+                    "сброс",
+                    "拡大",
+                    "縮小"
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -1989,7 +2293,8 @@
             },
             {
               "type": "literal",
-              "value": "로"
+              "value": "로",
+              "alternatives": ["으로"]
             },
             {
               "type": "literal",
@@ -1999,7 +2304,8 @@
         },
         "extraction": {
           "destination": {
-            "marker": "로"
+            "marker": "로",
+            "markerAlternatives": ["으로"]
           }
         }
       }
@@ -2100,7 +2406,53 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": ["expression"],
+              "words": [
+                "up",
+                "down",
+                "left",
+                "right",
+                "top",
+                "bottom",
+                "arriba",
+                "abajo",
+                "izquierda",
+                "derecha",
+                "上",
+                "下",
+                "左",
+                "右",
+                "لأعلى",
+                "لأسفل",
+                "يسار",
+                "يمين",
+                "위",
+                "아래",
+                "왼쪽",
+                "오른쪽",
+                "yukarı",
+                "aşağı",
+                "sol",
+                "sağ",
+                "haut",
+                "bas",
+                "gauche",
+                "droite",
+                "hoch",
+                "runter",
+                "links",
+                "rechts",
+                "cima",
+                "baixo",
+                "esquerda",
+                "direita",
+                "вверх",
+                "вниз",
+                "влево",
+                "вправо",
+                "أعلى",
+                "أسفل"
+              ]
             },
             {
               "type": "group",
@@ -2171,13 +2523,43 @@
         "command": "zoom",
         "priority": 100,
         "template": {
-          "format": "{manner} 확대",
+          "format": "[{manner}] 확대",
           "tokens": [
             {
-              "type": "role",
-              "role": "manner",
-              "optional": false,
-              "expectedTypes": ["expression"]
+              "type": "group",
+              "optional": true,
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "manner",
+                  "optional": true,
+                  "expectedTypes": ["expression"],
+                  "words": [
+                    "in",
+                    "out",
+                    "reset",
+                    "más",
+                    "menos",
+                    "イン",
+                    "アウト",
+                    "リセット",
+                    "放大",
+                    "缩小",
+                    "重置",
+                    "rein",
+                    "raus",
+                    "zurücksetzen",
+                    "dentro",
+                    "fora",
+                    "redefinir",
+                    "внутрь",
+                    "наружу",
+                    "сброс",
+                    "拡大",
+                    "縮小"
+                  ]
+                }
+              ]
             },
             {
               "type": "literal",
@@ -2614,7 +2996,53 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": ["expression"],
+              "words": [
+                "up",
+                "down",
+                "left",
+                "right",
+                "top",
+                "bottom",
+                "arriba",
+                "abajo",
+                "izquierda",
+                "derecha",
+                "上",
+                "下",
+                "左",
+                "右",
+                "لأعلى",
+                "لأسفل",
+                "يسار",
+                "يمين",
+                "위",
+                "아래",
+                "왼쪽",
+                "오른쪽",
+                "yukarı",
+                "aşağı",
+                "sol",
+                "sağ",
+                "haut",
+                "bas",
+                "gauche",
+                "droite",
+                "hoch",
+                "runter",
+                "links",
+                "rechts",
+                "cima",
+                "baixo",
+                "esquerda",
+                "direita",
+                "вверх",
+                "вниз",
+                "влево",
+                "вправо",
+                "أعلى",
+                "أسفل"
+              ]
             },
             {
               "type": "group",
@@ -2675,17 +3103,47 @@
         "command": "zoom",
         "priority": 100,
         "template": {
-          "format": "缩放 {manner}",
+          "format": "缩放 [{manner}]",
           "tokens": [
             {
               "type": "literal",
               "value": "缩放"
             },
             {
-              "type": "role",
-              "role": "manner",
-              "optional": false,
-              "expectedTypes": ["expression"]
+              "type": "group",
+              "optional": true,
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "manner",
+                  "optional": true,
+                  "expectedTypes": ["expression"],
+                  "words": [
+                    "in",
+                    "out",
+                    "reset",
+                    "más",
+                    "menos",
+                    "イン",
+                    "アウト",
+                    "リセット",
+                    "放大",
+                    "缩小",
+                    "重置",
+                    "rein",
+                    "raus",
+                    "zurücksetzen",
+                    "dentro",
+                    "fora",
+                    "redefinir",
+                    "внутрь",
+                    "наружу",
+                    "сброс",
+                    "拡大",
+                    "縮小"
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -3084,7 +3542,53 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": ["expression"],
+              "words": [
+                "up",
+                "down",
+                "left",
+                "right",
+                "top",
+                "bottom",
+                "arriba",
+                "abajo",
+                "izquierda",
+                "derecha",
+                "上",
+                "下",
+                "左",
+                "右",
+                "لأعلى",
+                "لأسفل",
+                "يسار",
+                "يمين",
+                "위",
+                "아래",
+                "왼쪽",
+                "오른쪽",
+                "yukarı",
+                "aşağı",
+                "sol",
+                "sağ",
+                "haut",
+                "bas",
+                "gauche",
+                "droite",
+                "hoch",
+                "runter",
+                "links",
+                "rechts",
+                "cima",
+                "baixo",
+                "esquerda",
+                "direita",
+                "вверх",
+                "вниз",
+                "влево",
+                "вправо",
+                "أعلى",
+                "أسفل"
+              ]
             },
             {
               "type": "group",
@@ -3149,13 +3653,43 @@
         "command": "zoom",
         "priority": 100,
         "template": {
-          "format": "{manner} yakınlaş",
+          "format": "[{manner}] yakınlaş",
           "tokens": [
             {
-              "type": "role",
-              "role": "manner",
-              "optional": false,
-              "expectedTypes": ["expression"]
+              "type": "group",
+              "optional": true,
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "manner",
+                  "optional": true,
+                  "expectedTypes": ["expression"],
+                  "words": [
+                    "in",
+                    "out",
+                    "reset",
+                    "más",
+                    "menos",
+                    "イン",
+                    "アウト",
+                    "リセット",
+                    "放大",
+                    "缩小",
+                    "重置",
+                    "rein",
+                    "raus",
+                    "zurücksetzen",
+                    "dentro",
+                    "fora",
+                    "redefinir",
+                    "внутрь",
+                    "наружу",
+                    "сброс",
+                    "拡大",
+                    "縮小"
+                  ]
+                }
+              ]
             },
             {
               "type": "literal",
@@ -3576,7 +4110,53 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": ["expression"],
+              "words": [
+                "up",
+                "down",
+                "left",
+                "right",
+                "top",
+                "bottom",
+                "arriba",
+                "abajo",
+                "izquierda",
+                "derecha",
+                "上",
+                "下",
+                "左",
+                "右",
+                "لأعلى",
+                "لأسفل",
+                "يسار",
+                "يمين",
+                "위",
+                "아래",
+                "왼쪽",
+                "오른쪽",
+                "yukarı",
+                "aşağı",
+                "sol",
+                "sağ",
+                "haut",
+                "bas",
+                "gauche",
+                "droite",
+                "hoch",
+                "runter",
+                "links",
+                "rechts",
+                "cima",
+                "baixo",
+                "esquerda",
+                "direita",
+                "вверх",
+                "вниз",
+                "влево",
+                "вправо",
+                "أعلى",
+                "أسفل"
+              ]
             },
             {
               "type": "group",
@@ -3637,17 +4217,47 @@
         "command": "zoom",
         "priority": 100,
         "template": {
-          "format": "zoomer {manner}",
+          "format": "zoomer [{manner}]",
           "tokens": [
             {
               "type": "literal",
               "value": "zoomer"
             },
             {
-              "type": "role",
-              "role": "manner",
-              "optional": false,
-              "expectedTypes": ["expression"]
+              "type": "group",
+              "optional": true,
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "manner",
+                  "optional": true,
+                  "expectedTypes": ["expression"],
+                  "words": [
+                    "in",
+                    "out",
+                    "reset",
+                    "más",
+                    "menos",
+                    "イン",
+                    "アウト",
+                    "リセット",
+                    "放大",
+                    "缩小",
+                    "重置",
+                    "rein",
+                    "raus",
+                    "zurücksetzen",
+                    "dentro",
+                    "fora",
+                    "redefinir",
+                    "внутрь",
+                    "наружу",
+                    "сброс",
+                    "拡大",
+                    "縮小"
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -4051,7 +4661,53 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": ["expression"],
+              "words": [
+                "up",
+                "down",
+                "left",
+                "right",
+                "top",
+                "bottom",
+                "arriba",
+                "abajo",
+                "izquierda",
+                "derecha",
+                "上",
+                "下",
+                "左",
+                "右",
+                "لأعلى",
+                "لأسفل",
+                "يسار",
+                "يمين",
+                "위",
+                "아래",
+                "왼쪽",
+                "오른쪽",
+                "yukarı",
+                "aşağı",
+                "sol",
+                "sağ",
+                "haut",
+                "bas",
+                "gauche",
+                "droite",
+                "hoch",
+                "runter",
+                "links",
+                "rechts",
+                "cima",
+                "baixo",
+                "esquerda",
+                "direita",
+                "вверх",
+                "вниз",
+                "влево",
+                "вправо",
+                "أعلى",
+                "أسفل"
+              ]
             },
             {
               "type": "group",
@@ -4112,17 +4768,47 @@
         "command": "zoom",
         "priority": 100,
         "template": {
-          "format": "zoomen {manner}",
+          "format": "zoomen [{manner}]",
           "tokens": [
             {
               "type": "literal",
               "value": "zoomen"
             },
             {
-              "type": "role",
-              "role": "manner",
-              "optional": false,
-              "expectedTypes": ["expression"]
+              "type": "group",
+              "optional": true,
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "manner",
+                  "optional": true,
+                  "expectedTypes": ["expression"],
+                  "words": [
+                    "in",
+                    "out",
+                    "reset",
+                    "más",
+                    "menos",
+                    "イン",
+                    "アウト",
+                    "リセット",
+                    "放大",
+                    "缩小",
+                    "重置",
+                    "rein",
+                    "raus",
+                    "zurücksetzen",
+                    "dentro",
+                    "fora",
+                    "redefinir",
+                    "внутрь",
+                    "наружу",
+                    "сброс",
+                    "拡大",
+                    "縮小"
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -4525,7 +5211,53 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": ["expression"],
+              "words": [
+                "up",
+                "down",
+                "left",
+                "right",
+                "top",
+                "bottom",
+                "arriba",
+                "abajo",
+                "izquierda",
+                "derecha",
+                "上",
+                "下",
+                "左",
+                "右",
+                "لأعلى",
+                "لأسفل",
+                "يسار",
+                "يمين",
+                "위",
+                "아래",
+                "왼쪽",
+                "오른쪽",
+                "yukarı",
+                "aşağı",
+                "sol",
+                "sağ",
+                "haut",
+                "bas",
+                "gauche",
+                "droite",
+                "hoch",
+                "runter",
+                "links",
+                "rechts",
+                "cima",
+                "baixo",
+                "esquerda",
+                "direita",
+                "вверх",
+                "вниз",
+                "влево",
+                "вправо",
+                "أعلى",
+                "أسفل"
+              ]
             },
             {
               "type": "group",
@@ -4586,17 +5318,47 @@
         "command": "zoom",
         "priority": 100,
         "template": {
-          "format": "ampliar {manner}",
+          "format": "ampliar [{manner}]",
           "tokens": [
             {
               "type": "literal",
               "value": "ampliar"
             },
             {
-              "type": "role",
-              "role": "manner",
-              "optional": false,
-              "expectedTypes": ["expression"]
+              "type": "group",
+              "optional": true,
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "manner",
+                  "optional": true,
+                  "expectedTypes": ["expression"],
+                  "words": [
+                    "in",
+                    "out",
+                    "reset",
+                    "más",
+                    "menos",
+                    "イン",
+                    "アウト",
+                    "リセット",
+                    "放大",
+                    "缩小",
+                    "重置",
+                    "rein",
+                    "raus",
+                    "zurücksetzen",
+                    "dentro",
+                    "fora",
+                    "redefinir",
+                    "внутрь",
+                    "наружу",
+                    "сброс",
+                    "拡大",
+                    "縮小"
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -4999,7 +5761,53 @@
               "type": "role",
               "role": "manner",
               "optional": false,
-              "expectedTypes": ["expression"]
+              "expectedTypes": ["expression"],
+              "words": [
+                "up",
+                "down",
+                "left",
+                "right",
+                "top",
+                "bottom",
+                "arriba",
+                "abajo",
+                "izquierda",
+                "derecha",
+                "上",
+                "下",
+                "左",
+                "右",
+                "لأعلى",
+                "لأسفل",
+                "يسار",
+                "يمين",
+                "위",
+                "아래",
+                "왼쪽",
+                "오른쪽",
+                "yukarı",
+                "aşağı",
+                "sol",
+                "sağ",
+                "haut",
+                "bas",
+                "gauche",
+                "droite",
+                "hoch",
+                "runter",
+                "links",
+                "rechts",
+                "cima",
+                "baixo",
+                "esquerda",
+                "direita",
+                "вверх",
+                "вниз",
+                "влево",
+                "вправо",
+                "أعلى",
+                "أسفل"
+              ]
             },
             {
               "type": "group",
@@ -5060,17 +5868,47 @@
         "command": "zoom",
         "priority": 100,
         "template": {
-          "format": "масштаб {manner}",
+          "format": "масштаб [{manner}]",
           "tokens": [
             {
               "type": "literal",
               "value": "масштаб"
             },
             {
-              "type": "role",
-              "role": "manner",
-              "optional": false,
-              "expectedTypes": ["expression"]
+              "type": "group",
+              "optional": true,
+              "tokens": [
+                {
+                  "type": "role",
+                  "role": "manner",
+                  "optional": true,
+                  "expectedTypes": ["expression"],
+                  "words": [
+                    "in",
+                    "out",
+                    "reset",
+                    "más",
+                    "menos",
+                    "イン",
+                    "アウト",
+                    "リセット",
+                    "放大",
+                    "缩小",
+                    "重置",
+                    "rein",
+                    "raus",
+                    "zurücksetzen",
+                    "dentro",
+                    "fora",
+                    "redefinir",
+                    "внутрь",
+                    "наружу",
+                    "сброс",
+                    "拡大",
+                    "縮小"
+                  ]
+                }
+              ]
             }
           ]
         },
