@@ -174,7 +174,12 @@ never hand-authored per language:
   and a `render<X>` natural-language renderer with `COMMAND_KEYWORDS`/`MARKERS` tables.
 - `src/index.ts`: `create<X>DSL()` calls `createMultilingualDSL({ schemas, languages, codeGenerator,
   renderer })`, re-exports schemas/profiles/tokenizers, and exports an `<x>ScanConfig` for AOT/Vite
-  scanning. `domain-learn` is the odd one: its compiled output *is* natural language with morphology.
+  scanning. `domain-learn` is the odd one: its compiled output *is* natural language with morphology,
+  and its DSL is not a framework grammar. Its commanding sentence is `@lokascript/semantic`'s (what
+  the hyperscript adapter runs; hyperfixi domains rethink D2), so `createLearnDSL()` reads and writes
+  with semantic (`src/dsl.ts`, `src/commanding.ts`); its tokenizers and patterns no longer read, and
+  its frames, morphology and glosses write the other six functions. It has no pattern-parity or
+  schema-renderer-parity test.
 
 Standard suites in `src/__test__/`:
 

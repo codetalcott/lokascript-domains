@@ -92,11 +92,12 @@ describe('Sentence Generation', () => {
   });
 
   describe('Japanese Sentences (SOV)', () => {
-    it('should render te-form command', () => {
+    it("should render the command as semantic writes it (the product's form)", () => {
       const node = learn.parse('[add patient:.active destination:#button]', 'explicit');
       const result = generateForFunction(node, 'commanding', 'ja');
       expect(result).not.toBeNull();
-      expect(result!.sentence).toContain('追加して');
+      expect(result!.sentence).toBe('#buttonに .activeを 追加');
+      expect(result!.verbValue).toBe('追加');
     });
 
     it('should render polite present (masu)', () => {
@@ -113,16 +114,16 @@ describe('Sentence Generation', () => {
       expect(result).not.toBeNull();
       // Verb should be at the end
       const sentence = result!.sentence;
-      expect(sentence.endsWith('追加して')).toBe(true);
+      expect(sentence.endsWith('追加')).toBe(true);
     });
   });
 
   describe('Arabic Sentences (VSO)', () => {
-    it('should render imperative', () => {
+    it('should render the command verb first', () => {
       const node = learn.parse('[add patient:.active destination:#button]', 'explicit');
       const result = generateForFunction(node, 'commanding', 'ar');
       expect(result).not.toBeNull();
-      expect(result!.sentence).toContain('أضِف');
+      expect(result!.sentence).toBe('أضف .active إلى #button');
     });
   });
 
@@ -171,7 +172,7 @@ describe('Sentence Generation', () => {
     it('should render DSL text in Japanese', () => {
       const node = learn.parse('[add patient:.active destination:#button]', 'explicit');
       const text = renderLearn(node, 'ja');
-      expect(text).toContain('追加して');
+      expect(text).toBe('#buttonに .activeを 追加');
     });
   });
 

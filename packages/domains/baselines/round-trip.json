@@ -49,16 +49,16 @@
     },
     "learn": {
       "roundTrip": {
-        "cases": 210,
-        "pass": 188,
-        "refused": 21,
-        "silent": 1
+        "cases": 200,
+        "pass": 200,
+        "refused": 0,
+        "silent": 0
       },
       "leftover": {
-        "cases": 189,
+        "cases": 200,
         "pass": 0,
-        "refused": 189,
-        "silent": 0
+        "refused": 197,
+        "silent": 3
       }
     },
     "llm": {
@@ -1406,126 +1406,6 @@
         }
       }
     },
-    "learn": {
-      "[fetch source:/api]": {
-        "en": {
-          "outcome": "refused",
-          "text": "fetch /api",
-          "why": "No pattern matched for input: fetch /api"
-        },
-        "ja": {
-          "outcome": "refused",
-          "text": "/api から 取得",
-          "why": "No pattern matched for input: /api から 取得"
-        },
-        "es": {
-          "outcome": "refused",
-          "text": "buscar /api",
-          "why": "No pattern matched for input: buscar /api"
-        },
-        "ar": {
-          "outcome": "refused",
-          "text": "أحضر /api",
-          "why": "No pattern matched for input: أحضر /api"
-        },
-        "zh": {
-          "outcome": "refused",
-          "text": "抓取 /api",
-          "why": "No pattern matched for input: 抓取 /api"
-        },
-        "ko": {
-          "outcome": "refused",
-          "text": "/api 에서 패치",
-          "why": "No pattern matched for input: /api 에서 패치"
-        },
-        "fr": {
-          "outcome": "refused",
-          "text": "récupérer /api",
-          "why": "No pattern matched for input: récupérer /api"
-        },
-        "tr": {
-          "outcome": "refused",
-          "text": "/api getir",
-          "why": "No pattern matched for input: /api getir"
-        },
-        "de": {
-          "outcome": "refused",
-          "text": "abrufen /api",
-          "why": "No pattern matched for input: abrufen /api"
-        },
-        "pt": {
-          "outcome": "refused",
-          "text": "buscar /api",
-          "why": "No pattern matched for input: buscar /api"
-        }
-      },
-      "[send patient:click destination:#box]": {
-        "tr": {
-          "outcome": "refused",
-          "text": "#box -e click gönder",
-          "why": "No pattern matched for input: #box -e click gönder"
-        }
-      },
-      "[go destination:/home]": {
-        "en": {
-          "outcome": "refused",
-          "text": "go /home",
-          "why": "No pattern matched for input: go /home"
-        },
-        "ja": {
-          "outcome": "refused",
-          "text": "/home 行",
-          "why": "No pattern matched for input: /home 行"
-        },
-        "es": {
-          "outcome": "refused",
-          "text": "ir a /home",
-          "why": "No pattern matched for input: ir a /home"
-        },
-        "ar": {
-          "outcome": "refused",
-          "text": "اذهب إلى /home",
-          "why": "No pattern matched for input: اذهب إلى /home"
-        },
-        "zh": {
-          "outcome": "refused",
-          "text": "前往 /home",
-          "why": "No pattern matched for input: 前往 /home"
-        },
-        "ko": {
-          "outcome": "refused",
-          "text": "/home 에 이동",
-          "why": "No pattern matched for input: /home 에 이동"
-        },
-        "fr": {
-          "outcome": "refused",
-          "text": "aller à /home",
-          "why": "No pattern matched for input: aller à /home"
-        },
-        "tr": {
-          "outcome": "refused",
-          "text": "/home a git",
-          "why": "No pattern matched for input: /home a git"
-        },
-        "de": {
-          "outcome": "refused",
-          "text": "gehen zu /home",
-          "why": "No pattern matched for input: gehen zu /home"
-        },
-        "pt": {
-          "outcome": "refused",
-          "text": "ir para /home",
-          "why": "No pattern matched for input: ir para /home"
-        }
-      },
-      "[take patient:.active]": {
-        "tr": {
-          "outcome": "silent",
-          "text": ".active al",
-          "why": "reads another command: get"
-        }
-      }
-    },
     "llm": {
       "[ask patient:\"What is this?\" source:#article manner:bullets]": {
         "ko": {
@@ -1699,6 +1579,17 @@
         "zh",
         "fr",
         "tr"
+      ]
+    },
+    "learn": {
+      "[fetch source:/api]": [
+        "ja"
+      ],
+      "[increment patient:x]": [
+        "ar"
+      ],
+      "[decrement patient:x]": [
+        "ar"
       ]
     },
     "sql": {
