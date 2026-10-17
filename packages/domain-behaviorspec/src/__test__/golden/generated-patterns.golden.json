@@ -276,9 +276,15 @@
               "optional": true,
               "tokens": [
                 {
-                  "type": "literal",
-                  "value": "saying",
-                  "renderSuppress": true
+                  "type": "group",
+                  "optional": true,
+                  "tokens": [
+                    {
+                      "type": "literal",
+                      "value": "saying",
+                      "renderSuppress": true
+                    }
+                  ]
                 },
                 {
                   "type": "role",
@@ -631,9 +637,15 @@
               "optional": true,
               "tokens": [
                 {
-                  "type": "literal",
-                  "value": "diciendo",
-                  "renderSuppress": true
+                  "type": "group",
+                  "optional": true,
+                  "tokens": [
+                    {
+                      "type": "literal",
+                      "value": "diciendo",
+                      "renderSuppress": true
+                    }
+                  ]
                 },
                 {
                   "type": "role",
@@ -989,9 +1001,15 @@
                   "greedy": true
                 },
                 {
-                  "type": "literal",
-                  "value": "と",
-                  "renderSuppress": true
+                  "type": "group",
+                  "optional": true,
+                  "tokens": [
+                    {
+                      "type": "literal",
+                      "value": "と",
+                      "renderSuppress": true
+                    }
+                  ]
                 }
               ]
             },
@@ -1341,9 +1359,15 @@
               "optional": true,
               "tokens": [
                 {
-                  "type": "literal",
-                  "value": "يقول",
-                  "renderSuppress": true
+                  "type": "group",
+                  "optional": true,
+                  "tokens": [
+                    {
+                      "type": "literal",
+                      "value": "يقول",
+                      "renderSuppress": true
+                    }
+                  ]
                 },
                 {
                   "type": "role",
@@ -1699,9 +1723,15 @@
                   "greedy": true
                 },
                 {
-                  "type": "literal",
-                  "value": "으로",
-                  "renderSuppress": true
+                  "type": "group",
+                  "optional": true,
+                  "tokens": [
+                    {
+                      "type": "literal",
+                      "value": "으로",
+                      "renderSuppress": true
+                    }
+                  ]
                 }
               ]
             },
@@ -2051,9 +2081,15 @@
               "optional": true,
               "tokens": [
                 {
-                  "type": "literal",
-                  "value": "显示",
-                  "renderSuppress": true
+                  "type": "group",
+                  "optional": true,
+                  "tokens": [
+                    {
+                      "type": "literal",
+                      "value": "显示",
+                      "renderSuppress": true
+                    }
+                  ]
                 },
                 {
                   "type": "role",
@@ -2406,9 +2442,15 @@
               "optional": true,
               "tokens": [
                 {
-                  "type": "literal",
-                  "value": "disant",
-                  "renderSuppress": true
+                  "type": "group",
+                  "optional": true,
+                  "tokens": [
+                    {
+                      "type": "literal",
+                      "value": "disant",
+                      "renderSuppress": true
+                    }
+                  ]
                 },
                 {
                   "type": "role",
@@ -2764,9 +2806,15 @@
                   "greedy": true
                 },
                 {
-                  "type": "literal",
-                  "value": "diyen",
-                  "renderSuppress": true
+                  "type": "group",
+                  "optional": true,
+                  "tokens": [
+                    {
+                      "type": "literal",
+                      "value": "diyen",
+                      "renderSuppress": true
+                    }
+                  ]
                 }
               ]
             },

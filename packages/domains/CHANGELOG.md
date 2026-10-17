@@ -2,6 +2,15 @@
 
 ## Unreleased
 
+- **behaviorspec's `expect` reads its value without `saying`.** The renderer
+  writes `expect #toast shows hello` and the parser required `shows saying
+  hello`, so every `expect … value` round trip was refused (112 of 448), and
+  so was the schema's own `expect #result shows "welcome"` and `expect #button
+  has .active`. `saying` is optional now (`markerOptional`), and an assertion
+  that takes no value (`appears`, `enabled`, …) refuses one at compile rather
+  than dropping it (`expect #toast appears hello`). The gate writes those
+  assertions without a value: behaviorspec 384 of 384 round trips, 0 refused.
+
 - **behaviorspec reads `when user types 'hello' into #search`** (the owner's
   call, 2026-10-16; the test-writer demo's form, refused since 4.1.0). The
   typed text is `when`'s optional `value`: a quoted string (or a number) right

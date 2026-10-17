@@ -138,6 +138,10 @@ function generateExpect(node: SemanticNode, negated?: boolean): string {
 
   const mapping = findMapping(ASSERTION_MAPPINGS, assertionStr);
   if (mapping) {
+    // An assertion that takes no value (`appears`, `enabled`) refuses one: `expect #toast appears
+    // hello` compiled as `appears`, the word dropped, once `saying` became optional.
+    if (valueStr && !mapping.template.includes('${value}'))
+      throw new Error(`expect ${assertionStr}: takes no value, not "${valueStr}"`);
     if (negated && mapping.negationTemplate) {
       return interpolate(mapping.negationTemplate, { target: targetStr, value: valueStr });
     }
