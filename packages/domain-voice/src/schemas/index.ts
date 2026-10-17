@@ -301,7 +301,9 @@ export const backSchema = defineCommand({
       role: 'quantity',
       description: 'Number of pages to go back (default: 1)',
       required: false,
-      expectedTypes: ['expression'],
+      // A number only: `back zzqx` is refused rather than read as `back` (the generator
+      // ignores a count it cannot read).
+      expectedTypes: ['literal'],
       svoPosition: 1,
       sovPosition: 1,
       // A page count follows the verb bare in every language, SOV included:
@@ -335,7 +337,9 @@ export const forwardSchema = defineCommand({
       role: 'quantity',
       description: 'Number of pages to go forward (default: 1)',
       required: false,
-      expectedTypes: ['expression'],
+      // A number only: `forward zzqx` is refused rather than read as `forward` (the generator
+      // ignores a count it cannot read).
+      expectedTypes: ['literal'],
       svoPosition: 1,
       sovPosition: 1,
       // Same shape as `back` above.
@@ -560,4 +564,3 @@ export const allSchemas: CommandSchema[] = [
   searchSchema,
   helpSchema,
 ];
-

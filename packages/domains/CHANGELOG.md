@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+- **voice's `back` and `forward` take a page count only.** `back pages`
+  compiled as a plain `back`: the quantity read any word and the generator
+  ignored one it could not count. The quantity now reads a number (`back 3`,
+  `forward 2`), so a word there is refused (the domain gate: 22 leftover
+  cases accepted → refused, 0 worse). The gate also writes `close` with each
+  word its generator knows (`tab`, `dialog`, `modal`): 22 more round trips,
+  all read back.
+
 ## 4.1.0
 
 - **Six of the seven DSLs read and write on framework 4.7.0's core**
