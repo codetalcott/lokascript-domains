@@ -21,16 +21,16 @@
     },
     "behaviorspec": {
       "roundTrip": {
-        "cases": 384,
-        "pass": 384,
+        "cases": 536,
+        "pass": 536,
         "refused": 0,
         "silent": 0
       },
       "leftover": {
-        "cases": 384,
-        "pass": 78,
-        "refused": 296,
-        "silent": 10
+        "cases": 536,
+        "pass": 128,
+        "refused": 408,
+        "silent": 0
       }
     },
     "flow": {
@@ -871,22 +871,5 @@
       }
     }
   },
-  "leftover": {
-    "behaviorspec": {
-      "[given subject:viewport]": [
-        "en",
-        "es",
-        "ar",
-        "zh",
-        "fr"
-      ],
-      "[given subject:viewport value:/home]": [
-        "en",
-        "es",
-        "ar",
-        "zh",
-        "fr"
-      ]
-    }
-  }
+  "leftover": {}
 }

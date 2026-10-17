@@ -1,7 +1,7 @@
 {
   "name": "@lokascript/domain-bdd",
   "version": "4.1.0",
-  "description": "Multilingual BDD specification domain built on @lokascript/framework — Given/When/Then in 4 languages, compiles to Playwright tests",
+  "description": "Deprecated: use @lokascript/domains/behaviorspec, which reads its preconditions, actions and assertions (removed in 5.0.0). Multilingual Given/When/Then in 8 languages, compiled to Playwright tests",
   "type": "module",
   "sideEffects": false,
   "main": "dist/index.cjs",

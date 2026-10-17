@@ -9,7 +9,13 @@
 
 import type { SemanticNode, CodeGenerator } from '@lokascript/framework';
 import { extractValue } from '@lokascript/framework';
-import { SETUP_MAPPINGS, INTERACTION_MAPPINGS, ASSERTION_MAPPINGS } from './mappings.js';
+import {
+  SETUP_MAPPINGS,
+  INTERACTION_MAPPINGS,
+  ASSERTION_MAPPINGS,
+  STATE_MAPPINGS,
+  STATE_COPULAS,
+} from './mappings.js';
 import type {
   SpecParseResult,
   TestBlock,
@@ -79,17 +85,33 @@ function generateGiven(node: SemanticNode): string {
   const valueStr = value ? extractValue(value) : '';
 
   const mapping = findMapping(SETUP_MAPPINGS, subjectStr);
+  // An element's state (domain-bdd's preconditions): `given #button is visible`, and the page's
+  // (`given page is loaded`, not a URL).
+  const state = mapping?.type === 'viewport' ? undefined : findMapping(STATE_MAPPINGS, withoutCopula(valueStr));
+  if (state) return interpolate(state.template, { target: subjectStr });
+
   if (mapping) {
     if (mapping.type === 'viewport') {
       const dims = parseDimensions(valueStr);
-      if (dims) {
-        return interpolate(mapping.template, dims);
-      }
+      // Without a size the template wrote `setViewportSize({ width: , height:  })`.
+      if (!dims)
+        throw new Error(
+          `given ${subjectStr}: a viewport's size is WIDTHxHEIGHT (given ${subjectStr} 1024x768), not "${valueStr}"`
+        );
+      return interpolate(mapping.template, dims);
     }
     return interpolate(mapping.template, { value: valueStr });
   }
 
   return `  // Given: ${subjectStr} ${valueStr}`.trim();
+}
+
+/** A state without the copula before or after it: `is visible` → `visible`, `görünür dir` → `görünür`. */
+function withoutCopula(text: string): string {
+  const words = text.trim().split(/\s+/);
+  if (words.length > 1 && STATE_COPULAS.includes(words[0]!.toLowerCase())) words.shift();
+  if (words.length > 1 && STATE_COPULAS.includes(words[words.length - 1]!.toLowerCase())) words.pop();
+  return words.join(' ');
 }
 
 function generateWhen(node: SemanticNode): string {

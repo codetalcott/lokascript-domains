@@ -28,7 +28,7 @@ the extension seam for third parties is `@lokascript/framework`'s
 | --- | --- |
 | `@lokascript/domains` | **The published aggregate** — subpath exports + registry wiring |
 | `@lokascript/domain-sql` | SQL DSL (11 languages) |
-| `@lokascript/domain-bdd` | BDD/Gherkin DSL (8 languages) |
+| `@lokascript/domain-bdd` | BDD/Gherkin DSL (8 languages). Deprecated: behaviorspec reads its forms; removed in 5.0.0 |
 | `@lokascript/domain-behaviorspec` | Interaction-testing DSL (8 languages) |
 | `@lokascript/domain-llm` | LLM prompt DSL (11 languages) |
 | `@lokascript/domain-todo` | Todo DSL (11 languages) |
