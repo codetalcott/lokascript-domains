@@ -2,6 +2,15 @@
 
 ## Unreleased
 
+- **Accepts framework 5** (hyperfixi domains rethink Phase 6): the aggregate peers
+  `@lokascript/framework` `^4.8.0 || ^5.0.0`, `intent` and `semantic` `^4.0.0 || ^5.0.0`.
+  framework 5.0 deletes the classic DSL engine and changes nothing else these domains use.
+  bdd, the last DSL on the classic default, now names `engine: 'core'`: its 264 tests pass and
+  its 344 gate cases read the same on it (0 moved), and its golden pattern snapshot pins the
+  patterns it reads with, from the DSL's registry, like the other domains'. Proven against
+  framework, semantic and intent packed at 5.0.0: every suite, typecheck, `pack:smoke` (peers
+  resolve at 5.0.0) and `gate:upstream` (0 worse, 0 better, 0 parses moved).
+
 - **learn's `set` reads the variable before the value** in its other
   functions, in every language: `the system sets :count to 10`, `el sistema
   establece :count a 10`, as semantic writes the command. It wrote `sets to 10
