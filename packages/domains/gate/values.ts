@@ -77,6 +77,8 @@ export const DOMAIN_VALUES: Record<string, DomainFixture> = {
       ],
       'when.target': ['#button'],
       'when.destination': ['#form'],
+      // The text typed (`types 'hello' into #search`): a quoted string.
+      'when.value': ["'hello'"],
       'expect.target': ['#toast'],
       'expect.assertion': [
         'appears',

@@ -46,11 +46,14 @@ function renderWhen(node: SemanticNode, lang: string): string {
   const action = node.roles.get('action');
   const target = node.roles.get('target');
   const destination = node.roles.get('destination');
+  const value = node.roles.get('value');
 
   const actorStr = actor ? extractValue(actor) : '';
   const actionStr = action ? extractValue(action) : '';
   const targetStr = target ? extractValue(target) : '';
   const destStr = destination ? extractValue(destination) : '';
+  // The text typed, quoted again (a number as it is): `types 'hello' into #search`.
+  const valueStr = value ? quoted(value) : '';
   // A marker belongs to its role: emitting `on` with no target left dangling
   // text (`when clicks on`, `を clicks 操作`) that is not valid input in any
   // language. `target` is optional, so this was reachable from a plain parse.
@@ -58,19 +61,27 @@ function renderWhen(node: SemanticNode, lang: string): string {
   const intoMarker = MARKER_WORDS.into[lang] ?? 'into';
 
   if (SOV_LANGUAGES.has(lang)) {
-    const parts = [actorStr, targetStr, onMarker, actionStr, keyword];
-    if (destStr) parts.splice(3, 0, destStr, intoMarker);
+    const parts = [valueStr, actorStr, targetStr, onMarker, actionStr, keyword];
+    if (destStr) parts.splice(4, 0, destStr, intoMarker);
     return parts.filter(Boolean).join(' ');
   }
   if (VSO_LANGUAGES.has(lang)) {
-    const parts = [keyword, actorStr, actionStr, onMarker, targetStr];
+    const parts = [keyword, actorStr, actionStr, valueStr, onMarker, targetStr];
     if (destStr) parts.push(intoMarker, destStr);
     return parts.filter(Boolean).join(' ');
   }
   // SVO
-  const parts = [keyword, actorStr, actionStr, onMarker, targetStr];
+  const parts = [keyword, actorStr, actionStr, valueStr, onMarker, targetStr];
   if (destStr) parts.push(intoMarker, destStr);
   return parts.filter(Boolean).join(' ');
+}
+
+/** A literal as it is written: a string in single quotes, a number as it is. */
+function quoted(value: NonNullable<ReturnType<SemanticNode['roles']['get']>>): string {
+  const text = String(extractValue(value));
+  const isString =
+    value.type === 'literal' && (value as { dataType?: string }).dataType !== 'number';
+  return isString ? `'${text.replace(/'/g, "\\'")}'` : text;
 }
 
 function renderExpect(node: SemanticNode, lang: string): string {

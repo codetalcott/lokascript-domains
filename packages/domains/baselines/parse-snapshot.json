@@ -588,105 +588,105 @@
         "fr": "when action:expression=clears",
         "tr": "when action:expression=clears"
       },
-      "[when actor:user action:clicks target:#button destination:#form]": {
-        "en": "when action:expression=clicks actor:expression=user destination:selector=#form target:selector=#button",
-        "es": "when action:expression=clicks actor:expression=user destination:selector=#form target:selector=#button",
-        "ja": "when action:expression=clicks actor:expression=user destination:selector=#form target:selector=#button",
-        "ar": "when action:expression=clicks actor:expression=user destination:selector=#form target:selector=#button",
-        "ko": "when action:expression=clicks actor:expression=user destination:selector=#form target:selector=#button",
-        "zh": "when action:expression=clicks actor:expression=user destination:selector=#form target:selector=#button",
-        "fr": "when action:expression=clicks actor:expression=user destination:selector=#form target:selector=#button",
-        "tr": "when action:expression=clicks actor:expression=user destination:selector=#form target:selector=#button"
+      "[when actor:user action:clicks value:'hello' target:#button destination:#form]": {
+        "en": "when action:expression=clicks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "es": "when action:expression=clicks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ja": "when action:expression=clicks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ar": "when action:expression=clicks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ko": "when action:expression=clicks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "zh": "when action:expression=clicks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "fr": "when action:expression=clicks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "tr": "when action:expression=clicks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello"
       },
-      "[when actor:user action:types target:#button destination:#form]": {
-        "en": "when action:expression=types actor:expression=user destination:selector=#form target:selector=#button",
-        "es": "when action:expression=types actor:expression=user destination:selector=#form target:selector=#button",
-        "ja": "when action:expression=types actor:expression=user destination:selector=#form target:selector=#button",
-        "ar": "when action:expression=types actor:expression=user destination:selector=#form target:selector=#button",
-        "ko": "when action:expression=types actor:expression=user destination:selector=#form target:selector=#button",
-        "zh": "when action:expression=types actor:expression=user destination:selector=#form target:selector=#button",
-        "fr": "when action:expression=types actor:expression=user destination:selector=#form target:selector=#button",
-        "tr": "when action:expression=types actor:expression=user destination:selector=#form target:selector=#button"
+      "[when actor:user action:types value:'hello' target:#button destination:#form]": {
+        "en": "when action:expression=types actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "es": "when action:expression=types actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ja": "when action:expression=types actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ar": "when action:expression=types actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ko": "when action:expression=types actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "zh": "when action:expression=types actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "fr": "when action:expression=types actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "tr": "when action:expression=types actor:expression=user destination:selector=#form target:selector=#button value:literal=hello"
       },
-      "[when actor:user action:submits target:#button destination:#form]": {
-        "en": "when action:expression=submits actor:expression=user destination:selector=#form target:selector=#button",
-        "es": "when action:expression=submits actor:expression=user destination:selector=#form target:selector=#button",
-        "ja": "when action:expression=submits actor:expression=user destination:selector=#form target:selector=#button",
-        "ar": "when action:expression=submits actor:expression=user destination:selector=#form target:selector=#button",
-        "ko": "when action:expression=submits actor:expression=user destination:selector=#form target:selector=#button",
-        "zh": "when action:expression=submits actor:expression=user destination:selector=#form target:selector=#button",
-        "fr": "when action:expression=submits actor:expression=user destination:selector=#form target:selector=#button",
-        "tr": "when action:expression=submits actor:expression=user destination:selector=#form target:selector=#button"
+      "[when actor:user action:submits value:'hello' target:#button destination:#form]": {
+        "en": "when action:expression=submits actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "es": "when action:expression=submits actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ja": "when action:expression=submits actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ar": "when action:expression=submits actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ko": "when action:expression=submits actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "zh": "when action:expression=submits actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "fr": "when action:expression=submits actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "tr": "when action:expression=submits actor:expression=user destination:selector=#form target:selector=#button value:literal=hello"
       },
-      "[when actor:user action:hovers target:#button destination:#form]": {
-        "en": "when action:expression=hovers actor:expression=user destination:selector=#form target:selector=#button",
-        "es": "when action:expression=hovers actor:expression=user destination:selector=#form target:selector=#button",
-        "ja": "when action:expression=hovers actor:expression=user destination:selector=#form target:selector=#button",
-        "ar": "when action:expression=hovers actor:expression=user destination:selector=#form target:selector=#button",
-        "ko": "when action:expression=hovers actor:expression=user destination:selector=#form target:selector=#button",
-        "zh": "when action:expression=hovers actor:expression=user destination:selector=#form target:selector=#button",
-        "fr": "when action:expression=hovers actor:expression=user destination:selector=#form target:selector=#button",
-        "tr": "when action:expression=hovers actor:expression=user destination:selector=#form target:selector=#button"
+      "[when actor:user action:hovers value:'hello' target:#button destination:#form]": {
+        "en": "when action:expression=hovers actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "es": "when action:expression=hovers actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ja": "when action:expression=hovers actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ar": "when action:expression=hovers actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ko": "when action:expression=hovers actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "zh": "when action:expression=hovers actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "fr": "when action:expression=hovers actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "tr": "when action:expression=hovers actor:expression=user destination:selector=#form target:selector=#button value:literal=hello"
       },
-      "[when actor:user action:scrolls target:#button destination:#form]": {
-        "en": "when action:expression=scrolls actor:expression=user destination:selector=#form target:selector=#button",
-        "es": "when action:expression=scrolls actor:expression=user destination:selector=#form target:selector=#button",
-        "ja": "when action:expression=scrolls actor:expression=user destination:selector=#form target:selector=#button",
-        "ar": "when action:expression=scrolls actor:expression=user destination:selector=#form target:selector=#button",
-        "ko": "when action:expression=scrolls actor:expression=user destination:selector=#form target:selector=#button",
-        "zh": "when action:expression=scrolls actor:expression=user destination:selector=#form target:selector=#button",
-        "fr": "when action:expression=scrolls actor:expression=user destination:selector=#form target:selector=#button",
-        "tr": "when action:expression=scrolls actor:expression=user destination:selector=#form target:selector=#button"
+      "[when actor:user action:scrolls value:'hello' target:#button destination:#form]": {
+        "en": "when action:expression=scrolls actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "es": "when action:expression=scrolls actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ja": "when action:expression=scrolls actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ar": "when action:expression=scrolls actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ko": "when action:expression=scrolls actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "zh": "when action:expression=scrolls actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "fr": "when action:expression=scrolls actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "tr": "when action:expression=scrolls actor:expression=user destination:selector=#form target:selector=#button value:literal=hello"
       },
-      "[when actor:user action:drags target:#button destination:#form]": {
-        "en": "when action:expression=drags actor:expression=user destination:selector=#form target:selector=#button",
-        "es": "when action:expression=drags actor:expression=user destination:selector=#form target:selector=#button",
-        "ja": "when action:expression=drags actor:expression=user destination:selector=#form target:selector=#button",
-        "ar": "when action:expression=drags actor:expression=user destination:selector=#form target:selector=#button",
-        "ko": "when action:expression=drags actor:expression=user destination:selector=#form target:selector=#button",
-        "zh": "when action:expression=drags actor:expression=user destination:selector=#form target:selector=#button",
-        "fr": "when action:expression=drags actor:expression=user destination:selector=#form target:selector=#button",
-        "tr": "when action:expression=drags actor:expression=user destination:selector=#form target:selector=#button"
+      "[when actor:user action:drags value:'hello' target:#button destination:#form]": {
+        "en": "when action:expression=drags actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "es": "when action:expression=drags actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ja": "when action:expression=drags actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ar": "when action:expression=drags actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ko": "when action:expression=drags actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "zh": "when action:expression=drags actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "fr": "when action:expression=drags actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "tr": "when action:expression=drags actor:expression=user destination:selector=#form target:selector=#button value:literal=hello"
       },
-      "[when actor:user action:double-clicks target:#button destination:#form]": {
-        "en": "when action:expression=double-clicks actor:expression=user destination:selector=#form target:selector=#button",
-        "es": "when action:expression=double-clicks actor:expression=user destination:selector=#form target:selector=#button",
-        "ja": "when action:expression=double-clicks actor:expression=user destination:selector=#form target:selector=#button",
-        "ar": "when action:expression=double-clicks actor:expression=user destination:selector=#form target:selector=#button",
-        "ko": "when action:expression=double-clicks actor:expression=user destination:selector=#form target:selector=#button",
-        "zh": "when action:expression=double-clicks actor:expression=user destination:selector=#form target:selector=#button",
-        "fr": "when action:expression=double-clicks actor:expression=user destination:selector=#form target:selector=#button",
-        "tr": "when action:expression=double-clicks actor:expression=user destination:selector=#form target:selector=#button"
+      "[when actor:user action:double-clicks value:'hello' target:#button destination:#form]": {
+        "en": "when action:expression=double-clicks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "es": "when action:expression=double-clicks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ja": "when action:expression=double-clicks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ar": "when action:expression=double-clicks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ko": "when action:expression=double-clicks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "zh": "when action:expression=double-clicks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "fr": "when action:expression=double-clicks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "tr": "when action:expression=double-clicks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello"
       },
-      "[when actor:user action:right-clicks target:#button destination:#form]": {
-        "en": "when action:expression=right-clicks actor:expression=user destination:selector=#form target:selector=#button",
-        "es": "when action:expression=right-clicks actor:expression=user destination:selector=#form target:selector=#button",
-        "ja": "when action:expression=right-clicks actor:expression=user destination:selector=#form target:selector=#button",
-        "ar": "when action:expression=right-clicks actor:expression=user destination:selector=#form target:selector=#button",
-        "ko": "when action:expression=right-clicks actor:expression=user destination:selector=#form target:selector=#button",
-        "zh": "when action:expression=right-clicks actor:expression=user destination:selector=#form target:selector=#button",
-        "fr": "when action:expression=right-clicks actor:expression=user destination:selector=#form target:selector=#button",
-        "tr": "when action:expression=right-clicks actor:expression=user destination:selector=#form target:selector=#button"
+      "[when actor:user action:right-clicks value:'hello' target:#button destination:#form]": {
+        "en": "when action:expression=right-clicks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "es": "when action:expression=right-clicks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ja": "when action:expression=right-clicks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ar": "when action:expression=right-clicks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ko": "when action:expression=right-clicks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "zh": "when action:expression=right-clicks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "fr": "when action:expression=right-clicks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "tr": "when action:expression=right-clicks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello"
       },
-      "[when actor:user action:focuses target:#button destination:#form]": {
-        "en": "when action:expression=focuses actor:expression=user destination:selector=#form target:selector=#button",
-        "es": "when action:expression=focuses actor:expression=user destination:selector=#form target:selector=#button",
-        "ja": "when action:expression=focuses actor:expression=user destination:selector=#form target:selector=#button",
-        "ar": "when action:expression=focuses actor:expression=user destination:selector=#form target:selector=#button",
-        "ko": "when action:expression=focuses actor:expression=user destination:selector=#form target:selector=#button",
-        "zh": "when action:expression=focuses actor:expression=user destination:selector=#form target:selector=#button",
-        "fr": "when action:expression=focuses actor:expression=user destination:selector=#form target:selector=#button",
-        "tr": "when action:expression=focuses actor:expression=user destination:selector=#form target:selector=#button"
+      "[when actor:user action:focuses value:'hello' target:#button destination:#form]": {
+        "en": "when action:expression=focuses actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "es": "when action:expression=focuses actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ja": "when action:expression=focuses actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ar": "when action:expression=focuses actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ko": "when action:expression=focuses actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "zh": "when action:expression=focuses actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "fr": "when action:expression=focuses actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "tr": "when action:expression=focuses actor:expression=user destination:selector=#form target:selector=#button value:literal=hello"
       },
-      "[when actor:user action:clears target:#button destination:#form]": {
-        "en": "when action:expression=clears actor:expression=user destination:selector=#form target:selector=#button",
-        "es": "when action:expression=clears actor:expression=user destination:selector=#form target:selector=#button",
-        "ja": "when action:expression=clears actor:expression=user destination:selector=#form target:selector=#button",
-        "ar": "when action:expression=clears actor:expression=user destination:selector=#form target:selector=#button",
-        "ko": "when action:expression=clears actor:expression=user destination:selector=#form target:selector=#button",
-        "zh": "when action:expression=clears actor:expression=user destination:selector=#form target:selector=#button",
-        "fr": "when action:expression=clears actor:expression=user destination:selector=#form target:selector=#button",
-        "tr": "when action:expression=clears actor:expression=user destination:selector=#form target:selector=#button"
+      "[when actor:user action:clears value:'hello' target:#button destination:#form]": {
+        "en": "when action:expression=clears actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "es": "when action:expression=clears actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ja": "when action:expression=clears actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ar": "when action:expression=clears actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ko": "when action:expression=clears actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "zh": "when action:expression=clears actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "fr": "when action:expression=clears actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "tr": "when action:expression=clears actor:expression=user destination:selector=#form target:selector=#button value:literal=hello"
       },
       "[expect target:#toast assertion:appears]": {
         "en": "expect assertion:expression=appears target:selector=#toast",

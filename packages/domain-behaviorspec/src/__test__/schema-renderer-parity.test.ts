@@ -27,17 +27,18 @@ const LANGUAGES = allProfiles.map(p => p.code);
 const EXAMPLES: Record<string, string> = {
   test: 'test "Add to cart"',
   given: 'given page /home',
-  when: 'when user clicks on #button into #form',
+  when: "when user types 'hello' on #button into #form",
   expect: 'expect #toast shows saying Added',
   after: 'after 300ms',
   not: 'not visible',
 };
 
 /**
- * Commands whose renderer quotes a role the schema renderer leaves bare.
+ * Commands whose renderer quotes a role the schema renderer leaves bare (`test`'s name, `when`'s
+ * typed text).
  * Everything not listed must match byte for byte.
  */
-const ALWAYS_QUOTED = new Set(['test']);
+const ALWAYS_QUOTED = new Set(['test', 'when']);
 
 /** Drop every optional role, leaving only what the schema requires. */
 function stripOptionalRoles(node: SemanticNode): SemanticNode {
@@ -47,7 +48,7 @@ function stripOptionalRoles(node: SemanticNode): SemanticNode {
   return { ...node, roles };
 }
 
-const unquote = (text: string): string => text.replace(/"/g, '');
+const unquote = (text: string): string => text.replace(/["']/g, '');
 
 describe('createSchemaRenderer agrees with renderBehaviorSpec', () => {
   for (const schema of allSchemas) {
