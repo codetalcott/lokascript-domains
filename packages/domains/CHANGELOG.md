@@ -19,7 +19,9 @@
 - **bdd is deprecated** for behaviorspec; `@lokascript/domains/bdd` and its
   tools stay through 4.x and go in 5.0.0, with framework's classic engine.
   bdd's own syntax (`then`, `and`, comma-separated Scenario steps) is not
-  carried over.
+  carried over. `createDomainRegistry({ omit: ['bdd'] })` (and
+  `registerAllDomains(registry, { omit })`) leaves a domain out, tools and
+  schemas both, so an MCP server can drop bdd's tools now.
 - The domain gate: behaviorspec 536 of 536 round trips, no leftover input
   accepted; across the domains, leftover input accepted in 0 cases (164 at
   4.1.0).
