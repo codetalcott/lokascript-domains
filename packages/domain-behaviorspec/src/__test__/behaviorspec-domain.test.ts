@@ -877,6 +877,23 @@ describe('Edge cases', () => {
     expect(roleValue(node, 'value')).toBe('.active');
   });
 
+  it('reads the value without `saying`, as the renderer writes it', () => {
+    // Every `expect … value` round trip was refused: the renderer wrote the value bare and the
+    // parser required `saying` before it.
+    const node = dsl.parse('expect #button has .active', 'en');
+    expect(roleValue(node, 'value')).toBe('.active');
+    expect(dsl.compile('expect #result shows welcome', 'en').code).toBe(
+      "  await expect(page.locator('#result')).toContainText('welcome');"
+    );
+    expect(dsl.compile('expect #toast shows saying Added', 'en').ok).toBe(true);
+  });
+
+  it('refuses a value for an assertion that takes none', () => {
+    const result = dsl.compile('expect #toast appears hello', 'en');
+    expect(result.ok).toBe(false);
+    expect(result.errors?.[0]).toMatch(/appears: takes no value/);
+  });
+
   it('compiles toHaveClass for has class assertion', () => {
     // The spec parser prepends "expect" for assertion lines, so
     // "expect #button has saying .active" uses the saying marker for value

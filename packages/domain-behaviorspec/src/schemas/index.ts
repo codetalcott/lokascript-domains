@@ -24,6 +24,10 @@ const LANGUAGES = ['en', 'es', 'ja', 'ar', 'ko', 'zh', 'fr', 'tr'] as const;
 const bareInEveryLanguage = (): Record<string, string> =>
   Object.fromEntries(LANGUAGES.map(code => [code, '']));
 
+/** A marker the parser reads but does not require, in every language (`markerOptional`). */
+const optionalInEveryLanguage = (): Record<string, boolean> =>
+  Object.fromEntries(LANGUAGES.map(code => [code, true]));
+
 // =============================================================================
 // TEST — Named test scenario
 // =============================================================================
@@ -218,8 +222,10 @@ export const expectSchema = defineCommand({
         tr: 'diyen',
       },
       // `expect #result shows "welcome"` — `saying` is an input convenience,
-      // never written back.
+      // never written back, so it is optional when read too (the core read the
+      // bare value the renderer writes as unread input).
       renderOverride: bareInEveryLanguage(),
+      markerOptional: optionalInEveryLanguage(),
     }),
   ],
 });
