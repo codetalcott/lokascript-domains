@@ -1,6 +1,6 @@
 {
   "name": "@lokascript/domain-bdd",
-  "version": "4.1.0",
+  "version": "4.2.0",
   "description": "Deprecated: use @lokascript/domains/behaviorspec, which reads its preconditions, actions and assertions (removed in 5.0.0). Multilingual Given/When/Then in 8 languages, compiled to Playwright tests",
   "type": "module",
   "sideEffects": false,
