@@ -267,6 +267,12 @@ describe('Voice Domain', () => {
       expect(result.code).toContain('zoom');
     });
 
+    it('closes only what it can close: a tab or a dialog', () => {
+      expect(voice.compile('close modal', 'en').code).toContain("dialog[open]");
+      // `close zzqx` compiled as a plain `close`, which closes any open dialog.
+      expect(() => voice.parse('close zzqx', 'en')).toThrow(/leaving "zzqx" unread/);
+    });
+
     it('compiles "close tab" to JS with window.close', () => {
       const result = voice.compile('close tab', 'en');
       expect(result.ok).toBe(true);

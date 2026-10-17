@@ -54,7 +54,7 @@
     "gate:regen": "tsx scripts/regen-round-trip-baseline.ts"
   },
   "peerDependencies": {
-    "@lokascript/framework": "^4.7.0",
+    "@lokascript/framework": "^4.8.0",
     "@lokascript/intent": "^4.0.0",
     "@lokascript/semantic": "^4.0.0"
   },
@@ -68,7 +68,7 @@
     "@lokascript/domain-sql": "^4.1.0",
     "@lokascript/domain-todo": "^4.1.0",
     "@lokascript/domain-voice": "^4.1.0",
-    "@lokascript/framework": "^4.7.0",
+    "@lokascript/framework": "^4.8.0",
     "@lokascript/intent": "^4.7.0",
     "@lokascript/semantic": "^4.7.0",
     "@types/node": "^26.1.2",

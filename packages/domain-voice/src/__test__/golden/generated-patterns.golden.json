@@ -341,7 +341,28 @@
                   "type": "role",
                   "role": "patient",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": ["expression"],
+                  "words": [
+                    "tab",
+                    "pestaña",
+                    "タブ",
+                    "탭",
+                    "标签",
+                    "sekme",
+                    "onglet",
+                    "aba",
+                    "вкладка",
+                    "dialog",
+                    "modal",
+                    "diálogo",
+                    "ダイアログ",
+                    "대화상자",
+                    "对话框",
+                    "diyalog",
+                    "dialogue",
+                    "диалог",
+                    "الحوار"
+                  ]
                 }
               ]
             }
@@ -798,7 +819,28 @@
                   "type": "role",
                   "role": "patient",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": ["expression"],
+                  "words": [
+                    "tab",
+                    "pestaña",
+                    "タブ",
+                    "탭",
+                    "标签",
+                    "sekme",
+                    "onglet",
+                    "aba",
+                    "вкладка",
+                    "dialog",
+                    "modal",
+                    "diálogo",
+                    "ダイアログ",
+                    "대화상자",
+                    "对话框",
+                    "diyalog",
+                    "dialogue",
+                    "диалог",
+                    "الحوار"
+                  ]
                 }
               ]
             }
@@ -1277,7 +1319,28 @@
                   "type": "role",
                   "role": "patient",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": ["expression"],
+                  "words": [
+                    "tab",
+                    "pestaña",
+                    "タブ",
+                    "탭",
+                    "标签",
+                    "sekme",
+                    "onglet",
+                    "aba",
+                    "вкладка",
+                    "dialog",
+                    "modal",
+                    "diálogo",
+                    "ダイアログ",
+                    "대화상자",
+                    "对话框",
+                    "diyalog",
+                    "dialogue",
+                    "диалог",
+                    "الحوار"
+                  ]
                 },
                 {
                   "type": "literal",
@@ -1765,7 +1828,28 @@
                   "type": "role",
                   "role": "patient",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": ["expression"],
+                  "words": [
+                    "tab",
+                    "pestaña",
+                    "タブ",
+                    "탭",
+                    "标签",
+                    "sekme",
+                    "onglet",
+                    "aba",
+                    "вкладка",
+                    "dialog",
+                    "modal",
+                    "diálogo",
+                    "ダイアログ",
+                    "대화상자",
+                    "对话框",
+                    "diyalog",
+                    "dialogue",
+                    "диалог",
+                    "الحوار"
+                  ]
                 }
               ]
             }
@@ -2251,7 +2335,28 @@
                   "type": "role",
                   "role": "patient",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": ["expression"],
+                  "words": [
+                    "tab",
+                    "pestaña",
+                    "タブ",
+                    "탭",
+                    "标签",
+                    "sekme",
+                    "onglet",
+                    "aba",
+                    "вкладка",
+                    "dialog",
+                    "modal",
+                    "diálogo",
+                    "ダイアログ",
+                    "대화상자",
+                    "对话框",
+                    "diyalog",
+                    "dialogue",
+                    "диалог",
+                    "الحوار"
+                  ]
                 },
                 {
                   "type": "literal",
@@ -2726,7 +2831,28 @@
                   "type": "role",
                   "role": "patient",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": ["expression"],
+                  "words": [
+                    "tab",
+                    "pestaña",
+                    "タブ",
+                    "탭",
+                    "标签",
+                    "sekme",
+                    "onglet",
+                    "aba",
+                    "вкладка",
+                    "dialog",
+                    "modal",
+                    "diálogo",
+                    "ダイアログ",
+                    "대화상자",
+                    "对话框",
+                    "diyalog",
+                    "dialogue",
+                    "диалог",
+                    "الحوار"
+                  ]
                 }
               ]
             }
@@ -3181,7 +3307,28 @@
                   "type": "role",
                   "role": "patient",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": ["expression"],
+                  "words": [
+                    "tab",
+                    "pestaña",
+                    "タブ",
+                    "탭",
+                    "标签",
+                    "sekme",
+                    "onglet",
+                    "aba",
+                    "вкладка",
+                    "dialog",
+                    "modal",
+                    "diálogo",
+                    "ダイアログ",
+                    "대화상자",
+                    "对话框",
+                    "diyalog",
+                    "dialogue",
+                    "диалог",
+                    "الحوار"
+                  ]
                 }
               ]
             },
@@ -3646,7 +3793,28 @@
                   "type": "role",
                   "role": "patient",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": ["expression"],
+                  "words": [
+                    "tab",
+                    "pestaña",
+                    "タブ",
+                    "탭",
+                    "标签",
+                    "sekme",
+                    "onglet",
+                    "aba",
+                    "вкладка",
+                    "dialog",
+                    "modal",
+                    "diálogo",
+                    "ダイアログ",
+                    "대화상자",
+                    "对话框",
+                    "diyalog",
+                    "dialogue",
+                    "диалог",
+                    "الحوار"
+                  ]
                 }
               ]
             }
@@ -4100,7 +4268,28 @@
                   "type": "role",
                   "role": "patient",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": ["expression"],
+                  "words": [
+                    "tab",
+                    "pestaña",
+                    "タブ",
+                    "탭",
+                    "标签",
+                    "sekme",
+                    "onglet",
+                    "aba",
+                    "вкладка",
+                    "dialog",
+                    "modal",
+                    "diálogo",
+                    "ダイアログ",
+                    "대화상자",
+                    "对话框",
+                    "diyalog",
+                    "dialogue",
+                    "диалог",
+                    "الحوار"
+                  ]
                 }
               ]
             }
@@ -4553,7 +4742,28 @@
                   "type": "role",
                   "role": "patient",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": ["expression"],
+                  "words": [
+                    "tab",
+                    "pestaña",
+                    "タブ",
+                    "탭",
+                    "标签",
+                    "sekme",
+                    "onglet",
+                    "aba",
+                    "вкладка",
+                    "dialog",
+                    "modal",
+                    "diálogo",
+                    "ダイアログ",
+                    "대화상자",
+                    "对话框",
+                    "diyalog",
+                    "dialogue",
+                    "диалог",
+                    "الحوار"
+                  ]
                 }
               ]
             }
@@ -5006,7 +5216,28 @@
                   "type": "role",
                   "role": "patient",
                   "optional": true,
-                  "expectedTypes": ["expression"]
+                  "expectedTypes": ["expression"],
+                  "words": [
+                    "tab",
+                    "pestaña",
+                    "タブ",
+                    "탭",
+                    "标签",
+                    "sekme",
+                    "onglet",
+                    "aba",
+                    "вкладка",
+                    "dialog",
+                    "modal",
+                    "diálogo",
+                    "ダイアログ",
+                    "대화상자",
+                    "对话框",
+                    "diyalog",
+                    "dialogue",
+                    "диалог",
+                    "الحوار"
+                  ]
                 }
               ]
             }

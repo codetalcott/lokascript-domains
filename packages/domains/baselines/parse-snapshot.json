@@ -1,8 +1,8 @@
 {
   "upstream": {
-    "@lokascript/framework": "4.7.0",
-    "@lokascript/semantic": "4.7.0",
-    "@lokascript/intent": "4.7.0"
+    "@lokascript/framework": "4.8.0",
+    "@lokascript/semantic": "4.8.0",
+    "@lokascript/intent": "4.8.0"
   },
   "parses": {
     "bdd": {

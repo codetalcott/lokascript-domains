@@ -8,6 +8,7 @@
  */
 
 import { defineCommand, defineRole } from '@lokascript/framework';
+import { INTERACTION_MAPPINGS } from '../generators/mappings.js';
 
 /** The languages this domain ships, in profile order. */
 const LANGUAGES = ['en', 'es', 'ja', 'ar', 'ko', 'zh', 'fr', 'tr'] as const;
@@ -104,6 +105,9 @@ export const whenSchema = defineCommand({
       description: 'Interaction type (clicks, types, submits, scrolls, hovers, drags)',
       required: true,
       expectedTypes: ['expression'],
+      // Only an interaction the generator knows: `when clicks zzqx` read actor `clicks`, action `zzqx`
+      // (a comment, not a step), and `when user frobs` compiled to one.
+      words: { '*': INTERACTION_MAPPINGS.flatMap(m => m.keywords) },
       svoPosition: 2,
       // SOV puts the verb of the interaction last of the roles, after both its
       // target and its destination: `user #email を #form に types 操作`.

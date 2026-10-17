@@ -1,5 +1,6 @@
 import { defineCommand, defineRole } from '@lokascript/framework';
 import type { CommandSchema } from '@lokascript/framework';
+import { DIALOG_WORDS, TAB_WORDS } from '../generators/voice-generator';
 
 // =============================================================================
 // navigate — Go to URL, page section, or ARIA landmark
@@ -411,6 +412,8 @@ export const closeSchema = defineCommand({
       description: 'What to close (tab, dialog, modal, menu)',
       required: false,
       expectedTypes: ['expression'],
+      // Only what the generator can close: `close zzqx` compiled as a plain `close`.
+      words: { '*': [...TAB_WORDS, ...DIALOG_WORDS] },
       svoPosition: 1,
       sovPosition: 1,
       markerOverride: { ja: 'を', ko: '를' },
