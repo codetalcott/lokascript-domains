@@ -127,6 +127,33 @@ describe('Sentence Generation', () => {
     });
   });
 
+  describe('set: the variable before the value', () => {
+    // `set :count to 10` changes :count; 10 is what it becomes. Every language writes the variable
+    // first, and the SVO languages write it with no preposition (it is the direct object).
+    const describing: Record<string, string> = {
+      en: 'the system sets :count to 10',
+      ja: 'システムは :countを 10に 設定します',
+      es: 'el sistema establece :count a 10',
+      zh: '系统 设置 :count 到 10',
+      fr: 'le système définit :count à 10',
+      pt: 'o sistema define :count para 10',
+    };
+    for (const [language, sentence] of Object.entries(describing)) {
+      it(`describes set in ${language}`, () => {
+        const node = learn.parse('[set destination::count patient:10]', 'explicit');
+        expect(generateForFunction(node, 'describing', language)!.sentence).toBe(sentence);
+      });
+    }
+
+    it('glosses set in the order it renders', () => {
+      const node = learn.parse('[set destination::count patient:10]', 'explicit');
+      const gloss = generateGloss(node, 'narrating', 'es')!;
+      expect(gloss.tokens).toEqual(['estableció', ':count', 'a 10']);
+      expect(gloss.roles).toEqual(['VERB', 'DEST', 'PAT']);
+      expect(gloss.english).toEqual(['set (past)', ':count', 'to 10']);
+    });
+  });
+
   describe('All Languages x All Functions', () => {
     const languages = ['en', 'ja', 'es', 'ar', 'zh', 'ko', 'fr', 'tr', 'de', 'pt'];
 
