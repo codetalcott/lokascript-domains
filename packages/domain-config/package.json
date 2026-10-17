@@ -17,14 +17,13 @@
   "scripts": {
     "build": "tsup && npm run build:types",
     "build:types": "tsc --emitDeclarationOnly --outDir dist --noEmit false",
-    "pretest": "../../scripts/ensure-fresh.sh ../domain-sql ../domain-bdd ../domain-behaviorspec ../domain-todo ../domain-llm ../domain-flow ../domain-voice ../domain-learn",
+    "pretest": "../../scripts/ensure-fresh.sh ../domain-sql ../domain-behaviorspec ../domain-todo ../domain-llm ../domain-flow ../domain-voice ../domain-learn",
     "test": "vitest",
     "test:run": "vitest run",
     "test:check": "VITEST_QUIET=1 bash ../../scripts/vitest-run.sh --reporter=dot",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@lokascript/domain-bdd": "^4.3.0",
     "@lokascript/domain-behaviorspec": "^4.3.0",
     "@lokascript/domain-flow": "^4.3.0",
     "@lokascript/domain-learn": "^4.3.0",

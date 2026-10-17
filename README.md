@@ -1,6 +1,6 @@
 # lokascript-domains
 
-The **LokaScript multilingual domain-DSL family** — 8 domain DSLs built on
+The **LokaScript multilingual domain-DSL family** — 7 domain DSLs built on
 [`@lokascript/framework`](https://www.npmjs.com/package/@lokascript/framework),
 each multilingual from day one. Extracted from
 [hyperfixi](https://github.com/codetalcott/hyperfixi) in 2026-08 (tag
@@ -11,7 +11,7 @@ this repo).
 
 The family publishes as **`@lokascript/domains`** (see
 [packages/domains](packages/domains/README.md)) with one subpath export per
-domain — `@lokascript/domains/sql`, `/flow`, `/bdd`, …. Its root entry carries
+domain — `@lokascript/domains/sql`, `/flow`, `/behaviorspec`, …. Its root entry carries
 the registry wiring (`createDomainRegistry`, `registerAllDomains`,
 `DOMAIN_PRIORITY`). The per-domain workspace packages below are **private**:
 they keep their sources, suites, and golden files, and the aggregate bundles
@@ -28,7 +28,6 @@ the extension seam for third parties is `@lokascript/framework`'s
 | --- | --- |
 | `@lokascript/domains` | **The published aggregate** — subpath exports + registry wiring |
 | `@lokascript/domain-sql` | SQL DSL (11 languages) |
-| `@lokascript/domain-bdd` | BDD/Gherkin DSL (8 languages). Deprecated: behaviorspec reads its forms; removed in 5.0.0 |
 | `@lokascript/domain-behaviorspec` | Interaction-testing DSL (8 languages) |
 | `@lokascript/domain-llm` | LLM prompt DSL (11 languages) |
 | `@lokascript/domain-todo` | Todo DSL (11 languages) |
@@ -39,7 +38,9 @@ the extension seam for third parties is `@lokascript/framework`'s
 
 Retired in 4.0.0, with their sources under the tag `archived/domains-preview-2026-10`:
 `domain-jsx`, `domain-animation`, `domain-control`, `domain-events`, `domain-html`,
-`domain-hypermedia`, `domain-sprites` and `mcp-multilingual-intent`.
+`domain-hypermedia`, `domain-sprites` and `mcp-multilingual-intent`. Removed in 5.0.0:
+`domain-bdd`, whose preconditions, actions and assertions behaviorspec reads since 4.2.0
+(sources under the tag `v4.3.0`).
 
 ## Versioning
 
