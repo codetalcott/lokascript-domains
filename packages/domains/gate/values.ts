@@ -60,7 +60,7 @@ export const DOMAIN_VALUES: Record<string, DomainFixture> = {
     values: {
       // mappings.ts: SETUP_MAPPINGS, INTERACTION_MAPPINGS, ASSERTION_MAPPINGS (their English words).
       'test.name': ['Login'],
-      'given.subject': ['page', 'viewport'],
+      'given.subject': ['page'],
       'given.value': ['/home'],
       'when.actor': ['user'],
       'when.action': [
@@ -74,6 +74,12 @@ export const DOMAIN_VALUES: Record<string, DomainFixture> = {
         'right-clicks',
         'focuses',
         'clears',
+        // From domain-bdd.
+        'presses',
+        'checks',
+        'unchecks',
+        'selects',
+        'waits',
       ],
       'when.target': ['#button'],
       'when.destination': ['#form'],
@@ -82,20 +88,21 @@ export const DOMAIN_VALUES: Record<string, DomainFixture> = {
       'expect.target': ['#toast'],
       // The assertions that take a value (mappings.ts: a template with `${value}`); the others,
       // which refuse one, are written without it below.
-      'expect.assertion': ['has', 'shows', 'changes', 'contains', 'count', 'value'],
+      'expect.assertion': ['has', 'shows', 'changes', 'contains', 'count', 'value', 'text'],
       'expect.value': ['hello'],
       'after.duration': ['2s', '300ms'],
     },
     commands: [
-      'appears',
-      'disappears',
-      'enabled',
-      'disabled',
-      'checked',
-      'focused',
-      'editable',
-      'empty',
-    ].map(assertion => `[expect target:#toast assertion:${assertion}]`),
+      ...['appears', 'disappears', 'enabled', 'disabled', 'checked', 'focused', 'editable', 'empty'].map(
+        assertion => `[expect target:#toast assertion:${assertion}]`
+      ),
+      // `given`'s value depends on its subject: a URL for the page, a size for the viewport, a state
+      // for an element (mappings.ts: SETUP_MAPPINGS, STATE_MAPPINGS).
+      '[given subject:viewport value:1024x768]',
+      ...['exists', 'visible', 'hidden', 'loaded', 'disabled', 'enabled', 'checked', 'focused'].map(
+        state => `[given subject:#box value:${state}]`
+      ),
+    ],
   },
   flow: {
     oracle: 'compile',

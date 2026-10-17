@@ -176,7 +176,160 @@ export const INTERACTION_MAPPINGS: InteractionMapping[] = [
     ],
     template: "  await page.locator('${target}').clear();",
   },
+  // From domain-bdd (merged into behaviorspec, hyperfixi domains rethink Phase 5): its words, with
+  // English's -s form, Spanish's third person, and the Turkish and French spellings without marks
+// (not where that spelling is an English word: `active`, `charge`).
+  {
+    keywords: [
+      'presses',
+      'press',
+      'presiona',
+      'presionar',
+      'キー',
+      'ضغط',
+      '키',
+      '按',
+      'appuyer',
+      'bas',
+    ],
+    template: "  await page.keyboard.press('${value}');",
+  },
+  {
+    keywords: [
+      'checks',
+      'check',
+      'marca',
+      'marcar',
+      'チェック',
+      'تحديد',
+      '체크',
+      '勾选',
+      'cocher',
+      'işaretle',
+      'isaretle',
+    ],
+    template: "  await page.locator('${target}').check();",
+  },
+  {
+    keywords: [
+      'unchecks',
+      'uncheck',
+      'desmarca',
+      'desmarcar',
+      'チェック解除',
+      'إلغاء-تحديد',
+      '체크해제',
+      '取消勾选',
+      'décocher',
+      'decocher',
+      'işareti-kaldır',
+      'isareti-kaldir',
+    ],
+    template: "  await page.locator('${target}').uncheck();",
+  },
+  {
+    keywords: [
+      'selects',
+      'select',
+      'selecciona',
+      'seleccionar',
+      '選択',
+      'اختيار',
+      '선택',
+      '选择',
+      'sélectionner',
+      'selectionner',
+      'seç',
+      'sec',
+    ],
+    template: "  await page.locator('${target}').selectOption('${value}');",
+  },
+  {
+    // bdd's es, fr and tr words (`esperar`, `attendre`, `bekle`) are behaviorspec's `expect`.
+    keywords: ['waits', 'wait', '待機', 'انتظار', '대기', '等待'],
+    template: "  await page.locator('${target}').waitFor();",
+  },
 ];
+
+// =============================================================================
+// GIVEN Element States (from domain-bdd)
+// =============================================================================
+
+/**
+ * `given #button is visible`: a precondition on an element's state, checked before the test goes on.
+ * `given`'s value is free text, so a state is its whole value, with a copula (`STATE_COPULAS`) before
+ * or after it dropped.
+ */
+export const STATE_MAPPINGS: InteractionMapping[] = [
+  {
+    keywords: ['exists', 'existe', '存在', 'موجود', '존재', 'mevcut'],
+    template: "  await expect(page.locator('${target}')).toBeAttached();",
+  },
+  {
+    keywords: ['visible', '表示', 'ظاهر', '표시', '可见', 'görünür', 'gorunur'],
+    template: "  await expect(page.locator('${target}')).toBeVisible();",
+  },
+  {
+    keywords: ['hidden', 'oculto', '非表示', 'مخفي', '숨김', '隐藏', 'gizli', 'caché', 'cache'],
+    template: "  await expect(page.locator('${target}')).toBeHidden();",
+  },
+  {
+    keywords: ['loaded', 'cargado', '読込', 'محمل', '로드됨', '加载', 'yüklü', 'yuklu', 'chargé'],
+    template: "  await page.waitForLoadState('domcontentloaded');",
+  },
+  {
+    keywords: [
+      'disabled',
+      'deshabilitado',
+      '無効',
+      'معطل',
+      '비활성',
+      '禁用',
+      'devre dışı',
+      'devre disi',
+      'désactivé',
+      'desactive',
+    ],
+    template: "  await expect(page.locator('${target}')).toBeDisabled();",
+  },
+  {
+    keywords: ['enabled', 'habilitado', '有効', 'مفعل', '활성', '启用', 'etkin', 'activé'],
+    template: "  await expect(page.locator('${target}')).toBeEnabled();",
+  },
+  {
+    keywords: [
+      'checked',
+      'marcado',
+      'チェック済み',
+      'محدد',
+      '체크됨',
+      '选中',
+      'işaretli',
+      'isaretli',
+      'coché',
+      'coche',
+    ],
+    template: "  await expect(page.locator('${target}')).toBeChecked();",
+  },
+  {
+    keywords: [
+      'focused',
+      'enfocado',
+      'フォーカス',
+      'مركز',
+      '포커스',
+      '聚焦',
+      'odaklanmış',
+      'odaklanmis',
+      'focalisé',
+      'focalise',
+    ],
+    template: "  await expect(page.locator('${target}')).toBeFocused();",
+  },
+];
+
+/** A copula before or after a state, dropped (`is visible`, `es visible`, `görünür dir`). */
+export const STATE_COPULAS = ['is', 'es', 'está', 'esta', 'est', 'هو', '是', 'dir'];
 
 // =============================================================================
 // EXPECT Assertion Mappings
@@ -237,6 +390,12 @@ export const ASSERTION_MAPPINGS: AssertionMapping[] = [
   {
     keywords: ['changes', 'cambia', '変わる', 'يتغير', '변경', '变化', 'change', 'degisir'],
     template: "  await expect(page.locator('${target}')).toHaveText('${value}');",
+  },
+  {
+    // From domain-bdd: `expect #title text saying Welcome`.
+    keywords: ['text', 'texto', 'テキスト', 'نص', '텍스트', '文本', 'texte', 'metin'],
+    template: "  await expect(page.locator('${target}')).toHaveText('${value}');",
+    negationTemplate: "  await expect(page.locator('${target}')).not.toHaveText('${value}');",
   },
   {
     keywords: ['contains', 'contiene', '含む', 'يحتوي-على', '포함', '包含', 'contient', 'icerir'],

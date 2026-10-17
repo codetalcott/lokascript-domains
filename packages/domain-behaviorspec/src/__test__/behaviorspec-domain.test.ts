@@ -1476,3 +1476,62 @@ describe('Hyphenated interaction words (domain gate, 2026-10-15)', () => {
     expect(result.code).toContain(expected);
   });
 });
+
+// =============================================================================
+// From domain-bdd (merged into behaviorspec, hyperfixi domains rethink Phase 5)
+// =============================================================================
+
+describe("bdd's preconditions, actions and assertions", () => {
+  const code = (input: string, language = 'en') => {
+    const result = dsl.compile(input, language);
+    expect(result.ok, result.errors?.join('; ')).toBe(true);
+    return result.code;
+  };
+
+  it.each([
+    ['given #button is visible', "await expect(page.locator('#button')).toBeVisible();"],
+    ['given #button visible', "await expect(page.locator('#button')).toBeVisible();"],
+    ['given #cb is checked', "await expect(page.locator('#cb')).toBeChecked();"],
+    ['given #save is disabled', "await expect(page.locator('#save')).toBeDisabled();"],
+    ['given #box exists', "await expect(page.locator('#box')).toBeAttached();"],
+    ['given page is loaded', "await page.waitForLoadState('domcontentloaded');"],
+  ])('`%s` checks the element state', (input, expected) => {
+    expect(code(input)).toBe(`  ${expected}`);
+  });
+
+  it('reads a state with the copula of its language, before or after it', () => {
+    expect(code('dado #button es visible', 'es')).toContain('toBeVisible()');
+    expect(code('#box görünür dir verilen', 'tr')).toContain('toBeVisible()');
+    expect(code('#box 表示 前提', 'ja')).toContain('toBeVisible()');
+  });
+
+  it('keeps a precondition it does not know as a comment, and a page as a URL', () => {
+    expect(code('given #email is empty')).toBe('// Given: #email is empty');
+    expect(code('given page /home')).toBe("  await page.goto('/home');");
+  });
+
+  it('refuses a viewport without a size, which compiled to broken JavaScript', () => {
+    expect(code('given viewport 1024x768')).toContain('setViewportSize({ width: 1024, height: 768 })');
+    for (const input of ['given viewport', 'given viewport wide']) {
+      const result = dsl.compile(input, 'en');
+      expect(result.ok).toBe(false);
+      expect(result.errors?.[0]).toMatch(/WIDTHxHEIGHT/);
+    }
+  });
+
+  it.each([
+    ["when user presses 'Enter'", "await page.keyboard.press('Enter');"],
+    ['when user checks on #agree', "await page.locator('#agree').check();"],
+    ['when user unchecks on #agree', "await page.locator('#agree').uncheck();"],
+    ["when user selects 'Red' on #color", "await page.locator('#color').selectOption('Red');"],
+    ['when user waits on #spinner', "await page.locator('#spinner').waitFor();"],
+  ])('`%s`', (input, expected) => {
+    expect(code(input)).toBe(`  ${expected}`);
+  });
+
+  it('asserts text', () => {
+    expect(code('expect #title text Welcome')).toBe(
+      "  await expect(page.locator('#title')).toHaveText('Welcome');"
+    );
+  });
+});

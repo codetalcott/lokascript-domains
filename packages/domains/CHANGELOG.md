@@ -2,6 +2,30 @@
 
 ## Unreleased
 
+- **behaviorspec reads bdd's preconditions, actions and assertions** (the
+  owner's call, 2026-10-16: bdd merges into behaviorspec), in behaviorspec's
+  own syntax:
+  - `given #button is visible`: an element's state, checked (bdd's eight:
+    exists, visible, hidden, loaded, disabled, enabled, checked, focused, with
+    their words in every language; a copula before or after is dropped, `es
+    visible`, `görünür dir`). It compiled to a comment, as an unknown
+    precondition still does.
+  - `when user presses 'Enter'`, `checks on #agree`, `unchecks`, `selects
+    'Red' on #color`, `waits on #spinner` (bdd's words; its es, fr and tr
+    `wait` words are behaviorspec's `expect`, so those languages have none).
+  - `expect #title text Welcome` (`toHaveText`).
+  - `given viewport` without a size (`WIDTHxHEIGHT`) is refused at compile: it
+    compiled to `setViewportSize({ width: , height:  })`.
+- **bdd is deprecated** for behaviorspec; `@lokascript/domains/bdd` and its
+  tools stay through 4.x and go in 5.0.0, with framework's classic engine.
+  bdd's own syntax (`then`, `and`, comma-separated Scenario steps) is not
+  carried over. `createDomainRegistry({ omit: ['bdd'] })` (and
+  `registerAllDomains(registry, { omit })`) leaves a domain out, tools and
+  schemas both, so an MCP server can drop bdd's tools now.
+- The domain gate: behaviorspec 536 of 536 round trips, no leftover input
+  accepted; across the domains, leftover input accepted in 0 cases (164 at
+  4.1.0).
+
 - **behaviorspec's `expect` reads its value without `saying`.** The renderer
   writes `expect #toast shows hello` and the parser required `shows saying
   hello`, so every `expect … value` round trip was refused (112 of 448), and

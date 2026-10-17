@@ -56,20 +56,38 @@ export const CLASSIC_LANGUAGES = BRIDGE_LANGUAGES.slice(0, 8);
  * `buildFeedback`). Failures in the async pass are swallowed — core DSL
  * dispatch still works without the attached schemas.
  */
-export function createDomainRegistry(): DomainRegistry {
+export function createDomainRegistry(options: RegisterOptions = {}): DomainRegistry {
   const registry = new DomainRegistry();
-  void registerAllDomains(registry);
+  void registerAllDomains(registry, options);
   return registry;
 }
 
+/** Which domains to leave out. */
+export interface RegisterOptions {
+  /**
+   * Domains not to register (no tools, no schemas): `['bdd']`, deprecated for behaviorspec, which
+   * an MCP server can drop while `@lokascript/domains/bdd` stays through 4.x.
+   */
+  readonly omit?: readonly string[];
+}
+
 /**
- * Register all 8 domains into an existing registry. The returned promise
+ * Register all 8 domains (but those `options.omit` names) into an existing registry. The returned promise
  * resolves once the async schema-attachment pass completes — await it when a
  * caller needs `getSchemas`/`generatePrompt` to be populated (tests, one-shot
  * CLI tools); fire-and-forget callers get the same lazy behavior as
  * `createDomainRegistry`.
  */
-export async function registerAllDomains(registry: DomainRegistry): Promise<void> {
+export async function registerAllDomains(
+  target: DomainRegistry,
+  options: RegisterOptions = {}
+): Promise<void> {
+  const omitted = new Set(options.omit ?? []);
+  const registry = {
+    register(descriptor: Parameters<DomainRegistry['register']>[0]): void {
+      if (!omitted.has(descriptor.name)) target.register(descriptor);
+    },
+  };
   registry.register({
     name: 'sql',
     description: 'natural language SQL',
@@ -201,7 +219,7 @@ export async function registerAllDomains(registry: DomainRegistry): Promise<void
     },
   });
 
-  await loadAllSchemas(registry);
+  await loadAllSchemas(target, omitted);
 }
 
 /**
@@ -210,7 +228,10 @@ export async function registerAllDomains(registry: DomainRegistry): Promise<void
  * any DSL or parser. Swallowed failures: a missing schema doesn't break
  * dispatch, it only disables registry convenience methods for that domain.
  */
-async function loadAllSchemas(registry: DomainRegistry): Promise<void> {
+async function loadAllSchemas(
+  registry: DomainRegistry,
+  omitted: ReadonlySet<string>
+): Promise<void> {
   const loaders: Array<{ domain: string; load: () => Promise<unknown[]> }> = [
     { domain: 'sql', load: () => import('@lokascript/domain-sql').then(m => [...m.allSchemas]) },
     { domain: 'bdd', load: () => import('@lokascript/domain-bdd').then(m => [...m.allSchemas]) },
@@ -232,14 +253,16 @@ async function loadAllSchemas(registry: DomainRegistry): Promise<void> {
   ];
 
   await Promise.allSettled(
-    loaders.map(async ({ domain, load }) => {
-      try {
-        const schemas = await load();
-        registry.setSchemas(domain, schemas as never[]);
-      } catch {
-        // Schema loading failure is non-fatal — domain tools still work.
-      }
-    })
+    loaders
+      .filter(({ domain }) => !omitted.has(domain))
+      .map(async ({ domain, load }) => {
+        try {
+          const schemas = await load();
+          registry.setSchemas(domain, schemas as never[]);
+        } catch {
+          // Schema loading failure is non-fatal — domain tools still work.
+        }
+      })
   );
 }
 

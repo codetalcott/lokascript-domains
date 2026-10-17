@@ -458,16 +458,6 @@
         "fr": "given subject:expression=page",
         "tr": "given subject:expression=page"
       },
-      "[given subject:viewport]": {
-        "en": "given subject:expression=viewport",
-        "es": "given subject:expression=viewport",
-        "ja": "given subject:expression=viewport",
-        "ar": "given subject:expression=viewport",
-        "ko": "given subject:expression=viewport",
-        "zh": "given subject:expression=viewport",
-        "fr": "given subject:expression=viewport",
-        "tr": "given subject:expression=viewport"
-      },
       "[given subject:page value:/home]": {
         "en": "given subject:expression=page value:expression=/home",
         "es": "given subject:expression=page value:expression=/home",
@@ -477,16 +467,6 @@
         "zh": "given subject:expression=page value:expression=/home",
         "fr": "given subject:expression=page value:expression=/home",
         "tr": "given subject:expression=page value:expression=/home"
-      },
-      "[given subject:viewport value:/home]": {
-        "en": "given subject:expression=viewport value:expression=/home",
-        "es": "given subject:expression=viewport value:expression=/home",
-        "ja": "given subject:expression=viewport value:expression=/home",
-        "ar": "given subject:expression=viewport value:expression=/home",
-        "ko": "given subject:expression=viewport value:expression=/home",
-        "zh": "given subject:expression=viewport value:expression=/home",
-        "fr": "given subject:expression=viewport value:expression=/home",
-        "tr": "given subject:expression=viewport value:expression=/home"
       },
       "[when action:clicks]": {
         "en": "when action:expression=clicks",
@@ -588,6 +568,56 @@
         "fr": "when action:expression=clears",
         "tr": "when action:expression=clears"
       },
+      "[when action:presses]": {
+        "en": "when action:expression=presses",
+        "es": "when action:expression=presses",
+        "ja": "when action:expression=presses",
+        "ar": "when action:expression=presses",
+        "ko": "when action:expression=presses",
+        "zh": "when action:expression=presses",
+        "fr": "when action:expression=presses",
+        "tr": "when action:expression=presses"
+      },
+      "[when action:checks]": {
+        "en": "when action:expression=checks",
+        "es": "when action:expression=checks",
+        "ja": "when action:expression=checks",
+        "ar": "when action:expression=checks",
+        "ko": "when action:expression=checks",
+        "zh": "when action:expression=checks",
+        "fr": "when action:expression=checks",
+        "tr": "when action:expression=checks"
+      },
+      "[when action:unchecks]": {
+        "en": "when action:expression=unchecks",
+        "es": "when action:expression=unchecks",
+        "ja": "when action:expression=unchecks",
+        "ar": "when action:expression=unchecks",
+        "ko": "when action:expression=unchecks",
+        "zh": "when action:expression=unchecks",
+        "fr": "when action:expression=unchecks",
+        "tr": "when action:expression=unchecks"
+      },
+      "[when action:selects]": {
+        "en": "when action:expression=selects",
+        "es": "when action:expression=selects",
+        "ja": "when action:expression=selects",
+        "ar": "when action:expression=selects",
+        "ko": "when action:expression=selects",
+        "zh": "when action:expression=selects",
+        "fr": "when action:expression=selects",
+        "tr": "when action:expression=selects"
+      },
+      "[when action:waits]": {
+        "en": "when action:expression=waits",
+        "es": "when action:expression=waits",
+        "ja": "when action:expression=waits",
+        "ar": "when action:expression=waits",
+        "ko": "when action:expression=waits",
+        "zh": "when action:expression=waits",
+        "fr": "when action:expression=waits",
+        "tr": "when action:expression=waits"
+      },
       "[when actor:user action:clicks value:'hello' target:#button destination:#form]": {
         "en": "when action:expression=clicks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
         "es": "when action:expression=clicks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
@@ -688,6 +718,56 @@
         "fr": "when action:expression=clears actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
         "tr": "when action:expression=clears actor:expression=user destination:selector=#form target:selector=#button value:literal=hello"
       },
+      "[when actor:user action:presses value:'hello' target:#button destination:#form]": {
+        "en": "when action:expression=presses actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "es": "when action:expression=presses actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ja": "when action:expression=presses actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ar": "when action:expression=presses actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ko": "when action:expression=presses actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "zh": "when action:expression=presses actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "fr": "when action:expression=presses actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "tr": "when action:expression=presses actor:expression=user destination:selector=#form target:selector=#button value:literal=hello"
+      },
+      "[when actor:user action:checks value:'hello' target:#button destination:#form]": {
+        "en": "when action:expression=checks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "es": "when action:expression=checks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ja": "when action:expression=checks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ar": "when action:expression=checks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ko": "when action:expression=checks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "zh": "when action:expression=checks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "fr": "when action:expression=checks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "tr": "when action:expression=checks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello"
+      },
+      "[when actor:user action:unchecks value:'hello' target:#button destination:#form]": {
+        "en": "when action:expression=unchecks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "es": "when action:expression=unchecks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ja": "when action:expression=unchecks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ar": "when action:expression=unchecks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ko": "when action:expression=unchecks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "zh": "when action:expression=unchecks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "fr": "when action:expression=unchecks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "tr": "when action:expression=unchecks actor:expression=user destination:selector=#form target:selector=#button value:literal=hello"
+      },
+      "[when actor:user action:selects value:'hello' target:#button destination:#form]": {
+        "en": "when action:expression=selects actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "es": "when action:expression=selects actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ja": "when action:expression=selects actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ar": "when action:expression=selects actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ko": "when action:expression=selects actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "zh": "when action:expression=selects actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "fr": "when action:expression=selects actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "tr": "when action:expression=selects actor:expression=user destination:selector=#form target:selector=#button value:literal=hello"
+      },
+      "[when actor:user action:waits value:'hello' target:#button destination:#form]": {
+        "en": "when action:expression=waits actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "es": "when action:expression=waits actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ja": "when action:expression=waits actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ar": "when action:expression=waits actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "ko": "when action:expression=waits actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "zh": "when action:expression=waits actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "fr": "when action:expression=waits actor:expression=user destination:selector=#form target:selector=#button value:literal=hello",
+        "tr": "when action:expression=waits actor:expression=user destination:selector=#form target:selector=#button value:literal=hello"
+      },
       "[expect target:#toast assertion:has]": {
         "en": "expect assertion:expression=has target:selector=#toast",
         "es": "expect assertion:expression=has target:selector=#toast",
@@ -748,6 +828,16 @@
         "fr": "expect assertion:expression=value target:selector=#toast",
         "tr": "expect assertion:expression=value target:selector=#toast"
       },
+      "[expect target:#toast assertion:text]": {
+        "en": "expect assertion:expression=text target:selector=#toast",
+        "es": "expect assertion:expression=text target:selector=#toast",
+        "ja": "expect assertion:expression=text target:selector=#toast",
+        "ar": "expect assertion:expression=text target:selector=#toast",
+        "ko": "expect assertion:expression=text target:selector=#toast",
+        "zh": "expect assertion:expression=text target:selector=#toast",
+        "fr": "expect assertion:expression=text target:selector=#toast",
+        "tr": "expect assertion:expression=text target:selector=#toast"
+      },
       "[expect target:#toast assertion:has value:hello]": {
         "en": "expect assertion:expression=has target:selector=#toast value:expression=hello",
         "es": "expect assertion:expression=has target:selector=#toast value:expression=hello",
@@ -807,6 +897,16 @@
         "zh": "expect assertion:expression=value target:selector=#toast value:expression=hello",
         "fr": "expect assertion:expression=value target:selector=#toast value:expression=hello",
         "tr": "expect assertion:expression=value target:selector=#toast value:expression=hello"
+      },
+      "[expect target:#toast assertion:text value:hello]": {
+        "en": "expect assertion:expression=text target:selector=#toast value:expression=hello",
+        "es": "expect assertion:expression=text target:selector=#toast value:expression=hello",
+        "ja": "expect assertion:expression=text target:selector=#toast value:expression=hello",
+        "ar": "expect assertion:expression=text target:selector=#toast value:expression=hello",
+        "ko": "expect assertion:expression=text target:selector=#toast value:expression=hello",
+        "zh": "expect assertion:expression=text target:selector=#toast value:expression=hello",
+        "fr": "expect assertion:expression=text target:selector=#toast value:expression=hello",
+        "tr": "expect assertion:expression=text target:selector=#toast value:expression=hello"
       },
       "[after duration:2s]": {
         "en": "after duration:literal=2s",
@@ -917,6 +1017,96 @@
         "zh": "expect assertion:expression=empty target:selector=#toast",
         "fr": "expect assertion:expression=empty target:selector=#toast",
         "tr": "expect assertion:expression=empty target:selector=#toast"
+      },
+      "[given subject:viewport value:1024x768]": {
+        "en": "given subject:expression=viewport value:expression=1024x768",
+        "es": "given subject:expression=viewport value:expression=1024x768",
+        "ja": "given subject:expression=viewport value:expression=1024x768",
+        "ar": "given subject:expression=viewport value:expression=1024x768",
+        "ko": "given subject:expression=viewport value:expression=1024x768",
+        "zh": "given subject:expression=viewport value:expression=1024x768",
+        "fr": "given subject:expression=viewport value:expression=1024x768",
+        "tr": "given subject:expression=viewport value:expression=1024x768"
+      },
+      "[given subject:#box value:exists]": {
+        "en": "given subject:selector=#box value:expression=exists",
+        "es": "given subject:selector=#box value:expression=exists",
+        "ja": "given subject:selector=#box value:expression=exists",
+        "ar": "given subject:selector=#box value:expression=exists",
+        "ko": "given subject:selector=#box value:expression=exists",
+        "zh": "given subject:selector=#box value:expression=exists",
+        "fr": "given subject:selector=#box value:expression=exists",
+        "tr": "given subject:selector=#box value:expression=exists"
+      },
+      "[given subject:#box value:visible]": {
+        "en": "given subject:selector=#box value:expression=visible",
+        "es": "given subject:selector=#box value:expression=visible",
+        "ja": "given subject:selector=#box value:expression=visible",
+        "ar": "given subject:selector=#box value:expression=visible",
+        "ko": "given subject:selector=#box value:expression=visible",
+        "zh": "given subject:selector=#box value:expression=visible",
+        "fr": "given subject:selector=#box value:expression=visible",
+        "tr": "given subject:selector=#box value:expression=visible"
+      },
+      "[given subject:#box value:hidden]": {
+        "en": "given subject:selector=#box value:expression=hidden",
+        "es": "given subject:selector=#box value:expression=hidden",
+        "ja": "given subject:selector=#box value:expression=hidden",
+        "ar": "given subject:selector=#box value:expression=hidden",
+        "ko": "given subject:selector=#box value:expression=hidden",
+        "zh": "given subject:selector=#box value:expression=hidden",
+        "fr": "given subject:selector=#box value:expression=hidden",
+        "tr": "given subject:selector=#box value:expression=hidden"
+      },
+      "[given subject:#box value:loaded]": {
+        "en": "given subject:selector=#box value:expression=loaded",
+        "es": "given subject:selector=#box value:expression=loaded",
+        "ja": "given subject:selector=#box value:expression=loaded",
+        "ar": "given subject:selector=#box value:expression=loaded",
+        "ko": "given subject:selector=#box value:expression=loaded",
+        "zh": "given subject:selector=#box value:expression=loaded",
+        "fr": "given subject:selector=#box value:expression=loaded",
+        "tr": "given subject:selector=#box value:expression=loaded"
+      },
+      "[given subject:#box value:disabled]": {
+        "en": "given subject:selector=#box value:expression=disabled",
+        "es": "given subject:selector=#box value:expression=disabled",
+        "ja": "given subject:selector=#box value:expression=disabled",
+        "ar": "given subject:selector=#box value:expression=disabled",
+        "ko": "given subject:selector=#box value:expression=disabled",
+        "zh": "given subject:selector=#box value:expression=disabled",
+        "fr": "given subject:selector=#box value:expression=disabled",
+        "tr": "given subject:selector=#box value:expression=disabled"
+      },
+      "[given subject:#box value:enabled]": {
+        "en": "given subject:selector=#box value:expression=enabled",
+        "es": "given subject:selector=#box value:expression=enabled",
+        "ja": "given subject:selector=#box value:expression=enabled",
+        "ar": "given subject:selector=#box value:expression=enabled",
+        "ko": "given subject:selector=#box value:expression=enabled",
+        "zh": "given subject:selector=#box value:expression=enabled",
+        "fr": "given subject:selector=#box value:expression=enabled",
+        "tr": "given subject:selector=#box value:expression=enabled"
+      },
+      "[given subject:#box value:checked]": {
+        "en": "given subject:selector=#box value:expression=checked",
+        "es": "given subject:selector=#box value:expression=checked",
+        "ja": "given subject:selector=#box value:expression=checked",
+        "ar": "given subject:selector=#box value:expression=checked",
+        "ko": "given subject:selector=#box value:expression=checked",
+        "zh": "given subject:selector=#box value:expression=checked",
+        "fr": "given subject:selector=#box value:expression=checked",
+        "tr": "given subject:selector=#box value:expression=checked"
+      },
+      "[given subject:#box value:focused]": {
+        "en": "given subject:selector=#box value:expression=focused",
+        "es": "given subject:selector=#box value:expression=focused",
+        "ja": "given subject:selector=#box value:expression=focused",
+        "ar": "given subject:selector=#box value:expression=focused",
+        "ko": "given subject:selector=#box value:expression=focused",
+        "zh": "given subject:selector=#box value:expression=focused",
+        "fr": "given subject:selector=#box value:expression=focused",
+        "tr": "given subject:selector=#box value:expression=focused"
       }
     },
     "flow": {

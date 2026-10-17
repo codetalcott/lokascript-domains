@@ -39,7 +39,7 @@ await it when `getSchemas`/`generatePrompt` must be populated.
 | --- | --- | --- |
 | `/sql` | Natural-language SQL | 11 |
 | `/flow` | Reactive data flow (fetch, poll, stream, submit) | 11 |
-| `/bdd` | BDD/Gherkin → Playwright | 8 |
+| `/bdd` | BDD/Gherkin → Playwright. **Deprecated**: `/behaviorspec` reads its preconditions, actions and assertions; removed in 5.0.0 | 8 |
 | `/behaviorspec` | Interaction-testing specs | 8 |
 | `/llm` | LLM prompt specs | 11 |
 | `/todo` | Todo management | 11 |
