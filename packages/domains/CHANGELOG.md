@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+- **behaviorspec reads `when user types 'hello' into #search`** (the owner's
+  call, 2026-10-16; the test-writer demo's form, refused since 4.1.0). The
+  typed text is `when`'s optional `value`: a quoted string (or a number) right
+  after the action, no marker, and the renderer writes it so (SOV: first,
+  `'hello' user #search に types 操作`). `types on 'hello'` still reads, as
+  `target`. The gate writes `when` with every role, `value` among them (160
+  parses moved, 0 worse).
+
 - **framework 4.8.0** (hyperfixi #1546): behaviorspec, voice and the aggregate
   take `^4.8.0`; the lock holds framework, semantic and intent 4.8.0.
 - **An unknown word read into a role is read, not accepted** (the gate's rule

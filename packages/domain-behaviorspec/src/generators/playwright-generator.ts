@@ -96,18 +96,21 @@ function generateWhen(node: SemanticNode): string {
   const action = node.roles.get('action');
   const target = node.roles.get('target');
   const destination = node.roles.get('destination');
+  const value = node.roles.get('value');
 
   const actionStr = action ? extractValue(action) : 'click';
   const targetStr = target ? extractValue(target) : '';
   const destStr = destination ? extractValue(destination) : '';
+  const valueStr = value ? String(extractValue(value)) : '';
 
-  // For "types X into Y", the target is what's typed (value), destination is where
-  // Use destination as the locator target, and the original target as the value
   const mapping = findMapping(INTERACTION_MAPPINGS, actionStr);
   if (mapping) {
-    if (destStr && mapping.template.includes('${value}')) {
-      // "types hello into #search" -> fill('#search', 'hello')
-      return interpolate(mapping.template, { target: destStr, value: targetStr });
+    if (mapping.template.includes('${value}')) {
+      // The text typed is `value` (`types 'hello' into #search` -> fill('#search', 'hello')), or,
+      // in the older form, the target (`types on 'hello' into #search`).
+      if (destStr)
+        return interpolate(mapping.template, { target: destStr, value: valueStr || targetStr });
+      if (valueStr) return interpolate(mapping.template, { target: targetStr, value: valueStr });
     }
     return interpolate(mapping.template, { target: targetStr, value: destStr });
   }

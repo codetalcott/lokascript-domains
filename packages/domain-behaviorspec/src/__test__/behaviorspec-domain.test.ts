@@ -126,20 +126,30 @@ describe('English parsing', () => {
   });
 
   it('parses when with types, the typed text and destination', () => {
-    // The typed text is `target`, which English marks with `on`.
-    const node = dsl.parse("when user types on 'hello' into #search", 'en');
+    // The typed text is `value`: quoted, right after the action, no marker.
+    const node = dsl.parse("when user types 'hello' into #search", 'en');
     expect(node.action).toBe('when');
     expect(roleValue(node, 'action')).toBe('types');
-    expect(roleValue(node, 'target')).toBe('hello');
+    expect(roleValue(node, 'value')).toBe('hello');
     expect(roleValue(node, 'destination')).toBe('#search');
+    expect(dsl.compile("when user types 'hello' into #search", 'en').code).toBe(
+      "  await page.locator('#search').fill('hello');"
+    );
   });
 
-  it('refuses typed text that no role reads', () => {
-    // Unmarked, `'hello'` is in no role. framework's classic engine skipped it while scanning for
-    // `into` and counted it as read, so this compiled to `fill('')` without a word; the core refuses.
-    expect(() => dsl.parse("when user types 'hello' into #search", 'en')).toThrow(
-      /leaving "'hello' into #search" unread/
+  it('still reads the older form, the typed text as `target` marked with `on`', () => {
+    const node = dsl.parse("when user types on 'hello' into #search", 'en');
+    expect(roleValue(node, 'target')).toBe('hello');
+    expect(dsl.compile("when user types on 'hello' into #search", 'en').code).toBe(
+      "  await page.locator('#search').fill('hello');"
     );
+  });
+
+  it('reads no typed text where there is none, and a marker is not one', () => {
+    // The typed text is optional and has no marker: `into` is the destination's.
+    const node = dsl.parse('when user types into #search', 'en');
+    expect(node.roles.has('value')).toBe(false);
+    expect(roleValue(node, 'destination')).toBe('#search');
   });
 
   it('parses expect with appears assertion', () => {

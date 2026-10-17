@@ -97,7 +97,7 @@ export const whenSchema = defineCommand({
       description: 'Who performs the action (user, system)',
       required: false,
       expectedTypes: ['expression'],
-      svoPosition: 3,
+      svoPosition: 4,
       sovPosition: 3,
     }),
     defineRole({
@@ -108,11 +108,25 @@ export const whenSchema = defineCommand({
       // Only an interaction the generator knows: `when clicks zzqx` read actor `clicks`, action `zzqx`
       // (a comment, not a step), and `when user frobs` compiled to one.
       words: { '*': INTERACTION_MAPPINGS.flatMap(m => m.keywords) },
-      svoPosition: 2,
+      svoPosition: 3,
       // SOV puts the verb of the interaction last of the roles, after both its
       // target and its destination: `user #email を #form に types 操作`.
       // (Higher position = earlier, so this is the lowest.)
       sovPosition: 0,
+    }),
+    defineRole({
+      role: 'value',
+      description: "Text typed, quoted, right after the action (types 'hello' into #search)",
+      required: false,
+      // A quoted string (or a number): no marker, so nothing else may read here.
+      expectedTypes: ['literal'],
+      svoPosition: 2,
+      // SOV: first (`'hello' user #search に types 操作`), the object put before the rest. Just
+      // before the action it would read the command's own keyword (`clicks 操作`: a keyword
+      // token reads as a literal) and leave the action nothing.
+      sovPosition: 4,
+      // As `given`'s value: the profile's `saying`/`と` marker is never written.
+      renderOverride: { '*': '' },
     }),
     defineRole({
       role: 'target',
