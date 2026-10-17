@@ -1,6 +1,6 @@
 {
   "name": "lokascript-domains",
-  "version": "4.3.0",
+  "version": "5.0.0",
   "private": true,
   "description": "The LokaScript multilingual domain-DSL family — 7 domain DSLs built on @lokascript/framework, each multilingual from day one",
   "license": "MIT",

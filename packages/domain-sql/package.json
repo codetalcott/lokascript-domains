@@ -1,6 +1,6 @@
 {
   "name": "@lokascript/domain-sql",
-  "version": "4.3.0",
+  "version": "5.0.0",
   "description": "Multilingual SQL DSL built on @lokascript/framework - proof of cross-domain generality",
   "type": "module",
   "sideEffects": false,
@@ -24,8 +24,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@lokascript/framework": "^4.7.0",
-    "@lokascript/semantic": "^4.0.0"
+    "@lokascript/framework": "^5.0.0",
+    "@lokascript/semantic": "^5.0.0"
   },
   "devDependencies": {
     "@types/node": "^26.1.2",
