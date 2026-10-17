@@ -41,6 +41,8 @@ summary="$(grep -aE 'Test Files|Tests ' "$LOG" | tail -2)"
 # 1. Explicit test failures in the summary -> FAIL.
 if grep -qaE '[0-9]+ failed' "$LOG"; then
   echo "vitest-run: FAIL — failing tests reported (exit=$rc)"
+  # Which ones, and why, even when quiet: a CI log that says only "2 failed" says nothing.
+  grep -aE '(FAIL|×) |AssertionError|Error:|timed out' "$LOG" | sed 's/\x1b\[[0-9;]*m//g' | head -40
   [ -n "$summary" ] && echo "$summary"
   exit 1
 fi
