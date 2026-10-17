@@ -247,6 +247,14 @@ describe('Voice Domain', () => {
       expect(result.code).toContain('history.go');
     });
 
+    it('reads a page count after back / forward, and refuses a word there', () => {
+      expect(voice.compile('back 3', 'en').code).toBe('history.go(-3);');
+      expect(voice.compile('forward 2', 'en').code).toBe('history.go(2);');
+      // The generator cannot count `pages`: it used to compile as a plain `back`.
+      expect(() => voice.parse('back pages', 'en')).toThrow(/leaving "pages" unread/);
+      expect(() => voice.parse('forward pages', 'en')).toThrow(/leaving "pages" unread/);
+    });
+
     it('compiles "read #article" to JS with SpeechSynthesis', () => {
       const result = voice.compile('read #article', 'en');
       expect(result.ok).toBe(true);

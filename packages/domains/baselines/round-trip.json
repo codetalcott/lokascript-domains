@@ -105,16 +105,16 @@
     },
     "voice": {
       "roundTrip": {
-        "cases": 363,
-        "pass": 360,
+        "cases": 385,
+        "pass": 382,
         "refused": 3,
         "silent": 0
       },
       "leftover": {
-        "cases": 360,
+        "cases": 382,
         "pass": 0,
-        "refused": 319,
-        "silent": 41
+        "refused": 363,
+        "silent": 19
       }
     }
   },
@@ -1647,32 +1647,6 @@
       ]
     },
     "voice": {
-      "[back]": [
-        "en",
-        "es",
-        "ja",
-        "ar",
-        "ko",
-        "zh",
-        "tr",
-        "fr",
-        "de",
-        "pt",
-        "ru"
-      ],
-      "[forward]": [
-        "en",
-        "es",
-        "ja",
-        "ar",
-        "ko",
-        "zh",
-        "tr",
-        "fr",
-        "de",
-        "pt",
-        "ru"
-      ],
       "[close]": [
         "en",
         "es",

@@ -191,7 +191,8 @@ export const DOMAIN_VALUES: Record<string, DomainFixture> = {
       'search.patient': ['hello'],
       'search.destination': ['#search'],
       'open.patient': ['/new-page'],
-      'close.patient': ['tab'],
+      // voice-generator.ts: TAB_WORDS and DIALOG_WORDS.
+      'close.patient': ['tab', 'dialog', 'modal'],
       'help.patient': ['navigate'],
       'select.patient': ['all'],
       patient: ['#login'],
