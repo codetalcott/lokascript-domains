@@ -77,6 +77,7 @@ import {
 import {
   parseBehaviorSpec as parseSpecImpl,
   parseFeature as parseFeatureImpl,
+  BehaviorSpecError,
   type SpecParseResult,
   type FeatureParseResult,
   type FeatureBlock,
@@ -190,19 +191,35 @@ export function parseFeatureSpec(input: string, language: string): FeatureParseR
 /**
  * Compile a multi-line BehaviorSpec to a Playwright test file.
  * Returns a complete, runnable test file with imports.
+ *
+ * @throws BehaviorSpecError when a line does not parse (its `errors` name each line; `partial` is the
+ * file without them). It used to return that partial file, so a misspelled step vanished from the test.
  */
 export function compileBehaviorSpec(input: string, language: string): string {
   const spec = parseBehaviorSpec(input, language);
-  return generateSpec(spec);
+  if (spec.errors.length === 0) return generateSpec(spec);
+  throw new BehaviorSpecError(spec.errors, partialOf(() => generateSpec(spec)));
 }
 
 /**
  * Compile a feature-level BehaviorSpec to a Playwright test file.
  * Returns a complete file with test.describe() blocks and beforeEach setup.
+ *
+ * @throws BehaviorSpecError when a line does not parse, as `compileBehaviorSpec` does.
  */
 export function compileFeatureSpec(input: string, language: string): string {
   const result = parseFeatureSpec(input, language);
-  return generateFeature(result);
+  if (result.errors.length === 0) return generateFeature(result);
+  throw new BehaviorSpecError(result.errors, partialOf(() => generateFeature(result)));
+}
+
+/** The file a refused spec would have produced, or '' when even that cannot be generated. */
+function partialOf(generate: () => string): string {
+  try {
+    return generate();
+  } catch {
+    return '';
+  }
 }
 
 // Re-export schemas for consumers who want to extend
@@ -244,6 +261,7 @@ export type {
   InteractionBlock,
   ExpectationNode,
 } from './parser/spec-parser.js';
+export { BehaviorSpecError };
 
 // =============================================================================
 // Domain Scan Config (for AOT / Vite plugin integration)

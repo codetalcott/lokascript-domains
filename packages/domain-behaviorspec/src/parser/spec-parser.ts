@@ -39,6 +39,25 @@ export interface SpecParseResult {
   errors: string[];
 }
 
+/**
+ * Thrown by `compileBehaviorSpec` / `compileFeatureSpec` when a line of the spec did not parse. The
+ * test file without those lines is `partial`: it is never returned as the result, because a test that
+ * silently skips a step passes for the wrong reason.
+ */
+export class BehaviorSpecError extends Error {
+  readonly errors: readonly string[];
+  readonly partial: string;
+
+  constructor(errors: readonly string[], partial: string) {
+    super(
+      `BehaviorSpec: ${errors.length} line(s) not read, so the test would skip them:\n${errors.join('\n')}`
+    );
+    this.name = 'BehaviorSpecError';
+    this.errors = errors;
+    this.partial = partial;
+  }
+}
+
 export interface FeatureBlock {
   /** Feature name */
   name: string;
