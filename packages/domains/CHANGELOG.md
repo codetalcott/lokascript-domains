@@ -1,5 +1,25 @@
 # Changelog
 
+## 5.0.2
+
+- **behaviorspec: a multi-line spec with a line it cannot read is refused, not compiled without
+  it** (#54). `compileBehaviorSpec` and `compileFeatureSpec` returned the test file minus every
+  line the spec parser reported, so `@hyperfixi/mcp-server`'s `compile_behaviorspec` answered
+  `ok: true` with `when I click #submit` and `then #result is visible` gone, and a spec of only
+  such lines compiled to an empty test. They now throw a `BehaviorSpecError` (exported): its
+  `errors` name each line, and `partial` holds the file without them, for a caller that wants to
+  show it. A spec that reads compiles exactly as before.
+
+- **behaviorspec: a `given page` URL ends at whitespace** (#54). The value role is free text
+  (an element's state takes several words), so `given page /login when I click #b` compiled to
+  `page.goto('/login when I click #b')`. A URL with anything after it is refused, naming what
+  was left unread.
+
+- The domain gate's round trips are single statements, so neither showed up there:
+  `behaviorspec-multiline.test.ts` (on the built dist, the module mcp-server imports) holds both.
+  Found: `given #email is empty` compiles to a comment (`// Given: #email is empty`), not an
+  assertion; not changed here.
+
 ## 5.0.1
 
 - **Accepts `@lokascript/framework` 6** (hyperfixi 6.0.0, which removes compilation-service's

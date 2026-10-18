@@ -24,6 +24,7 @@ import {
   renderBehaviorSpec,
   generateSpec,
   generateFeature,
+  BehaviorSpecError,
 } from '../index.js';
 
 // =============================================================================
@@ -1533,5 +1534,39 @@ describe("bdd's preconditions, actions and assertions", () => {
     expect(code('expect #title text Welcome')).toBe(
       "  await expect(page.locator('#title')).toHaveText('Welcome');"
     );
+  });
+});
+
+// =============================================================================
+// Silent losses (#54): a spec line it cannot read, a URL that takes the rest of its line
+// =============================================================================
+
+describe('Refusals, not partial tests (#54)', () => {
+  it('compileBehaviorSpec throws BehaviorSpecError for a line it cannot read', () => {
+    const spec = `test "Login"
+  given page /login
+  when I click #submit`;
+    expect(() => compileBehaviorSpec(spec, 'en')).toThrow(BehaviorSpecError);
+    try {
+      compileBehaviorSpec(spec, 'en');
+    } catch (err) {
+      expect((err as BehaviorSpecError).errors[0]).toMatch(/^Line 3:/);
+      expect((err as BehaviorSpecError).partial).toContain("page.goto('/login')");
+    }
+  });
+
+  it('compileFeatureSpec throws BehaviorSpecError too', () => {
+    const spec = `feature "F"
+  test "T"
+    when I click #submit`;
+    expect(() => compileFeatureSpec(spec, 'en')).toThrow(BehaviorSpecError);
+  });
+
+  it('a given page URL ends at whitespace', () => {
+    const dsl = createBehaviorSpecDSL();
+    const result = dsl.compile('given page /login when I click #b', 'en');
+    expect(result.ok).toBe(false);
+    expect(result.errors?.[0]).toContain('leaving "when I click #b" unread');
+    expect(dsl.compile('given page /login', 'en').code).toBe("  await page.goto('/login');");
   });
 });

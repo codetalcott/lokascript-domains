@@ -100,6 +100,13 @@ function generateGiven(node: SemanticNode): string {
         );
       return interpolate(mapping.template, dims);
     }
+    // `value` is greedy free text (an element's state takes several words), so it also took the
+    // rest of `given page /login when …` as the URL. A URL has no spaces: refuse what follows it.
+    const words = valueStr.trim().split(/\s+/);
+    if (words.length > 1)
+      throw new Error(
+        `given ${subjectStr}: reads "${words[0]}" as the URL only by leaving "${words.slice(1).join(' ')}" unread`
+      );
     return interpolate(mapping.template, { value: valueStr });
   }
 
