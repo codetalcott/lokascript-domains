@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- **Accepts `@lokascript/framework` 6** (hyperfixi 6.0.0, which removes compilation-service's
+  test and component generation: a renumber for these domains). The aggregate peers framework,
+  semantic and intent `^5.0.0 || ^6.0.0`; built and tested against 5.x. No domain changes.
+
 ## 5.0.0
 
 - **BREAKING: built for `@lokascript/framework` 5** (hyperfixi 5.0.0, which deletes the classic
