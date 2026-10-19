@@ -1,5 +1,14 @@
 # Changelog
 
+## 5.0.4
+
+- **Accepts `@lokascript/framework` 7** (hyperfixi 7.0.0, which removes three deprecated MCP tools,
+  compilation-service's HTTP layer and `generate()`, and an unpublished editor extension: a renumber
+  for these domains). The aggregate peers framework, semantic and intent
+  `^5.0.0 || ^6.0.0 || ^7.0.0`; built and tested against 5.x, with the pack smoke run on the
+  registry's 6.x and, with the domain gate, on framework, semantic and intent packed at 7.0.0. No
+  domain changes.
+
 ## 5.0.3
 
 - **behaviorspec: `given` reads every state `expect` does.** `given #email is empty` compiled to
