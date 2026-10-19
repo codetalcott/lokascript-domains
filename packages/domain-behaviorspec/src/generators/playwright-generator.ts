@@ -177,7 +177,12 @@ function generateExpect(node: SemanticNode, negated?: boolean): string {
     return interpolate(mapping.template, { target: targetStr, value: valueStr });
   }
 
-  return `  // Expect: ${targetStr} ${assertionStr} ${valueStr}`.trim();
+  // `expect #toast is valid` compiled to `// Expect: #toast is valid`: a test that checks nothing
+  // and passes. (`given` keeps a precondition it does not know as a comment: setup a person does.)
+  const written = [assertionStr, valueStr].filter(Boolean).join(' ');
+  throw new Error(
+    `expect ${targetStr}: "${written}" is no assertion this compiles, so the test would check nothing`
+  );
 }
 
 function generateAfter(node: SemanticNode): string {

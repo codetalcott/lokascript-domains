@@ -289,11 +289,26 @@ export const STATE_MAPPINGS: InteractionMapping[] = [
       'devre disi',
       'désactivé',
       'desactive',
+      // `expect`'s words (ASSERTION_MAPPINGS).
+      'inactif',
+      'pasif',
     ],
     template: "  await expect(page.locator('${target}')).toBeDisabled();",
   },
   {
-    keywords: ['enabled', 'habilitado', '有効', 'مفعل', '활성', '启用', 'etkin', 'activé'],
+    keywords: [
+      'enabled',
+      'habilitado',
+      '有効',
+      'مفعل',
+      '활성',
+      '启用',
+      'etkin',
+      'activé',
+      // `expect`'s words (ASSERTION_MAPPINGS).
+      'actif',
+      'aktif',
+    ],
     template: "  await expect(page.locator('${target}')).toBeEnabled();",
   },
   {
@@ -308,6 +323,8 @@ export const STATE_MAPPINGS: InteractionMapping[] = [
       'isaretli',
       'coché',
       'coche',
+      // `expect`'s word (ASSERTION_MAPPINGS).
+      '已选中',
     ],
     template: "  await expect(page.locator('${target}')).toBeChecked();",
   },
@@ -323,8 +340,33 @@ export const STATE_MAPPINGS: InteractionMapping[] = [
       'odaklanmis',
       'focalisé',
       'focalise',
+      // `expect`'s words (ASSERTION_MAPPINGS).
+      'フォーカス中',
+      '포커스됨',
+      '聚焦中',
+      'odaklı',
+      'odakli',
     ],
     template: "  await expect(page.locator('${target}')).toBeFocused();",
+  },
+  // `expect`'s editable and empty (ASSERTION_MAPPINGS), without which `given #email is empty`
+  // compiled to a comment.
+  {
+    keywords: [
+      'editable',
+      '編集可能',
+      'قابل-للتعديل',
+      '편집가능',
+      '可编辑',
+      'modifiable',
+      'düzenlenebilir',
+      'duzenlenebilir',
+    ],
+    template: "  await expect(page.locator('${target}')).toBeEditable();",
+  },
+  {
+    keywords: ['empty', 'vacío', 'vacio', '空', 'فارغ', '비어있음', '为空', 'vide', 'boş', 'bos'],
+    template: "  await expect(page.locator('${target}')).toBeEmpty();",
   },
 ];
 

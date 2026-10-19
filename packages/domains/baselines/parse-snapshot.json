@@ -1,8 +1,8 @@
 {
   "upstream": {
-    "@lokascript/framework": "4.8.0",
-    "@lokascript/semantic": "4.8.0",
-    "@lokascript/intent": "4.8.0"
+    "@lokascript/framework": "5.0.0",
+    "@lokascript/semantic": "5.0.0",
+    "@lokascript/intent": "5.0.0"
   },
   "parses": {
     "behaviorspec": {
@@ -675,6 +675,26 @@
         "zh": "given subject:selector=#box value:expression=focused",
         "fr": "given subject:selector=#box value:expression=focused",
         "tr": "given subject:selector=#box value:expression=focused"
+      },
+      "[given subject:#box value:editable]": {
+        "en": "given subject:selector=#box value:expression=editable",
+        "es": "given subject:selector=#box value:expression=editable",
+        "ja": "given subject:selector=#box value:expression=editable",
+        "ar": "given subject:selector=#box value:expression=editable",
+        "ko": "given subject:selector=#box value:expression=editable",
+        "zh": "given subject:selector=#box value:expression=editable",
+        "fr": "given subject:selector=#box value:expression=editable",
+        "tr": "given subject:selector=#box value:expression=editable"
+      },
+      "[given subject:#box value:empty]": {
+        "en": "given subject:selector=#box value:expression=empty",
+        "es": "given subject:selector=#box value:expression=empty",
+        "ja": "given subject:selector=#box value:expression=empty",
+        "ar": "given subject:selector=#box value:expression=empty",
+        "ko": "given subject:selector=#box value:expression=empty",
+        "zh": "given subject:selector=#box value:expression=empty",
+        "fr": "given subject:selector=#box value:expression=empty",
+        "tr": "given subject:selector=#box value:expression=empty"
       }
     },
     "flow": {

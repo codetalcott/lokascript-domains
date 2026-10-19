@@ -1,21 +1,21 @@
 {
   "upstream": {
-    "@lokascript/framework": "4.8.0",
-    "@lokascript/semantic": "4.8.0",
-    "@lokascript/intent": "4.8.0"
+    "@lokascript/framework": "5.0.0",
+    "@lokascript/semantic": "5.0.0",
+    "@lokascript/intent": "5.0.0"
   },
   "counts": {
     "behaviorspec": {
       "roundTrip": {
-        "cases": 536,
-        "pass": 536,
+        "cases": 552,
+        "pass": 552,
         "refused": 0,
         "silent": 0
       },
       "leftover": {
-        "cases": 536,
-        "pass": 128,
-        "refused": 408,
+        "cases": 552,
+        "pass": 133,
+        "refused": 419,
         "silent": 0
       }
     },
