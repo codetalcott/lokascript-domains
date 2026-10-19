@@ -63,9 +63,18 @@ export const DOMAIN_VALUES: Record<string, DomainFixture> = {
       // `given`'s value depends on its subject: a URL for the page, a size for the viewport, a state
       // for an element (mappings.ts: SETUP_MAPPINGS, STATE_MAPPINGS).
       '[given subject:viewport value:1024x768]',
-      ...['exists', 'visible', 'hidden', 'loaded', 'disabled', 'enabled', 'checked', 'focused'].map(
-        state => `[given subject:#box value:${state}]`
-      ),
+      ...[
+        'exists',
+        'visible',
+        'hidden',
+        'loaded',
+        'disabled',
+        'enabled',
+        'checked',
+        'focused',
+        'editable',
+        'empty',
+      ].map(state => `[given subject:#box value:${state}]`),
     ],
   },
   flow: {

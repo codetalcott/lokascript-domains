@@ -1,6 +1,6 @@
 {
   "name": "@lokascript/domain-llm",
-  "version": "5.0.2",
+  "version": "5.0.3",
   "description": "Multilingual LLM prompt DSL built on @lokascript/framework - ask, summarize, analyze, translate via natural language",
   "type": "module",
   "sideEffects": false,

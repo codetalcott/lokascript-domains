@@ -1,5 +1,19 @@
 # Changelog
 
+## 5.0.3
+
+- **behaviorspec: `given` reads every state `expect` does.** `given #email is empty` compiled to
+  `// Given: #email is empty` (found in 5.0.2): `given`'s states came from domain-bdd and lacked
+  `expect`'s `empty` and `editable`, and some of `expect`'s words for the states both have (fr
+  `actif`, ja `フォーカス中`, zh `已选中`, tr `odaklı`). `given` now accepts every one of them, and a
+  test holds the two lists together. The domain gate writes `given #box editable` and `given #box
+  empty` in each language: 552 of 552 round trips (536 before).
+
+- **behaviorspec: an assertion it does not know is refused.** `expect #toast is valid` compiled,
+  `ok: true`, to `// Expect: #toast is valid`: a test that checks nothing and passes. It is refused
+  now, as an action it does not know already was. A precondition it does not know is still kept as
+  a comment (`given user is logged in`): setup a person does.
+
 ## 5.0.2
 
 - **behaviorspec: a multi-line spec with a line it cannot read is refused, not compiled without

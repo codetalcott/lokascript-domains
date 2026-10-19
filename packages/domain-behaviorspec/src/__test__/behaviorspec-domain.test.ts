@@ -26,6 +26,7 @@ import {
   generateFeature,
   BehaviorSpecError,
 } from '../index.js';
+import { ASSERTION_MAPPINGS, STATE_MAPPINGS } from '../generators/mappings.js';
 
 // =============================================================================
 // Setup
@@ -1496,8 +1497,26 @@ describe("bdd's preconditions, actions and assertions", () => {
     ['given #save is disabled', "await expect(page.locator('#save')).toBeDisabled();"],
     ['given #box exists', "await expect(page.locator('#box')).toBeAttached();"],
     ['given page is loaded', "await page.waitForLoadState('domcontentloaded');"],
+    // 5.0.2 compiled these two to `// Given: #email is empty`.
+    ['given #email is empty', "await expect(page.locator('#email')).toBeEmpty();"],
+    ['given #title is editable', "await expect(page.locator('#title')).toBeEditable();"],
   ])('`%s` checks the element state', (input, expected) => {
     expect(code(input)).toBe(`  ${expected}`);
+  });
+
+  it('reads every state `expect` takes without a value as a precondition, in its words', () => {
+    const matcher = (template: string) => template.match(/\)\)\.(to\w+)\(\)/)?.[1];
+    const ascii = (word: string) => word.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    for (const assertion of ASSERTION_MAPPINGS) {
+      if (assertion.template.includes('${value}')) continue;
+      const checks = matcher(assertion.template);
+      const state = STATE_MAPPINGS.find(m => matcher(m.template) === checks);
+      expect(state, `no given state checks ${checks}`).toBeDefined();
+      // `appears` and `disappears` are events; their states are `visible` and `hidden`.
+      if (checks === 'toBeVisible' || checks === 'toBeHidden') continue;
+      for (const word of assertion.keywords)
+        expect(state!.keywords.map(ascii), `given lacks ${word}`).toContain(ascii(word));
+    }
   });
 
   it('reads a state with the copula of its language, before or after it', () => {
@@ -1507,8 +1526,18 @@ describe("bdd's preconditions, actions and assertions", () => {
   });
 
   it('keeps a precondition it does not know as a comment, and a page as a URL', () => {
-    expect(code('given #email is empty')).toBe('// Given: #email is empty');
+    expect(code('given #email is valid')).toBe('// Given: #email is valid');
     expect(code('given page /home')).toBe("  await page.goto('/home');");
+  });
+
+  it('refuses an assertion it does not know, which compiled to a comment that checks nothing', () => {
+    for (const input of ['expect #toast is valid', 'expect #toast valid']) {
+      const result = dsl.compile(input, 'en');
+      expect(result.ok, input).toBe(false);
+      expect(result.errors?.[0]).toMatch(/would check nothing/);
+    }
+    const spec = 'test "E"\n  given page /home\n  when user clicks on #b\n    #toast is valid';
+    expect(() => compileBehaviorSpec(spec, 'en')).toThrow(/would check nothing/);
   });
 
   it('refuses a viewport without a size, which compiled to broken JavaScript', () => {

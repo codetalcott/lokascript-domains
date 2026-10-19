@@ -1,6 +1,6 @@
 {
   "name": "@lokascript/domain-todo",
-  "version": "5.0.2",
+  "version": "5.0.3",
   "description": "Natural language todo list management — example domain for the LokaScript framework",
   "type": "module",
   "sideEffects": false,
