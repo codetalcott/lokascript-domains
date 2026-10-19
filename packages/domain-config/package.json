@@ -35,9 +35,9 @@
   },
   "devDependencies": {
     "@types/node": "^26.1.2",
-    "tsup": "^8.0.0",
-    "typescript": "^5.0.0",
-    "vitest": "^4.1.12"
+    "tsup": "^9.0.0",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.5"
   },
   "files": [
     "dist",
