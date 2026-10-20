@@ -2,7 +2,7 @@
  * Bridge-era languages (arc Phase 1 expansion): German, Portuguese, Russian.
  *
  * Each language was added with ONE vocab file (SQL verbs + connectives) —
- * grammar comes from @lokascript/semantic's profiles through the framework
+ * grammar comes from @lokascript/framework's language grammars through the framework
  * bridge. Mirrors the per-language blocks in sql-domain.test.ts, plus
  * parse → SemanticNode → renderSQL round-trips.
  */

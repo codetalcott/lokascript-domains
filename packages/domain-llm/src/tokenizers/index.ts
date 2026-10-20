@@ -4,7 +4,7 @@
  * Language-specific tokenizers, built through the framework↔semantic bridge:
  * `buildDomainTokenizer` derives direction, script handling (diacritic-safe
  * Latin identifiers, case sensitivity), particle keywords, and the
- * keyword-normalization profile from `@lokascript/semantic`'s language profile;
+ * keyword-normalization profile from `@lokascript/framework`'s language grammar;
  * the domain's vocabulary (`../vocab`) supplies the LLM verbs and marker words.
  *
  * Two LLM-specific tokenizer settings are preserved through the bridge:

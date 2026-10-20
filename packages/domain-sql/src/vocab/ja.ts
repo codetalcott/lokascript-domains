@@ -1,6 +1,6 @@
 /**
  * Japanese SQL vocabulary. Grammar (SOV, particles, CJK script) comes from
- * `@lokascript/semantic`'s Japanese profile via the framework bridge.
+ * `@lokascript/framework`'s Japanese grammar via the framework bridge.
  */
 
 import type { DomainVocabulary } from '@lokascript/framework';

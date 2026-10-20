@@ -1,7 +1,7 @@
 /**
  * Portuguese SQL vocabulary — added via the framework↔semantic bridge: this
  * file is the ONLY Portuguese-specific authoring in the domain (grammar
- * comes from `@lokascript/semantic`'s Portuguese profile).
+ * comes from `@lokascript/framework`'s Portuguese grammar).
  */
 
 import type { DomainVocabulary } from '@lokascript/framework';

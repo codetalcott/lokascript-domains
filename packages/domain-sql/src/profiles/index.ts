@@ -2,7 +2,7 @@
  * SQL Language Profiles
  *
  * Pattern-generation profiles for each supported language, built through the
- * framework↔semantic bridge: `@lokascript/semantic`'s language profiles
+ * framework↔semantic bridge: `@lokascript/framework`'s language grammars
  * supply the grammar (word order, marker positions), the domain's
  * vocabularies (`../vocab`) supply the SQL verbs. Nothing per-language is
  * hand-authored here anymore.

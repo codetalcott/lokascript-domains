@@ -1,7 +1,7 @@
 /**
  * German SQL vocabulary — added via the framework↔semantic bridge: this file
  * is the ONLY German-specific authoring in the domain (grammar comes from
- * `@lokascript/semantic`'s German profile).
+ * `@lokascript/framework`'s German grammar).
  */
 
 import type { DomainVocabulary } from '@lokascript/framework';

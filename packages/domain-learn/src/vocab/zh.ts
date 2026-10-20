@@ -1,6 +1,6 @@
 /**
  * Chinese learn vocabulary (the 15 core verbs). Grammar comes from
- * `@lokascript/semantic`'s Chinese profile via the framework bridge;
+ * `@lokascript/framework`'s Chinese grammar via the framework bridge;
  * morphology tables and sentence frames stay hand-authored in
  * `../profiles/zh.ts`.
  */

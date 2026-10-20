@@ -1,6 +1,6 @@
 /**
  * Spanish BehaviorSpec vocabulary. Grammar (SVO) comes from
- * `@lokascript/semantic`'s Spanish profile via the framework bridge.
+ * `@lokascript/framework`'s Spanish grammar via the framework bridge.
  */
 
 import type { DomainVocabulary } from '@lokascript/framework';

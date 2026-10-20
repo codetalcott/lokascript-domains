@@ -1,6 +1,6 @@
 /**
  * Turkish BehaviorSpec vocabulary. Grammar (SOV) comes from
- * `@lokascript/semantic`'s Turkish profile via the framework bridge.
+ * `@lokascript/framework`'s Turkish grammar via the framework bridge.
  */
 
 import type { DomainVocabulary } from '@lokascript/framework';

@@ -1,6 +1,6 @@
 /**
  * German LLM vocabulary (bridge-era language, arc Phase 2). Grammar (SVO,
- * Latin script) comes from `@lokascript/semantic`'s German profile via the
+ * Latin script) comes from `@lokascript/framework`'s German grammar via the
  * framework bridge — one vocab file, no hand-authored profile/tokenizer.
  */
 

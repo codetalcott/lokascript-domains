@@ -1,6 +1,6 @@
 /**
  * Korean FlowScript vocabulary. Grammar (SOV, particles, Hangul script) comes
- * from `@lokascript/semantic`'s Korean profile via the framework bridge.
+ * from `@lokascript/framework`'s Korean grammar via the framework bridge.
  */
 
 import type { DomainVocabulary } from '@lokascript/framework';

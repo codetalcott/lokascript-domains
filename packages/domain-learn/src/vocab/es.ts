@@ -1,6 +1,6 @@
 /**
  * Spanish learn vocabulary (the 15 core verbs). Grammar comes from
- * `@lokascript/semantic`'s Spanish profile via the framework bridge;
+ * `@lokascript/framework`'s Spanish grammar via the framework bridge;
  * morphology tables and sentence frames stay hand-authored in
  * `../profiles/es.ts`.
  */

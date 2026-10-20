@@ -1,6 +1,6 @@
 /**
  * French learn vocabulary (the 15 core verbs). Grammar comes from
- * `@lokascript/semantic`'s French profile via the framework bridge;
+ * `@lokascript/framework`'s French grammar via the framework bridge;
  * morphology tables and sentence frames stay hand-authored in
  * `../profiles/fr.ts`.
  */

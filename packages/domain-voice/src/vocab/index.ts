@@ -3,24 +3,24 @@
  *
  * Each language pairs a domain-authored {@link DomainVocabulary} (voice verbs +
  * marker/direction/target words — the ONLY per-language authoring) with the
- * language's grammar profile from `@lokascript/semantic` (word order, markers,
+ * language's grammar from `@lokascript/framework/languages` (word order, markers,
  * particles, script). The framework bridge (`buildPatternProfile` /
  * `buildDomainTokenizer`) combines the two in `../profiles` and `../tokenizers`.
  */
 
 import type { DomainVocabulary, GrammarProfileSlice } from '@lokascript/framework';
 
-import { englishProfile as enSlice } from '@lokascript/semantic/languages/en';
-import { spanishProfile as esSlice } from '@lokascript/semantic/languages/es';
-import { japaneseProfile as jaSlice } from '@lokascript/semantic/languages/ja';
-import { arabicProfile as arSlice } from '@lokascript/semantic/languages/ar';
-import { koreanProfile as koSlice } from '@lokascript/semantic/languages/ko';
-import { chineseProfile as zhSlice } from '@lokascript/semantic/languages/zh';
-import { turkishProfile as trSlice } from '@lokascript/semantic/languages/tr';
-import { frenchProfile as frSlice } from '@lokascript/semantic/languages/fr';
-import { germanProfile as deSlice } from '@lokascript/semantic/languages/de';
-import { portugueseProfile as ptSlice } from '@lokascript/semantic/languages/pt';
-import { russianProfile as ruSlice } from '@lokascript/semantic/languages/ru';
+import { englishGrammar as enSlice } from '@lokascript/framework/languages/en';
+import { spanishGrammar as esSlice } from '@lokascript/framework/languages/es';
+import { japaneseGrammar as jaSlice } from '@lokascript/framework/languages/ja';
+import { arabicGrammar as arSlice } from '@lokascript/framework/languages/ar';
+import { koreanGrammar as koSlice } from '@lokascript/framework/languages/ko';
+import { chineseGrammar as zhSlice } from '@lokascript/framework/languages/zh';
+import { turkishGrammar as trSlice } from '@lokascript/framework/languages/tr';
+import { frenchGrammar as frSlice } from '@lokascript/framework/languages/fr';
+import { germanGrammar as deSlice } from '@lokascript/framework/languages/de';
+import { portugueseGrammar as ptSlice } from '@lokascript/framework/languages/pt';
+import { russianGrammar as ruSlice } from '@lokascript/framework/languages/ru';
 
 import { enVocabulary } from './en';
 import { esVocabulary } from './es';

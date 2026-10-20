@@ -12,8 +12,10 @@ npm install @lokascript/domains
 `@lokascript/framework`, `@lokascript/semantic` and `@lokascript/intent` are
 **peer dependencies** (npm 7+ installs them for you): your project owns the
 single copy of the contract, and the aggregate's major tracks the framework
-major it is built against — `@lokascript/domains@3.x` needs framework 3.x.
-Projects still on framework 2.x stay on `@lokascript/domains@2.11.1`.
+major it is built against — `@lokascript/domains@7.x` needs framework 7.1 or
+later (it takes each language's grammar from `@lokascript/framework/languages`).
+Projects on framework 5 or 6 stay on `@lokascript/domains@5.0.4`; on 2.x, on
+`@lokascript/domains@2.11.1`.
 
 ```ts
 // One domain — loads nothing else:
