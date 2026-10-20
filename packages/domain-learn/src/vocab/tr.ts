@@ -1,6 +1,6 @@
 /**
  * Turkish learn vocabulary (the 15 core verbs). Grammar comes from
- * `@lokascript/semantic`'s Turkish profile via the framework bridge;
+ * `@lokascript/framework`'s Turkish grammar via the framework bridge;
  * morphology tables and sentence frames stay hand-authored in
  * `../profiles/tr.ts`.
  */

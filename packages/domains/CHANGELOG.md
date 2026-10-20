@@ -1,5 +1,20 @@
 # Changelog
 
+## 7.0.0
+
+- **Built on `@lokascript/framework` 7.1, and each domain takes a language's grammar from it.**
+  A domain's languages paired its vocabulary with `@lokascript/semantic/languages/<code>`, which
+  also registers hyperscript's tokenizer and patterns. They now take
+  `@lokascript/framework/languages/<code>` (new in framework 7.1.0): the same word order, role
+  markers, script and particles, as plain objects. Six of the seven domains no longer use semantic
+  at run time; learn still writes its commanding sentence with it, so semantic stays a peer. Nothing
+  a domain reads or writes changed: on framework, semantic and intent 7.1.0 the round-trip gate is
+  0 worse, 0 better and 0 parses moved against 5.0.4's baseline (1,676 commands), and every
+  generated pattern matches its golden file.
+- **Breaking: the peers are `^7.1.0`** for framework, semantic and intent (they were
+  `^5.0.0 || ^6.0.0 || ^7.0.0`), and the major follows framework's, as the versioning rule says.
+  A project on framework 5 or 6 stays on 5.0.4, which also runs on 7.x.
+
 ## 5.0.4
 
 - **Accepts `@lokascript/framework` 7** (hyperfixi 7.0.0, which removes three deprecated MCP tools,

@@ -1,6 +1,6 @@
 /**
  * French BehaviorSpec vocabulary. Grammar (SVO) comes from
- * `@lokascript/semantic`'s French profile via the framework bridge.
+ * `@lokascript/framework`'s French grammar via the framework bridge.
  */
 
 import type { DomainVocabulary } from '@lokascript/framework';

@@ -1,6 +1,6 @@
 /**
  * Korean voice vocabulary. Grammar (SOV, particles, Hangul script) comes from
- * `@lokascript/semantic`'s Korean profile via the framework bridge.
+ * `@lokascript/framework`'s Korean grammar via the framework bridge.
  */
 
 import type { DomainVocabulary } from '@lokascript/framework';

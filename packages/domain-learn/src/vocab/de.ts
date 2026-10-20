@@ -1,6 +1,6 @@
 /**
  * German learn vocabulary (the 15 core verbs). Grammar comes from
- * `@lokascript/semantic`'s German profile via the framework bridge;
+ * `@lokascript/framework`'s German grammar via the framework bridge;
  * morphology tables and sentence frames stay hand-authored in
  * `../profiles/de.ts`.
  */

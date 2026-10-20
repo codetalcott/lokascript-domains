@@ -1,6 +1,6 @@
 /**
  * Russian FlowScript vocabulary (bridge-era language, arc Phase 2). Grammar
- * (SVO, Cyrillic script) comes from `@lokascript/semantic`'s Russian profile
+ * (SVO, Cyrillic script) comes from `@lokascript/framework`'s Russian grammar
  * via the framework bridge — one vocab file, no hand-authored
  * profile/tokenizer.
  */

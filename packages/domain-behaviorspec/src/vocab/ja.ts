@@ -1,6 +1,6 @@
 /**
  * Japanese BehaviorSpec vocabulary. Grammar (SOV) comes from
- * `@lokascript/semantic`'s Japanese profile via the framework bridge.
+ * `@lokascript/framework`'s Japanese grammar via the framework bridge.
  */
 
 import type { DomainVocabulary } from '@lokascript/framework';

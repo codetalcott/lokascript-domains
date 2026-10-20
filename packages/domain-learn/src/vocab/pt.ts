@@ -1,6 +1,6 @@
 /**
  * Portuguese learn vocabulary (the 15 core verbs). Grammar comes from
- * `@lokascript/semantic`'s Portuguese profile via the framework bridge;
+ * `@lokascript/framework`'s Portuguese grammar via the framework bridge;
  * morphology tables and sentence frames stay hand-authored in
  * `../profiles/pt.ts`.
  */

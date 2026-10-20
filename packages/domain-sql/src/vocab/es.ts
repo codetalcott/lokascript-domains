@@ -1,6 +1,6 @@
 /**
- * Spanish SQL vocabulary. Grammar comes from `@lokascript/semantic`'s
- * Spanish profile via the framework bridge.
+ * Spanish SQL vocabulary. Grammar comes from `@lokascript/framework`'s
+ * Spanish grammar via the framework bridge.
  */
 
 import type { DomainVocabulary } from '@lokascript/framework';

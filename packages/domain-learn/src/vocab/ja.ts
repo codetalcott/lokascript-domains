@@ -1,6 +1,6 @@
 /**
  * Japanese learn vocabulary (the 15 core verbs). Grammar comes from
- * `@lokascript/semantic`'s Japanese profile via the framework bridge;
+ * `@lokascript/framework`'s Japanese grammar via the framework bridge;
  * morphology tables and sentence frames stay hand-authored in
  * `../profiles/ja.ts`.
  */

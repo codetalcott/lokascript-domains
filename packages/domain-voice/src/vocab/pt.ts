@@ -1,6 +1,6 @@
 /**
  * Portuguese voice vocabulary (bridge-era language, arc Phase 2). Grammar (SVO,
- * Latin script) comes from `@lokascript/semantic`'s Portuguese profile via the
+ * Latin script) comes from `@lokascript/framework`'s Portuguese grammar via the
  * framework bridge — one vocab file, no hand-authored profile/tokenizer.
  */
 

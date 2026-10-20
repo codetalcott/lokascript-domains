@@ -1,7 +1,7 @@
 /**
  * Russian SQL vocabulary — added via the framework↔semantic bridge: this
  * file is the ONLY Russian-specific authoring in the domain (grammar comes
- * from `@lokascript/semantic`'s Russian profile).
+ * from `@lokascript/framework`'s Russian grammar).
  */
 
 import type { DomainVocabulary } from '@lokascript/framework';

@@ -1,6 +1,6 @@
 /**
  * Arabic todo vocabulary. Grammar (VSO, RTL, Arabic script) comes from
- * `@lokascript/semantic`'s Arabic profile via the framework bridge.
+ * `@lokascript/framework`'s Arabic grammar via the framework bridge.
  */
 
 import type { DomainVocabulary } from '@lokascript/framework';

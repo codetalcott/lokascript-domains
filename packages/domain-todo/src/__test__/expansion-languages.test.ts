@@ -2,7 +2,7 @@
  * Bridge-era languages (arc Phase 2 expansion): German, Portuguese, Russian.
  *
  * Each language was added with ONE vocab file (todo verbs + the list marker
- * word) — grammar comes from @lokascript/semantic's profiles through the
+ * word) — grammar comes from @lokascript/framework's language grammars through the
  * framework bridge. Mirrors the per-language blocks in todo-domain.test.ts,
  * plus parse → SemanticNode → renderTodo round-trips.
  */

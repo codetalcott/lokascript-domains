@@ -5,7 +5,7 @@
  * Parses SQL queries written in 11 languages, demonstrating that the
  * framework supports SVO, SOV, and VSO word orders. Languages are built
  * through the framework↔semantic bridge: grammar comes from
- * @lokascript/semantic's language profiles, the domain authors only a
+ * @lokascript/framework's language grammars, the domain authors only a
  * per-language vocabulary (see ./vocab).
  *
  * @example

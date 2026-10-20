@@ -1,6 +1,6 @@
 /**
  * English BehaviorSpec vocabulary — the only thing authored per language.
- * Grammar (word order) comes from `@lokascript/semantic`'s English profile via
+ * Grammar (word order) comes from `@lokascript/framework`'s English grammar via
  * the framework bridge. These are the structural keywords; BehaviorSpec's
  * interaction/assertion vocabulary lives in the renderer + mappings tables.
  */

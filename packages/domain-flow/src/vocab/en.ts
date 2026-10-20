@@ -1,6 +1,6 @@
 /**
  * English FlowScript vocabulary. Grammar (SVO, Latin script) comes from
- * `@lokascript/semantic`'s English profile via the framework bridge.
+ * `@lokascript/framework`'s English grammar via the framework bridge.
  */
 
 import type { DomainVocabulary } from '@lokascript/framework';

@@ -1,6 +1,6 @@
 /**
  * Chinese BehaviorSpec vocabulary. Grammar (SVO) comes from
- * `@lokascript/semantic`'s Chinese profile via the framework bridge.
+ * `@lokascript/framework`'s Chinese grammar via the framework bridge.
  */
 
 import type { DomainVocabulary } from '@lokascript/framework';

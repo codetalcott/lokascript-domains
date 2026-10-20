@@ -164,7 +164,9 @@ never hand-authored per language:
 
 - `src/vocab/<lang>.ts`: a `DomainVocabulary` (verb keywords + alternatives, `tokenizerKeywords`,
   `roleMarkerOverrides`). **This is the only per-language authoring.** `vocab/index.ts` pairs each
-  vocab with the language's `GrammarProfileSlice` from `@lokascript/semantic/languages/<lang>`.
+  vocab with the language's grammar from `@lokascript/framework/languages/<lang>` (data, no side
+  effects; framework 7.1+). Only learn depends on `@lokascript/semantic` at runtime (its commanding
+  sentence); the others use it in `lint.test.ts` alone.
 - `src/profiles/index.ts`: `buildPatternProfile(slice, vocab)` per language.
 - `src/tokenizers/index.ts`: `buildDomainTokenizer(slice, vocab, opts)` per language.
 - `src/schemas/index.ts`: `defineCommand`/`defineRole` command schemas with per-language

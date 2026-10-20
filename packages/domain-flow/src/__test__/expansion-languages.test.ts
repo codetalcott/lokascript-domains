@@ -2,7 +2,7 @@
  * Bridge-era languages (arc Phase 2 expansion): German, Portuguese, Russian.
  *
  * Each language was added with ONE vocab file (9 flow verbs + marker words) —
- * grammar comes from @lokascript/semantic's profiles through the framework
+ * grammar comes from @lokascript/framework's language grammars through the framework
  * bridge. Mirrors the per-language blocks in flow-domain.test.ts, plus
  * parse → SemanticNode → renderFlow round-trips.
  */

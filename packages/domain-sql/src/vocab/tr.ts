@@ -1,6 +1,6 @@
 /**
  * Turkish SQL vocabulary. Grammar (SOV, case suffixes, Latin script) comes
- * from `@lokascript/semantic`'s Turkish profile via the framework bridge.
+ * from `@lokascript/framework`'s Turkish grammar via the framework bridge.
  */
 
 import type { DomainVocabulary } from '@lokascript/framework';

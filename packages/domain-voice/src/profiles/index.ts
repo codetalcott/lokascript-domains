@@ -2,7 +2,7 @@
  * Voice/Accessibility Language Profiles
  *
  * Pattern-generation profiles for each supported language, built through the
- * framework↔semantic bridge: `@lokascript/semantic`'s language profiles supply
+ * framework↔semantic bridge: `@lokascript/framework`'s language grammars supply
  * the grammar (word order, marker positions), the domain's vocabularies
  * (`../vocab`) supply the voice command verbs. Nothing per-language is
  * hand-authored here anymore.

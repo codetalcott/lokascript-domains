@@ -2,7 +2,7 @@
  * Bridge-era languages (arc Phase 2 expansion): German, Portuguese, Russian.
  *
  * Each language was added with ONE vocab file (14 voice verbs + marker/
- * direction/target words) — grammar comes from @lokascript/semantic's profiles
+ * direction/target words) — grammar comes from @lokascript/framework's language grammars
  * through the framework bridge. Mirrors the per-language blocks in
  * voice-domain.test.ts, plus parse → SemanticNode → renderVoice round-trips.
  */

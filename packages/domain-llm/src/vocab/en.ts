@@ -1,7 +1,7 @@
 /**
  * English LLM vocabulary — the only thing authored per language.
- * Grammar (word order, script) comes from `@lokascript/semantic`'s English
- * profile via the framework bridge.
+ * Grammar (word order, script) comes from `@lokascript/framework`'s English
+ * grammar via the framework bridge.
  */
 
 import type { DomainVocabulary } from '@lokascript/framework';

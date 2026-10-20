@@ -8,9 +8,9 @@
 
 import { defineCommand, defineRole, deriveRoleMarkers } from '@lokascript/framework';
 import type { GrammarProfileSlice } from '@lokascript/framework';
-import { germanProfile as deSlice } from '@lokascript/semantic/languages/de';
-import { portugueseProfile as ptSlice } from '@lokascript/semantic/languages/pt';
-import { russianProfile as ruSlice } from '@lokascript/semantic/languages/ru';
+import { germanGrammar as deSlice } from '@lokascript/framework/languages/de';
+import { portugueseGrammar as ptSlice } from '@lokascript/framework/languages/pt';
+import { russianGrammar as ruSlice } from '@lokascript/framework/languages/ru';
 
 // =============================================================================
 // Bridge-derived markers (arc Phase 1 expansion)
