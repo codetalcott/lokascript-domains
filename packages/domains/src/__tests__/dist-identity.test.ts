@@ -21,7 +21,6 @@ const SUBPATH_FACTORIES: Record<string, string> = {
   llm: 'createLLMDSL',
   todo: 'createTodoDSL',
   voice: 'createVoiceDSL',
-  learn: 'createLearnDSL',
 };
 
 describe('every subpath entry loads and exposes its factory', () => {

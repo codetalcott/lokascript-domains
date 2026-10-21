@@ -1,6 +1,6 @@
 {
   "name": "@lokascript/domain-config",
-  "version": "7.0.0",
+  "version": "7.1.0",
   "description": "Shared domain-registry wiring + priority order for MCP servers and other consumers. Single source of truth for which LokaScript domains exist and how the dispatcher breaks ambiguity.",
   "type": "module",
   "sideEffects": false,
@@ -17,20 +17,19 @@
   "scripts": {
     "build": "tsup && npm run build:types",
     "build:types": "tsc --emitDeclarationOnly --outDir dist --noEmit false",
-    "pretest": "../../scripts/ensure-fresh.sh ../domain-sql ../domain-behaviorspec ../domain-todo ../domain-llm ../domain-flow ../domain-voice ../domain-learn",
+    "pretest": "../../scripts/ensure-fresh.sh ../domain-sql ../domain-behaviorspec ../domain-todo ../domain-llm ../domain-flow ../domain-voice",
     "test": "vitest",
     "test:run": "vitest run",
     "test:check": "VITEST_QUIET=1 bash ../../scripts/vitest-run.sh --reporter=dot",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@lokascript/domain-behaviorspec": "^7.0.0",
-    "@lokascript/domain-flow": "^7.0.0",
-    "@lokascript/domain-learn": "^7.0.0",
-    "@lokascript/domain-llm": "^7.0.0",
-    "@lokascript/domain-sql": "^7.0.0",
-    "@lokascript/domain-todo": "^7.0.0",
-    "@lokascript/domain-voice": "^7.0.0",
+    "@lokascript/domain-behaviorspec": "^7.1.0",
+    "@lokascript/domain-flow": "^7.1.0",
+    "@lokascript/domain-llm": "^7.1.0",
+    "@lokascript/domain-sql": "^7.1.0",
+    "@lokascript/domain-todo": "^7.1.0",
+    "@lokascript/domain-voice": "^7.1.0",
     "@lokascript/framework": "^7.1.0"
   },
   "devDependencies": {

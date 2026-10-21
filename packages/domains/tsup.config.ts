@@ -20,7 +20,6 @@ export default defineConfig({
     llm: 'src/llm.ts',
     todo: 'src/todo.ts',
     voice: 'src/voice.ts',
-    learn: 'src/learn.ts',
   },
   format: ['esm'],
   // resolve: inline the (private) domain packages' types into the emitted

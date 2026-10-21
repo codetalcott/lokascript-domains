@@ -1,6 +1,6 @@
 # lokascript-domains
 
-The **LokaScript multilingual domain-DSL family** — 7 domain DSLs built on
+The **LokaScript multilingual domain-DSL family** — 6 domain DSLs built on
 [`@lokascript/framework`](https://www.npmjs.com/package/@lokascript/framework),
 each multilingual from day one. Extracted from
 [hyperfixi](https://github.com/codetalcott/hyperfixi) in 2026-08 (tag
@@ -33,7 +33,6 @@ the extension seam for third parties is `@lokascript/framework`'s
 | `@lokascript/domain-todo` | Todo DSL (11 languages) |
 | `@lokascript/domain-flow` | Reactive data-flow DSL (11 languages) |
 | `@lokascript/domain-voice` | Voice/accessibility page-control DSL (11 languages) |
-| `@lokascript/domain-learn` | Language-learning DSL (10 languages) |
 | `@lokascript/domain-config` | The registry choke point — lazy imports, per-domain language sets, dispatcher priorities; re-exported by the aggregate's root entry |
 
 Retired in 4.0.0, with their sources under the tag `archived/domains-preview-2026-10`:

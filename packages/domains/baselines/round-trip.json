@@ -33,20 +33,6 @@
         "silent": 0
       }
     },
-    "learn": {
-      "roundTrip": {
-        "cases": 200,
-        "pass": 200,
-        "refused": 0,
-        "silent": 0
-      },
-      "leftover": {
-        "cases": 200,
-        "pass": 3,
-        "refused": 197,
-        "silent": 0
-      }
-    },
     "llm": {
       "roundTrip": {
         "cases": 66,

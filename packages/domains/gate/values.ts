@@ -13,8 +13,7 @@ import type { GateFixture } from '@lokascript/framework/testing/gate';
 /**
  * The kit's fixture (`@lokascript/framework/testing/gate`). `oracle: 'compile'`: a round trip also
  * passes when the text compiles to the command's own code (the domain compiles to something that does
- * not depend on the language); `'node'`: only the parse counts (learn compiles to a sentence in each
- * language).
+ * not depend on the language); `'node'`: only the parse counts.
  */
 export type DomainFixture = GateFixture;
 
@@ -98,29 +97,6 @@ export const DOMAIN_VALUES: Record<string, DomainFixture> = {
       'perform.source': ['#checkout'],
       'capture.patient': ['message'],
       'capture.destination': ['orders'],
-    },
-  },
-  learn: {
-    // learn's commands are hyperscript's, written and read by semantic (D2); the values are the
-    // shapes its sentences carry.
-    oracle: 'node',
-    values: {
-      'add.patient': ['.active'],
-      'remove.patient': ['.active'],
-      'toggle.patient': ['.active'],
-      'put.patient': ['"hi"'],
-      'set.destination': ['x'],
-      'set.patient': ['5'],
-      'wait.duration': ['2s'],
-      'fetch.source': ['/api'],
-      'send.event': ['click'],
-      'go.destination': ['/home'],
-      'increment.patient': ['x'],
-      'decrement.patient': ['x'],
-      'take.patient': ['.active'],
-      destination: ['#box'],
-      source: ['#box'],
-      patient: ['#box'],
     },
   },
   llm: {

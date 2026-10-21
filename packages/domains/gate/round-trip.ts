@@ -41,7 +41,7 @@ export {
   type SnapshotChange,
 } from '@lokascript/framework/testing/gate';
 
-export const DOMAINS = ['behaviorspec', 'flow', 'learn', 'llm', 'sql', 'todo', 'voice'] as const;
+export const DOMAINS = ['behaviorspec', 'flow', 'llm', 'sql', 'todo', 'voice'] as const;
 export type Domain = (typeof DOMAINS)[number];
 
 export type Kind = CaseKind;

@@ -45,7 +45,6 @@ await it when `getSchemas`/`generatePrompt` must be populated.
 | `/llm` | LLM prompt specs | 11 |
 | `/todo` | Todo management | 11 |
 | `/voice` | Voice/accessibility page-control commands | 11 |
-| `/learn` | Language-learning drills with morphology | 10 |
 
 jsx, animation, control, events, html, hypermedia and sprites were retired in
 4.0.0 (see the changelog); 2.x still ships them, and their sources are under
