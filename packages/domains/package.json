@@ -1,7 +1,7 @@
 {
   "name": "@lokascript/domains",
-  "version": "7.0.0",
-  "description": "The LokaScript multilingual domain-DSL family in one package: SQL, flow, behavior specs, BDD, LLM prompts, todo, voice and learn, each multilingual. Subpath exports per domain; the root entry wires the full registry.",
+  "version": "7.1.0",
+  "description": "The LokaScript multilingual domain-DSL family in one package: SQL, flow, behavior specs, LLM prompts, todo and voice, each multilingual. Subpath exports per domain; the root entry wires the full registry.",
   "type": "module",
   "sideEffects": false,
   "types": "dist/index.d.ts",
@@ -33,39 +33,32 @@
     "./voice": {
       "types": "./dist/voice.d.ts",
       "import": "./dist/voice.js"
-    },
-    "./learn": {
-      "types": "./dist/learn.d.ts",
-      "import": "./dist/learn.js"
     }
   },
   "scripts": {
     "build": "tsup",
-    "pretest": "../../scripts/ensure-fresh.sh ../domain-sql ../domain-flow ../domain-behaviorspec ../domain-llm ../domain-todo ../domain-voice ../domain-learn ../domain-config && npm run build",
+    "pretest": "../../scripts/ensure-fresh.sh ../domain-sql ../domain-flow ../domain-behaviorspec ../domain-llm ../domain-todo ../domain-voice ../domain-config && npm run build",
     "test": "vitest",
     "test:run": "vitest run",
     "test:check": "VITEST_QUIET=1 bash ../../scripts/vitest-run.sh --reporter=dot",
     "typecheck": "tsc --noEmit && tsc --noEmit -p tsconfig.gate.json",
-    "pregate:regen": "../../scripts/ensure-fresh.sh ../domain-sql ../domain-flow ../domain-behaviorspec ../domain-llm ../domain-todo ../domain-voice ../domain-learn ../domain-config && npm run build",
+    "pregate:regen": "../../scripts/ensure-fresh.sh ../domain-sql ../domain-flow ../domain-behaviorspec ../domain-llm ../domain-todo ../domain-voice ../domain-config && npm run build",
     "gate:regen": "tsx scripts/regen-round-trip-baseline.ts"
   },
   "peerDependencies": {
     "@lokascript/framework": "^7.1.0",
-    "@lokascript/intent": "^7.1.0",
-    "@lokascript/semantic": "^7.1.0"
+    "@lokascript/intent": "^7.1.0"
   },
   "devDependencies": {
-    "@lokascript/domain-behaviorspec": "^7.0.0",
-    "@lokascript/domain-config": "^7.0.0",
-    "@lokascript/domain-flow": "^7.0.0",
-    "@lokascript/domain-learn": "^7.0.0",
-    "@lokascript/domain-llm": "^7.0.0",
-    "@lokascript/domain-sql": "^7.0.0",
-    "@lokascript/domain-todo": "^7.0.0",
-    "@lokascript/domain-voice": "^7.0.0",
+    "@lokascript/domain-behaviorspec": "^7.1.0",
+    "@lokascript/domain-config": "^7.1.0",
+    "@lokascript/domain-flow": "^7.1.0",
+    "@lokascript/domain-llm": "^7.1.0",
+    "@lokascript/domain-sql": "^7.1.0",
+    "@lokascript/domain-todo": "^7.1.0",
+    "@lokascript/domain-voice": "^7.1.0",
     "@lokascript/framework": "^7.1.0",
     "@lokascript/intent": "^7.1.0",
-    "@lokascript/semantic": "^7.1.0",
     "@types/node": "^26.1.2",
     "tsup": "^9.0.0",
     "tsx": "^4.23.15",

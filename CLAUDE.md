@@ -4,8 +4,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repo is
 
-The LokaScript multilingual domain-DSL family: 7 domain DSLs (SQL, flow, behavior specs, LLM
-prompts, todo, voice, learn) built on `@lokascript/framework`, published as **one** npm package,
+The LokaScript multilingual domain-DSL family: 6 domain DSLs (SQL, flow, behavior specs, LLM
+prompts, todo, voice) built on `@lokascript/framework`, published as **one** npm package,
 `@lokascript/domains` (`packages/domains`). Every other `packages/*` directory is a **private**
 workspace package that the aggregate bundles into its dist at build time. Extracted from hyperfixi in
 2026-08. 4.0.0 retired jsx, animation, control, events, html, hypermedia, sprites and the private
@@ -24,7 +24,7 @@ are **peerDependencies** (mirrored in devDependencies for local dev); the consum
 
 ```bash
 npm install              # root; npm workspaces
-npm run build            # topological: scripts/build-all.sh (7 domains → domain-config → domains)
+npm run build            # topological: scripts/build-all.sh (6 domains → domain-config → domains)
 npm run typecheck        # every package with a typecheck script
 npm run test:check       # compact gate over every package with a test:check script
 bash scripts/pack-smoke.sh   # npm pack the aggregate, install into a clean tmp dir, smoke every subpath + d.ts
@@ -107,7 +107,7 @@ the built dist (hyperfixi's `docs-internal/DOMAINS_RETHINK.md`, Phase 2). A case
 (bracket syntax, read in English) and a language:
 
 - **round trip**: the domain's renderer writes it, its parser reads it back. `pass` when the parse is
-  the reference node or (every domain but learn, whose output is a sentence per language) when the
+  the reference node or (with the fixture's `oracle: 'compile'`) when the
   text compiles to the English reference's code (a parser may keep a word its generator normalizes). `refused` when there is no render or the parse throws; `silent` when it
   reads, or compiles to, something else.
 - **leftover**: the same render plus one unknown word (`zzqx`). Expected `refused`; a parse that
@@ -149,12 +149,12 @@ it.
 ### The registry choke point (`packages/domain-config`)
 
 `src/index.ts` is the single source of truth for which domains exist for dispatch:
-`registerAllDomains(registry)` registers the **7** domains (sql, behaviorspec, todo, llm,
-flow, voice, learn) with lazy `import()` loaders, then awaits an async
+`registerAllDomains(registry)` registers the **6** domains (sql, behaviorspec, todo, llm,
+flow, voice) with lazy `import()` loaders, then awaits an async
 schema-attachment pass (failures swallowed; `createDomainRegistry()` fires and forgets it).
 `DOMAIN_PRIORITY` is the `CrossDomainDispatcher` tie-break order and is load-bearing: `sql` before
-`todo` (natural-language `add X into Y` routes to sql), `learn` last (generic verbs overmatch).
-Language sets (`BRIDGE_LANGUAGES` 11, `LEARN_LANGUAGES` 10, `CLASSIC_LANGUAGES` 8) are static so
+`todo` (natural-language `add X into Y` routes to sql).
+Language sets (`BRIDGE_LANGUAGES` 11, `CLASSIC_LANGUAGES` 8) are static so
 registration stays lazy; `languages.test.ts` catches drift against the DSLs.
 
 ### Anatomy of a domain package
@@ -165,8 +165,8 @@ never hand-authored per language:
 - `src/vocab/<lang>.ts`: a `DomainVocabulary` (verb keywords + alternatives, `tokenizerKeywords`,
   `roleMarkerOverrides`). **This is the only per-language authoring.** `vocab/index.ts` pairs each
   vocab with the language's grammar from `@lokascript/framework/languages/<lang>` (data, no side
-  effects; framework 7.1+). Only learn depends on `@lokascript/semantic` at runtime (its commanding
-  sentence); the others use it in `lint.test.ts` alone.
+  effects; framework 7.1+). No domain uses `@lokascript/semantic` at runtime: each uses it in
+  `lint.test.ts` alone, so it is a devDependency, not a peer.
 - `src/profiles/index.ts`: `buildPatternProfile(slice, vocab)` per language.
 - `src/tokenizers/index.ts`: `buildDomainTokenizer(slice, vocab, opts)` per language.
 - `src/schemas/index.ts`: `defineCommand`/`defineRole` command schemas with per-language
@@ -175,12 +175,8 @@ never hand-authored per language:
   and a `render<X>` natural-language renderer with `COMMAND_KEYWORDS`/`MARKERS` tables.
 - `src/index.ts`: `create<X>DSL()` calls `createMultilingualDSL({ schemas, languages, codeGenerator,
   renderer })`, re-exports schemas/profiles/tokenizers, and exports an `<x>ScanConfig` for AOT/Vite
-  scanning. `domain-learn` is the odd one: its compiled output *is* natural language with morphology,
-  and its DSL is not a framework grammar. Its commanding sentence is `@lokascript/semantic`'s (what
-  the hyperscript adapter runs; hyperfixi domains rethink D2), so `createLearnDSL()` reads and writes
-  with semantic (`src/dsl.ts`, `src/commanding.ts`); its tokenizers and patterns no longer read, and
-  its frames, morphology and glosses write the other six functions. It has no pattern-parity or
-  schema-renderer-parity test.
+  scanning. (learn, whose output was sentences for learners and whose commanding sentence was
+  semantic's, moved into lokascript-learn, its only user, in 7.1.0.)
 
 Standard suites in `src/__test__/`:
 
@@ -189,7 +185,7 @@ Standard suites in `src/__test__/`:
   structure, keyword classification/coverage, marker tokenization, position ordering, renderer
   coherence; R1/R2 run semantic's `validateCommandSchema`, which each test passes in). It was
   `@lokascript/domain-toolkit` until framework 4.7.0 took its rules (hyperfixi domains rethink Phase 4.6).
-  Errors fail; warnings print. `waivers` exist but are debt (only `domain-learn` uses them).
+  Errors fail; warnings print. `waivers` exist but are debt (none is used since learn left).
 - `pattern-parity.test.ts`: `generatePatternVariants` output for every profile × schema must be
   byte-identical to `golden/generated-patterns.golden.json`. Any profile/schema/framework change
   shows up as a reviewed golden diff; regenerate with the package's `scripts/generate-golden-patterns.ts`.

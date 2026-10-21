@@ -6,7 +6,7 @@
  * domains behind a CrossDomainDispatcher).
  *
  * Single source of truth for:
- *   - Which domains exist (sql, todo, behaviorspec, llm, flow, voice, learn)
+ *   - Which domains exist (sql, todo, behaviorspec, llm, flow, voice)
  *   - How each domain loads its DSL and renderer (lazy dynamic imports)
  *   - How each domain surfaces for AOT/Vite plugin scanning (scanConfig)
  *   - How the dispatcher breaks ambiguity when multiple domains match
@@ -41,13 +41,11 @@ export const BRIDGE_LANGUAGES = [
   'pt',
   'ru',
 ] as const;
-/** learn's pre-existing 10-language set (no ru; morphology is hand-authored per language). */
-export const LEARN_LANGUAGES = BRIDGE_LANGUAGES.slice(0, 10);
 /** behaviorspec — still the pre-bridge 8 (renderer/marker tables gate vocab-only expansion). */
 export const CLASSIC_LANGUAGES = BRIDGE_LANGUAGES.slice(0, 8);
 
 /**
- * Create and populate a DomainRegistry with all 7 LokaScript domains.
+ * Create and populate a DomainRegistry with all 6 LokaScript domains.
  *
  * Schemas are loaded lazily on first access so startup stays fast. An
  * asynchronous pass attaches each domain's schemas to the registry (used by
@@ -68,7 +66,7 @@ export interface RegisterOptions {
 }
 
 /**
- * Register all 7 domains (but those `options.omit` names) into an existing registry. The returned promise
+ * Register all 6 domains (but those `options.omit` names) into an existing registry. The returned promise
  * resolves once the async schema-attachment pass completes — await it when a
  * caller needs `getSchemas`/`generatePrompt` to be populated (tests, one-shot
  * CLI tools); fire-and-forget callers get the same lazy behavior as
@@ -181,24 +179,6 @@ export async function registerAllDomains(
     },
   });
 
-  registry.register({
-    name: 'learn',
-    description:
-      'language-learning sentence patterns (multilingual command drills with morphology)',
-    languages: LEARN_LANGUAGES,
-    inputLabel: 'sentence',
-    inputDescription:
-      'Learning-domain sentence in natural language (e.g., "add .active to #button")',
-    outputDescription: 'a rendered sentence with per-language morphology',
-    getDSL: () => import('@lokascript/domain-learn').then(m => m.createLearnDSL()),
-    getRenderer: () => import('@lokascript/domain-learn').then(m => m.renderLearn),
-    scanConfig: {
-      attributes: ['data-learn', '_learn'],
-      scriptTypes: ['text/learn-dsl'],
-      defaultLanguage: 'en',
-    },
-  });
-
   await loadAllSchemas(target, omitted);
 }
 
@@ -225,10 +205,6 @@ async function loadAllSchemas(
       domain: 'voice',
       load: () => import('@lokascript/domain-voice').then(m => [...m.allSchemas]),
     },
-    {
-      domain: 'learn',
-      load: () => import('@lokascript/domain-learn').then(m => [...m.allSchemas]),
-    },
   ];
 
   await Promise.allSettled(
@@ -253,10 +229,6 @@ async function loadAllSchemas(
  * Load-bearing: the dispatcher routing guard in
  * `__tests__/dispatcher-routing.test.ts` pins `sql` before `todo`, which is
  * relied on by the natural-language `add X into Y` → sql routing.
- *
- * `learn` is last: its vocabulary is generic hyperscript-style verbs
- * (add/remove/toggle/…), so anything earlier would steal matches from the
- * more specific domains.
  */
 export const DOMAIN_PRIORITY: readonly string[] = [
   'sql',
@@ -265,5 +237,4 @@ export const DOMAIN_PRIORITY: readonly string[] = [
   'llm',
   'flow',
   'voice',
-  'learn',
 ];

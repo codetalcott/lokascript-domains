@@ -1,5 +1,17 @@
 # Changelog
 
+## 7.1.0
+
+- **Removed: learn** (`@lokascript/domains/learn`, and learn in the registry, the dispatcher's
+  priority list and the gate; `LEARN_LANGUAGES` went with it). Breaking, in a minor: its one user, lokascript-learn, now carries it
+  (`shared/learn`), and its ten language profiles there are the app's own conjugation tables and
+  frames rather than a second copy. learn's commanding sentence was `@lokascript/semantic`'s, so
+  hyperscript in a learner's language stays `@lokascript/semantic`'s `translate`.
+- **`@lokascript/semantic` is no longer a peer.** No remaining domain uses it at run time; an
+  install needs framework and intent only (semantic was 49.8 MB of about 59 MB unpacked).
+- The other six domains are unchanged: the round-trip gate is 0 worse, 0 better and 0 parses moved
+  on framework 7.1.0; the baselines lose learn's 200 cases.
+
 ## 7.0.0
 
 - **Built on `@lokascript/framework` 7.1, and each domain takes a language's grammar from it.**

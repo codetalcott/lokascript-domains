@@ -19,8 +19,8 @@ describe('domain-config: omitting domains', () => {
   });
 
   it('registers every domain by default; an unknown name is ignored', () => {
-    expect(createDomainRegistry().getDomainNames()).toHaveLength(7);
-    expect(createDomainRegistry({ omit: ['bdd'] }).getDomainNames()).toHaveLength(7);
-    expect(createDomainRegistry({ omit: ['sql', 'voice'] }).getDomainNames()).toHaveLength(5);
+    expect(createDomainRegistry().getDomainNames()).toHaveLength(6);
+    expect(createDomainRegistry({ omit: ['learn'] }).getDomainNames()).toHaveLength(6);
+    expect(createDomainRegistry({ omit: ['sql', 'voice'] }).getDomainNames()).toHaveLength(4);
   });
 });

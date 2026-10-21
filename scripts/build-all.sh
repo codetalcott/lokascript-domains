@@ -6,7 +6,7 @@ cd "$(dirname "$0")/.."
 
 ORDER=(
   domain-sql domain-behaviorspec domain-llm
-  domain-todo domain-flow domain-voice domain-learn
+  domain-todo domain-flow domain-voice
   domain-config
   domains
 )
