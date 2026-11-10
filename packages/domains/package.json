@@ -1,6 +1,6 @@
 {
   "name": "@lokascript/domains",
-  "version": "7.1.0",
+  "version": "7.2.0",
   "description": "The LokaScript multilingual domain-DSL family in one package: SQL, flow, behavior specs, LLM prompts, todo and voice, each multilingual. Subpath exports per domain; the root entry wires the full registry.",
   "type": "module",
   "sideEffects": false,
@@ -50,13 +50,13 @@
     "@lokascript/intent": "^7.1.0"
   },
   "devDependencies": {
-    "@lokascript/domain-behaviorspec": "^7.1.0",
-    "@lokascript/domain-config": "^7.1.0",
-    "@lokascript/domain-flow": "^7.1.0",
-    "@lokascript/domain-llm": "^7.1.0",
-    "@lokascript/domain-sql": "^7.1.0",
-    "@lokascript/domain-todo": "^7.1.0",
-    "@lokascript/domain-voice": "^7.1.0",
+    "@lokascript/domain-behaviorspec": "^7.2.0",
+    "@lokascript/domain-config": "^7.2.0",
+    "@lokascript/domain-flow": "^7.2.0",
+    "@lokascript/domain-llm": "^7.2.0",
+    "@lokascript/domain-sql": "^7.2.0",
+    "@lokascript/domain-todo": "^7.2.0",
+    "@lokascript/domain-voice": "^7.2.0",
     "@lokascript/framework": "^7.1.0",
     "@lokascript/intent": "^7.1.0",
     "@types/node": "^26.1.2",

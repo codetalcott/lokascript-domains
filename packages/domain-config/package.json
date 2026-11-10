@@ -1,6 +1,6 @@
 {
   "name": "@lokascript/domain-config",
-  "version": "7.1.0",
+  "version": "7.2.0",
   "description": "Shared domain-registry wiring + priority order for MCP servers and other consumers. Single source of truth for which LokaScript domains exist and how the dispatcher breaks ambiguity.",
   "type": "module",
   "sideEffects": false,
@@ -24,12 +24,12 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@lokascript/domain-behaviorspec": "^7.1.0",
-    "@lokascript/domain-flow": "^7.1.0",
-    "@lokascript/domain-llm": "^7.1.0",
-    "@lokascript/domain-sql": "^7.1.0",
-    "@lokascript/domain-todo": "^7.1.0",
-    "@lokascript/domain-voice": "^7.1.0",
+    "@lokascript/domain-behaviorspec": "^7.2.0",
+    "@lokascript/domain-flow": "^7.2.0",
+    "@lokascript/domain-llm": "^7.2.0",
+    "@lokascript/domain-sql": "^7.2.0",
+    "@lokascript/domain-todo": "^7.2.0",
+    "@lokascript/domain-voice": "^7.2.0",
     "@lokascript/framework": "^7.1.0"
   },
   "devDependencies": {
