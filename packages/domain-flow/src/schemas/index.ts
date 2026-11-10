@@ -113,11 +113,15 @@ export const pollSchema = defineCommand({
         ko: '마다',
         zh: '每',
         tr: 'her',
-        fr: 'chaque',
+        fr: 'toutes les',
         de: 'alle',
         pt: 'cada',
         ru: 'каждые',
       },
+      // fr: French counts an interval in the plural, `toutes les 5s`. `chaque`
+      // takes a singular noun (`chaque seconde`), so `chaque 5s` was not
+      // French. It no longer reads: a two-word marker takes no alternatives
+      // (framework's schema-patterns keeps markerLegacy to one-word markers).
     }),
     defineRole({
       role: 'style',

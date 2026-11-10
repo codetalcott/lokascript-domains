@@ -3326,7 +3326,7 @@
         "command": "poll",
         "priority": 100,
         "template": {
-          "format": "interroger {source} chaque {duration} [comme {style}] [dans {destination}]",
+          "format": "interroger {source} toutes les {duration} [comme {style}] [dans {destination}]",
           "tokens": [
             {
               "type": "literal",
@@ -3340,7 +3340,11 @@
             },
             {
               "type": "literal",
-              "value": "chaque"
+              "value": "toutes"
+            },
+            {
+              "type": "literal",
+              "value": "les"
             },
             {
               "type": "role",
@@ -3385,7 +3389,7 @@
         "extraction": {
           "source": {},
           "duration": {
-            "marker": "chaque"
+            "marker": "toutes les"
           },
           "style": {
             "marker": "comme"

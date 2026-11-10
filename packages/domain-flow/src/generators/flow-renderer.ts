@@ -117,7 +117,7 @@ const MARKERS: Record<string, Record<string, string>> = {
     ko: '마다',
     zh: '每',
     tr: 'her',
-    fr: 'chaque',
+    fr: 'toutes les',
     de: 'alle',
     pt: 'cada',
     ru: 'каждые',
