@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 7.2.0
 
 - **flow, French: an interval is `toutes les 5s`.** `poll` wrote `interroger /api chaque 5s`, and
   `chaque` takes a singular noun (`chaque seconde`). It now writes and reads `toutes les`.
