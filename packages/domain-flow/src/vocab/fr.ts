@@ -18,7 +18,7 @@ export const frVocabulary: DomainVocabulary = {
     perform: { primary: 'exécuter' },
     capture: { primary: 'capturer' },
   },
-  // Schema marker words (comme/dans/chaque/vers/avec/élément) + connectives.
-  tokenizerKeywords: ['comme', 'dans', 'chaque', 'vers', 'avec', 'de', 'élément'],
+  // Schema marker words (comme/dans/toutes les/vers/avec/élément) + connectives.
+  tokenizerKeywords: ['comme', 'dans', 'toutes', 'les', 'vers', 'avec', 'de', 'élément'],
   roleMarkerOverrides: { ...SCHEMA_OWNED_MARKERS },
 };

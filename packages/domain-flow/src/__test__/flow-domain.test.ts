@@ -477,10 +477,19 @@ describe('FlowScript Domain', () => {
     });
 
     it('should parse poll in French', () => {
-      const node = flow.parse('interroger /api/status chaque 5s', 'fr');
+      const node = flow.parse('interroger /api/status toutes les 5s', 'fr');
       expect(node.action).toBe('poll');
       expect(extractRoleValue(node, 'source')).toBe('/api/status');
       expect(extractRoleValue(node, 'duration')).toBe('5s');
+    });
+
+    // `chaque` takes a singular noun (`chaque seconde`); an interval is
+    // `toutes les 5s`. poll wrote `chaque 5s` through 7.1.
+    it('writes a French interval as "toutes les", and reads it back', () => {
+      const node = flow.parse('poll /api/status every 5s into #out', 'en');
+      const fr = renderFlow(node, 'fr');
+      expect(fr).toBe('interroger /api/status toutes les 5s dans #out');
+      expect(renderFlow(flow.parse(fr, 'fr'), 'en')).toBe('poll /api/status every 5s into #out');
     });
 
     it('should parse stream in French', () => {

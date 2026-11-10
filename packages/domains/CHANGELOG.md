@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+- **flow, French: an interval is `toutes les 5s`.** `poll` wrote `interroger /api chaque 5s`, and
+  `chaque` takes a singular noun (`chaque seconde`). It now writes and reads `toutes les`.
+  **`chaque 5s` no longer reads**: a two-word marker takes no alternatives in framework's schema
+  patterns, so the old word could not stay beside the new one.
+
 ## 7.1.0
 
 - **Removed: learn** (`@lokascript/domains/learn`, and learn in the registry, the dispatcher's
