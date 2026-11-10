@@ -1,9 +1,14 @@
 name: Publish @lokascript/domains
 
-# Manual publish of the single published package. Auth comes from the
-# NPM_DOMAIN repo secret (npm automation token). Run once with dry-run=true
-# to prove the token/registry path, then for real. The workflow re-runs the
-# full gate (build, tests, pack smoke) so a publish can never outrun CI.
+# Manual publish of the single published package. Auth is npm trusted
+# publishing (OIDC): npmjs.com lists this repo and this workflow file as the
+# package's trusted publisher, and `npm publish` exchanges the job's OIDC token
+# for a short-lived one. No secret is stored (the NPM_DOMAIN automation token
+# expired; its 7.2.0 dry run failed on `npm whoami` with a 401). Run once with
+# dry-run=true to prove the gate, then for real: a dry run sends nothing to the
+# registry, so only the real run proves the trusted-publisher setting. The
+# workflow re-runs the full gate (build, tests, pack smoke) so a publish can
+# never outrun CI.
 
 on:
   workflow_dispatch:
@@ -23,6 +28,7 @@ jobs:
     timeout-minutes: 25
     permissions:
       contents: write # push the release tag (the 2.11.0 run 403'd without this)
+      id-token: write # npm trusted publishing (OIDC) and provenance
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
@@ -36,24 +42,25 @@ jobs:
       - run: npm run build
       - run: npm run test:check
       - run: bash scripts/pack-smoke.sh
-      # Real auth check — fails loudly on a bad/expired token, unlike --dry-run
-      # (which never contacts the registry with credentials).
-      - name: Verify npm auth
-        run: npm whoami
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_DOMAIN }}
+      # Trusted publishing needs the job's OIDC token and npm 11.5.1 or later.
+      # `npm whoami` cannot check it (there is no token until `npm publish`
+      # asks for one), so check what can be checked before the publish.
+      - name: Verify the job can use trusted publishing
+        run: |
+          set -euo pipefail
+          [ -n "${ACTIONS_ID_TOKEN_REQUEST_URL:-}" ] || { echo "FATAL: no OIDC token for this job (permissions: id-token: write)"; exit 1; }
+          NPM_VERSION="$(npm --version)"
+          echo "npm $NPM_VERSION"
+          node -e "const [a,b,c]=process.argv[1].split('.').map(Number); process.exit(a>11||(a===11&&(b>5||(b===5&&c>=1)))?0:1)" "$NPM_VERSION" \
+            || { echo "FATAL: npm $NPM_VERSION is older than 11.5.1, which trusted publishing needs"; exit 1; }
       - name: Publish (dry run)
         if: ${{ inputs.dry-run }}
         working-directory: packages/domains
         run: npm publish --dry-run
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_DOMAIN }}
       - name: Publish
         if: ${{ !inputs.dry-run }}
         working-directory: packages/domains
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_DOMAIN }}
+        run: npm publish --provenance
       - name: Tag release
         if: ${{ !inputs.dry-run }}
         run: |
